@@ -1,2 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Level">
+      <UniqueIdentifier>{0776a4d5-de1e-4eba-8d2b-3b00d2ec2ab4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PreCompile">
+      <UniqueIdentifier>{4c492a08-6fda-47fb-9816-4b721ee7694f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{ee1240cc-d785-4aff-9686-e3d242c9375b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\PlayLevel">
+      <UniqueIdentifier>{7a1db344-3472-41a4-97a4-e0a8853de48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\TitleLevel">
+      <UniqueIdentifier>{b376701f-d639-46f4-9a1d-2639f242bb70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\EndingLevel">
+      <UniqueIdentifier>{9132de74-b9b8-4e8d-9ac7-3d2206c49adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\TitleLevel\Actor">
+      <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\PlayLevel\Actor">
+      <UniqueIdentifier>{fe7fd277-b971-4635-a3b2-cc3f60d80314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map%28BackGround%29">
+      <UniqueIdentifier>{11dc3755-1ed4-4fb3-b6ca-fd2ee5ae05df}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PreCompile.cpp">
+      <Filter>PreCompile</Filter>
+    </ClCompile>
+    <ClCompile Include="ContentsCore.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGameMode.cpp">
+      <Filter>Level\PlayLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleGameMode.cpp">
+      <Filter>Level\TitleLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>Level\TitleLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayBack.cpp">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PreCompile.h">
+      <Filter>PreCompile</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentsCore.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGameMode.h">
+      <Filter>Level\PlayLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleGameMode.h">
+      <Filter>Level\TitleLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>Level\TitleLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayBack.h">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

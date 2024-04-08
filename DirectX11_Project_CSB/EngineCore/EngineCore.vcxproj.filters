@@ -64,9 +64,6 @@
     <Filter Include="Resources\Texture">
       <UniqueIdentifier>{2cdeb282-92b2-47d7-aea3-44169141683f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Texture">
-      <UniqueIdentifier>{f0170fa4-2bbc-4e7e-914b-bfb16dc04809}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -138,15 +135,6 @@
     <ClCompile Include="EngineVertexBuffer.cpp">
       <Filter>Resources\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="EngineBlend.cpp">
-      <Filter>Resources\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="EngineMaterial.cpp">
-      <Filter>Resources\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="EngineRasterizer.cpp">
-      <Filter>Resources\Texture</Filter>
-    </ClCompile>
     <ClCompile Include="EnginePixelShader.cpp">
       <Filter>Resources\Shader</Filter>
     </ClCompile>
@@ -162,17 +150,26 @@
     <ClCompile Include="EngineShaderResources.cpp">
       <Filter>Resources\ShaderResources</Filter>
     </ClCompile>
-    <ClCompile Include="EngineRenderTarget.cpp">
-      <Filter>Texture</Filter>
+    <ClCompile Include="EngineBlend.cpp">
+      <Filter>Resources\RenderingSetting</Filter>
     </ClCompile>
-    <ClCompile Include="EngineSampler.cpp">
-      <Filter>Texture</Filter>
+    <ClCompile Include="EngineMaterial.cpp">
+      <Filter>Resources\RenderingSetting</Filter>
     </ClCompile>
-    <ClCompile Include="EngineSprite.cpp">
-      <Filter>Texture</Filter>
+    <ClCompile Include="EngineRasterizer.cpp">
+      <Filter>Resources\RenderingSetting</Filter>
     </ClCompile>
     <ClCompile Include="EngineTexture.cpp">
-      <Filter>Texture</Filter>
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineRenderTarget.cpp">
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineSampler.cpp">
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineSprite.cpp">
+      <Filter>Resources\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,15 +242,6 @@
     <ClInclude Include="EngineVertexBuffer.h">
       <Filter>Resources\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="EngineBlend.h">
-      <Filter>Resources\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineMaterial.h">
-      <Filter>Resources\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineRasterizer.h">
-      <Filter>Resources\Texture</Filter>
-    </ClInclude>
     <ClInclude Include="EnginePixelShader.h">
       <Filter>Resources\Shader</Filter>
     </ClInclude>
@@ -269,36 +257,43 @@
     <ClInclude Include="EngineShaderResources.h">
       <Filter>Resources\ShaderResources</Filter>
     </ClInclude>
-    <ClInclude Include="EngineRenderTarget.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineSampler.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineSprite.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineTexture.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
     <ClInclude Include="ThirdParty\DirectxTex\inc\DirectXTex.h">
       <Filter>ThirdParty\DirectXTex\inc</Filter>
     </ClInclude>
+    <ClInclude Include="EngineBlend.h">
+      <Filter>Resources\RenderingSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineMaterial.h">
+      <Filter>Resources\RenderingSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineRasterizer.h">
+      <Filter>Resources\RenderingSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineTexture.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineRenderTarget.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineSampler.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineSprite.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib">
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib">
       <Filter>ThirdParty\DirectXTex\Debug</Filter>
-    </Library>
-    <Library Include="ThirdParty\DirectxTex\Release\DirectXTex.lib">
-      <Filter>ThirdParty\DirectXTex\Release</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ThirdParty\DirectxTex\Debug\DirectXTex.pdb">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex.pdb">
       <Filter>ThirdParty\DirectXTex\Debug</Filter>
-    </None>
-    <None Include="ThirdParty\DirectxTex\Release\DirectXTex.pdb">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Release\DirectXTex.lib">
       <Filter>ThirdParty\DirectXTex\Release</Filter>
-    </None>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Release\DirectXTex.pdb">
+      <Filter>ThirdParty\DirectXTex\Release</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
