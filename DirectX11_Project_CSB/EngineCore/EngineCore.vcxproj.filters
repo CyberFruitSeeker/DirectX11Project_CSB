@@ -4,5 +4,17 @@
     <Filter Include="ThirdParty">
       <UniqueIdentifier>{65a6c78a-72e8-498b-883f-87c3eee676c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty\DirectXTex">
+      <UniqueIdentifier>{787ff85c-4230-4703-b7df-0ed81ecbf3b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\DirectXTex\Debug">
+      <UniqueIdentifier>{e95cece8-494f-4574-ad38-6cd745b3219b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\DirectXTex\Inc">
+      <UniqueIdentifier>{612abde9-c594-4a37-8ce7-b702643433af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\DirectXTex\Release">
+      <UniqueIdentifier>{406b0376-ffd8-495a-bba1-d36373ce4d80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

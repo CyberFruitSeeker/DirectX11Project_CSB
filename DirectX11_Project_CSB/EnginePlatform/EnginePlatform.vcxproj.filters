@@ -4,5 +4,17 @@
     <Filter Include="ThirdParty">
       <UniqueIdentifier>{f331e31a-c99d-41e9-828c-68aef6e27efe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty\FMOD">
+      <UniqueIdentifier>{ba574875-7feb-4284-a63b-bc82243d429e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FMOD\Debug">
+      <UniqueIdentifier>{56fe633b-8c3a-4229-b58c-92073017cb22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FMOD\Inc">
+      <UniqueIdentifier>{94556de0-fbd9-4eb3-8a32-fd3bf5e84896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FMOD\Release">
+      <UniqueIdentifier>{f81ab1db-99d5-4e6e-95fa-4cf18b05baa9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
