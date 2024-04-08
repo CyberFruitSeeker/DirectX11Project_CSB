@@ -93,6 +93,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,6 +110,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +127,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +144,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +155,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EngineDebug.cpp" />
+    <ClCompile Include="EngineDirectory.cpp" />
+    <ClCompile Include="EngineFile.cpp" />
+    <ClCompile Include="EngineMath.cpp" />
+    <ClCompile Include="EnginePath.cpp" />
+    <ClCompile Include="EngineRandom.cpp" />
+    <ClCompile Include="EngineSerializer.cpp" />
+    <ClCompile Include="EngineString.cpp" />
+    <ClCompile Include="EngineTime.cpp" />
+    <ClCompile Include="NameObject.cpp" />
+    <ClCompile Include="PathObject.cpp" />
+    <ClCompile Include="PreCompile.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TransformObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EngineDebug.h" />
+    <ClInclude Include="EngineDirectory.h" />
+    <ClInclude Include="EngineFile.h" />
+    <ClInclude Include="EngineMath.h" />
+    <ClInclude Include="EnginePath.h" />
+    <ClInclude Include="EngineRandom.h" />
+    <ClInclude Include="EngineSerializer.h" />
+    <ClInclude Include="EngineString.h" />
+    <ClInclude Include="EngineTime.h" />
+    <ClInclude Include="NameObject.h" />
+    <ClInclude Include="PathObject.h" />
+    <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="TransformObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
