@@ -101,6 +101,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +118,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +135,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,6 +152,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +163,87 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="ActorComponent.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="DefaultSceneComponent.cpp" />
+    <ClCompile Include="DirectXHelper.cpp" />
+    <ClCompile Include="EngineBlend.cpp" />
+    <ClCompile Include="EngineBuffer.cpp" />
+    <ClCompile Include="EngineConstantBuffer.cpp" />
+    <ClCompile Include="EngineCore.cpp" />
+    <ClCompile Include="EngineGraphicDevice.cpp" />
+    <ClCompile Include="EngineGraphicDevice_Resources.cpp" />
+    <ClCompile Include="EngineIndexBuffer.cpp" />
+    <ClCompile Include="EngineInputLayOut.cpp" />
+    <ClCompile Include="EngineMaterial.cpp" />
+    <ClCompile Include="EngineMesh.cpp" />
+    <ClCompile Include="EngineOption.cpp" />
+    <ClCompile Include="EnginePixelShader.cpp" />
+    <ClCompile Include="EngineRasterizer.cpp" />
+    <ClCompile Include="EngineRenderTarget.cpp" />
+    <ClCompile Include="EngineSampler.cpp" />
+    <ClCompile Include="EngineShader.cpp" />
+    <ClCompile Include="EngineShaderResources.cpp" />
+    <ClCompile Include="EngineSprite.cpp" />
+    <ClCompile Include="EngineTexture.cpp" />
+    <ClCompile Include="EngineVertex.cpp" />
+    <ClCompile Include="EngineVertexBuffer.cpp" />
+    <ClCompile Include="EngineVertexShader.cpp" />
+    <ClCompile Include="GameMode.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="PreCompile.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SceneComponent.cpp" />
+    <ClCompile Include="SpriteRenderer.cpp" />
+    <ClCompile Include="TickObject.cpp" />
+    <ClCompile Include="WorldObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="ActorComponent.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="DefaultSceneComponent.h" />
+    <ClInclude Include="DirectXHelper.h" />
+    <ClInclude Include="EngineBlend.h" />
+    <ClInclude Include="EngineBuffer.h" />
+    <ClInclude Include="EngineConstantBuffer.h" />
+    <ClInclude Include="EngineCore.h" />
+    <ClInclude Include="EngineEnums.h" />
+    <ClInclude Include="EngineGraphicDevice.h" />
+    <ClInclude Include="EngineIndexBuffer.h" />
+    <ClInclude Include="EngineInputLayOut.h" />
+    <ClInclude Include="EngineMaterial.h" />
+    <ClInclude Include="EngineMesh.h" />
+    <ClInclude Include="EngineOption.h" />
+    <ClInclude Include="EnginePixelShader.h" />
+    <ClInclude Include="EngineRasterizer.h" />
+    <ClInclude Include="EngineRenderTarget.h" />
+    <ClInclude Include="EngineSampler.h" />
+    <ClInclude Include="EngineShader.h" />
+    <ClInclude Include="EngineShaderResources.h" />
+    <ClInclude Include="EngineSprite.h" />
+    <ClInclude Include="EngineTexture.h" />
+    <ClInclude Include="EngineVertex.h" />
+    <ClInclude Include="EngineVertexBuffer.h" />
+    <ClInclude Include="EngineVertexShader.h" />
+    <ClInclude Include="GameMode.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="SceneComponent.h" />
+    <ClInclude Include="SpriteRenderer.h" />
+    <ClInclude Include="ThirdParty\DirectxTex\inc\DirectXTex.h" />
+    <ClInclude Include="TickObject.h" />
+    <ClInclude Include="WorldObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib" />
+    <Library Include="ThirdParty\DirectxTex\Release\DirectXTex.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ThirdParty\DirectxTex\Debug\DirectXTex.pdb" />
+    <None Include="ThirdParty\DirectxTex\Release\DirectXTex.pdb" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
