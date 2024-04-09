@@ -29,7 +29,7 @@ void UContentsCore::Initialize()
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
-		// 로드폴더는 이렇게 한다고 칩시다.
+		// 로드폴더는 이런식으로 돌아간다.
 		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
 		for (size_t i = 0; i < Directorys.size(); i++)
 		{
@@ -48,7 +48,7 @@ void UContentsCore::Initialize()
 	}
 
 
-	// 사운드 폴더 & 파일 추적
+	// 사운드 폴더 & 파일 추적하는 기능
 	{
 		UEngineDirectory Dir;
 		Dir.MoveToSearchChild("ContentsResources");

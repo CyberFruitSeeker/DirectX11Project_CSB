@@ -16,8 +16,8 @@ void ATitleLogo::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetActorScale3D(FVector(350.0f, 350.0f, 100.0f));
-	Renderer->SetSprite("Gura_Title.png");
+	SetActorScale3D(FVector(1230.0f, 518.0f, 100.0f));
+	Renderer->SetSprite("HoloCureTitle_full.png");
 
 
 }

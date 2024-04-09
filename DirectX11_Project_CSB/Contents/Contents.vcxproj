@@ -168,7 +168,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayGameMode.h" />
     <ClInclude Include="PreCompile.h" />
-    <ClInclude Include="Stage.h">
+    <ClInclude Include="Stage1.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -180,7 +180,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayGameMode.cpp" />
     <ClCompile Include="PreCompile.cpp" />
-    <ClCompile Include="Stage.cpp">
+    <ClCompile Include="Stage1.cpp">
       <SubType>
       </SubType>
     </ClCompile>
