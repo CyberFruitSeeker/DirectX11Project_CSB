@@ -43,17 +43,20 @@
     <Filter Include="Level%28Title, Play%29\Title &amp; Ending\TitleLevel\Actor">
       <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core,Enum,Setting,Options">
+    <Filter Include="Core">
       <UniqueIdentifier>{ee1240cc-d785-4aff-9686-e3d242c9375b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core,Enum,Setting,Options\CoCo">
+    <Filter Include="Core\CoCo">
       <UniqueIdentifier>{707a500f-301c-4f54-b52e-b8f42cae2e9d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core,Enum,Setting,Options\EnumClassHelper">
-      <UniqueIdentifier>{62e9f611-2b48-4832-bbf9-41c26f100b89}</UniqueIdentifier>
+    <Filter Include="Enum, Value, Setting &amp; Options">
+      <UniqueIdentifier>{8aff8c99-49ab-4e07-8971-0848389a479c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core,Enum,Setting,Options\CameraControl">
+    <Filter Include="Enum, Value, Setting &amp; Options\CameraControl">
       <UniqueIdentifier>{04536160-695b-4849-a065-9048cff95620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enum, Value, Setting &amp; Options\Enum">
+      <UniqueIdentifier>{f72e3a6a-e97c-4158-9445-b33a2baf6d0a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +76,10 @@
       <Filter>Level%28Title, Play%29\Title &amp; Ending\TitleLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="ContentsCore.cpp">
-      <Filter>Core,Enum,Setting,Options\CoCo</Filter>
+      <Filter>Core\CoCo</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Map%28BackGround%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +99,13 @@
       <Filter>Level%28Title, Play%29\Title &amp; Ending\TitleLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsCore.h">
-      <Filter>Core,Enum,Setting,Options\CoCo</Filter>
+      <Filter>Core\CoCo</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentsEnum.h">
+      <Filter>Enum, Value, Setting &amp; Options\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Map%28BackGround%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -164,9 +164,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h" />
+    <ClInclude Include="ContentsEnum.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayGameMode.h" />
     <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="Stage.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="TitleGameMode.h" />
     <ClInclude Include="TitleLogo.h" />
   </ItemGroup>
@@ -175,6 +180,10 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayGameMode.cpp" />
     <ClCompile Include="PreCompile.cpp" />
+    <ClCompile Include="Stage.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="TitleGameMode.cpp" />
     <ClCompile Include="TitleLogo.cpp" />
   </ItemGroup>

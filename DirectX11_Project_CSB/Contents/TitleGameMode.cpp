@@ -15,6 +15,9 @@ void ATitleGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
+	UEngineTexture::FindRes("Gura_Title.png");
+
+
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 	GetWorld()->SpawnActor<ATitleLogo>("TitleLogo");

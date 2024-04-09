@@ -7,3 +7,5 @@
 #include <EngineCore/Renderer.h>
 #include <EngineCore/EngineShaderResources.h>
 #include <EngineCore/EngineCore.h>
+
+#include "ContentsEnum.h"

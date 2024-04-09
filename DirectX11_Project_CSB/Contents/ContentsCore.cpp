@@ -44,7 +44,7 @@ void UContentsCore::Initialize()
 		// 이미 이 이름을 가진 스프라이트가 존재한다.
 		// 그러면 기존의 스프라이트 데이터는 날려버리고
 		// 자른 스프라이트 데이터 변경한다.
-		UEngineSprite::CreateCutting("Gura_Idle_0.png", 1, 1);
+		UEngineSprite::CreateCutting("Gura_Title.png", 0, 0);
 	}
 
 

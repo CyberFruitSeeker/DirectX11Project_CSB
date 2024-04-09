@@ -64,6 +64,9 @@
     <Filter Include="Resources\Texture">
       <UniqueIdentifier>{2cdeb282-92b2-47d7-aea3-44169141683f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{0a95616a-e5d4-4cf4-96c0-bcb96dbf67c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -170,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="EngineSprite.cpp">
       <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +286,9 @@
     </ClInclude>
     <ClInclude Include="EngineSprite.h">
       <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Contents</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

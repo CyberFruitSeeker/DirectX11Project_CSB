@@ -18,7 +18,7 @@ void USpriteAnimation::Update(float _DeltaTime)
 			{
 				CurFrame = 0;
 			}
-			else
+			else 
 			{
 				--CurFrame;
 			}
@@ -26,7 +26,7 @@ void USpriteAnimation::Update(float _DeltaTime)
 	}
 }
 
-USpriteRenderer::USpriteRenderer()
+USpriteRenderer::USpriteRenderer() 
 {
 	SetMesh("Rect");
 	SetMaterial("2DImage");
@@ -38,11 +38,24 @@ USpriteRenderer::USpriteRenderer()
 }
 
 
-USpriteRenderer::~USpriteRenderer()
+USpriteRenderer::~USpriteRenderer() 
 {
 }
 
-void USpriteRenderer::Tick(float _DeltaTime)
+
+void USpriteRenderer::SetAutoSize(float _ScaleRatio, bool _AutoSize)
+{
+	AutoSize = _AutoSize;
+	ScaleRatio = _ScaleRatio;
+
+	if (true == AutoSize && nullptr != CurInfo.Texture)
+	{
+		SetSpriteInfo(CurInfo);
+	}
+}
+
+
+void USpriteRenderer::Tick(float _DeltaTime) 
 {
 	Super::Tick(_DeltaTime);
 
@@ -52,12 +65,28 @@ void USpriteRenderer::Tick(float _DeltaTime)
 		CurAnimation->Update(_DeltaTime);
 
 		FSpriteInfo Info = CurAnimation->GetCurSpriteInfo();
-		CuttingDataValue.CuttingPosition = Info.CuttingPosition;
-		CuttingDataValue.CuttingSize = Info.CuttingSize;
-		CurTexture = Info.Texture;
-		Resources->SettingTexture("Image", Info.Texture, "POINT");
-		SetSamplering(SamplingValue);
+		SetSpriteInfo(Info);
 	}
+}
+
+void USpriteRenderer::SetSpriteInfo(const FSpriteInfo& _Info)
+{
+	CuttingDataValue.CuttingPosition = _Info.CuttingPosition;
+	CuttingDataValue.CuttingSize = _Info.CuttingSize;
+	CurTexture = _Info.Texture;
+
+	if (true == AutoSize)
+	{
+		// 문제 UV기반
+		// 0~1상이의 비율 값이다.
+		float4 TexScale = _Info.Texture->GetScale();
+		Transform.SetScale(TexScale * CuttingDataValue.CuttingSize * ScaleRatio);
+	}
+
+	CurInfo = _Info;
+
+	Resources->SettingTexture("Image", _Info.Texture, "POINT");
+	SetSamplering(SamplingValue);
 }
 
 void USpriteRenderer::SetSprite(std::string_view _Name, UINT _Index/* = 0*/)
@@ -71,11 +100,7 @@ void USpriteRenderer::SetSprite(std::string_view _Name, UINT _Index/* = 0*/)
 	}
 
 	FSpriteInfo Info = Sprite->GetSpriteInfo(_Index);
-	CuttingDataValue.CuttingPosition = Info.CuttingPosition;
-	CuttingDataValue.CuttingSize = Info.CuttingSize;
-	CurTexture = Info.Texture;
-	Resources->SettingTexture("Image", Info.Texture, "POINT");
-	SetSamplering(SamplingValue);
+	SetSpriteInfo(Info);
 }
 
 void USpriteRenderer::SetSamplering(ETextureSampling _Value)
@@ -111,11 +136,11 @@ void USpriteRenderer::SetPlusColor(float4 _Color)
 }
 
 void USpriteRenderer::CreateAnimation(
-	std::string_view _AnimationName,
-	std::string_view _SpriteName,
-	float _Inter,
-	bool _Loop /*= true*/,
-	int _Start /*= -1*/,
+	std::string_view _AnimationName, 
+	std::string_view _SpriteName, 
+	float _Inter, 
+	bool _Loop /*= true*/, 
+	int _Start /*= -1*/, 
 	int _End /*= -1*/)
 {
 	std::shared_ptr<UEngineSprite> FindSprite = UEngineSprite::FindRes(_SpriteName);
@@ -127,7 +152,7 @@ void USpriteRenderer::CreateAnimation(
 	}
 
 	std::vector<int> Frame;
-	std::vector<float> Inter;
+	std::vector<float> Inter; 
 
 	int Start = _Start;
 	int End = _End;
@@ -182,7 +207,7 @@ void USpriteRenderer::CreateAnimation(std::string_view _AnimationName, std::stri
 		return;
 	}
 
-	std::shared_ptr<UEngineSprite> FindSprite = UEngineSprite::FindRes(_SpriteName);
+	 std::shared_ptr<UEngineSprite> FindSprite = UEngineSprite::FindRes(_SpriteName);
 
 	if (nullptr == FindSprite)
 	{
