@@ -1,5 +1,5 @@
 WindowTitle : [HoloCure - Save the Fans!]
 WindowScale : [1280], [720]
 IsDebug : [false]
-ClearColor : R[0],G[0],B[1]
+ClearColor : R[0],G[0.5],B[0.8]
 FreeCameraKey : [0]

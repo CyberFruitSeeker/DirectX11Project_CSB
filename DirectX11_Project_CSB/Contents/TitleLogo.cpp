@@ -16,11 +16,9 @@ void ATitleLogo::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetActorScale3D(FVector(700.0f, 300.0f, 100.0f));
+	SetActorScale3D(FVector(350.0f, 350.0f, 100.0f));
+	Renderer->SetSprite("Gura_Title.png");
 
-	// Renderer->SetSprite("CharWalk1_0.png");
-
-	//Renderer->SetSprite
 
 }
 
