@@ -15,6 +15,7 @@ UContentsCore::~UContentsCore()
 void UContentsCore::Initialize()
 {
 
+	// 이미지 폴더, 파일 추적한 후에 스프라이트 & 컷팅
 	{
 		// 파일의 헤더
 		UEngineDirectory Dir;
@@ -43,10 +44,11 @@ void UContentsCore::Initialize()
 		// 이미 이 이름을 가진 스프라이트가 존재한다.
 		// 그러면 기존의 스프라이트 데이터는 날려버리고
 		// 자른 스프라이트 데이터 변경한다.
-		UEngineSprite::CreateCutting("CuttingTest.png", 4, 3);
+		UEngineSprite::CreateCutting("Gura_Idle_0.png", 1, 1);
 	}
 
 
+	// 사운드 폴더 & 파일 추적
 	{
 		UEngineDirectory Dir;
 		Dir.MoveToSearchChild("ContentsResources");

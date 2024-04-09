@@ -20,9 +20,9 @@ void ATitleLogo::BeginPlay()
 
 	// Renderer->SetSprite("CharWalk1_0.png");
 
-	Renderer->CreateAnimation("spr_Gura_Run_0", "spr_Gura_Run_1", 0.1f);
+	Renderer->CreateAnimation("Gura_Run_0", "Gura_Run_1", 0.1f);
 
-	Renderer->ChangeAnimation("spr_Gura_Run_2");
+	Renderer->ChangeAnimation("Gura_Run_2");
 
 }
 
