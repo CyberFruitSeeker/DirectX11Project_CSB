@@ -1,5 +1,6 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include <EngineCore/Camera.h>
 
 // Ό³Έν :
 class USpriteRenderer;
@@ -21,6 +22,13 @@ public:
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
+
+	void StateUpdate(float _DeltaTime);
+
+	void PlayerMove(float _DeltaTime);
+
+
+
 
 private:
 	USpriteRenderer* Renderer;

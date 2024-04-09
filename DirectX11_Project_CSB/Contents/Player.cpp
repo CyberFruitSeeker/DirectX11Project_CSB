@@ -17,10 +17,11 @@ void APlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetActorScale3D(FVector(300.0f, 300.0f, 100.0f));
+	SetActorScale3D(FVector(750.0f, 750.0f, 100.0f));
 
-	// 내부에서 샘플러도 같이 찾을
+	// PlayGameMode 에서 로드 해줬으니 여기서 스프라이트를 한다.
 	Renderer->SetSprite("Gura_Idle_0.png");
+
 }
 
 void APlayer::Tick(float _DeltaTime)
@@ -28,7 +29,23 @@ void APlayer::Tick(float _DeltaTime)
 	// 위에 뭔가를 쳐야할때도 있다.
 	Super::Tick(_DeltaTime);
 
-	float Speed = 255.5f;
+	StateUpdate(_DeltaTime);
+
+
+}
+
+void APlayer::StateUpdate(float _DeltaTime)
+{
+	PlayerMove(_DeltaTime);
+
+
+}
+
+// 키입력시 움직임 및 애니메이션 발동
+void APlayer::PlayerMove(float _DeltaTime)
+{
+
+	float Speed = 277.7f;
 
 	if (true == IsPress('A'))
 	{
@@ -52,8 +69,8 @@ void APlayer::Tick(float _DeltaTime)
 
 	if (true == IsPress(VK_NUMPAD1))
 	{
-		// AddActorRotation(float4{0.0f, 0.0f, 1.0f} * 360.0f * _DeltaTime);
-		// Color.X += _DeltaTime;
+		 AddActorRotation(float4{0.0f, 0.0f, 1.0f} * 360.0f * _DeltaTime);
+		 Color.X += _DeltaTime;
 	}
 
 	if (true == IsPress(VK_NUMPAD2))

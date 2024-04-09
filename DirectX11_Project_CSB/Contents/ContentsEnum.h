@@ -17,3 +17,9 @@ enum class RenderingOrder
 	SuddenMonster,
 	BossMonster,
 };
+
+enum class CameraView
+{
+	Front,
+	Back,
+};
