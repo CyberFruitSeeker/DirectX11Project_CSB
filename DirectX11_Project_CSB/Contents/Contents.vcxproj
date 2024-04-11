@@ -165,7 +165,7 @@
   <ItemGroup>
     <ClInclude Include="HoloCureConstValue.h" />
     <ClInclude Include="ContentsCore.h" />
-    <ClInclude Include="HolocureEnum.h" />
+    <ClInclude Include="HoloCureEnum.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayGameMode.h" />
     <ClInclude Include="PreCompile.h" />
@@ -180,6 +180,7 @@
     <ClCompile Include="ContentsCore.cpp" />
     <ClCompile Include="HoloCureConstValue.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerState_Gura.cpp" />
     <ClCompile Include="PlayGameMode.cpp" />
     <ClCompile Include="PreCompile.cpp" />
     <ClCompile Include="Stage1.cpp">

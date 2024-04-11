@@ -61,6 +61,9 @@
     <Filter Include="Contents Enum,Value,Function\Value%28Const%29">
       <UniqueIdentifier>{266cdca8-1190-4491-a5bb-214226442ae9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents Enum,Value,Function\Functions">
+      <UniqueIdentifier>{a2b9111f-5b65-4ef3-9dc0-168d16d6da2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
@@ -87,6 +90,9 @@
     <ClCompile Include="HoloCureConstValue.cpp">
       <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerState_Gura.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -104,7 +110,7 @@
     <ClInclude Include="ContentsCore.h">
       <Filter>Core%28Resources Find,Load,Cutting%29\CoCo</Filter>
     </ClInclude>
-    <ClInclude Include="HolocureEnum.h">
+    <ClInclude Include="HoloCureEnum.h">
       <Filter>Contents Enum,Value,Function\Enum Class</Filter>
     </ClInclude>
     <ClInclude Include="Stage1.h">

@@ -20,7 +20,7 @@ void APlayer::BeginPlay()
 	SetActorScale3D(FVector(350.0f, 350.0f, 100.0f));
 
 	// PlayGameMode 에서 로드 해줬으니 여기서 스프라이트를 한다.
-	Renderer->SetSprite("Gura_Idle_0.png");
+	//Renderer->SetSprite("Gura_Idle_0.png");
 
 	
 }
@@ -30,14 +30,14 @@ void APlayer::Tick(float _DeltaTime)
 	// 위에 뭔가를 쳐야할때도 있다.
 	Super::Tick(_DeltaTime);
 
-	StateUpdate(_DeltaTime);
+	
 
 
 }
 
-void APlayer::StateUpdate(float _DeltaTime)
+void APlayer::StateUpdate()
 {
-	PlayerMove(_DeltaTime);
+	//PlayerMove();
 
 
 }

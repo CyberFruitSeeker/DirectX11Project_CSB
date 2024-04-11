@@ -1,6 +1,6 @@
 #pragma once
 #include <EngineCore/Actor.h>
-#include <EngineCore/Camera.h>
+#include <EngineCore/StateManager.h>
 
 // Ό³Έν :
 class USpriteRenderer;
@@ -19,17 +19,22 @@ public:
 	APlayer& operator=(const APlayer& _Other) = delete;
 	APlayer& operator=(APlayer&& _Other) noexcept = delete;
 
+	//UStateManager GuraState;
 
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void StateUpdate(float _DeltaTime);
+	void StateUpdate();
 
 	void PlayerMove(float _DeltaTime);
 
-	void PlayerAnimation(float _DeltaTime);
+	void Idle(float _DeltaTime);
+	void Run(float _DeltaTime);
+	void RunStart();
+	void Die(float _DeltaTime);
+	
 
 	void PlayerInteractiveToWorld(float _DeltaTime);
 
@@ -39,6 +44,7 @@ protected:
 private:
 	USpriteRenderer* Renderer;
 	float4 Color;
+	UStateManager GuraState;
 
 };
 
