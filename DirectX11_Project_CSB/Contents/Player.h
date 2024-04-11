@@ -19,6 +19,8 @@ public:
 	APlayer& operator=(const APlayer& _Other) = delete;
 	APlayer& operator=(APlayer&& _Other) noexcept = delete;
 
+
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -27,11 +29,16 @@ protected:
 
 	void PlayerMove(float _DeltaTime);
 
+	void PlayerAnimation(float _DeltaTime);
+
+	void PlayerInteractiveToWorld(float _DeltaTime);
+
 
 
 
 private:
 	USpriteRenderer* Renderer;
 	float4 Color;
+
 };
 

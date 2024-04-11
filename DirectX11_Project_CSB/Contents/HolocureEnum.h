@@ -3,9 +3,9 @@
 enum class CollisionOrder
 {
 	Player,
-	Object,
+	MapObject,
 	Monster,
-
+	BossMonster,
 };
 
 enum class RenderingOrder
@@ -13,9 +13,16 @@ enum class RenderingOrder
 	Stage,
 	Player,
 	Item,
-	Monster,
-	SuddenMonster,
+	FiledSpawnMonster,
+	SuddenSpawnMonster,
 	BossMonster,
+};
+
+enum class FieldDropItem
+{
+	Hamberger,
+	HoloBox,
+	UpgradeAnvil,
 };
 
 enum class CameraView

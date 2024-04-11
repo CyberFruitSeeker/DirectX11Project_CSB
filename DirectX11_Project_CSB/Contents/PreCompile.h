@@ -8,4 +8,5 @@
 #include <EngineCore/EngineShaderResources.h>
 #include <EngineCore/EngineCore.h>
 
-#include "ContentsEnum.h"
+#include "HoloCureEnum.h"
+#include "HoloCureConstValue.h"

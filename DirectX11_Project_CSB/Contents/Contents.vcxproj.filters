@@ -7,61 +7,58 @@
     <Filter Include="Effect">
       <UniqueIdentifier>{691a9494-e2c4-4841-94c7-1d5bcdd5ca54}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents Enum,Value,Setting,Options">
-      <UniqueIdentifier>{8aff8c99-49ab-4e07-8971-0848389a479c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents Enum,Value,Setting,Options\Enum">
-      <UniqueIdentifier>{f72e3a6a-e97c-4158-9445-b33a2baf6d0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents Enum,Value,Setting,Options\Camera Option Control">
-      <UniqueIdentifier>{04536160-695b-4849-a065-9048cff95620}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29">
-      <UniqueIdentifier>{0776a4d5-de1e-4eba-8d2b-3b00d2ec2ab4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel">
-      <UniqueIdentifier>{7a1db344-3472-41a4-97a4-e0a8853de48f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel\Actor">
-      <UniqueIdentifier>{fe7fd277-b971-4635-a3b2-cc3f60d80314}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel\Map%28BackGround%29">
-      <UniqueIdentifier>{11dc3755-1ed4-4fb3-b6ca-fd2ee5ae05df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\Title &amp; Ending">
-      <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\Title &amp; Ending\EndingLevel">
-      <UniqueIdentifier>{9132de74-b9b8-4e8d-9ac7-3d2206c49adb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\Title &amp; Ending\TitleLevel">
-      <UniqueIdentifier>{b376701f-d639-46f4-9a1d-2639f242bb70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\Title &amp; Ending\TitleLevel\Actor">
-      <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel\Actor\Player">
-      <UniqueIdentifier>{21a03ab6-580e-462f-8749-0956fc8972f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel\Actor\Monster">
-      <UniqueIdentifier>{ffdf2315-d4d6-4d62-af55-e25c4e610618}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel\Actor\Monster\FiledSpawnMonsters">
-      <UniqueIdentifier>{d72133f6-a199-4985-b551-6006b61a899b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel\Actor\Monster\SuddenSpawnMonsters">
-      <UniqueIdentifier>{023b9a4c-c976-496b-be1b-01d25f3dbc0f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Title &amp; Ending, Play%29\PlayLevel\Actor\BossMonster">
-      <UniqueIdentifier>{a73b41e3-6f2f-4625-a3e5-dbc528a9570b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core%28Resources Find,Load,Cutting%29">
       <UniqueIdentifier>{ee1240cc-d785-4aff-9686-e3d242c9375b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core%28Resources Find,Load,Cutting%29\CoCo">
       <UniqueIdentifier>{707a500f-301c-4f54-b52e-b8f42cae2e9d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents Enum,Value,Setting,Options\Value">
+    <Filter Include="Level%28Play, Title &amp; Ending%29">
+      <UniqueIdentifier>{0776a4d5-de1e-4eba-8d2b-3b00d2ec2ab4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel">
+      <UniqueIdentifier>{7a1db344-3472-41a4-97a4-e0a8853de48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor">
+      <UniqueIdentifier>{fe7fd277-b971-4635-a3b2-cc3f60d80314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player">
+      <UniqueIdentifier>{21a03ab6-580e-462f-8749-0956fc8972f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters">
+      <UniqueIdentifier>{ffdf2315-d4d6-4d62-af55-e25c4e610618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters">
+      <UniqueIdentifier>{d72133f6-a199-4985-b551-6006b61a899b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\SuddenSpawnMonsters">
+      <UniqueIdentifier>{023b9a4c-c976-496b-be1b-01d25f3dbc0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\BossMonster">
+      <UniqueIdentifier>{a73b41e3-6f2f-4625-a3e5-dbc528a9570b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\Title &amp; Ending">
+      <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\Title &amp; Ending\EndingLevel">
+      <UniqueIdentifier>{9132de74-b9b8-4e8d-9ac7-3d2206c49adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel">
+      <UniqueIdentifier>{b376701f-d639-46f4-9a1d-2639f242bb70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel\Actor">
+      <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Map%28BackGround%29">
+      <UniqueIdentifier>{11dc3755-1ed4-4fb3-b6ca-fd2ee5ae05df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents Enum,Value,Function">
+      <UniqueIdentifier>{8aff8c99-49ab-4e07-8971-0848389a479c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents Enum,Value,Function\Enum Class">
+      <UniqueIdentifier>{f72e3a6a-e97c-4158-9445-b33a2baf6d0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents Enum,Value,Function\Value%28Const%29">
       <UniqueIdentifier>{266cdca8-1190-4491-a5bb-214226442ae9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -70,22 +67,25 @@
       <Filter>PreCompile</Filter>
     </ClCompile>
     <ClCompile Include="PlayGameMode.cpp">
-      <Filter>Level%28Title &amp; Ending, Play%29\PlayLevel</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel</Filter>
     </ClCompile>
     <ClCompile Include="TitleGameMode.cpp">
-      <Filter>Level%28Title &amp; Ending, Play%29\Title &amp; Ending\TitleLevel</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel</Filter>
     </ClCompile>
     <ClCompile Include="TitleLogo.cpp">
-      <Filter>Level%28Title &amp; Ending, Play%29\Title &amp; Ending\TitleLevel\Actor</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="ContentsCore.cpp">
       <Filter>Core%28Resources Find,Load,Cutting%29\CoCo</Filter>
     </ClCompile>
     <ClCompile Include="Stage1.cpp">
-      <Filter>Level%28Title &amp; Ending, Play%29\PlayLevel\Map%28BackGround%29</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Map%28BackGround%29</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Level%28Title &amp; Ending, Play%29\PlayLevel\Actor\Player</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="HoloCureConstValue.cpp">
+      <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,25 +93,28 @@
       <Filter>PreCompile</Filter>
     </ClInclude>
     <ClInclude Include="PlayGameMode.h">
-      <Filter>Level%28Title &amp; Ending, Play%29\PlayLevel</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel</Filter>
     </ClInclude>
     <ClInclude Include="TitleGameMode.h">
-      <Filter>Level%28Title &amp; Ending, Play%29\Title &amp; Ending\TitleLevel</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel</Filter>
     </ClInclude>
     <ClInclude Include="TitleLogo.h">
-      <Filter>Level%28Title &amp; Ending, Play%29\Title &amp; Ending\TitleLevel\Actor</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsCore.h">
       <Filter>Core%28Resources Find,Load,Cutting%29\CoCo</Filter>
     </ClInclude>
-    <ClInclude Include="ContentsEnum.h">
-      <Filter>Contents Enum,Value,Setting,Options\Enum</Filter>
+    <ClInclude Include="HolocureEnum.h">
+      <Filter>Contents Enum,Value,Function\Enum Class</Filter>
     </ClInclude>
     <ClInclude Include="Stage1.h">
-      <Filter>Level%28Title &amp; Ending, Play%29\PlayLevel\Map%28BackGround%29</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Map%28BackGround%29</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Level%28Title &amp; Ending, Play%29\PlayLevel\Actor\Player</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="HoloCureConstValue.h">
+      <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
