@@ -6,9 +6,8 @@
 PlayBackLayer::PlayBackLayer()
 {
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
-	InputOn();
-	// 패치후에 SetRoot 넣어줘야함
 	SetRoot(Renderer);
+	InputOn();
 
 }
 

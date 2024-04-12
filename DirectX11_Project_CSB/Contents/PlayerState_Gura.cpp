@@ -69,7 +69,7 @@ void APlayer::Run(float _DeltaTime)
 
 	if (true == IsPress('A'))
 	{
-		SetActorScale3D(FVector(-64.0f, 64.0f, 100.0f));
+		SetActorScale3D(FVector(-256.0f, 256.0f, 100.0f));
 		Camera->AddActorLocation(FVector::Left * _DeltaTime * Speed);
 		AddActorLocation(FVector::Left * _DeltaTime * Speed);
 	}
@@ -82,7 +82,7 @@ void APlayer::Run(float _DeltaTime)
 
 	if (true == IsPress('D'))
 	{
-		SetActorScale3D(FVector(64.0f, 64.0f, 100.0f));
+		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 		Camera->AddActorLocation(FVector::Right * _DeltaTime * Speed);
 		AddActorLocation(FVector::Right * _DeltaTime * Speed);
 	}
@@ -123,8 +123,8 @@ void APlayer::Run(float _DeltaTime)
 		// 우선 여기에다 둔다.
 		if (true == IsPress(VK_NUMPAD1))
 		{
-			AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
-			Color.X += _DeltaTime;
+			//AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
+			//Color.X += _DeltaTime;
 		}
 
 		if (true == IsPress(VK_NUMPAD2))

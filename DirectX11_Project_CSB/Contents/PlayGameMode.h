@@ -3,6 +3,21 @@
 #include "Player.h"
 #include "PlayBackLayer.h"
 
+// 무한맵을 구현하기 위한 union 함수
+//struct FIntPoint
+//{
+//	union
+//	{
+//		struct
+//		{
+//			int X;
+//			int Y;
+//		};
+//
+//		__int64 Key;
+//	};
+//};
+
 
 // 설명 :
 class APlayGameMode : public AGameMode
@@ -24,10 +39,21 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	std::shared_ptr<APlayer> Player;
+	//std::shared_ptr<APlayer> Player;
+
+
+
+	/*float4 IndexToCenterPos(FIntPoint _Index);
+	FIntPoint PosToIndex(float4 _Pos);
+
+	void InfinityGroundCheck();*/
+
+
 
 
 private:
+	//FIntPoint CurIndex;
+	/*USpriteRenderer* Renderer;*/
 
 };
 

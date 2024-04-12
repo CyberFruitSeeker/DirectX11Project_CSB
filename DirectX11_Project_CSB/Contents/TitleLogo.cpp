@@ -22,10 +22,10 @@ void ATitleLogo::BeginPlay()
 
 	}
 
-	{
-		Renderer->SetSprite("HoloCureTitle_full.png");
-		SetActorScale3D(FVector(210.0f, 200.0f, 100.0f));
-	}
+	//{
+	//	Renderer->SetSprite("Gura_Title.png");
+	//	SetActorScale3D(FVector(210.0f, 200.0f, 100.0f));
+	//}
 
 
 }
