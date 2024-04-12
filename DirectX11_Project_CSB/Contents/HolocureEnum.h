@@ -1,13 +1,5 @@
 #pragma once
 
-enum class ELayerOrder
-{
-	BackGround,
-	PlayerMonster,
-	Effect,
-	UILayer,
-};
-
 enum class ECollisionOrder
 {
 	Player,
@@ -16,11 +8,26 @@ enum class ECollisionOrder
 	BossMonster,
 };
 
+enum class ELayerOrder
+{
+	BackLayer,
+	FrontLayer,
+	PlayerMonsterLayer,
+	EffectLayer,
+	UILayer,
+};
+
 enum class ERenderingOrder
 {
-	Stage,
+	Back,
+	StageMap,
+	Front,
 	Player,
 	Item,
+};
+
+enum class ESpawnOrder
+{
 	FiledSpawnMonster,
 	SuddenSpawnMonster,
 	BossMonster,
@@ -32,14 +39,14 @@ enum class EActorDir
 	Right,
 };
 
-enum class EFieldDropItem
+enum class EFieldItemDropOrder
 {
 	Hamberger,
 	HoloBox,
 	UpgradeAnvil,
 };
 
-enum class ECameraView
+enum class ECameraViewOrder
 {
 	Front,
 	Back,

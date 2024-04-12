@@ -10,6 +10,7 @@ class APlayer : public AActor
 
 public:
 	// constrcuter destructer
+	static FVector PlayerPosZero;
 	APlayer();
 	~APlayer();
 
@@ -19,7 +20,7 @@ public:
 	APlayer& operator=(const APlayer& _Other) = delete;
 	APlayer& operator=(APlayer&& _Other) noexcept = delete;
 
-	//UStateManager GuraState;
+	UStateManager PlayerState;
 
 
 protected:
@@ -28,15 +29,16 @@ protected:
 
 	void StateUpdate();
 
-	void PlayerMove(float _DeltaTime);
+	//void PlayerMove(float _DeltaTime);
 
 	void Idle(float _DeltaTime);
+	void IdleStart();
 	void Run(float _DeltaTime);
 	void RunStart();
 	void Die(float _DeltaTime);
 	
 
-	void PlayerInteractiveToWorld(float _DeltaTime);
+	//void PlayerInteractiveToWorld(float _DeltaTime);
 
 
 
@@ -44,7 +46,7 @@ protected:
 private:
 	USpriteRenderer* Renderer;
 	float4 Color;
-	UStateManager GuraState;
+	//UStateManager PlayerState;
 
 };
 

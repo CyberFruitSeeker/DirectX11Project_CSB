@@ -170,6 +170,10 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="ActorComponent.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Collision.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="DefaultSceneComponent.cpp" />
     <ClCompile Include="DirectXHelper.cpp" />
     <ClCompile Include="EngineBlend.cpp" />
@@ -227,6 +231,10 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="ActorComponent.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Collision.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="DefaultSceneComponent.h" />
     <ClInclude Include="DirectXHelper.h" />
     <ClInclude Include="EngineBlend.h" />

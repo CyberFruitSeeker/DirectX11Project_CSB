@@ -22,9 +22,6 @@
     <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor">
       <UniqueIdentifier>{fe7fd277-b971-4635-a3b2-cc3f60d80314}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player">
-      <UniqueIdentifier>{21a03ab6-580e-462f-8749-0956fc8972f6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters">
       <UniqueIdentifier>{ffdf2315-d4d6-4d62-af55-e25c4e610618}</UniqueIdentifier>
     </Filter>
@@ -64,6 +61,12 @@
     <Filter Include="Contents Enum,Value,Function\Functions">
       <UniqueIdentifier>{a2b9111f-5b65-4ef3-9dc0-168d16d6da2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState">
+      <UniqueIdentifier>{21a03ab6-580e-462f-8749-0956fc8972f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState\PlayBack%28Map%29">
+      <UniqueIdentifier>{95b6404a-840b-4384-9b39-5fe640d7fd6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
@@ -81,17 +84,20 @@
     <ClCompile Include="ContentsCore.cpp">
       <Filter>Core%28Resources Find,Load,Cutting%29\CoCo</Filter>
     </ClCompile>
-    <ClCompile Include="Stage1.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Map%28BackGround%29</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="HoloCureConstValue.cpp">
       <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
     </ClCompile>
     <ClCompile Include="PlayerState_Gura.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="HoloCureFunctions.cpp">
+      <Filter>Contents Enum,Value,Function\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayBackLayer.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState\PlayBack%28Map%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -113,14 +119,17 @@
     <ClInclude Include="HoloCureEnum.h">
       <Filter>Contents Enum,Value,Function\Enum Class</Filter>
     </ClInclude>
-    <ClInclude Include="Stage1.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Map%28BackGround%29</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="HoloCureConstValue.h">
       <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
+    </ClInclude>
+    <ClInclude Include="HoloCureFunctions.h">
+      <Filter>Contents Enum,Value,Function\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayBackLayer.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState\PlayBack%28Map%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

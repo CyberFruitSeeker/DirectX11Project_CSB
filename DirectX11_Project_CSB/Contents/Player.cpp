@@ -3,10 +3,14 @@
 #include <EngineCore/Renderer.h>
 #include <EngineCore/SpriteRenderer.h>
 
+// 플레이어의 FVector를 초기화 해준다.
+FVector APlayer::PlayerPosZero = FVector::Zero;
+
 APlayer::APlayer()
 {
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	InputOn();
+	SetRoot(Renderer);
 }
 
 APlayer::~APlayer()
@@ -17,11 +21,11 @@ void APlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetActorScale3D(FVector(350.0f, 350.0f, 100.0f));
+	Renderer->CreateAnimation("GuraIdle", "Gura", 0.1f, true, 0, 3);
+	Renderer->CreateAnimation("GuraRun", "Gura", 0.1f, true, 5, 9);
 
-	// PlayGameMode 에서 로드 해줬으니 여기서 스프라이트를 한다.
-	//Renderer->SetSprite("Gura_Idle_0.png");
-
+	StateUpdate();
+	Renderer->SetOrder(ERenderingOrder::Player);
 	
 }
 
@@ -30,88 +34,86 @@ void APlayer::Tick(float _DeltaTime)
 	// 위에 뭔가를 쳐야할때도 있다.
 	Super::Tick(_DeltaTime);
 
+	PlayerState.Update(_DeltaTime);
 	
+	PlayerPosZero = GetActorLocation();
 
 
 }
 
-void APlayer::StateUpdate()
-{
-	//PlayerMove();
-
-
-}
+//void APlayer::StateUpdate()
+//{
+//	PlayerMove();
+//
+//
+//}
 
 // 키입력시 플레이어 움직임 및 각종 애니메이션 발동
-void APlayer::PlayerMove(float _DeltaTime)
-{
-
-	// 방향 이동 : WASD
-	{
-		float Speed = 277.7f;
-
-		if (true == IsPress('A'))
-		{
-			AddActorLocation(FVector::Left * _DeltaTime * Speed);
-		}
-
-		if (true == IsPress('D'))
-		{
-			AddActorLocation(FVector::Right * _DeltaTime * Speed);
-		}
-
-		if (true == IsPress('W'))
-		{
-			AddActorLocation(FVector::Up * _DeltaTime * Speed);
-		}
-
-		if (true == IsPress('S'))
-		{
-			AddActorLocation(FVector::Down * _DeltaTime * Speed);
-		}
-
-	}
-
-
-	// 회전???
-	{
-		// 플레이어에게는 필요 없는 회전 기능
-		// but, 공격 & 스킬 이펙트에는 필요할 것이다.
-		if (true == IsPress(VK_NUMPAD1))
-		{
-			AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
-			Color.X += _DeltaTime;
-		}
-
-		if (true == IsPress(VK_NUMPAD2))
-		{
-			Color.X -= _DeltaTime;
-		}
-
-		if (true == IsPress(VK_NUMPAD4))
-		{
-			Color.Y += _DeltaTime;
-		}
-
-		if (true == IsPress(VK_NUMPAD5))
-		{
-			Color.Y -= _DeltaTime;
-		}
-
-		if (true == IsPress(VK_NUMPAD7))
-		{
-			Color.Z += _DeltaTime;
-		}
-
-		if (true == IsPress(VK_NUMPAD8))
-		{
-			Color.Z -= _DeltaTime;
-		}
-
-	}
+//void APlayer::PlayerMove(float _DeltaTime)
+//{
+//
+//	// 방향 이동 : WASD
+//	{
+//		float Speed = 277.7f;
+//
+//		if (true == IsPress('A'))
+//		{
+//			AddActorLocation(FVector::Left * _DeltaTime * Speed);
+//		}
+//
+//		if (true == IsPress('D'))
+//		{
+//			AddActorLocation(FVector::Right * _DeltaTime * Speed);
+//		}
+//
+//		if (true == IsPress('W'))
+//		{
+//			AddActorLocation(FVector::Up * _DeltaTime * Speed);
+//		}
+//
+//		if (true == IsPress('S'))
+//		{
+//			AddActorLocation(FVector::Down * _DeltaTime * Speed);
+//		}
+//
+//	}
 
 
+	//// 회전, 자전 같은거 테스트용 키들
+	//{
+	//	// 플레이어에게는 필요 없는 회전 기능
+	//	// but, 공격 & 스킬 이펙트에는 필요할 것이다.
+	//	if (true == IsPress(VK_NUMPAD1))
+	//	{
+	//		AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
+	//		Color.X += _DeltaTime;
+	//	}
 
+	//	if (true == IsPress(VK_NUMPAD2))
+	//	{
+	//		Color.X -= _DeltaTime;
+	//	}
 
+	//	if (true == IsPress(VK_NUMPAD4))
+	//	{
+	//		Color.Y += _DeltaTime;
+	//	}
 
-}
+	//	if (true == IsPress(VK_NUMPAD5))
+	//	{
+	//		Color.Y -= _DeltaTime;
+	//	}
+
+	//	if (true == IsPress(VK_NUMPAD7))
+	//	{
+	//		Color.Z += _DeltaTime;
+	//	}
+
+	//	if (true == IsPress(VK_NUMPAD8))
+	//	{
+	//		Color.Z -= _DeltaTime;
+	//	}
+
+	//}
+
+//}

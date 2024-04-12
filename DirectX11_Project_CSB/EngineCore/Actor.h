@@ -11,7 +11,7 @@
 class ULevel;
 class UActorComponent;
 class USceneComponent;
-class AActor : public UTickObject, public UWorldObject
+class AActor : public UTickObject, public UWorldObject, public UNameObject
 {
 	friend ULevel;
 	GENERATED_BODY(UTickObject)
@@ -36,7 +36,7 @@ public:
 		{
 			MsgBoxAssert("언리얼에서는 생성자에서밖에 컴포넌트를 생성할수 없습니다.");
 		}
-		
+
 		std::shared_ptr<UActorComponent> NewComponent = std::make_shared<ComponentType>();
 
 		PushComponent(NewComponent, _Name);
@@ -62,6 +62,28 @@ public:
 	void AddActorRotation(FVector _Value);
 	void AddActorLocation(FVector _Value);
 
+	void SetRoot(USceneComponent* _Root)
+	{
+		if (nullptr != RootComponent)
+		{
+			MsgBoxAssert("이미 루트를 지정한 상태입니다.");
+		}
+
+		RootComponent = _Root;
+	}
+
+	bool IsDestroy()
+	{
+		return IsDestroyValue;
+	}
+
+	void Destroy()
+	{
+		IsDestroyValue = true;
+	}
+
+	virtual void End() {};
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -77,9 +99,8 @@ private:
 	std::vector<std::shared_ptr<UActorComponent>> Components;
 
 	void PushComponent(std::shared_ptr<UActorComponent> _Component, std::string_view _Name);
-	void RootCheck();
-
 	/////////////////////// 인풋
+
 
 
 
@@ -107,6 +128,7 @@ public:
 	static void OnlyInputStop();
 
 private:
+	bool IsDestroyValue = false;
 	// set은 굉장히 간단한 자료구조로서
 	// Value 없는 맵입니다.
 	static std::set<AActor*> InputActors;

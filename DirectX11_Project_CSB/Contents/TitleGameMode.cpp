@@ -16,6 +16,7 @@ void ATitleGameMode::BeginPlay()
 	Super::BeginPlay();
 
 	UEngineTexture::FindRes("HoloCureTitle_full.png");
+	UEngineTexture::FindRes("Gura_Title.png");
 
 
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();

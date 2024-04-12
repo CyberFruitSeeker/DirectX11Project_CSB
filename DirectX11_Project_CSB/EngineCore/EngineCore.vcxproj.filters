@@ -76,6 +76,9 @@
     <Filter Include="Editor\Contents">
       <UniqueIdentifier>{8b03884a-50fb-4b6c-80e2-cbf75476602c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Component\Collision">
+      <UniqueIdentifier>{2d090ce5-122e-4c3a-b3c0-048136d5dccd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -215,6 +218,9 @@
     </ClCompile>
     <ClCompile Include="imgui.cpp">
       <Filter>Editor\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Object\Component\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +367,9 @@
     </ClInclude>
     <ClInclude Include="imconfig.h">
       <Filter>Editor\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Object\Component\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

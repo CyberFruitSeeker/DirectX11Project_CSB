@@ -1,5 +1,8 @@
 #pragma once
 #include <EngineCore/GameMode.h>
+#include "Player.h"
+#include "PlayBackLayer.h"
+
 
 // Ό³Έν :
 class APlayGameMode : public AGameMode
@@ -20,6 +23,9 @@ public:
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
+
+	std::shared_ptr<APlayer> Player;
+
 
 private:
 
