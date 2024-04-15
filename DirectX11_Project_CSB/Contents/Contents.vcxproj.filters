@@ -7,12 +7,6 @@
     <Filter Include="Effect">
       <UniqueIdentifier>{691a9494-e2c4-4841-94c7-1d5bcdd5ca54}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core%28Resources Find,Load,Cutting%29">
-      <UniqueIdentifier>{ee1240cc-d785-4aff-9686-e3d242c9375b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core%28Resources Find,Load,Cutting%29\CoCo">
-      <UniqueIdentifier>{707a500f-301c-4f54-b52e-b8f42cae2e9d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level%28Play, Title &amp; Ending%29">
       <UniqueIdentifier>{0776a4d5-de1e-4eba-8d2b-3b00d2ec2ab4}</UniqueIdentifier>
     </Filter>
@@ -61,11 +55,20 @@
     <Filter Include="Contents Enum,Value,Function\Functions">
       <UniqueIdentifier>{a2b9111f-5b65-4ef3-9dc0-168d16d6da2e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState">
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29">
       <UniqueIdentifier>{21a03ab6-580e-462f-8749-0956fc8972f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState\PlayBack%28Map%29">
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\PlayBackLayer%28Map%29">
       <UniqueIdentifier>{95b6404a-840b-4384-9b39-5fe640d7fd6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\Player &amp; PlayerState">
+      <UniqueIdentifier>{c0bd684b-b19d-4942-b480-0b4875cbfddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core%28Image &amp; Sound, Start Level%29">
+      <UniqueIdentifier>{ee1240cc-d785-4aff-9686-e3d242c9375b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core%28Image &amp; Sound, Start Level%29\CoCo">
+      <UniqueIdentifier>{707a500f-301c-4f54-b52e-b8f42cae2e9d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,22 +85,22 @@
       <Filter>Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="ContentsCore.cpp">
-      <Filter>Core%28Resources Find,Load,Cutting%29\CoCo</Filter>
+      <Filter>Core%28Image &amp; Sound, Start Level%29\CoCo</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29</Filter>
     </ClCompile>
     <ClCompile Include="HoloCureConstValue.cpp">
       <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
     </ClCompile>
     <ClCompile Include="PlayerState_Gura.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29</Filter>
     </ClCompile>
     <ClCompile Include="HoloCureFunctions.cpp">
       <Filter>Contents Enum,Value,Function\Functions</Filter>
     </ClCompile>
     <ClCompile Include="PlayBackLayer.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState\PlayBack%28Map%29</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\PlayBackLayer%28Map%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,13 +117,13 @@
       <Filter>Level%28Play, Title &amp; Ending%29\Title &amp; Ending\TitleLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsCore.h">
-      <Filter>Core%28Resources Find,Load,Cutting%29\CoCo</Filter>
+      <Filter>Core%28Image &amp; Sound, Start Level%29\CoCo</Filter>
     </ClInclude>
     <ClInclude Include="HoloCureEnum.h">
       <Filter>Contents Enum,Value,Function\Enum Class</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29</Filter>
     </ClInclude>
     <ClInclude Include="HoloCureConstValue.h">
       <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
@@ -129,7 +132,7 @@
       <Filter>Contents Enum,Value,Function\Functions</Filter>
     </ClInclude>
     <ClInclude Include="PlayBackLayer.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Player, PlayerState\PlayBack%28Map%29</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\PlayBackLayer%28Map%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

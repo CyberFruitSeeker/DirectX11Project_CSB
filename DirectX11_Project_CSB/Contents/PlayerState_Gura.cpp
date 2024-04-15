@@ -45,7 +45,7 @@ void APlayer::Idle(float _DeltaTime)
 		PlayerState.ChangeState("Run");
 		return;
 	}
-	SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+	//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 
 }
 
@@ -69,39 +69,41 @@ void APlayer::Run(float _DeltaTime)
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 
 	// 방향 이동 WASD에 따른 Run과 Idle 전환
-	float Speed = 377.7f;
+	float Speed = 566.5f;
 
 	if (true == IsPress('A'))
 	{
-		SetActorScale3D(FVector(-256.0f, 256.0f, 100.0f));
+		Renderer->SetDir(EEngineDir::Left);
 		Camera->AddActorLocation(FVector::Left * _DeltaTime * Speed);
 		AddActorLocation(FVector::Left * _DeltaTime * Speed);
+		//SetActorScale3D(FVector(-128.0f, 128.0f, 100.0f));
 	}
 
 	if (true == IsUp('A'))
 	{
-		SetActorScale3D(FVector(-256.0f, 256.0f, 100.0f));
+		//SetActorScale3D(FVector(-256.0f, 256.0f, 100.0f));
 		Renderer->SetDir(EEngineDir::Left);
 		PlayerState.ChangeState("Idle");
 	}
 
 	if (true == IsPress('D'))
 	{
-		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		Renderer->SetDir(EEngineDir::Right);
 		Camera->AddActorLocation(FVector::Right * _DeltaTime * Speed);
 		AddActorLocation(FVector::Right * _DeltaTime * Speed);
 	}
 
 	if (true == IsUp('D'))
 	{
-		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 		Renderer->SetDir(EEngineDir::Right);
 		PlayerState.ChangeState("Idle");
 	}
 
 	if (true == IsPress('W'))
 	{
-		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 		Camera->AddActorLocation(FVector::Up * _DeltaTime * Speed);
 		AddActorLocation(FVector::Up * _DeltaTime * Speed);
 	}
@@ -109,12 +111,12 @@ void APlayer::Run(float _DeltaTime)
 	if (true == IsUp('W'))
 	{
 		PlayerState.ChangeState("Idle");
-		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 	}
 
 	if (true == IsPress('S'))
 	{
-		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 		Camera->AddActorLocation(FVector::Down * _DeltaTime * Speed);
 		AddActorLocation(FVector::Down * _DeltaTime * Speed);
 	}
@@ -122,7 +124,7 @@ void APlayer::Run(float _DeltaTime)
 	if (true == IsUp('S'))
 	{
 		PlayerState.ChangeState("Idle");
-		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 	}
 
 

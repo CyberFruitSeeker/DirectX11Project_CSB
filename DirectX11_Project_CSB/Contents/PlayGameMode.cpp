@@ -20,13 +20,14 @@ void APlayGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_01.png");
 
-	CurIndex = { 0,0 };
 
 	//Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 
+	// ===== 맵과 무한맵에 관한 것들 =====
 	// (스테이지1)무한맵에서 플레이어와 카메라 위치 조절
+	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_01.png");
+	CurIndex = { 0,0 };
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 	float4 PlayerStartPos = IndexToCenterPos(CurIndex);
 	float4 CameraPos = PlayerStartPos;
@@ -84,8 +85,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 }
 
 
-
-// ===== 무한 맵 기능이 담긴 함수들=====
+// ========== 무한 맵 기능이 담긴 함수들==========
 // 
 // 타일의 크기를 절반으로 해줘서 카메라와 플레이어의 위치를 가운데로 정렬
 float4 APlayGameMode::IndexToCenterPos(FIntPoint _Index)
@@ -164,5 +164,4 @@ void APlayGameMode::InfinityGroundCheck()
 	}
 }
 
-// ========== 무한 맵 ==========
 
