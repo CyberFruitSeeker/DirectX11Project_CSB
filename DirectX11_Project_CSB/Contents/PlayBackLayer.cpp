@@ -3,7 +3,7 @@
 #include <EngineCore/Renderer.h>
 #include <EngineCore/SpriteRenderer.h>
 
-PlayBackLayer::PlayBackLayer()
+APlayBackLayer::APlayBackLayer()
 {
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	SetRoot(Renderer);
@@ -11,11 +11,11 @@ PlayBackLayer::PlayBackLayer()
 
 }
 
-PlayBackLayer::~PlayBackLayer()
+APlayBackLayer::~APlayBackLayer()
 {
 }
 
-void PlayBackLayer::BeginPlay()
+void APlayBackLayer::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -26,7 +26,7 @@ void PlayBackLayer::BeginPlay()
 
 }
 
-void PlayBackLayer::Tick(float _DeltaTime)
+void APlayBackLayer::Tick(float _DeltaTime)
 {
 	// 위에 뭔가를 쳐야할 때가 올 수 있을지도 몰?루
 	Super::Tick(_DeltaTime);

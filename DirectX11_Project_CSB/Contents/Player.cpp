@@ -21,6 +21,7 @@ void APlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
+	
 	Renderer->CreateAnimation("GuraIdle", "Gura", 0.1f, true, 0, 2);
 	Renderer->CreateAnimation("GuraRun", "Gura", 0.1f, true, 5, 8);
 	
@@ -39,6 +40,7 @@ void APlayer::Tick(float _DeltaTime)
 	
 	PlayerPosZero = GetActorLocation();
 
+	
 
 
 }

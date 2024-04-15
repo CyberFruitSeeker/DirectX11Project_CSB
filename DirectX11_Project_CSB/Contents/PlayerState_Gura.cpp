@@ -45,6 +45,7 @@ void APlayer::Idle(float _DeltaTime)
 		PlayerState.ChangeState("Run");
 		return;
 	}
+	SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 
 }
 
@@ -56,10 +57,13 @@ void APlayer::Die(float _DeltaTime)
 void APlayer::RunStart()
 {
 	Renderer->ChangeAnimation("GuraRun");
+
 }
 
 void APlayer::Run(float _DeltaTime)
 {
+	
+
 
 	// 방향키 입력에 따른 카메라 추적 기능
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
@@ -76,6 +80,7 @@ void APlayer::Run(float _DeltaTime)
 
 	if (true == IsUp('A'))
 	{
+		SetActorScale3D(FVector(-256.0f, 256.0f, 100.0f));
 		Renderer->SetDir(EEngineDir::Left);
 		PlayerState.ChangeState("Idle");
 	}
@@ -89,12 +94,14 @@ void APlayer::Run(float _DeltaTime)
 
 	if (true == IsUp('D'))
 	{
+		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 		Renderer->SetDir(EEngineDir::Right);
 		PlayerState.ChangeState("Idle");
 	}
 
 	if (true == IsPress('W'))
 	{
+		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 		Camera->AddActorLocation(FVector::Up * _DeltaTime * Speed);
 		AddActorLocation(FVector::Up * _DeltaTime * Speed);
 	}
@@ -102,10 +109,12 @@ void APlayer::Run(float _DeltaTime)
 	if (true == IsUp('W'))
 	{
 		PlayerState.ChangeState("Idle");
+		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 	}
 
 	if (true == IsPress('S'))
 	{
+		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 		Camera->AddActorLocation(FVector::Down * _DeltaTime * Speed);
 		AddActorLocation(FVector::Down * _DeltaTime * Speed);
 	}
@@ -113,6 +122,7 @@ void APlayer::Run(float _DeltaTime)
 	if (true == IsUp('S'))
 	{
 		PlayerState.ChangeState("Idle");
+		SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
 	}
 
 

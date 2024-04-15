@@ -3,20 +3,22 @@
 #include "Player.h"
 #include "PlayBackLayer.h"
 
-// 무한맵을 구현하기 위한 union 함수
-//struct FIntPoint
-//{
-//	union
-//	{
-//		struct
-//		{
-//			int X;
-//			int Y;
-//		};
-//
-//		__int64 Key;
-//	};
-//};
+
+
+// 무한맵을 구현하기 위한 union 함수 구조체(클래스)
+struct FIntPoint
+{
+	union
+	{
+		struct
+		{
+			int X;
+			int Y;
+		};
+
+		__int64 Key;
+	};
+};
 
 
 // 설명 :
@@ -39,20 +41,23 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	//std::shared_ptr<APlayer> Player;
+	
+
+	std::shared_ptr<APlayer> Player;
 
 
 
-	/*float4 IndexToCenterPos(FIntPoint _Index);
+	// (스테이지1)무한맵을 구현하기 위한 함수들
+	std::vector <std::shared_ptr<APlayBackLayer>> Grounds;
+	float4 IndexToCenterPos(FIntPoint _Index);
 	FIntPoint PosToIndex(float4 _Pos);
-
-	void InfinityGroundCheck();*/
+	void InfinityGroundCheck();
 
 
 
 
 private:
-	//FIntPoint CurIndex;
+	FIntPoint CurIndex;
 	/*USpriteRenderer* Renderer;*/
 
 };

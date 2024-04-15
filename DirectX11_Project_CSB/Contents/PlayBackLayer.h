@@ -3,21 +3,21 @@
 
 // Ό³Έν :
 class USpriteRenderer;
-class PlayBackLayer : public AActor
+class APlayBackLayer : public AActor
 {
 	GENERATED_BODY(AActor)
 
 
 public:
 	// constrcuter destructer
-	PlayBackLayer();
-	~PlayBackLayer();
+	APlayBackLayer();
+	~APlayBackLayer();
 
 	// delete Function
-	PlayBackLayer(const PlayBackLayer& _Other) = delete;
-	PlayBackLayer(PlayBackLayer&& _Other) noexcept = delete;
-	PlayBackLayer& operator=(const PlayBackLayer& _Other) = delete;
-	PlayBackLayer& operator=(PlayBackLayer&& _Other) noexcept = delete;
+	APlayBackLayer(const APlayBackLayer& _Other) = delete;
+	APlayBackLayer(APlayBackLayer&& _Other) noexcept = delete;
+	APlayBackLayer& operator=(const APlayBackLayer& _Other) = delete;
+	APlayBackLayer& operator=(APlayBackLayer&& _Other) noexcept = delete;
 
 	USpriteRenderer* Renderer;
 
