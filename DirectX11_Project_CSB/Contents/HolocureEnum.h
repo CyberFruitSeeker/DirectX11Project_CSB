@@ -12,7 +12,6 @@ enum class ELayerOrder
 {
 	BackLayer,
 	FrontLayer,
-	PlayerMonsterLayer,
 	EffectLayer,
 	UILayer,
 };

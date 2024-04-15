@@ -170,6 +170,18 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Monster_Deadbeat.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Monster_DeadbeatBat.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Monster_DeadbeatGangA.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="PlayBackLayer.h">
       <SubType>
       </SubType>
@@ -184,6 +196,18 @@
     <ClCompile Include="ContentsCore.cpp" />
     <ClCompile Include="HoloCureConstValue.cpp" />
     <ClCompile Include="HoloCureFunctions.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Monster_Deadbeat.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Monster_DeadbeatBat.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Monster_DeadbeatGangA.cpp">
       <SubType>
       </SubType>
     </ClCompile>

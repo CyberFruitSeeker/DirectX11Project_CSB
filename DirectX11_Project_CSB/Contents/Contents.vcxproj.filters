@@ -87,20 +87,29 @@
     <ClCompile Include="ContentsCore.cpp">
       <Filter>Core%28Image &amp; Sound, Start Level%29\CoCo</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29</Filter>
-    </ClCompile>
     <ClCompile Include="HoloCureConstValue.cpp">
       <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerState_Gura.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29</Filter>
     </ClCompile>
     <ClCompile Include="HoloCureFunctions.cpp">
       <Filter>Contents Enum,Value,Function\Functions</Filter>
     </ClCompile>
     <ClCompile Include="PlayBackLayer.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\PlayBackLayer%28Map%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\Player &amp; PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState_Gura.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\Player &amp; PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_DeadbeatBat.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Deadbeat.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_DeadbeatGangA.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +131,6 @@
     <ClInclude Include="HoloCureEnum.h">
       <Filter>Contents Enum,Value,Function\Enum Class</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29</Filter>
-    </ClInclude>
     <ClInclude Include="HoloCureConstValue.h">
       <Filter>Contents Enum,Value,Function\Value%28Const%29</Filter>
     </ClInclude>
@@ -133,6 +139,18 @@
     </ClInclude>
     <ClInclude Include="PlayBackLayer.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\PlayBackLayer%28Map%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\Player &amp; PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster_DeadbeatBat.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster_Deadbeat.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster_DeadbeatGangA.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
