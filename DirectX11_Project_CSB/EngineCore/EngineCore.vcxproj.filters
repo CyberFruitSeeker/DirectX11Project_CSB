@@ -40,14 +40,8 @@
     <Filter Include="Object\EngineContent">
       <UniqueIdentifier>{4ed1e355-0432-493b-9f81-80829776b82f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Rendering">
-      <UniqueIdentifier>{651e1a9d-7b26-41c0-bb39-10959a9a259e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\Actor\GameMode">
       <UniqueIdentifier>{35a63eb9-3562-4fa3-abff-54fe10748dc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Rendering\Component">
-      <UniqueIdentifier>{f830b456-d2f1-47b3-86f3-70de176ec678}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Mesh">
       <UniqueIdentifier>{24ec22ac-15eb-481d-a196-36030f852aff}</UniqueIdentifier>
@@ -82,6 +76,12 @@
     <Filter Include="Debug">
       <UniqueIdentifier>{01dd1dee-f54b-41cb-80ee-24944505e057}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Component\Rendering">
+      <UniqueIdentifier>{651e1a9d-7b26-41c0-bb39-10959a9a259e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Component\Rendering\Component">
+      <UniqueIdentifier>{f830b456-d2f1-47b3-86f3-70de176ec678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -115,10 +115,10 @@
       <Filter>Object\EngineContent</Filter>
     </ClCompile>
     <ClCompile Include="SpriteRenderer.cpp">
-      <Filter>Object\Rendering\Component</Filter>
+      <Filter>Object\Component\Rendering\Component</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Object\Rendering</Filter>
+      <Filter>Object\Component\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Object</Filter>
@@ -229,10 +229,13 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
-      <Filter>Object\Rendering</Filter>
+      <Filter>Object\Component\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="TileRenderer.cpp">
-      <Filter>Object\Rendering\Component</Filter>
+      <Filter>Object\Component\Rendering\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderUnit.cpp">
+      <Filter>Object\Component\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -267,10 +270,10 @@
       <Filter>Object\EngineContent</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
-      <Filter>Object\Rendering\Component</Filter>
+      <Filter>Object\Component\Rendering\Component</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Object\Rendering</Filter>
+      <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Object</Filter>
@@ -390,10 +393,13 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
-      <Filter>Object\Rendering</Filter>
+      <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="TileRenderer.h">
-      <Filter>Object\Rendering\Component</Filter>
+      <Filter>Object\Component\Rendering\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderUnit.h">
+      <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
