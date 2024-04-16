@@ -70,6 +70,9 @@
     <Filter Include="Core%28Image &amp; Sound, Start Level%29\CoCo">
       <UniqueIdentifier>{707a500f-301c-4f54-b52e-b8f42cae2e9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI">
+      <UniqueIdentifier>{20c9d18c-63e5-4c96-a128-e2f28ea0d9b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">

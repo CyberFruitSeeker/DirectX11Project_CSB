@@ -17,8 +17,8 @@ void ATitleLogo::BeginPlay()
 	Super::BeginPlay();
 
 	{
-		SetActorScale3D(FVector(615.0f, 259.0f, 100.0f));
-		Renderer->SetSprite("HoloCureTitle_full.png");
+		SetActorScale3D(FVector(1300.0f, 600.0f, 100.0f));
+		Renderer->SetSprite("HoloCureTitle.png");
 
 	}
 

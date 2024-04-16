@@ -19,13 +19,12 @@ enum class ELayerOrder
 enum class ERenderingOrder
 {
 	Back,
-	StageMap,
 	Front,
 	Player,
 	Item,
 };
 
-enum class ESpawnOrder
+enum class EMonsterSpawnOrder
 {
 	FiledSpawnMonster,
 	SuddenSpawnMonster,

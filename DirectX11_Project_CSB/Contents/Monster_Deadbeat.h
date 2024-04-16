@@ -6,6 +6,7 @@ class USpriteRenderer;
 class Monster_Deadbeat : public AActor
 {
 	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
 	Monster_Deadbeat();
@@ -27,9 +28,20 @@ protected:
 private:
 	USpriteRenderer* Renderer;
 	float MonsterSpeed = 250.0f;
-	int HP = 0;
-	int Att = 0;
 
+	int DeadbeatHP = 0;
+	int DeadbeatBatHP = 0;
+	int DeadbeatGangAHP = 0;
+
+	int DeadbeatAtt = 0;
+	int DeadbeatBatAtt = 0;
+	int DeadbeatGangAAtt = 0;
 
 };
 
+enum class DeadBeats
+{
+	Deadbeat,
+	DeadbeatBat,
+	DeadbeatGangA,
+};
