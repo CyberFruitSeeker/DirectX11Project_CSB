@@ -4,6 +4,7 @@ enum class ECollisionOrder
 {
 	Player,
 	MapObject,
+	Items,
 	Monster,
 	BossMonster,
 };
@@ -21,15 +22,19 @@ enum class ERenderingOrder
 	Back,
 	Front,
 	Player,
-	Item,
-};
-
-enum class EMonsterSpawnOrder
-{
 	FiledSpawnMonster,
 	SuddenSpawnMonster,
 	BossMonster,
+	Item,
+	Object,
 };
+
+//enum class EMonsterSpawnOrder
+//{
+//	FiledSpawnMonster,
+//	SuddenSpawnMonster,
+//	BossMonster,
+//};
 
 enum class EActorDir
 {
@@ -37,7 +42,7 @@ enum class EActorDir
 	Right,
 };
 
-enum class EFieldItemDropOrder
+enum class EFieldDropItemOrder
 {
 	Hamberger,
 	HoloBox,

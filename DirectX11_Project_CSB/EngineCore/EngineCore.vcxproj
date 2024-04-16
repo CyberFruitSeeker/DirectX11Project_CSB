@@ -210,6 +210,10 @@
     <ClCompile Include="EngineShader.cpp" />
     <ClCompile Include="EngineShaderResources.cpp" />
     <ClCompile Include="EngineSprite.cpp" />
+    <ClCompile Include="EngineStruct.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="EngineTexture.cpp" />
     <ClCompile Include="EngineVertex.cpp" />
     <ClCompile Include="EngineVertexBuffer.cpp" />
@@ -234,6 +238,10 @@
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TickObject.cpp" />
+    <ClCompile Include="TileRenderer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="WorldObject.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +266,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="EngineDefines.h" />
     <ClInclude Include="EngineEditorGUI.h">
       <SubType>
       </SubType>
@@ -280,6 +289,10 @@
     <ClInclude Include="EngineShader.h" />
     <ClInclude Include="EngineShaderResources.h" />
     <ClInclude Include="EngineSprite.h" />
+    <ClInclude Include="EngineStruct.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="EngineTexture.h" />
     <ClInclude Include="EngineVertex.h" />
     <ClInclude Include="EngineVertexBuffer.h" />
@@ -301,6 +314,10 @@
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="ThirdParty\DirectxTex\inc\DirectXTex.h" />
     <ClInclude Include="TickObject.h" />
+    <ClInclude Include="TileRenderer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="WorldObject.h" />
   </ItemGroup>
   <ItemGroup>

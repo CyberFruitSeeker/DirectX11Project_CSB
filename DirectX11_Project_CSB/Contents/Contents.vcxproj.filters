@@ -114,6 +114,9 @@
     <ClCompile Include="Monster_DeadbeatGangA.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
     </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Monster_DeadbeatGangA.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters\FiledSpawnMonsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

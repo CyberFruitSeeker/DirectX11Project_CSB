@@ -114,9 +114,6 @@
     <ClCompile Include="DefaultSceneComponent.cpp">
       <Filter>Object\EngineContent</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Object\Rendering\Component</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteRenderer.cpp">
       <Filter>Object\Rendering\Component</Filter>
     </ClCompile>
@@ -228,6 +225,15 @@
     <ClCompile Include="EngineDebug3D.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
+    <ClCompile Include="EngineStruct.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Object\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="TileRenderer.cpp">
+      <Filter>Object\Rendering\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -259,9 +265,6 @@
     </ClInclude>
     <ClInclude Include="DefaultSceneComponent.h">
       <Filter>Object\EngineContent</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Object\Rendering\Component</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
       <Filter>Object\Rendering\Component</Filter>
@@ -379,6 +382,18 @@
     </ClInclude>
     <ClInclude Include="EngineDebug3D.h">
       <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineDefines.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineStruct.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Object\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="TileRenderer.h">
+      <Filter>Object\Rendering\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

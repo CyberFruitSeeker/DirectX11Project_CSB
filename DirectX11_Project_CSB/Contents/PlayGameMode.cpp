@@ -26,12 +26,12 @@ void APlayGameMode::BeginPlay()
 
 	// ===== 맵과 무한맵에 관한 것들 =====
 	// (스테이지1)무한맵에서 플레이어와 카메라 위치 조절
-	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_01.png");
+	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_06.png");
 	CurIndex = { 0,0 };
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 	float4 PlayerStartPos = IndexToCenterPos(CurIndex);
 	float4 CameraPos = PlayerStartPos;
-	CameraPos.Z = -500.0f;
+	CameraPos.Z = -100.0f;
 	Camera->SetActorLocation(CameraPos);
 	{
 		Player = GetWorld()->SpawnActor<APlayer>("Player");

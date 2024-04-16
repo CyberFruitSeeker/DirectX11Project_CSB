@@ -19,7 +19,7 @@ void APlayBackLayer::BeginPlay()
 {
 	Super::BeginPlay();
 
-	Renderer->SetSprite("Holo_map_01.png");
+	Renderer->SetSprite("Holo_map_06.png");
 	Renderer->SetAutoSize(1.0f, true);
 	Renderer->SetOrder(ERenderingOrder::Back);
 

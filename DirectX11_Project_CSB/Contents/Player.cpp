@@ -23,7 +23,7 @@ void APlayer::BeginPlay()
 
 	
 	Renderer->CreateAnimation("GuraIdle", "Gura", 0.3f, true, (0,1),(1,2));
-	Renderer->CreateAnimation("GuraRun", "Gura", 0.15f, true, (3,4,5),(6,7,8));
+	Renderer->CreateAnimation("GuraRun", "Gura", 0.065f, true, (3,4,5),(6,7,8));
 	
 
 	StateUpdate();
