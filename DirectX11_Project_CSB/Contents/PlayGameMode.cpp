@@ -20,6 +20,8 @@ void APlayGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// 업데이트로 추가된 세이브 기능 쓰고싶으면 여기에다 해볼 것
+
 
 
 	//Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));

@@ -59,7 +59,7 @@ public:
 	void CreateAnimation(std::string_view _AnimationName, std::string_view _SpriteName, float _Inter = 0.1f, bool _Loop = true, int _Start = -1, int _End = -1);
 
 	void CreateAnimation(std::string_view _AnimationName, std::string_view _SpriteName, std::vector<float> _Inter, std::vector<int> _Frame, bool _Loop = true);
-	
+
 	void ChangeAnimation(std::string_view _AnimationName);
 
 	void SetAutoSize(float _ScaleRatio, bool _AutoSize);
@@ -96,7 +96,18 @@ public:
 		Pivot = _Pivot;
 	}
 
-	
+	inline FSpriteInfo GetCurInfo() const
+	{
+		return CurInfo;
+	}
+
+	void SetCurInfo(FSpriteInfo _CurInfo)
+	{
+		CurInfo = _CurInfo;
+		SetSpriteInfo(CurInfo);
+		CurAnimation = nullptr;
+	}
+
 protected:
 	void Tick(float _DeltaTime) override;
 	void MaterialSettingEnd() override;
