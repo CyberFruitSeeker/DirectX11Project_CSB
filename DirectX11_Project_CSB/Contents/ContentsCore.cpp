@@ -3,6 +3,7 @@
 #include "PlayGameMode.h"
 #include "TitleGameMode.h"
 #include <EngineCore/EngineSprite.h>
+#include <EnginePlatform/EngineWindow.h>
 
 UContentsCore::UContentsCore()
 {
@@ -67,6 +68,10 @@ void UContentsCore::Initialize()
 			std::string Name = Directorys[i].GetFolderName();
 			UEngineSprite::LoadFolder(Directorys[i].GetFullPath());
 		}
+
+
+
+
 
 	}
 
@@ -185,6 +190,7 @@ void UContentsCore::Initialize()
 
 	}
 
+	
 
 	// ========== 사운드 ==========
 	// 사운드 폴더 & 파일 추적하는 기능

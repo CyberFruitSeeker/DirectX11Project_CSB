@@ -2,6 +2,8 @@
 #include "Player.h"
 #include <EngineCore/Renderer.h>
 #include <EngineCore/SpriteRenderer.h>
+#include <EngineBase/EngineMath.h>
+#include "HoloMouse.h"
 
 // 플레이어의 FVector를 초기화 해준다.
 FVector APlayer::PlayerPosZero = FVector::Zero;
@@ -20,6 +22,8 @@ APlayer::~APlayer()
 void APlayer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// 플레이어 캐릭터 클래스를 여러개 생성하지 말고, 여기에다 구현해본다.
 
 	
 	Renderer->CreateAnimation("GuraIdle", "Gura", 0.3f, true, (0,1),(1,2));

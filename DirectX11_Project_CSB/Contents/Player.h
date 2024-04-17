@@ -1,16 +1,18 @@
 #pragma once
 #include <EngineCore/Actor.h>
 #include <EngineCore/StateManager.h>
+#include "HoloCureEnum.h"
 
-// Ό³Έν :
+
 class USpriteRenderer;
 class APlayer : public AActor
 {
 	GENERATED_BODY(AActor)
 
 public:
-	// constrcuter destructer
 	static FVector PlayerPosZero;
+
+	// constrcuter destructer
 	APlayer();
 	~APlayer();
 
@@ -37,6 +39,8 @@ protected:
 	void RunStart();
 	void Die(float _DeltaTime);
 	
+	void CreatePlayerAnimation(std::string _Name);
+
 
 	//void PlayerInteractiveToWorld(float _DeltaTime);
 

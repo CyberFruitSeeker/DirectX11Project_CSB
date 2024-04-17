@@ -42,15 +42,15 @@ enum class EActorDir
 	Right,
 };
 
-enum class EFieldDropItemOrder
-{
-	Hamberger,
-	HoloBox,
-	UpgradeAnvil,
-};
+//enum class EFieldDropItemOrder
+//{
+//	Hamberger,
+//	HoloBox,
+//	UpgradeAnvil,
+//};
 
-enum class ECameraViewOrder
-{
-	Front,
-	Back,
-};
+//enum class ECameraViewOrder
+//{
+//	Front,
+//	Back,
+//};
