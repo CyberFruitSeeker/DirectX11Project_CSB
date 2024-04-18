@@ -59,7 +59,7 @@ protected:
 
 private:
 	FIntPoint CurIndex;
-	/*USpriteRenderer* Renderer;*/
+	
 
 };
 

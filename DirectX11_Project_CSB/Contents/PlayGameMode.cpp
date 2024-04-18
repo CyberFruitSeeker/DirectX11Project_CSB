@@ -24,9 +24,8 @@ void APlayGameMode::BeginPlay()
 	// 업데이트로 추가된 세이브 기능 쓰고싶으면 여기에다 해볼 것
 
 	//Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
-
 	
-	
+	// 무한맵을 가동시키기 전에 맵 이미지부터 찾아주고
 	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_06.png");
 	CurIndex = { 0,0 };
 	float4 PlayerStartPos = IndexToCenterPos(CurIndex);
@@ -49,7 +48,6 @@ void APlayGameMode::BeginPlay()
 	AHoloMouse::MouseAimOn = false;
 	AHoloMouse::CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
 	MouseCursor->SetActorLocation(AHoloMouse::CursorPosZero);
-
 
 
 	// push back을 사용하여 무한맵을 가동시키는 for문
@@ -83,6 +81,11 @@ void APlayGameMode::BeginPlay()
 void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+
+	// 마우스 커서 Tick 돌려서 나오게 하기
+	AHoloMouse::CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
+	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::CursorPosZero.X - 640, APlayer::PlayerPosZero.Y - AHoloMouse::CursorPosZero.Y + 360 };
+	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
 
 	InfinityGroundCheck();
 
