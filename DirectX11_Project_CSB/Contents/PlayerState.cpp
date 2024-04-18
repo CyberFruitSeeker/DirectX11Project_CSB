@@ -21,12 +21,12 @@ void APlayer::StateUpdate()
 	//PlayerState.SetStartFunction("Idle", std::bind(&APlayer::IdleStart, this));
 
 	// Idle 상태로 변화하기 위한 것들
-	USpriteRenderer* HoloRender = Renderer;
+	USpriteRenderer* PlayerRender = Renderer;
 
 	// 콜백 방식을 사용해본다.
 	PlayerState.SetStartFunction("Idle", [=]
 		{
-			HoloRender->ChangeAnimation(Name + "_Idle");
+			PlayerRender->ChangeAnimation(Name + "_Idle");
 		});
 
 
@@ -42,10 +42,10 @@ void APlayer::StateUpdate()
 
 }
 
-void APlayer::IdleStart()
-{
-	Renderer->ChangeAnimation("GuraIdle");
-}
+//void APlayer::IdleStart()
+//{
+//	Renderer->ChangeAnimation("GuraIdle");
+//}
 
 void APlayer::Idle(float _DeltaTime)
 {

@@ -3,9 +3,13 @@
 #include <EngineCore/StateManager.h>
 
 // Ό³Έν :
-class AHoloMouse
+class AHoloMouse : public AActor
 {
+	GENERATED_BODY(AActor)
 public:
+	static float4 CursorPosZero;
+	static bool MouseAimOn;
+	
 	// constrcuter destructer
 	AHoloMouse();
 	~AHoloMouse();
@@ -17,6 +21,15 @@ public:
 	AHoloMouse& operator=(AHoloMouse&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
+
+	void MouseCursorOff();
+	void ChangeCursorAimMode();
+	void CheckCursorAimMode();
+
+	USpriteRenderer* Renderer;
+
 
 private:
 

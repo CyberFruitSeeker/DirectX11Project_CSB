@@ -64,6 +64,9 @@
     <Filter Include="Contents Global Settings\Functions">
       <UniqueIdentifier>{a2b9111f-5b65-4ef3-9dc0-168d16d6da2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI\Mouse Cursor">
+      <UniqueIdentifier>{df83cc8b-1fa8-41ab-9a5b-ffd876eaff0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
@@ -96,11 +99,11 @@
     <ClCompile Include="PlayerState.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\Player &amp; PlayerState</Filter>
     </ClCompile>
-    <ClCompile Include="HoloMouse.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="HoloMouse.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI\Mouse Cursor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,11 +137,11 @@
     <ClInclude Include="Player.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\PlayBack%28Map%29, Player%28State%29\Player &amp; PlayerState</Filter>
     </ClInclude>
-    <ClInclude Include="HoloMouse.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="HoloMouse.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actor\UI\Mouse Cursor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,7 +3,6 @@
 #include <EngineCore/Renderer.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineBase/EngineMath.h>
-#include <EngineCore/DefaultSceneComponent.h>
 #include "HoloMouse.h"
 #include "HoloCureConstValue.h"
 

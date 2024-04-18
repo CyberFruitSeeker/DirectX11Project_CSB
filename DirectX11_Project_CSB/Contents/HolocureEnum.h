@@ -22,6 +22,7 @@ enum class ERenderingOrder
 	Back,
 	Front,
 	Player,
+	MouseCursor,
 	FiledSpawnMonster,
 	SuddenSpawnMonster,
 	BossMonster,
