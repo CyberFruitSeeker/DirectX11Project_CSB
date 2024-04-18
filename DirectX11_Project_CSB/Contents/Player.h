@@ -24,7 +24,7 @@ public:
 
 	UStateManager PlayerState;
 
-	// 어떠한 캐릭터를 선택하는 것을 위한 문자열
+	// 캐릭터가 어떤 이름의 동작을 가진 것을 수행할 것인가?
 	void SetName(std::string _Name)
 	{
 		Name = _Name;
@@ -36,6 +36,7 @@ public:
 		return PlayerDir;
 	}
 
+	// 8방향 각도
 	float GetAngle()
 	{
 		return PlayerAngle;
@@ -47,6 +48,7 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	// Player가 아니라, PlayerState에서 돌려진다.
 	void StateUpdate();
 
 	//void PlayerMove(float _DeltaTime);
@@ -64,7 +66,8 @@ protected:
 	void ChangeArrowDirMove();
 	void ChangeMouseAimAttackDir();
 
-	
+	//void KeyMove(float _DeltaTime, float4 _Dir, float _Speed);
+	//void KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2);
 
 
 

@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "PlayBackLayer.h"
 #include "HoloCureConstValue.h"
+#include "HoloMouse.h"
 #include <random>
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
@@ -22,28 +23,34 @@ void APlayGameMode::BeginPlay()
 
 	// 업데이트로 추가된 세이브 기능 쓰고싶으면 여기에다 해볼 것
 
-
-
 	//Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
+
 	
-	// ===== 맵과 무한맵에 관한 것들 =====
-	// (스테이지1)무한맵에서 플레이어와 카메라 위치 조절
+	
 	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_06.png");
 	CurIndex = { 0,0 };
 	float4 PlayerStartPos = IndexToCenterPos(CurIndex);
 
+	// (PlayLevel 시작할때) 맵에서 카메라 위치 세팅
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
-
-
 	float4 CameraPos = PlayerStartPos;
 	CameraPos.Z = -500.0f;
 	Camera->SetActorLocation(CameraPos);
 	
-	
-	{
-		Player = GetWorld()->SpawnActor<APlayer>("Player");
-		Player->SetActorLocation(PlayerStartPos);
-	}
+
+	// 플레이어 스폰
+	Player = GetWorld()->SpawnActor<APlayer>("Player");
+	Player->SetActorLocation(PlayerStartPos);
+	Player->SetName("Gura");
+
+
+	// 마우스 커서 스폰
+	MouseCursor = GetWorld()->SpawnActor<AHoloMouse>("Mouse");
+	AHoloMouse::MouseAimOn = false;
+	AHoloMouse::CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
+	MouseCursor->SetActorLocation(AHoloMouse::CursorPosZero);
+
+
 
 	// push back을 사용하여 무한맵을 가동시키는 for문
 	for (int y = -1; y < 2; y++)

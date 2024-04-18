@@ -2,6 +2,7 @@
 #include <EngineCore/GameMode.h>
 #include "Player.h"
 #include "PlayBackLayer.h"
+#include "HoloMouse.h"
 
 
 
@@ -44,7 +45,7 @@ protected:
 	
 
 	std::shared_ptr<APlayer> Player;
-
+	std::shared_ptr<AHoloMouse> MouseCursor;
 
 
 	// (스테이지1)무한맵을 구현하기 위한 함수들

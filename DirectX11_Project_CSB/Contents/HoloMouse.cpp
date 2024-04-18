@@ -60,7 +60,7 @@ void AHoloMouse::ChangeCursorAimMode()
 	}
 }
 
-// 마우스 커서가 하늘과 핑크로 전환되게 해주는 것을 체크
+// 마우스 커서가 하늘색과 핑크색으로 전환되게 해주는 것을 체크해본다.
 void AHoloMouse::CheckCursorAimMode()
 {
 	if (true != MouseAimOn)

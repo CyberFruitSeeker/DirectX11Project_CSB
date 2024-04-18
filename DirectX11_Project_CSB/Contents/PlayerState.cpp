@@ -10,7 +10,7 @@ void APlayer::StateUpdate()
 	// 카메라 세팅
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 
-	// 구라 스테이트 세팅
+	// 플레이어 스테이트 세팅
 	PlayerState.CreateState("Idle");
 	PlayerState.CreateState("Run");
 	PlayerState.CreateState("Die");
@@ -49,13 +49,12 @@ void APlayer::StateUpdate()
 
 void APlayer::Idle(float _DeltaTime)
 {
-	// ||(OR) 연산자를 이용하여 WASD 입력시, Idle 상태에서 Run 상태로 전환될 수 있게 만들어본다.
+	// Idle 상태에서 Run 상태로 전환하기 위한 것
 	if (true == IsPress('A') || true == IsPress('D') || true == IsPress('W') || true == IsPress('S'))
 	{
 		PlayerState.ChangeState("Run");
 		return;
 	}
-	
 
 }
 
@@ -74,21 +73,19 @@ void APlayer::RunStart()
 
 void APlayer::Run(float _DeltaTime)
 {
-	
-
 
 	// 방향키 입력에 따른 카메라 추적 기능
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 
 	// 방향 이동 WASD에 따른 Run과 Idle 전환
-	float Speed = 200.5f;
+	float Speed = 255.5f;
 
 	if (true == IsPress('A'))
 	{
 		Renderer->SetDir(EEngineDir::Left);
 		Camera->AddActorLocation(FVector::Left * _DeltaTime * Speed);
 		AddActorLocation(FVector::Left * _DeltaTime * Speed);
-		//SetActorScale3D(FVector(-160.0f, 160.0f, 100.0f));
+		PlayerDir = EPlayerDir::W;
 	}
 
 	if (true == IsUp('A'))
@@ -102,12 +99,12 @@ void APlayer::Run(float _DeltaTime)
 		Renderer->SetDir(EEngineDir::Right);
 		Camera->AddActorLocation(FVector::Right * _DeltaTime * Speed);
 		AddActorLocation(FVector::Right * _DeltaTime * Speed);
-		//SetActorScale3D(FVector(160.0f, 160.0f, 100.0f));
+		
 	}
 
 	if (true == IsUp('D'))
 	{
-		//SetActorScale3D(FVector(256.0f, 256.0f, 100.0f));
+		
 		Renderer->SetDir(EEngineDir::Right);
 		PlayerState.ChangeState("Idle");
 	}
@@ -134,44 +131,43 @@ void APlayer::Run(float _DeltaTime)
 		PlayerState.ChangeState("Idle");
 	}
 
-
 	// 회전, 자전 같은거 테스트용 키들
-	{
-		// 플레이어에게는 필요 없는 회전 기능
-		// but, 공격 & 스킬 이펙트에는 필요할 것이다.
-		// 우선 여기에다 둔다.
-		if (true == IsPress(VK_NUMPAD1))
-		{
-			//AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
-			//Color.X += _DeltaTime;
-		}
+	//{
+	//	// 플레이어에게는 필요 없는 회전 기능
+	//	// but, 공격 & 스킬 이펙트에는 필요할 것이다.
+	//	// 우선 여기에다 둔다.
+	//	if (true == IsPress(VK_NUMPAD1))
+	//	{
+	//		//AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
+	//		//Color.X += _DeltaTime;
+	//	}
 
-		if (true == IsPress(VK_NUMPAD2))
-		{
-			Color.X -= _DeltaTime;
-		}
+	//	if (true == IsPress(VK_NUMPAD2))
+	//	{
+	//		Color.X -= _DeltaTime;
+	//	}
 
-		if (true == IsPress(VK_NUMPAD4))
-		{
-			Color.Y += _DeltaTime;
-		}
+	//	if (true == IsPress(VK_NUMPAD4))
+	//	{
+	//		Color.Y += _DeltaTime;
+	//	}
 
-		if (true == IsPress(VK_NUMPAD5))
-		{
-			Color.Y -= _DeltaTime;
-		}
+	//	if (true == IsPress(VK_NUMPAD5))
+	//	{
+	//		Color.Y -= _DeltaTime;
+	//	}
 
-		if (true == IsPress(VK_NUMPAD7))
-		{
-			Color.Z += _DeltaTime;
-		}
+	//	if (true == IsPress(VK_NUMPAD7))
+	//	{
+	//		Color.Z += _DeltaTime;
+	//	}
 
-		if (true == IsPress(VK_NUMPAD8))
-		{
-			Color.Z -= _DeltaTime;
-		}
+	//	if (true == IsPress(VK_NUMPAD8))
+	//	{
+	//		Color.Z -= _DeltaTime;
+	//	}
 
-	}
+	//}
 
 
 }
