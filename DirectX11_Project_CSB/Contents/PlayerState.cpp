@@ -4,7 +4,7 @@
 #include <EngineCore/Camera.h>
 
 
-// 구라의 움직임, 애니메이션의 실질적인 기능은 이곳에다가 구현한다.
+// 캐릭터(플레이어)들의 움직임, 애니메이션의 실질적인 기능은 이곳에다가 구현한다.
 void APlayer::StateUpdate()
 {
 	// 카메라 세팅
@@ -18,14 +18,24 @@ void APlayer::StateUpdate()
 
 	// Idle, Run, Die 같은 함수들을 세팅
 	PlayerState.SetUpdateFunction("Idle", std::bind(&APlayer::Idle, this, std::placeholders::_1));
-	PlayerState.SetStartFunction("Idle", std::bind(&APlayer::IdleStart, this));
+	//PlayerState.SetStartFunction("Idle", std::bind(&APlayer::IdleStart, this));
+
+	// Idle 상태로 변화하기 위한 것들
+	USpriteRenderer* HoloRender = Renderer;
+
+	// 콜백 방식을 사용해본다.
+	PlayerState.SetStartFunction("Idle", [=]
+		{
+			HoloRender->ChangeAnimation(Name + "_Idle");
+		});
+
 
 	PlayerState.SetUpdateFunction("Run", std::bind(&APlayer::Run, this, std::placeholders::_1));
 	PlayerState.SetStartFunction("Run", std::bind(&APlayer::RunStart, this));
 
 	// Die는 추후에 구현
 
-	Renderer->SetAutoSize(1.0f, true);
+	//Renderer->SetAutoSize(1.0f, true);
 
 	// 이동키를 입력하지 않을때, 구라를 Idle 상태로 체인지
 	PlayerState.ChangeState("Idle");
@@ -54,9 +64,11 @@ void APlayer::Die(float _DeltaTime)
 
 }
 
+
+
 void APlayer::RunStart()
 {
-	Renderer->ChangeAnimation("GuraRun");
+	Renderer->ChangeAnimation(Name + "_Run");
 	
 }
 
