@@ -28,7 +28,7 @@ void ATitleGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	if (true == UEngineInput::IsDown('P'))
+	if (true == UEngineInput::IsDown('P') || UEngineInput::IsDown(VK_LBUTTON) || UEngineInput::IsDown(VK_RBUTTON) || UEngineInput::IsDown(VK_SPACE))
 	{
 		GEngine->ChangeLevel("PlayLevel");
 	}

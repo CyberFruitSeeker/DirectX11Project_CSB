@@ -30,17 +30,25 @@ enum class ERenderingOrder
 	Object,
 };
 
+// 북쪽부터 시계방향으로
 enum class EPlayerDir
 {
-	S,
-	SW,
-	W,
-	NW,
+	None,
 	N,
 	NE,
 	E,
 	SE,
+	S,
+	SW,
+	W,
+	NW,
 };
+
+//enum class EActorDir
+//{
+//	Left,
+//	Right,
+//};
 
 //enum class EMonsterSpawnOrder
 //{
@@ -49,11 +57,6 @@ enum class EPlayerDir
 //	BossMonster,
 //};
 
-enum class EActorDir
-{
-	Left,
-	Right,
-};
 
 //enum class EFieldDropItemOrder
 //{

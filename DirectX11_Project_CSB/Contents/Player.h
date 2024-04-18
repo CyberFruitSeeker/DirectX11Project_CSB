@@ -62,9 +62,14 @@ protected:
 	void CreatePlayerAnimation(std::string _Name);
 
 	// 플레이어의 방향에 따라 같이 움직이는 Arrow
-	void CheckArrowModeChange();
-	void ChangeArrowDirMove();
+	//void CheckArrowModeChange();
+	//void ChangeArrowDirMove();
+
+	void PlayerCursorDirCheck();
+
 	void ChangeMouseAimAttackDir();
+
+
 
 	//void KeyMove(float _DeltaTime, float4 _Dir, float _Speed);
 	//void KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2);
@@ -75,19 +80,22 @@ protected:
 private:
 	USpriteRenderer* Renderer;
 	USpriteRenderer* AttackDir;
+	USpriteRenderer* PlayerCursor;
+
 	std::shared_ptr<UCamera> Camera;
 
 	float4 Color;
+	float4 MousePos;
 	float PlayerAngle;
 	//UStateManager PlayerState;
 	
 	std::string Name = "Gura";
-	EPlayerDir PlayerDir = EPlayerDir::E;
+	EPlayerDir PlayerDir = EPlayerDir::None;
 	
 	// 플레이어 스테이터스
 	int HP = 100;
 	float Attack = 1;
-	float Speed = 150.0f;
+	float Speed = 200.0f;
 	float LineSpeed = Speed * 0.75f;
 
 

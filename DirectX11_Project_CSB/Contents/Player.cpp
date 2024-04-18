@@ -41,7 +41,7 @@ void APlayer::BeginPlay()
 	/*Renderer->CreateAnimation("GuraIdle", "Gura", 0.3f, true, (0,1),(1,2));
 	Renderer->CreateAnimation("GuraRun", "Gura", 0.065f, true, (3,4,5),(6,7,8));*/
 	
-	Renderer->SetAutoSize(1.0f, true);
+	Renderer->SetAutoSize(1.5f, true);
 	Renderer->SetOrder(ERenderingOrder::Player);
 
 
@@ -58,7 +58,9 @@ void APlayer::Tick(float _DeltaTime)
 	
 	PlayerPosZero = GetActorLocation();
 
+	PlayerCursorDirCheck();
 
+	ChangeMouseAimAttackDir();
 
 
 }
@@ -68,6 +70,105 @@ void APlayer::CreatePlayerAnimation(std::string _Name)
 {
 	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.3f, true, (0, 1), (1, 2));
 	Renderer->CreateAnimation(_Name + "_Run", _Name, 0.065f, true, (3, 4, 5), (6, 7, 8));
+}
+
+// 키입력과 플레이어의 방향에 따른 Arrow Dir의 변화 
+void APlayer::PlayerCursorDirCheck()
+{
+	// None 상태를 설정해주고
+	EPlayerDir InputDir = EPlayerDir::None;
+
+	// 키 입력이 처음 들어올때
+	if (true == IsDown('W'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
+		InputDir = EPlayerDir::N;
+	}
+	if (true == IsDown('S'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
+		InputDir = EPlayerDir::S;
+	}
+	if (true == IsDown('A'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
+		InputDir = EPlayerDir::W;
+	}
+	if (true == IsDown('D'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
+		InputDir = EPlayerDir::E;
+	}
+
+
+	// 두 키를 동시에 입력 == 남서, 북서, 북동, 남동쪽으로 갈때
+	if (PlayerDir == EPlayerDir::NE)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,45.0f });
+		InputDir = EPlayerDir::E;
+	}
+
+	if (PlayerDir == EPlayerDir::SE)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,315.0f });
+		InputDir = EPlayerDir::E;
+	}
+
+	if (PlayerDir == EPlayerDir::SW)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,225.0f });
+		InputDir = EPlayerDir::W;
+	}
+
+	if (PlayerDir == EPlayerDir::NW)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,135.0f });
+		InputDir = EPlayerDir::W;
+	}
+
+
+	// 한 키만 눌렀을때 == 한 방향으로 갈때
+	if (PlayerDir == EPlayerDir::N)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
+	}
+
+	if (PlayerDir == EPlayerDir::S)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
+	}
+
+	if (PlayerDir == EPlayerDir::W)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
+	}
+
+	if (PlayerDir == EPlayerDir::E)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
+	}
+
+
+}
+
+void APlayer::ChangeMouseAimAttackDir()
+{
+	if (true == AHoloMouse::MouseAimOn)
+	{
+		PlayerAngle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPosZero.Y), (HoloCureConstValue::PlayLevelMousePos.X - APlayer::PlayerPosZero.X)) * 180.0f / UEngineMath::PI;
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,PlayerAngle });
+
+		if (-90.0f <= PlayerAngle && 90.0f > PlayerAngle)
+		{
+			Renderer->SetDir(EEngineDir::Right);
+		}
+		else
+		{
+			Renderer->SetDir(EEngineDir::Left);
+		}
+
+
+	}
 }
 
 

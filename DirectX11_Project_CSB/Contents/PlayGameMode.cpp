@@ -82,11 +82,10 @@ void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	// 마우스 커서 Tick 돌려서 나오게 하기
-	AHoloMouse::CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
-	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::CursorPosZero.X - 640, APlayer::PlayerPosZero.Y - AHoloMouse::CursorPosZero.Y + 360 };
-	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
-
+	// 마우스 커서 Tick
+	MouseCursorToTick(_DeltaTime);
+	
+	// 무한맵 Tick
 	InfinityGroundCheck();
 
 	// 디버깅용 UI 렌더링
@@ -101,10 +100,18 @@ void APlayGameMode::Tick(float _DeltaTime)
 
 }
 
+// 마우스 커서를 스폰 시키는 함수
+void APlayGameMode::MouseCursorToTick(float _DeltaTime)
+{
+	AHoloMouse::CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
+	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::CursorPosZero.X - 640, APlayer::PlayerPosZero.Y - AHoloMouse::CursorPosZero.Y + 360 };
+	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
+}
+
 
 // ========== 무한 맵 기능이 담긴 함수들==========
 // 
-// 타일의 크기를 절반으로 해줘서 카메라와 플레이어의 위치를 가운데로 정렬
+//
 float4 APlayGameMode::IndexToCenterPos(FIntPoint _Index)
 {
 	float4 Pos;

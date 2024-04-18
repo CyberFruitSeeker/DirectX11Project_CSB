@@ -42,6 +42,7 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void MouseCursorToTick(float _DeltaTime);
 	
 
 	std::shared_ptr<APlayer> Player;

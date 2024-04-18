@@ -1,4 +1,5 @@
 #include "PreCompile.h"
+#include "Player.h"
 #include "HoloMouse.h"
 
 float4 AHoloMouse::CursorPosZero = FVector::Zero;
@@ -24,7 +25,7 @@ void AHoloMouse::BeginPlay()
 
 	MouseCursorOff();
 	Renderer->SetSprite("GameCursor_0.png");
-	Renderer->SetAutoSize(1.0f, true);
+	Renderer->SetAutoSize(0.75f, true);
 	Renderer->SetOrder(ERenderingOrder::MouseCursor);
 
 	CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
