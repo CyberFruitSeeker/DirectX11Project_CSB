@@ -29,6 +29,18 @@ enum class ERenderingOrder
 	Object,
 };
 
+enum class EPlayerDir
+{
+	S,
+	SW,
+	W,
+	NW,
+	N,
+	NE,
+	E,
+	SE,
+};
+
 //enum class EMonsterSpawnOrder
 //{
 //	FiledSpawnMonster,
