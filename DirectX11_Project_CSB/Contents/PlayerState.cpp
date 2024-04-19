@@ -1,7 +1,7 @@
 #include "PreCompile.h"
 #include "Player.h"
-#include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/Camera.h>
+#include "HoloMouse.h"
 
 
 // 캐릭터(플레이어)들의 움직임, 애니메이션의 실질적인 기능은 이곳에다가 구현한다.
@@ -17,16 +17,16 @@ void APlayer::StateUpdate()
 
 	// Idle, Run, Die 같은 함수들을 세팅
 	PlayerState.SetUpdateFunction("Idle", std::bind(&APlayer::Idle, this, std::placeholders::_1));
-	//PlayerState.SetStartFunction("Idle", std::bind(&APlayer::IdleStart, this));
+	PlayerState.SetStartFunction("Idle", std::bind(&APlayer::IdleStart, this));
 
 	// Idle 상태로 변화하기 위한 것들
-	USpriteRenderer* PlayerRender = Renderer;
+	//USpriteRenderer* PlayerRender = Renderer;
 
 	// 콜백 방식을 사용해본다.
-	PlayerState.SetStartFunction("Idle", [=]
-		{
-			PlayerRender->ChangeAnimation(Name + "_Idle");
-		});
+	//PlayerState.SetStartFunction("Idle", [=]
+	//	{
+	//		PlayerRender->ChangeAnimation(Name + "_Idle");
+	//	});
 
 
 	PlayerState.SetUpdateFunction("Run", std::bind(&APlayer::Run, this, std::placeholders::_1));
@@ -44,10 +44,16 @@ void APlayer::StateUpdate()
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 }
 
-//void APlayer::IdleStart()
-//{
-//	Renderer->ChangeAnimation("GuraIdle");
-//}
+void APlayer::IdleStart()
+{
+	Renderer->ChangeAnimation(Name + "_Idle");
+}
+
+void APlayer::RunStart()
+{
+	Renderer->ChangeAnimation(Name + "_Run");
+	
+}
 
 void APlayer::Idle(float _DeltaTime)
 {
@@ -65,13 +71,6 @@ void APlayer::Die(float _DeltaTime)
 
 }
 
-
-
-void APlayer::RunStart()
-{
-	Renderer->ChangeAnimation(Name + "_Run");
-	
-}
 
 void APlayer::Run(float _DeltaTime)
 {

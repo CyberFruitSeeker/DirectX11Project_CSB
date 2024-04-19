@@ -52,6 +52,16 @@ void APlayer::BeginPlay()
 	Renderer->SetOrder(ERenderingOrder::Player);
 
 
+	// 화살표
+	//ArrowCursor->SetSprite("Arrow_1.png");
+	//ArrowCursor->SetAutoSize(1.0f, true);
+	//ArrowCursor->SetOrder(ERenderingOrder::Player);
+
+	//FVector MyCursor = FVector{ PlayerPosZero.X,PlayerPosZero.Y + 20.0f };
+	//ArrowCursor->SetPosition(MyCursor);
+
+
+
 	StateUpdate();
 	
 }
@@ -69,6 +79,7 @@ void APlayer::Tick(float _DeltaTime)
 
 	//ChangeMouseAimAttackDir();
 
+	//ArrowCursorChange();
 
 }
 
@@ -79,109 +90,118 @@ void APlayer::CreatePlayerAnimation(std::string _Name)
 	Renderer->CreateAnimation(_Name + "_Run", _Name, 0.065f, true, (3, 4, 5), (6, 7, 8));
 }
 
-void APlayer::ChangeMouseAimAttackDir()
+void APlayer::ArrowCursorChange()
 {
-
+	if (false == AHoloMouse::MouseAimOn)
+	{
+		ArrowCursor->SetSprite("Arrow_1.png");
+		ArrowCursor->SetAutoSize(1.0f, true);
+	}
+	if (true == AHoloMouse::MouseAimOn)
+	{
+		ArrowCursor->SetSprite("Arrow_2.png");
+		ArrowCursor->SetAutoSize(1.0f, true);
+	}
 }
 
 // 키입력과 플레이어의 방향에 따른 Arrow Dir의 변화 
-//void APlayer::PlayerCursorDirCheck()
-//{
-//	// None 상태를 설정해주고
-//	EPlayerDir InputDir = EPlayerDir::None;
-//
-//	// 키 입력이 처음 들어올때
-//	if (true == IsDown('W'))
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
-//		InputDir = EPlayerDir::N;
-//	}
-//	if (true == IsDown('S'))
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
-//		InputDir = EPlayerDir::S;
-//	}
-//	if (true == IsDown('A'))
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
-//		InputDir = EPlayerDir::W;
-//	}
-//	if (true == IsDown('D'))
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
-//		InputDir = EPlayerDir::E;
-//	}
-//
-//
-//	// 두 키를 동시에 입력 == 남서, 북서, 북동, 남동쪽으로 갈때
-//	if (PlayerDir == EPlayerDir::NE)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,45.0f });
-//		InputDir = EPlayerDir::E;
-//	}
-//
-//	if (PlayerDir == EPlayerDir::SE)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,315.0f });
-//		InputDir = EPlayerDir::E;
-//	}
-//
-//	if (PlayerDir == EPlayerDir::SW)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,225.0f });
-//		InputDir = EPlayerDir::W;
-//	}
-//
-//	if (PlayerDir == EPlayerDir::NW)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,135.0f });
-//		InputDir = EPlayerDir::W;
-//	}
-//
-//
-//	// 한 키만 눌렀을때 == 한 방향으로 갈때
-//	if (PlayerDir == EPlayerDir::N)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
-//	}
-//
-//	if (PlayerDir == EPlayerDir::S)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
-//	}
-//
-//	if (PlayerDir == EPlayerDir::W)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
-//	}
-//
-//	if (PlayerDir == EPlayerDir::E)
-//	{
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
-//	}
-//
-//
-//}
-//
-//void APlayer::ChangeMouseAimAttackDir()
-//{
-//	if (true == AHoloMouse::MouseAimOn)
-//	{
-//		PlayerAngle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPosZero.Y), (HoloCureConstValue::PlayLevelMousePos.X - APlayer::PlayerPosZero.X)) * 180.0f / UEngineMath::PI;
-//		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,PlayerAngle });
-//
-//		if (-90.0f <= PlayerAngle && 90.0f > PlayerAngle)
-//		{
-//			Renderer->SetDir(EEngineDir::Right);
-//		}
-//		else
-//		{
-//			Renderer->SetDir(EEngineDir::Left);
-//		}
-//
-//
-//	}
-//}
+void APlayer::PlayerCursorDirCheck()
+{
+	// None 상태를 설정해주고
+	EPlayerDir InputDir = EPlayerDir::None;
+
+	// 키 입력이 처음 들어올때
+	if (true == IsDown('W'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
+		InputDir = EPlayerDir::N;
+	}
+	if (true == IsDown('S'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
+		InputDir = EPlayerDir::S;
+	}
+	if (true == IsDown('A'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
+		InputDir = EPlayerDir::W;
+	}
+	if (true == IsDown('D'))
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
+		InputDir = EPlayerDir::E;
+	}
+
+
+	// 두 키를 동시에 입력 == 남서, 북서, 북동, 남동쪽으로 갈때
+	if (PlayerDir == EPlayerDir::NE)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,45.0f });
+		InputDir = EPlayerDir::E;
+	}
+
+	if (PlayerDir == EPlayerDir::SE)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,315.0f });
+		InputDir = EPlayerDir::E;
+	}
+
+	if (PlayerDir == EPlayerDir::SW)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,225.0f });
+		InputDir = EPlayerDir::W;
+	}
+
+	if (PlayerDir == EPlayerDir::NW)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,135.0f });
+		InputDir = EPlayerDir::W;
+	}
+
+
+	// 한 키만 눌렀을때 == 한 방향으로 갈때
+	if (PlayerDir == EPlayerDir::N)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
+	}
+
+	if (PlayerDir == EPlayerDir::S)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
+	}
+
+	if (PlayerDir == EPlayerDir::W)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
+	}
+
+	if (PlayerDir == EPlayerDir::E)
+	{
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
+	}
+
+
+}
+
+void APlayer::ChangeMouseAimAttackDir()
+{
+	if (true == AHoloMouse::MouseAimOn)
+	{
+		PlayerAngle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPosZero.Y), (HoloCureConstValue::PlayLevelMousePos.X - APlayer::PlayerPosZero.X)) * 180.0f / UEngineMath::PI;
+		PlayerCursor->SetRotationDeg(FVector{ 0.0f,0.0f,PlayerAngle });
+
+		if (-90.0f <= PlayerAngle && 90.0f > PlayerAngle)
+		{
+			Renderer->SetDir(EEngineDir::Right);
+		}
+		else
+		{
+			Renderer->SetDir(EEngineDir::Left);
+		}
+
+
+	}
+}
 
 
 

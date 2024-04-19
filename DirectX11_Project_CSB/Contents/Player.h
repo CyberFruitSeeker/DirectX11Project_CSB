@@ -2,6 +2,7 @@
 #include <EngineCore/Actor.h>
 #include <EngineCore/StateManager.h>
 #include "HoloCureEnum.h"
+#include "HoloMouse.h"
 
 class USpriteRenderer;
 class APlayer : public AActor
@@ -53,18 +54,20 @@ protected:
 	//void PlayerMove(float _DeltaTime);
 
 	void Idle(float _DeltaTime);
-	//void IdleStart();
+	void IdleStart();
 	void Run(float _DeltaTime);
 	void RunStart();
 	void Die(float _DeltaTime);
 	
 	void CreatePlayerAnimation(std::string _Name);
 
+	void ArrowCursorChange();
+
 	// 플레이어의 방향에 따라 같이 움직이는 Arrow
 	//void CheckArrowModeChange();
 	//void ChangeArrowDirMove();
 
-	//void PlayerCursorDirCheck();
+	void PlayerCursorDirCheck();
 
 	void ChangeMouseAimAttackDir();
 
@@ -96,7 +99,8 @@ private:
 	// 플레이어 스테이터스
 	int HP = 100;
 	float Attack = 1;
-	float Speed = 200.0f;
+
+	float Speed = 300.0f;
 	float LineSpeed = Speed * 0.75f;
 
 
