@@ -24,10 +24,10 @@ public:
 	UStateManager PlayerState;
 
 	// 캐릭터가 어떤 이름의 동작을 가진 것을 수행할 것인가?
-	void SetName(std::string _Name)
-	{
-		Name = _Name;
-	}
+	//void SetName(std::string _Name)
+	//{
+	//	Name = _Name;
+	//}
 
 	// 캐릭터가 어느 방향으로 바라보고, 가고있는가?
 	EPlayerDir GetPlayerDir()
@@ -53,7 +53,7 @@ protected:
 	//void PlayerMove(float _DeltaTime);
 
 	void Idle(float _DeltaTime);
-	void IdleStart();
+	//void IdleStart();
 	void Run(float _DeltaTime);
 	void RunStart();
 	void Die(float _DeltaTime);
@@ -64,7 +64,7 @@ protected:
 	//void CheckArrowModeChange();
 	//void ChangeArrowDirMove();
 
-	void PlayerCursorDirCheck();
+	//void PlayerCursorDirCheck();
 
 	void ChangeMouseAimAttackDir();
 
@@ -80,6 +80,7 @@ private:
 	USpriteRenderer* Renderer;
 	USpriteRenderer* AttackDir;
 	USpriteRenderer* PlayerCursor;
+	USpriteRenderer* ArrowCursor;
 	UCollision* Collision;
 
 	std::shared_ptr<UCamera> Camera;

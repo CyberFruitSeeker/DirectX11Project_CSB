@@ -45,10 +45,7 @@ void APlayGameMode::BeginPlay()
 
 
 	// 마우스 커서 스폰
-	MouseCursor = GetWorld()->SpawnActor<AHoloMouse>("Mouse");
-	AHoloMouse::MouseAimOn = false;
-	AHoloMouse::CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
-	MouseCursor->SetActorLocation(AHoloMouse::CursorPosZero);
+	MouseCursor = GetWorld()->SpawnActor<AHoloMouse>("MouseCursor");
 
 
 	// push back을 사용하여 무한맵을 가동시키는 for문
@@ -84,9 +81,11 @@ void APlayGameMode::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 
 	// 마우스 커서 Tick
-	MouseCursorToTick(_DeltaTime);
-	
-	// 무한맵 Tick
+	AHoloMouse::MousePosZero = GEngine->EngineWindow.GetScreenMousePos();
+	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::MousePosZero.X - 640,APlayer::PlayerPosZero.Y - AHoloMouse::MousePosZero.Y + 360 };
+	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
+
+	// (스테이지1)무한맵 Tick
 	InfinityGroundCheck();
 
 	// 디버깅용 UI 렌더링
@@ -102,12 +101,12 @@ void APlayGameMode::Tick(float _DeltaTime)
 }
 
 // 마우스 커서를 스폰 시키는 함수
-void APlayGameMode::MouseCursorToTick(float _DeltaTime)
-{
-	AHoloMouse::CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
-	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::CursorPosZero.X - 640, APlayer::PlayerPosZero.Y - AHoloMouse::CursorPosZero.Y + 360 };
-	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
-}
+//void APlayGameMode::MouseCursorToTick(float _DeltaTime)
+//{
+//	AHoloMouse::MousePosZero = GEngine->EngineWindow.GetScreenMousePos();
+//	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::MousePosZero.X - 640, APlayer::PlayerPosZero.Y - AHoloMouse::MousePosZero.Y + 360 };
+//	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
+//}
 
 
 // ========== 무한 맵 기능이 담긴 함수들==========

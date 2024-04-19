@@ -79,6 +79,11 @@ void APlayer::CreatePlayerAnimation(std::string _Name)
 	Renderer->CreateAnimation(_Name + "_Run", _Name, 0.065f, true, (3, 4, 5), (6, 7, 8));
 }
 
+void APlayer::ChangeMouseAimAttackDir()
+{
+
+}
+
 // 키입력과 플레이어의 방향에 따른 Arrow Dir의 변화 
 //void APlayer::PlayerCursorDirCheck()
 //{

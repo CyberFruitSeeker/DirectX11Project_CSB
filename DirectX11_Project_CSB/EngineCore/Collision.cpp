@@ -3,11 +3,11 @@
 #include "EngineDebug3D.h"
 #include "EngineCore.h"
 
-UCollision::UCollision() 
+UCollision::UCollision()
 {
 }
 
-UCollision::~UCollision() 
+UCollision::~UCollision()
 {
 }
 
@@ -102,7 +102,7 @@ bool UCollision::Collision(int _TargetGroup,
 			//	}
 			//}
 
-			
+
 			if (true == OtherCheck.contains(CollisionPtr))
 			{
 				if (nullptr != _Stay)
@@ -111,7 +111,7 @@ bool UCollision::Collision(int _TargetGroup,
 				}
 			}
 		}
-		else if(true == OtherCheck.contains(CollisionPtr))
+		else if (true == OtherCheck.contains(CollisionPtr))
 		{
 			OtherCheck.erase(CollisionPtr);
 			if (nullptr != _Exit)
@@ -173,7 +173,7 @@ void UCollision::Tick(float _Delta)
 		float4x4 PPos;
 
 		PScale.Scale(Scale);
-		PPos.Scale(Pos);
+		PPos.Position(Pos);
 
 		Trans.World = Trans.ScaleMat * Trans.PositionMat * PScale * PPos;
 		Trans.WVP = Trans.World * Trans.View * Trans.Projection;

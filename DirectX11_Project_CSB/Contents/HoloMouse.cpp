@@ -2,16 +2,16 @@
 #include "Player.h"
 #include "HoloMouse.h"
 
-float4 AHoloMouse::CursorPosZero = FVector::Zero;
+float4 AHoloMouse::MousePosZero = FVector::Zero;
 bool AHoloMouse::MouseAimOn = false;
 
 AHoloMouse::AHoloMouse()
 {
 	UDefaultSceneComponent* Root = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
-
-	SetRoot(Root);
 	Renderer->SetupAttachment(Root);
+	SetRoot(Root);
+
 	InputOn();
 }
 
@@ -28,7 +28,7 @@ void AHoloMouse::BeginPlay()
 	Renderer->SetAutoSize(0.75f, true);
 	Renderer->SetOrder(ERenderingOrder::MouseCursor);
 
-	CursorPosZero = GEngine->EngineWindow.GetScreenMousePos();
+	MousePosZero = GEngine->EngineWindow.GetScreenMousePos();
 }
 
 void AHoloMouse::Tick(float _DeltaTime)
@@ -37,6 +37,8 @@ void AHoloMouse::Tick(float _DeltaTime)
 
 	ChangeCursorAimMode();
 	CheckCursorAimMode();
+
+	SetMousePos();
 
 }
 
@@ -68,7 +70,7 @@ void AHoloMouse::CheckCursorAimMode()
 	{
 		MouseCursorOff();
 		Renderer->SetSprite("GameCursor_0.png");
-		Renderer->SetPivot(EPivot::LEFTTOP);
+		//Renderer->SetPivot(EPivot::);
 	}
 	else
 	{
@@ -76,5 +78,14 @@ void AHoloMouse::CheckCursorAimMode()
 		Renderer->SetSprite("GameCursor_1.png");
 		Renderer->SetPivot(EPivot::MAX);
 	}
+
+}
+
+void AHoloMouse::SetMousePos()
+{
+	FVector MyPos = APlayer::PlayerPosZero;
+	MousePosZero = GEngine->EngineWindow.GetScreenMousePos();
+	FVector MouseLocation = FVector{ MyPos.X + MousePosZero.X - 640,MyPos.Y - MousePosZero.Y + 360 };
+
 
 }

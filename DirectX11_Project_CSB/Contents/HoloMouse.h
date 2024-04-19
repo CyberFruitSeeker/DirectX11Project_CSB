@@ -7,7 +7,7 @@ class AHoloMouse : public AActor
 {
 	GENERATED_BODY(AActor)
 public:
-	static float4 CursorPosZero;
+	static float4 MousePosZero;
 	static bool MouseAimOn;
 	
 	// constrcuter destructer
@@ -27,6 +27,8 @@ protected:
 	void MouseCursorOff();
 	void ChangeCursorAimMode();
 	void CheckCursorAimMode();
+
+	void SetMousePos();
 
 	USpriteRenderer* Renderer;
 

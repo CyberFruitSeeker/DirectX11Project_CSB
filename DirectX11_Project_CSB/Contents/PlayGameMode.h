@@ -49,7 +49,7 @@ protected:
 	std::shared_ptr<AHoloMouse> MouseCursor;
 
 
-	// (스테이지1)무한맵을 구현하기 위한 함수들
+	// (스테이지1)무한맵을 구현하기 위한 함수 및 기능들
 	std::vector <std::shared_ptr<APlayBackLayer>> Grounds;
 	float4 IndexToCenterPos(FIntPoint _Index);
 	FIntPoint PosToIndex(float4 _Pos);
