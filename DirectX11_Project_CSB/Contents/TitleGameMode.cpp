@@ -5,6 +5,7 @@
 
 ATitleGameMode::ATitleGameMode()
 {
+	InputOn();
 }
 
 ATitleGameMode::~ATitleGameMode()

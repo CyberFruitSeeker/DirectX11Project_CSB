@@ -21,6 +21,13 @@ APlayer::APlayer()
 	AttackDir->SetupAttachment(Root);
 	AttackDir->SetPivot(EPivot::MAX);
 
+	Collision = CreateDefaultSubObject<UCollision>("Collision");
+	Collision->SetupAttachment(Root);
+	
+	Collision->SetCollisionGroup(ECollisionOrder::Player);
+	Collision->SetCollisionType(ECollisionType::Rect);
+
+
 	SetRoot(Root);
 	InputOn();
 }

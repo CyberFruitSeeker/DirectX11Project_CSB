@@ -7,8 +7,7 @@
 // 캐릭터(플레이어)들의 움직임, 애니메이션의 실질적인 기능은 이곳에다가 구현한다.
 void APlayer::StateUpdate()
 {
-	// 카메라 세팅
-	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
+	
 
 	// 플레이어 스테이트 세팅
 	PlayerState.CreateState("Idle");
@@ -40,6 +39,9 @@ void APlayer::StateUpdate()
 	// 이동키를 입력하지 않을때, 구라를 Idle 상태로 체인지
 	PlayerState.ChangeState("Idle");
 
+
+	// 카메라 세팅
+	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 }
 
 //void APlayer::IdleStart()

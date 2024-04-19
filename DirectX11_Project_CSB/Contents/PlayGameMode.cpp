@@ -8,6 +8,7 @@
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineDebugMsgWindow.h>
+#include <EngineCore/BlurEffect.h>
 
 APlayGameMode::APlayGameMode()
 {

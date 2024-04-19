@@ -3,7 +3,6 @@
 #include <EngineCore/StateManager.h>
 #include "HoloCureEnum.h"
 
-
 class USpriteRenderer;
 class APlayer : public AActor
 {
@@ -81,6 +80,7 @@ private:
 	USpriteRenderer* Renderer;
 	USpriteRenderer* AttackDir;
 	USpriteRenderer* PlayerCursor;
+	UCollision* Collision;
 
 	std::shared_ptr<UCamera> Camera;
 
