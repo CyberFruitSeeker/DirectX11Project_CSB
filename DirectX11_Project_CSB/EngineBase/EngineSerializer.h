@@ -31,7 +31,7 @@ public:
 
 	void operator<<(UEngineSerializeObject* _Data);
 
-	void operator<<(const int& _Data)
+	void operator<<(const int& _Data) 
 	{
 		Write(&_Data, sizeof(int));
 	}

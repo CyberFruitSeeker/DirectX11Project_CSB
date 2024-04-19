@@ -26,8 +26,8 @@ enum class EPivot
 {
 	RIGHT,
 	BOT,
-	MAX,
 	LEFTTOP,
+	MAX,
 };
 
 enum class EEngineDir
