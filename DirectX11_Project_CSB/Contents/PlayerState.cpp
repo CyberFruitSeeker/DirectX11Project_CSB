@@ -2,46 +2,40 @@
 #include "Player.h"
 #include <EngineCore/Camera.h>
 #include "HoloMouse.h"
+#include "HolocureEnum.h"
 
 
 // 캐릭터(플레이어)들의 움직임, 애니메이션의 실질적인 기능은 이곳에다가 구현한다.
 void APlayer::StateUpdate()
 {
-	
-
 	// 플레이어 스테이트 세팅
 	PlayerState.CreateState("Idle");
 	PlayerState.CreateState("Run");
 	PlayerState.CreateState("Die");
 
 
-	// Idle, Run, Die 같은 함수들을 세팅
+	// Idle, Run, Die 같은 애니메이션 함수들을 세팅
 	PlayerState.SetUpdateFunction("Idle", std::bind(&APlayer::Idle, this, std::placeholders::_1));
 	PlayerState.SetStartFunction("Idle", std::bind(&APlayer::IdleStart, this));
 
 	// Idle 상태로 변화하기 위한 것들
-	//USpriteRenderer* PlayerRender = Renderer;
-
-	// 콜백 방식을 사용해본다.
-	//PlayerState.SetStartFunction("Idle", [=]
-	//	{
-	//		PlayerRender->ChangeAnimation(Name + "_Idle");
-	//	});
-
-
 	PlayerState.SetUpdateFunction("Run", std::bind(&APlayer::Run, this, std::placeholders::_1));
 	PlayerState.SetStartFunction("Run", std::bind(&APlayer::RunStart, this));
 
 	// Die는 추후에 구현
 
-	//Renderer->SetAutoSize(1.0f, true);
-
-	// 이동키를 입력하지 않을때, 구라를 Idle 상태로 체인지
+	// 이동키를 입력하지 않을때, 구라(캐릭터)를 Idle 상태로 체인지
+	Renderer->SetAutoSize(1.5f, true);
 	PlayerState.ChangeState("Idle");
 
 
 	// 카메라 세팅
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
+}
+
+void APlayer::Die(float _DeltaTime)
+{
+
 }
 
 void APlayer::IdleStart()
@@ -66,68 +60,96 @@ void APlayer::Idle(float _DeltaTime)
 
 }
 
-void APlayer::Die(float _DeltaTime)
-{
-
-}
-
-
 void APlayer::Run(float _DeltaTime)
 {
 
-	// 방향키 입력에 따른 카메라 추적 기능
+	// 방향키 입력에 따라서 카메라가 따라가줘야 하니깐
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 
-	// 방향 이동 WASD에 따른 Run과 Idle 전환
-	float Speed = 255.5f;
 
-	if (true == IsPress('A'))
+
+	if (true == IsPress('W') && true == IsPress('A'))
+	{
+		AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
+		Renderer->SetDir(EEngineDir::Left);
+		AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
+		DirState = EPlayerDir::NW;
+	}
+	else if (true == IsPress('W') && true == IsPress('D'))
+	{
+		AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
+		Renderer->SetDir(EEngineDir::Right);
+		AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
+		DirState = EPlayerDir::NE;
+	}
+	else if (true == IsPress('S') && true == IsPress('A'))
+	{
+		AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
+		Renderer->SetDir(EEngineDir::Left);
+		AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
+		DirState = EPlayerDir::SW;
+	}
+	else if (true == IsPress('S') && true == IsPress('D'))
+	{
+		AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
+		Renderer->SetDir(EEngineDir::Right);
+		AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
+		Camera->AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
+		DirState = EPlayerDir::SE;
+	}
+
+	else if (true == IsPress('A'))
 	{
 		Renderer->SetDir(EEngineDir::Left);
-		Camera->AddActorLocation(FVector::Left * _DeltaTime * Speed);
 		AddActorLocation(FVector::Left * _DeltaTime * Speed);
-		PlayerDir = EPlayerDir::W;
-	}
+		Camera->AddActorLocation(FVector::Left * _DeltaTime * Speed);
+		DirState = EPlayerDir::W;
 
-	if (true == IsUp('A'))
+	}
+	else if (true == IsUp('A'))
 	{
 		Renderer->SetDir(EEngineDir::Left);
 		PlayerState.ChangeState("Idle");
 	}
 
-	if (true == IsPress('D'))
+	else if (true == IsPress('D'))
 	{
 		Renderer->SetDir(EEngineDir::Right);
-		Camera->AddActorLocation(FVector::Right * _DeltaTime * Speed);
 		AddActorLocation(FVector::Right * _DeltaTime * Speed);
-		
+		Camera->AddActorLocation(FVector::Right * _DeltaTime * Speed);
+		DirState = EPlayerDir::E;
 	}
-
-	if (true == IsUp('D'))
+	else if (true == IsUp('D'))
 	{
-		
 		Renderer->SetDir(EEngineDir::Right);
 		PlayerState.ChangeState("Idle");
 	}
 
-	if (true == IsPress('W'))
+	else if (true == IsPress('W'))
 	{
-		Camera->AddActorLocation(FVector::Up * _DeltaTime * Speed);
 		AddActorLocation(FVector::Up * _DeltaTime * Speed);
+		Camera->AddActorLocation(FVector::Up * _DeltaTime * Speed);
+		DirState = EPlayerDir::N;
 	}
-
-	if (true == IsUp('W'))
+	else if (true == IsUp('W'))
 	{
 		PlayerState.ChangeState("Idle");
 	}
 
-	if (true == IsPress('S'))
+	else if (true == IsPress('S'))
 	{
-		Camera->AddActorLocation(FVector::Down * _DeltaTime * Speed);
 		AddActorLocation(FVector::Down * _DeltaTime * Speed);
+		Camera->AddActorLocation(FVector::Down * _DeltaTime * Speed);
+		DirState = EPlayerDir::S;
 	}
-
-	if (true == IsUp('S'))
+	else if (true == IsUp('S'))
 	{
 		PlayerState.ChangeState("Idle");
 	}
@@ -142,33 +164,9 @@ void APlayer::Run(float _DeltaTime)
 	//		//AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
 	//		//Color.X += _DeltaTime;
 	//	}
+	//
+	// 요런식으로 회전 기능을 필요할때 추가해본다.
 
-	//	if (true == IsPress(VK_NUMPAD2))
-	//	{
-	//		Color.X -= _DeltaTime;
-	//	}
-
-	//	if (true == IsPress(VK_NUMPAD4))
-	//	{
-	//		Color.Y += _DeltaTime;
-	//	}
-
-	//	if (true == IsPress(VK_NUMPAD5))
-	//	{
-	//		Color.Y -= _DeltaTime;
-	//	}
-
-	//	if (true == IsPress(VK_NUMPAD7))
-	//	{
-	//		Color.Z += _DeltaTime;
-	//	}
-
-	//	if (true == IsPress(VK_NUMPAD8))
-	//	{
-	//		Color.Z -= _DeltaTime;
-	//	}
-
-	//}
 
 
 }

@@ -7,8 +7,8 @@ class AHoloMouse : public AActor
 {
 	GENERATED_BODY(AActor)
 public:
-	static float4 MousePosZero;
-	static bool MouseAimOn;
+	static FVector MousePos;
+	static bool MouseCursorOn;
 	
 	// constrcuter destructer
 	AHoloMouse();

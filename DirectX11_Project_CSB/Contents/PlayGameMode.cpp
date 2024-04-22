@@ -8,7 +8,6 @@
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineDebugMsgWindow.h>
-#include <EngineCore/BlurEffect.h>
 
 APlayGameMode::APlayGameMode()
 {
@@ -34,6 +33,7 @@ void APlayGameMode::BeginPlay()
 
 	// (PlayLevel 시작할때) 맵에서 카메라 위치 세팅
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
+	Camera->SetActorLocation({ 0.0f, 0.0f, -200.0f });
 	float4 CameraPos = PlayerStartPos;
 	CameraPos.Z = -500.0f;
 	Camera->SetActorLocation(CameraPos);
@@ -41,8 +41,8 @@ void APlayGameMode::BeginPlay()
 
 	// 플레이어 스폰
 	Player = GetWorld()->SpawnActor<APlayer>("Player");
-	Player->SetActorLocation(PlayerStartPos);
 	Player->SetName("Gura");
+	Player->SetActorLocation(PlayerStartPos);
 
 
 	// 마우스 커서 스폰
@@ -82,8 +82,8 @@ void APlayGameMode::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 
 	// 마우스 커서 Tick
-	AHoloMouse::MousePosZero = GEngine->EngineWindow.GetScreenMousePos();
-	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::MousePosZero.X - 640,APlayer::PlayerPosZero.Y - AHoloMouse::MousePosZero.Y + 360 };
+	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640,APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
 	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
 
 	// (스테이지1)무한맵 Tick
@@ -104,8 +104,8 @@ void APlayGameMode::Tick(float _DeltaTime)
 // 마우스 커서를 스폰 시키는 함수
 //void APlayGameMode::MouseCursorToTick(float _DeltaTime)
 //{
-//	AHoloMouse::MousePosZero = GEngine->EngineWindow.GetScreenMousePos();
-//	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPosZero.X + AHoloMouse::MousePosZero.X - 640, APlayer::PlayerPosZero.Y - AHoloMouse::MousePosZero.Y + 360 };
+//	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
+//	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640, APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
 //	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
 //}
 

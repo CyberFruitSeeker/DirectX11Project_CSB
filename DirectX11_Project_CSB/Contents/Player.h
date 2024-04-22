@@ -10,7 +10,7 @@ class APlayer : public AActor
 	GENERATED_BODY(AActor)
 
 public:
-	static FVector PlayerPosZero;
+	static FVector PlayerPos;
 
 	// constrcuter destructer
 	APlayer();
@@ -33,7 +33,7 @@ public:
 	// 캐릭터가 어느 방향으로 바라보고, 가고있는가?
 	EPlayerDir GetPlayerDir()
 	{
-		return PlayerDir;
+		return DirState;
 	}
 
 	// 8방향 각도
@@ -59,6 +59,7 @@ protected:
 	void RunStart();
 	void Die(float _DeltaTime);
 	
+	std::string Name = "Gura";
 	void CreatePlayerAnimation(std::string _Name);
 
 	void ArrowCursorChange();
@@ -68,7 +69,6 @@ protected:
 	//void ChangeArrowDirMove();
 
 	void PlayerCursorDirCheck();
-
 	void ChangeMouseAimAttackDir();
 
 
@@ -80,21 +80,24 @@ protected:
 
 
 private:
+	// 필드 변수 및 함수 명칭 일치시킬 것
+	// => 그렇지 않으면 빌드에러 발생함
+	
 	USpriteRenderer* Renderer;
-	USpriteRenderer* AttackDir;
-	USpriteRenderer* PlayerCursor;
+	//USpriteRenderer* AttackDir;
+	//USpriteRenderer* PlayerCursor;
 	USpriteRenderer* ArrowCursor;
 	UCollision* Collision;
 
-	std::shared_ptr<UCamera> Camera;
+	//std::shared_ptr<UCamera> Camera;
 
 	float4 Color;
 	float4 MousePos;
 	float PlayerAngle;
 	//UStateManager PlayerState;
 	
-	std::string Name = "Gura";
-	EPlayerDir PlayerDir = EPlayerDir::None;
+	
+	EPlayerDir DirState = EPlayerDir::None;
 	
 	// 플레이어 스테이터스
 	int HP = 100;
