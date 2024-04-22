@@ -25,7 +25,7 @@ void APlayer::StateUpdate()
 	// Die는 추후에 구현
 
 	// 이동키를 입력하지 않을때, 구라(캐릭터)를 Idle 상태로 체인지
-	Renderer->SetAutoSize(1.5f, true);
+	Renderer->SetAutoSize(1.3f, true);
 	PlayerState.ChangeState("Idle");
 
 

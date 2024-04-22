@@ -21,7 +21,6 @@ APlayer::APlayer()
 
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
-
 	Collision->SetCollisionGroup(ECollisionOrder::Player);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
@@ -38,8 +37,8 @@ void APlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UEngineSerializer Serial;
-	Serial << this;
+	//UEngineSerializer Serial;
+	//Serial << this;
 
 
 
@@ -185,7 +184,8 @@ void APlayer::ChangeMouseAimAttackDir()
 {
 	if (true == AHoloMouse::MouseCursorOn)
 	{
-		PlayerAngle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPos.Y), (HoloCureConstValue::PlayLevelMousePos.X - APlayer::PlayerPos.X)) * 180.0f / UEngineMath::PI;
+		PlayerAngle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPos.Y),
+			(HoloCureConstValue::PlayLevelMousePos.X - APlayer::PlayerPos.X)) * 180.0f / UEngineMath::PI;
 		ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
 
 		if (-90.0f <= PlayerAngle && 90.0f > PlayerAngle)

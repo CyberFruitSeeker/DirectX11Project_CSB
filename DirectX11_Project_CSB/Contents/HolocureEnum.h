@@ -23,9 +23,12 @@ enum class ERenderingOrder
 	Front,
 	Player,
 	MouseCursor,
+	MonsterUp,
+	MonsterDown,
 	FiledSpawnMonster,
 	SuddenSpawnMonster,
 	BossMonster,
+	AttackEffect,
 	Item,
 	Object,
 };
@@ -44,11 +47,22 @@ enum class EPlayerDir
 	NW,
 };
 
-//enum class EActorDir
-//{
-//	Left,
-//	Right,
-//};
+enum class EActorDir
+{
+	Left,
+	Right,
+};
+
+enum class EMonsterMoveType
+{
+	Follow,
+	StraightToPlayer,
+	StraightToUp,
+	StraightToDown,
+	StraightToRight,
+	StraightToLeft,
+	Stop,
+};
 
 //enum class EMonsterSpawnOrder
 //{
