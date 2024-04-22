@@ -42,12 +42,11 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void MouseCursorToTick(float _DeltaTime);
+	void MouseCursorToTick();
 	
 
 	std::shared_ptr<APlayer> Player;
 	std::shared_ptr<AHoloMouse> MouseCursor;
-
 	std::shared_ptr<AMonster> Monster;
 
 
@@ -59,11 +58,13 @@ protected:
 	void InfinityGroundCheck();
 	void InfinityMapSpawn();
 
-	// 몬스터
+
+	// 몬스터 랜덤 생성 & 스폰
 	void SpawnMonster(std::string _Name, float4 _Location);
 	void SpawnMonsterTimeSet(float _DeltaTime, float _SpawnBegin, float _SpawnEnd, float _Term, std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group = false, int _Quantity = 1);
 	void RandomSpawnMonster(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity);
 	void MonsterSpawnTick(float _DeltaTime);
+	float4 RandomLocation(bool _Group);
 
 
 	

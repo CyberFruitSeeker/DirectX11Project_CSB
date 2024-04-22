@@ -8,6 +8,7 @@
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineDebugMsgWindow.h>
+#include <EngineBase/EngineRandom.h>
 
 APlayGameMode::APlayGameMode()
 {
@@ -25,7 +26,7 @@ void APlayGameMode::BeginPlay()
 	//
 
 	//Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
-	
+
 	// 무한맵을 가동시키기 전에 맵 이미지부터 찾아주고
 	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_06.png");
 	CurIndex = { 0,0 };
@@ -59,9 +60,10 @@ void APlayGameMode::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 
 	// 마우스 커서 Tick
-	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
-	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640,APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
-	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
+	MouseCursorToTick();
+	//AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	//HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640,APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
+	//MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
 
 	// (스테이지1)무한맵 Tick
 	InfinityGroundCheck();
@@ -69,10 +71,35 @@ void APlayGameMode::Tick(float _DeltaTime)
 	// 디버깅용 UI 렌더링
 	PlayingDebugTextUI();
 
+	// 몬스터 스폰 Tick
+	//SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 5.0f,
+	//	"Deadbeat", 1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow,
+	//	false, 5);
+	MonsterSpawnTick(_DeltaTime);
+
+	PlayTime += _DeltaTime;
 
 }
 
+// ========== Tick 에서 돌려주는 함수들 ==========
+// 몬스터
+void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
+{
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 5.0f, "Deadbeat", 
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 15);
 
+	SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 5.0f, "DeadbeatBat",
+		1.5f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 5);
+
+	SpawnMonsterTimeSet(_DeltaTime, 1.5f, 40.0f, 5.0f, "DeadbeatGang",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 5);
+
+	SpawnMonsterTimeSet(_DeltaTime, 2.0f, 40.0f, 5.0f, "DeadbeatShield",
+		2.5f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
+
+}
+
+// 디버깅 창
 void APlayGameMode::PlayingDebugTextUI()
 {
 	float4 PlayerPos = Player->GetActorLocation();
@@ -81,18 +108,19 @@ void APlayGameMode::PlayingDebugTextUI()
 	UEngineDebugMsgWindow::PushMsg(std::format("PlayerPos : {}", PlayerPos.ToString()));
 	UEngineDebugMsgWindow::PushMsg(std::format("PlayerIndex : {}, {}", Index.X, Index.Y));
 
+	// 8축 방향을 표시해주는 것도 추가해본다.
+
 
 
 }
 
-
-// 마우스 커서를 스폰 시키는 함수
-//void APlayGameMode::MouseCursorToTick(float _DeltaTime)
-//{
-//	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
-//	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640, APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
-//	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
-//}
+// 마우스 커서
+void APlayGameMode::MouseCursorToTick()
+{
+	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640, APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
+	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
+}
 
 
 // ========== 무한 맵 기능이 담긴 함수들==========
@@ -206,18 +234,81 @@ void APlayGameMode::InfinityMapSpawn()
 // ============== 몬스터 (랜덤)배치, 스폰 기능들 ==============
 void APlayGameMode::SpawnMonster(std::string _Name, float4 _Location)
 {
+	std::shared_ptr<AMonster> Monster;
+	Monster = GetWorld()->SpawnActor<AMonster>(_Name);
+	Monster->SetActorLocation(_Location);
 }
 
-void APlayGameMode::SpawnMonsterTimeSet(float _DeltaTime, float _SpawnBegin, float _SpawnEnd, float _Term, std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity)
+void APlayGameMode::SpawnMonsterTimeSet(float _DeltaTime, float _SpawnBegin, float _SpawnEnd, float _Term,
+	std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp,
+	EMonsterMoveType _MoveType, bool _Group, int _Quantity)
 {
+	if (PlayTime >= _SpawnBegin && PlayTime < _SpawnEnd)
+	{
+		if (SpawnTerm <= 0)
+		{
+			RandomSpawnMonster(_Name, _Size, _Hp, _Atk, _Speed, _Exp, _MoveType, _Group, _Quantity);
+			SpawnTerm = _Term;
+		}
+		else
+		{
+			SpawnTerm -= _DeltaTime;
+		}
+	}
 }
 
-void APlayGameMode::RandomSpawnMonster(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity)
+void APlayGameMode::RandomSpawnMonster(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp,
+	EMonsterMoveType _MoveType, bool _Group, int _Quantity)
 {
+	if (0 >= _Quantity)
+	{
+		MsgBoxAssert("스폰하려는 몬스터의 수가 0 이하는 좀 이상하잖아..?");
+		return;
+	}
+
+	FVector GroupToPlayerDir;
+
+	for (int i = 0; i < _Quantity; i++)
+	{
+		std::shared_ptr<AMonster> Monster;
+
+		Monster = GetWorld()->SpawnActor<AMonster>(_Name);
+		Monster->GetRenderer()->SetAutoSize(_Size, true);
+		Monster->GetRenderer()->ChangeAnimation(_Name);
+		Monster->SetMonsterStatus(_Hp, _Atk, _Speed, _Exp, _MoveType);
+		FVector GroupPos = RandomLocation(_Group);
+		Monster->SetActorLocation(GroupPos);
+		if (true == _Group)
+		{
+			if (false == GroupSpawn)
+			{
+				GroupToPlayerDir = Monster->CreateGroupToPlayerDir();
+				Monster->SetToPlayerDir(GroupToPlayerDir);
+				GroupSpawn = true;
+			}
+			else
+			{
+				Monster->SetToPlayerDir(GroupToPlayerDir);
+			}
+		}
+		else
+		{
+			FVector Dir = APlayer::PlayerPos - Monster->GetActorLocation();
+			Dir = Dir.Normalize2DReturn();
+			Monster->SetToPlayerDir(Dir);
+		}
+
+	}
+	GroupSpawn = false;
 }
 
-void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
+float4 APlayGameMode::RandomLocation(bool _Group)
 {
+	float4 MonsterPos = APlayer::PlayerPos;
+	MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+	MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+
+	return MonsterPos;
 }
 
 

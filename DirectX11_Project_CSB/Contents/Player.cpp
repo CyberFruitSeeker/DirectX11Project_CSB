@@ -92,12 +92,12 @@ void APlayer::ArrowCursorChange()
 	if (false == AHoloMouse::MouseCursorOn)
 	{
 		ArrowCursor->SetSprite("Arrow_1.png");
-		ArrowCursor->SetAutoSize(1.0f, true);
+		ArrowCursor->SetAutoSize(2.0f, true);
 	}
 	if (true == AHoloMouse::MouseCursorOn)
 	{
 		ArrowCursor->SetSprite("Arrow_2.png");
-		ArrowCursor->SetAutoSize(1.0f, true);
+		ArrowCursor->SetAutoSize(2.0f, true);
 	}
 }
 
