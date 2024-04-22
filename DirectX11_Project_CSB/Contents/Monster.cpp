@@ -48,7 +48,7 @@ void AMonster::Tick(float _DeltaTime)
 
 void AMonster::CreateMonsterAnimation(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.1f, true, 0, 2);
+	Renderer->CreateAnimation(_Name, _Name, 0.35f, true, (0, 1),(1,2));
 }
 
 void AMonster::MonsterPosDirSet(float _DeltaTime)
