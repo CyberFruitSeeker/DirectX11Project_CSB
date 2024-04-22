@@ -37,7 +37,6 @@ void APlayGameMode::BeginPlay()
 	float4 CameraPos = PlayerStartPos;
 	CameraPos.Z = -500.0f;
 	Camera->SetActorLocation(CameraPos);
-	
 
 	// 플레이어 스폰
 	Player = GetWorld()->SpawnActor<APlayer>("Player");
@@ -48,30 +47,8 @@ void APlayGameMode::BeginPlay()
 	// 마우스 커서 스폰
 	MouseCursor = GetWorld()->SpawnActor<AHoloMouse>("MouseCursor");
 
-
-	// push back을 사용하여 무한맵을 가동시키는 for문
-	for (int y = -1; y < 2; y++)
-	{
-		for (int x = -1; x < 2; x++)
-		{
-			std::shared_ptr<APlayBackLayer> Back = GetWorld()->SpawnActor<APlayBackLayer>("PlayBackLayer");
-			Back->SetActorScale3D(HoloCureConstValue::GroundTileSize);
-
-			FIntPoint Point;
-			Point.X = x;
-			Point.Y = y;
-
-			float4 Pos;
-			Pos.X = HoloCureConstValue::GroundTileSize.X * x;
-			Pos.Y = HoloCureConstValue::GroundTileSize.X * y;
-
-			Pos.X = HoloCureConstValue::GroundTileSize.hX();
-			Pos.Y = HoloCureConstValue::GroundTileSize.hY();
-			Back->SetActorLocation(Pos);
-
-			Grounds.push_back(Back);
-		}
-	}
+	// 무한맵 스폰
+	InfinityMapSpawn();
 
 
 
@@ -90,16 +67,24 @@ void APlayGameMode::Tick(float _DeltaTime)
 	InfinityGroundCheck();
 
 	// 디버깅용 UI 렌더링
-	{
-		float4 PlayerPos = Player->GetActorLocation();
-		FIntPoint Index = PosToIndex(PlayerPos);
-		CurIndex = Index;
-		UEngineDebugMsgWindow::PushMsg(std::format("PlayerPos : {}", PlayerPos.ToString()));
-		UEngineDebugMsgWindow::PushMsg(std::format("PlayerIndex : {}, {}", Index.X, Index.Y));
-	}
+	PlayingDebugTextUI();
 
 
 }
+
+
+void APlayGameMode::PlayingDebugTextUI()
+{
+	float4 PlayerPos = Player->GetActorLocation();
+	FIntPoint Index = PosToIndex(PlayerPos);
+	CurIndex = Index;
+	UEngineDebugMsgWindow::PushMsg(std::format("PlayerPos : {}", PlayerPos.ToString()));
+	UEngineDebugMsgWindow::PushMsg(std::format("PlayerIndex : {}, {}", Index.X, Index.Y));
+
+
+
+}
+
 
 // 마우스 커서를 스폰 시키는 함수
 //void APlayGameMode::MouseCursorToTick(float _DeltaTime)
@@ -188,5 +173,55 @@ void APlayGameMode::InfinityGroundCheck()
 		CurIndex = Index;
 	}
 }
+
+void APlayGameMode::InfinityMapSpawn()
+{
+	// push back을 해서 무한맵을 가동시키는 for문
+	for (int y = -1; y < 2; y++)
+	{
+		for (int x = -1; x < 2; x++)
+		{
+			std::shared_ptr<APlayBackLayer> Back = GetWorld()->SpawnActor<APlayBackLayer>("PlayBackLayer");
+			Back->SetActorScale3D(HoloCureConstValue::GroundTileSize);
+
+			FIntPoint Point;
+			Point.X = x;
+			Point.Y = y;
+
+			float4 Pos;
+			Pos.X = HoloCureConstValue::GroundTileSize.X * x;
+			Pos.Y = HoloCureConstValue::GroundTileSize.X * y;
+
+			Pos.X = HoloCureConstValue::GroundTileSize.hX();
+			Pos.Y = HoloCureConstValue::GroundTileSize.hY();
+			Back->SetActorLocation(Pos);
+
+			Grounds.push_back(Back);
+		}
+	}
+
+}
+
+
+// ============== 몬스터 (랜덤)배치, 스폰 기능들 ==============
+void APlayGameMode::SpawnMonster(std::string _Name, float4 _Location)
+{
+}
+
+void APlayGameMode::SpawnMonsterTimeSet(float _DeltaTime, float _SpawnBegin, float _SpawnEnd, float _Term, std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity)
+{
+}
+
+void APlayGameMode::RandomSpawnMonster(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity)
+{
+}
+
+void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
+{
+}
+
+
+
+
 
 
