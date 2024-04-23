@@ -71,10 +71,11 @@ protected:
 	void PlayerCursorDirCheck();
 	void ChangeMouseAimAttackDir();
 
+	void PlayerCollisionInteractiveToMonster();
 
 
-	//void KeyMove(float _DeltaTime, float4 _Dir, float _Speed);
-	//void KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2);
+
+
 
 
 

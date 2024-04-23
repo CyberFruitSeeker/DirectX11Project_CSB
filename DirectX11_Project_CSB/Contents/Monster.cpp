@@ -13,6 +13,7 @@ AMonster::AMonster()
 
 	UCollision* Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
+	Collision->SetScale({ 30.0f,30.0f });
 	Collision->SetCollisionGroup(ECollisionOrder::Monster);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
@@ -31,6 +32,15 @@ void AMonster::BeginPlay()
 	CreateMonsterAnimation("DeadbeatBat");
 	CreateMonsterAnimation("DeadbeatGang");
 	CreateMonsterAnimation("DeadbeatShield");
+	CreateMonsterAnimation("Shrimp");
+	CreateMonsterAnimation("ShrimpDark");
+	CreateMonsterAnimation("Bubba");
+	CreateMonsterAnimation("KFP");
+	CreateMonsterAnimation("Takodachi");
+
+
+
+
 
 	Renderer->SetAutoSize(1.0f, true);
 	Renderer->ChangeAnimation(Name);
@@ -48,7 +58,7 @@ void AMonster::Tick(float _DeltaTime)
 
 void AMonster::CreateMonsterAnimation(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.35f, true, (0, 1),(1,2));
+	Renderer->CreateAnimation(_Name, _Name, 0.25f, true, (0, 1),(1,2));
 }
 
 void AMonster::MonsterPosDirSet(float _DeltaTime)

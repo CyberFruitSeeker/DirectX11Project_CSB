@@ -28,30 +28,6 @@
     <Filter Include="Contents Global Settings\Functions">
       <UniqueIdentifier>{a2b9111f-5b65-4ef3-9dc0-168d16d6da2e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors">
-      <UniqueIdentifier>{fe7fd277-b971-4635-a3b2-cc3f60d80314}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Monsters">
-      <UniqueIdentifier>{ffdf2315-d4d6-4d62-af55-e25c4e610618}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\UI">
-      <UniqueIdentifier>{20c9d18c-63e5-4c96-a128-e2f28ea0d9b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\UI\Mouse Cursor">
-      <UniqueIdentifier>{df83cc8b-1fa8-41ab-9a5b-ffd876eaff0f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Effect">
-      <UniqueIdentifier>{691a9494-e2c4-4841-94c7-1d5bcdd5ca54}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Effect\Player Attack Effect">
-      <UniqueIdentifier>{714bd485-ec9a-4fb8-8e33-c2ae1fb489e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\PlayBackLayer%28Map%29">
-      <UniqueIdentifier>{95b6404a-840b-4384-9b39-5fe640d7fd6e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Player &amp; PlayerState">
-      <UniqueIdentifier>{c0bd684b-b19d-4942-b480-0b4875cbfddb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level%28Play, Title &amp; Ending%29\Title &amp; Ending Level">
       <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
     </Filter>
@@ -63,6 +39,33 @@
     </Filter>
     <Filter Include="Level%28Play, Title &amp; Ending%29\Title &amp; Ending Level\TitleLevel\Actor">
       <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29">
+      <UniqueIdentifier>{fe7fd277-b971-4635-a3b2-cc3f60d80314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters">
+      <UniqueIdentifier>{ffdf2315-d4d6-4d62-af55-e25c4e610618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\UI">
+      <UniqueIdentifier>{20c9d18c-63e5-4c96-a128-e2f28ea0d9b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\UI\Mouse Cursor">
+      <UniqueIdentifier>{df83cc8b-1fa8-41ab-9a5b-ffd876eaff0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect">
+      <UniqueIdentifier>{691a9494-e2c4-4841-94c7-1d5bcdd5ca54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect\Player Attack Effect">
+      <UniqueIdentifier>{714bd485-ec9a-4fb8-8e33-c2ae1fb489e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\PlayBackLayer%28Map%29">
+      <UniqueIdentifier>{95b6404a-840b-4384-9b39-5fe640d7fd6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Player &amp; PlayerState">
+      <UniqueIdentifier>{c0bd684b-b19d-4942-b480-0b4875cbfddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters">
+      <UniqueIdentifier>{1da2db9a-919c-4ba5-b30e-9ea984bb0b29}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,28 +91,34 @@
       <Filter>Contents Global Settings\Functions</Filter>
     </ClCompile>
     <ClCompile Include="PlayBackLayer.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\PlayBackLayer%28Map%29</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\PlayBackLayer%28Map%29</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Player &amp; PlayerState</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Player &amp; PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="PlayerState.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Player &amp; PlayerState</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Player &amp; PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Monsters</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters</Filter>
     </ClCompile>
     <ClCompile Include="HoloMouse.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\UI\Mouse Cursor</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\UI\Mouse Cursor</Filter>
     </ClCompile>
     <ClCompile Include="Melee.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Effect\Player Attack Effect</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect\Player Attack Effect</Filter>
     </ClCompile>
     <ClCompile Include="Ranged.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Effect\Player Attack Effect</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect\Player Attack Effect</Filter>
     </ClCompile>
     <ClCompile Include="BossMonster.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Monsters</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Fubuzilla.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
+    </ClCompile>
+    <ClCompile Include="SmolAme.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,25 +147,31 @@
       <Filter>Contents Global Settings\Functions</Filter>
     </ClInclude>
     <ClInclude Include="PlayBackLayer.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\PlayBackLayer%28Map%29</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\PlayBackLayer%28Map%29</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Player &amp; PlayerState</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Player &amp; PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Monsters</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters</Filter>
     </ClInclude>
     <ClInclude Include="HoloMouse.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\UI\Mouse Cursor</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\UI\Mouse Cursor</Filter>
     </ClInclude>
     <ClInclude Include="Melee.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Effect\Player Attack Effect</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect\Player Attack Effect</Filter>
     </ClInclude>
     <ClInclude Include="Ranged.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Effect\Player Attack Effect</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect\Player Attack Effect</Filter>
     </ClInclude>
     <ClInclude Include="BossMonster.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors\Monsters</Filter>
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Fubuzilla.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
+    </ClInclude>
+    <ClInclude Include="SmolAme.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

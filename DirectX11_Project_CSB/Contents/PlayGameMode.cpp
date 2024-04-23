@@ -81,17 +81,36 @@ void APlayGameMode::Tick(float _DeltaTime)
 // 몬스터
 void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 {
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 5.0f, "Deadbeat", 
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 15);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 7.0f, "Deadbeat", 
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 100);
 
-	SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 5.0f, "DeadbeatBat",
-		1.5f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 5);
+	SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 11.0f, "DeadbeatBat",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
 
-	SpawnMonsterTimeSet(_DeltaTime, 1.5f, 40.0f, 5.0f, "DeadbeatGang",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 5);
+	SpawnMonsterTimeSet(_DeltaTime, 1.5f, 40.0f, 13.0f, "DeadbeatGang",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
 
-	SpawnMonsterTimeSet(_DeltaTime, 2.0f, 40.0f, 5.0f, "DeadbeatShield",
-		2.5f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
+	SpawnMonsterTimeSet(_DeltaTime, 2.0f, 40.0f, 15.0f, "DeadbeatShield",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
+
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 8.0f, "Shrimp",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 150);
+
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 10.0f, "ShrimpDark",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 70);
+
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 11.0f, "Bubba",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 100);
+
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 8.0f, "KFP",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 200);
+
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "Takodachi",
+		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 100);
+
+
+
+
 
 
 
@@ -108,8 +127,37 @@ void APlayGameMode::PlayingDebugTextUI()
 	UEngineDebugMsgWindow::PushMsg(std::format("PlayerIndex : {}, {}", Index.X, Index.Y));
 
 	// 8축 방향을 표시해주는 것도 추가해본다.
-
-
+	std::string PlayerDir = "";
+	switch (Player->GetPlayerDir())
+	{
+	case EPlayerDir::N:
+		PlayerDir = "N";
+		break;
+	case EPlayerDir::NE:
+		PlayerDir = "NE";
+		break;
+	case EPlayerDir::NW:
+		PlayerDir = "NW";
+		break;
+	case EPlayerDir::E:
+		PlayerDir = "E";
+		break;
+	case EPlayerDir::W:
+		PlayerDir = "W";
+		break;
+	case EPlayerDir::S:
+		PlayerDir = "S";
+		break;
+	case EPlayerDir::SE:
+		PlayerDir = "SE";
+		break;
+	case EPlayerDir::SW:
+		PlayerDir = "SW";
+		break;
+	default:
+		break;
+	}
+	UEngineDebugMsgWindow::PushMsg(std::format("PlayerDir : {}", PlayerDir));
 
 }
 

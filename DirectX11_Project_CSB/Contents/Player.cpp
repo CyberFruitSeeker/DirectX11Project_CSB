@@ -21,6 +21,7 @@ APlayer::APlayer()
 
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
+	Collision->SetScale({ 10.0f,10.0f });
 	Collision->SetCollisionGroup(ECollisionOrder::Player);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
@@ -45,6 +46,10 @@ void APlayer::BeginPlay()
 	// 플레이어 캐릭터 클래스를 여러개 생성하지 말고, 여기에다 구현해본다.
 	// 캐릭터 이름으로 간단하게 변경하는 방식
 	CreatePlayerAnimation("Gura");
+	CreatePlayerAnimation("Matsuri");
+
+
+
 	Renderer->SetAutoSize(1.0f, true);
 	Renderer->SetOrder(ERenderingOrder::Player);
 
@@ -77,6 +82,7 @@ void APlayer::Tick(float _DeltaTime)
 	PlayerCursorDirCheck();
 	ChangeMouseAimAttackDir();
 	ArrowCursorChange();
+	PlayerCollisionInteractiveToMonster();
 
 }
 
@@ -197,6 +203,18 @@ void APlayer::ChangeMouseAimAttackDir()
 			Renderer->SetDir(EEngineDir::Left);
 		}
 	}
+}
+
+void APlayer::PlayerCollisionInteractiveToMonster()
+{
+	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
+	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
+		{
+			_collision->GetActor()->Destroy();
+		}
+	);
+
+
 }
 
 
