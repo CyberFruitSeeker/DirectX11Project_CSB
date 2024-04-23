@@ -255,6 +255,15 @@
     <ClCompile Include="BlurEffect.cpp">
       <Filter>Object\Component\Rendering\Blur</Filter>
     </ClCompile>
+    <ClCompile Include="EngineStructuredBuffer.cpp">
+      <Filter>Resources\ShaderResources</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteInstancingRender.cpp">
+      <Filter>Object\Component\Rendering\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="InstancingRender.cpp">
+      <Filter>Object\Component\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -427,6 +436,15 @@
     </ClInclude>
     <ClInclude Include="BlurEffect.h">
       <Filter>Object\Component\Rendering\Blur</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineStructuredBuffer.h">
+      <Filter>Resources\ShaderResources</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteInstancingRender.h">
+      <Filter>Object\Component\Rendering\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="InstancingRender.h">
+      <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -43,6 +43,8 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 	void MouseCursorToTick();
+	void PlayingDebugTextUI();
+	void MonsterSpawnTick(float _DeltaTime);
 	
 
 	std::shared_ptr<APlayer> Player;
@@ -63,12 +65,10 @@ protected:
 	void SpawnMonster(std::string _Name, float4 _Location);
 	void SpawnMonsterTimeSet(float _DeltaTime, float _SpawnBegin, float _SpawnEnd, float _Term, std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group = false, int _Quantity = 1);
 	void RandomSpawnMonster(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity);
-	void MonsterSpawnTick(float _DeltaTime);
 	float4 RandomLocation(bool _Group);
 
 
 	
-	void PlayingDebugTextUI();
 
 private:
 	FIntPoint CurIndex;

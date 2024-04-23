@@ -163,10 +163,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BossMonster.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="HoloCureConstValue.h" />
     <ClInclude Include="ContentsCore.h" />
     <ClInclude Include="HoloCureEnum.h" />
     <ClInclude Include="HoloCureFunctions.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Melee.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -185,13 +193,25 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayGameMode.h" />
     <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="Ranged.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="TitleGameMode.h" />
     <ClInclude Include="TitleLogo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BossMonster.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="ContentsCore.cpp" />
     <ClCompile Include="HoloCureConstValue.cpp" />
     <ClCompile Include="HoloCureFunctions.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Melee.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -215,6 +235,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Ranged.cpp">
+      <SubType>
+      </SubType>
     </ClCompile>
     <ClCompile Include="TitleGameMode.cpp" />
     <ClCompile Include="TitleLogo.cpp" />

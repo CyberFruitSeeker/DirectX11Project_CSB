@@ -61,9 +61,6 @@ void APlayGameMode::Tick(float _DeltaTime)
 
 	// 마우스 커서 Tick
 	MouseCursorToTick();
-	//AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
-	//HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640,APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
-	//MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
 
 	// (스테이지1)무한맵 Tick
 	InfinityGroundCheck();
@@ -76,8 +73,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	//	"Deadbeat", 1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow,
 	//	false, 5);
 	MonsterSpawnTick(_DeltaTime);
-
-	PlayTime += _DeltaTime;
+	//PlayTime += _DeltaTime;
 
 }
 
@@ -97,6 +93,9 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	SpawnMonsterTimeSet(_DeltaTime, 2.0f, 40.0f, 5.0f, "DeadbeatShield",
 		2.5f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
 
+
+
+	PlayTime += _DeltaTime;
 }
 
 // 디버깅 창
