@@ -27,6 +27,12 @@ void APlayGameMode::BeginPlay()
 
 	//Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 
+	// 인스턴싱 기능 잘 되나?
+	// 인스턴싱 기능 쓸려면? : 몬스터들 렌더링 오더 다 다르게 해줘야함
+	// 왜?? : 같은 텍스처(머터리얼)인 것만 적용되기 때문에
+	//GetWorld()->InstancingOn<USpriteInstancingRender>(ERenderingOrder::MonsterUp);
+	
+	
 	// 무한맵을 가동시키기 전에 맵 이미지부터 찾아주고
 	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_06.png");
 	CurIndex = { 0,0 };
@@ -65,8 +71,6 @@ void APlayGameMode::Tick(float _DeltaTime)
 	// (스테이지1)무한맵 Tick
 	InfinityGroundCheck();
 
-	// 디버깅용 UI 렌더링
-	PlayingDebugTextUI();
 
 	// 몬스터 스폰 Tick
 	//SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 5.0f,
@@ -74,6 +78,15 @@ void APlayGameMode::Tick(float _DeltaTime)
 	//	false, 5);
 	MonsterSpawnTick(_DeltaTime);
 	//PlayTime += _DeltaTime;
+
+	// 디버깅용 UI 렌더링
+	PlayingDebugTextUI();
+
+	// 디버깅 UI 프레임 표시
+	std::string FPS = std::format("Frame : {}", 1.0f / _DeltaTime);
+	UEngineDebugMsgWindow::PushMsg(FPS);
+
+
 
 }
 
@@ -161,6 +174,8 @@ void APlayGameMode::PlayingDebugTextUI()
 		break;
 	}
 	UEngineDebugMsgWindow::PushMsg(std::format("PlayerDir : {}", PlayerDir));
+
+	
 
 }
 

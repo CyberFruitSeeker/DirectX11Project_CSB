@@ -12,7 +12,7 @@ class URenderUnit
 public:
 	// constrcuter destructer
 	URenderUnit();
-	~URenderUnit();
+	virtual ~URenderUnit();
 
 	std::shared_ptr<UEngineMesh> GetMesh()
 	{
@@ -36,7 +36,11 @@ public:
 
 	void RenderingSetting();
 	void ResCopy(UEngineShader* _Shader);
+
+
 	virtual bool Render(float _DeltaTime);
+
+	virtual bool RenderInstancing(float _DeltaTime, int _Count);
 
 	void Update(float _DeltaTime);
 

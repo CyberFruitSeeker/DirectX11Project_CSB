@@ -1,11 +1,11 @@
 #include "PreCompile.h"
 #include "InstancingRender.h"
 
-InstancingRender::InstancingRender()
+UInstancingRender::UInstancingRender() 
 {
 }
 
-InstancingRender::~InstancingRender()
+UInstancingRender::~UInstancingRender() 
 {
 }
 

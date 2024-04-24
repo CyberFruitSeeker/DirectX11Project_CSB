@@ -1,20 +1,16 @@
 #pragma once
+#include "SpriteRenderer.h"
+#include "InstancingRender.h"
 
 // Ό³Έν :
-class SpriteInstancingRender
+class USpriteInstancingRender : public UInstancingRender
 {
 public:
 	// constrcuter destructer
-	SpriteInstancingRender();
-	~SpriteInstancingRender();
-
-	// delete Function
-	SpriteInstancingRender(const SpriteInstancingRender& _Other) = delete;
-	SpriteInstancingRender(SpriteInstancingRender&& _Other) noexcept = delete;
-	SpriteInstancingRender& operator=(const SpriteInstancingRender& _Other) = delete;
-	SpriteInstancingRender& operator=(SpriteInstancingRender&& _Other) noexcept = delete;
-
+	USpriteInstancingRender();
+	~USpriteInstancingRender();
 protected:
+	void InstancingDataCheck(URenderUnit* _Renderer, int _Count) override;
 
 private:
 
