@@ -50,6 +50,13 @@ protected:
 
 	void MonsterPosDirSet(float _DeltaTime);
 
+	// 보스 몬스터 : 스몰 아메
+	void SmolAmeWalk(std::string _Name);
+	void SmolAmeJump(std::string _Name);
+	void SmolAmeGroundPound(std::string _Name);
+	
+
+
 
 
 private:

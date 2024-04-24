@@ -38,9 +38,10 @@ void AMonster::BeginPlay()
 	CreateMonsterAnimation("KFP");
 	CreateMonsterAnimation("Takodachi");
 
+	//CreateMonsterAnimation("SmollAme");
 
-
-
+	SmolAmeWalk("SmollAme");
+	//SmolAmeJump("SmollAme");
 
 	Renderer->SetAutoSize(1.0f, true);
 	Renderer->ChangeAnimation(Name);
@@ -61,6 +62,25 @@ void AMonster::CreateMonsterAnimation(std::string _Name)
 	Renderer->CreateAnimation(_Name, _Name, 0.25f, true, (0, 1),(1,2));
 }
 
+// 보스 몬스터 : 스몰 아메 애니메이션
+void AMonster::SmolAmeWalk(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, (0,1,2,3), (4,5,6,7));
+}
+
+void AMonster::SmolAmeJump(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, (8, 9, 10, 11,12,13,14,15,16), (17,18,19,20,21,22,23,24,25,26));
+}
+
+void AMonster::SmolAmeGroundPound(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, (0, 1, 2, 3), (4, 5, 6, 7));
+}
+
+
+
+
 void AMonster::MonsterPosDirSet(float _DeltaTime)
 {
 	FVector MonsterPos = GetActorLocation();
@@ -77,6 +97,7 @@ void AMonster::MonsterPosDirSet(float _DeltaTime)
 	}
 
 }
+
 
 void AMonster::SetMonsterStatus(float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType)
 {
