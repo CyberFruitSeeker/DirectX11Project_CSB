@@ -55,11 +55,16 @@ protected:
 	void SmolAmeAllAnimations(std::string _Name);
 	void SmolAmeWalk(std::string _Name);
 	void SmolAmeJump(std::string _Name);
+	void SmolAmeJump_GroundPound(std::string _Name);
 	void SmolAmeGroundPound(std::string _Name);
 	
+	//UStateManager SmolAmeState;
+	//void SmolAmeStateUpdate();
+
+
 	// 2. 후부질라
 	void FubuzillaAnimation(std::string _Name);
-	void FubuzillaLaser(std::string _Name);
+	//void FubuzillaLaser(std::string _Name);
 
 
 

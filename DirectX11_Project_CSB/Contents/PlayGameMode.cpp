@@ -121,17 +121,20 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "Takodachi",
 	//	1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
 
+
+
 	// 보스 몬스터
 	
 	// 후부질라
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
-		3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
+	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
+	//	4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
 
 	// 스몰아메
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmollAme",
-		3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
+		3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 15);
 	
-
+	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuLazer",
+	//	3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
 
 
 

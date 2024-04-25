@@ -54,20 +54,26 @@ void AMonster::BeginPlay()
 	CreateMonsterAnimation("KFP");
 	CreateMonsterAnimation("Takodachi");
 
+	
+
+
 	// 보스 몬스터
-	//CreateMonsterAnimation("SmollAme");
 
 	// 스몰아메
-	SmolAmeAllAnimations("SmollAme");
+	//SmolAmeAllAnimations("SmollAme");
 	//SmolAmeWalk("SmollAme");
 	//SmolAmeJump("SmollAme");
+	SmolAmeJump_GroundPound("SmollAme");
 	//SmolAmeGroundPound("SmollAme");
 	
+
 	// 후부질라
 	FubuzillaAnimation("fubuzilla");
+	//FubuzillaLaser("fubuLazer");
 
 
 
+	
 
 
 
@@ -93,6 +99,7 @@ void AMonster::CreateMonsterAnimation(std::string _Name)
 
 
 // 보스 몬스터 애니메이션
+// 
 // 1. 스몰 아메
 // 
 // 이미지 인덱스?
@@ -102,7 +109,7 @@ void AMonster::CreateMonsterAnimation(std::string _Name)
 
 void AMonster::SmolAmeAllAnimations(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0, 44);
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0,44);
 }
 
 void AMonster::SmolAmeWalk(std::string _Name)
@@ -113,6 +120,11 @@ void AMonster::SmolAmeWalk(std::string _Name)
 void AMonster::SmolAmeJump(std::string _Name)
 {
 	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
+}
+
+void AMonster::SmolAmeJump_GroundPound(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 44);
 }
 
 void AMonster::SmolAmeGroundPound(std::string _Name)
@@ -127,10 +139,10 @@ void AMonster::FubuzillaAnimation(std::string _Name)
 	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 0, 11);
 }
 
-void AMonster::FubuzillaLaser(std::string _Name)
-{
-
-}
+//void AMonster::FubuzillaLaser(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 0, 32);
+//}
 
 
 

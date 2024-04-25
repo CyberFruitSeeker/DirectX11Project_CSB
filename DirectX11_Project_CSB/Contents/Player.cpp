@@ -89,8 +89,8 @@ void APlayer::Tick(float _DeltaTime)
 // 문자열을 사용한 Idle과 Run 애니메이션 구분 및 발동
 void APlayer::CreatePlayerAnimation(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.3f, true, (0, 1), (1, 2));
-	Renderer->CreateAnimation(_Name + "_Run", _Name, 0.065f, true, (3, 4, 5), (6, 7, 8));
+	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.3f, true, 0, 2);
+	Renderer->CreateAnimation(_Name + "_Run", _Name, 0.065f, true, 3, 8);
 }
 
 void APlayer::ArrowCursorChange()
@@ -210,7 +210,7 @@ void APlayer::PlayerCollisionInteractiveToMonster()
 	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
 	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
 		{
-			_collision->GetActor()->Destroy();
+			//_collision->GetActor()->Destroy();
 		}
 	);
 

@@ -110,5 +110,8 @@
     <Filter Include="Time">
       <UniqueIdentifier>{02f614ee-5b48-4b0a-9035-287a6c95d69e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Thread">
+      <UniqueIdentifier>{846ceb50-5c7f-4fad-808b-fe76c939602c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

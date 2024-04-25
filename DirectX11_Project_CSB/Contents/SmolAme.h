@@ -25,7 +25,10 @@ protected:
 
 
 private:
-	
+	USpriteRenderer* Renderer;
+	UStateManager* SmolAmeState;
+
+
 	int Hp = 25000;
 	int Atk = 20;
 	float Speed = 1.2f;
