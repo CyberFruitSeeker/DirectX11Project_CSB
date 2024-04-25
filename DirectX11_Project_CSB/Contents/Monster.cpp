@@ -17,6 +17,22 @@ AMonster::AMonster()
 	Collision->SetCollisionGroup(ECollisionOrder::Monster);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
+	// 보스 몬스터용 콜리전
+	// 1. 스몰아메
+	UCollision* SmolAmeCol = CreateDefaultSubObject<UCollision>("Collision");
+	SmolAmeCol->SetupAttachment(Root);
+	SmolAmeCol->SetScale({ 100.0f,100.0f });
+	SmolAmeCol->SetCollisionGroup(ECollisionOrder::Monster);
+	SmolAmeCol->SetCollisionType(ECollisionType::Rect);
+
+	// 2. 후부질라
+	UCollision* FubuzillaCol = CreateDefaultSubObject<UCollision>("Collision");
+	FubuzillaCol->SetupAttachment(Root);
+	FubuzillaCol->SetScale({ 100.0f,100.0f });
+	FubuzillaCol->SetCollisionGroup(ECollisionOrder::Monster);
+	FubuzillaCol->SetCollisionType(ECollisionType::Rect);
+
+
 }
 
 AMonster::~AMonster()
@@ -38,11 +54,20 @@ void AMonster::BeginPlay()
 	CreateMonsterAnimation("KFP");
 	CreateMonsterAnimation("Takodachi");
 
+	// 보스 몬스터
 	//CreateMonsterAnimation("SmollAme");
 
-	SmolAmeWalk("SmollAme");
+	// 스몰아메
+	SmolAmeAllAnimations("SmollAme");
+	//SmolAmeWalk("SmollAme");
 	//SmolAmeJump("SmollAme");
 	//SmolAmeGroundPound("SmollAme");
+	
+	// 후부질라
+	FubuzillaAnimation("fubuzilla");
+
+
+
 
 
 
@@ -63,26 +88,48 @@ void AMonster::Tick(float _DeltaTime)
 
 void AMonster::CreateMonsterAnimation(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.25f, true, (0, 1),(1,2));
+	Renderer->CreateAnimation(_Name, _Name, 0.25f, true, 0, 2);
 }
 
-// 보스 몬스터 : 스몰 아메 애니메이션
+
+// 보스 몬스터 애니메이션
+// 1. 스몰 아메
+// 
+// 이미지 인덱스?
 // 워크 : 0~7
 // 점프 : 8~26
 // 그라운드 파운드 : 27~44
+
+void AMonster::SmolAmeAllAnimations(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0, 44);
+}
+
 void AMonster::SmolAmeWalk(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.16f, true, 0, 44);
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0, 7);
 }
 
 void AMonster::SmolAmeJump(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 8, 26);
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
 }
 
 void AMonster::SmolAmeGroundPound(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, (0, 1, 2, 3), (4, 5, 6, 7));
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 27, 44);
+}
+
+
+// 2. 후부질라
+void AMonster::FubuzillaAnimation(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 0, 11);
+}
+
+void AMonster::FubuzillaLaser(std::string _Name)
+{
+
 }
 
 
