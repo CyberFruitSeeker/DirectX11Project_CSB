@@ -167,6 +167,10 @@
     <ClCompile Include="EngineRandom.cpp" />
     <ClCompile Include="EngineSerializer.cpp" />
     <ClCompile Include="EngineString.cpp" />
+    <ClCompile Include="EngineThread.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="EngineTime.cpp" />
     <ClCompile Include="NameObject.cpp" />
     <ClCompile Include="PathObject.cpp" />
@@ -175,6 +179,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <SubType>
+      </SubType>
     </ClCompile>
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="TransformObject.cpp" />
@@ -188,10 +196,18 @@
     <ClInclude Include="EngineRandom.h" />
     <ClInclude Include="EngineSerializer.h" />
     <ClInclude Include="EngineString.h" />
+    <ClInclude Include="EngineThread.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="EngineTime.h" />
     <ClInclude Include="NameObject.h" />
     <ClInclude Include="PathObject.h" />
     <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="ThreadPool.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformObject.h" />
   </ItemGroup>

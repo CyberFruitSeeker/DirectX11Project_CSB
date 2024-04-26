@@ -135,6 +135,7 @@
     <FxCompile Include="ColorShader.fx" />
     <FxCompile Include="DebugShader.fx" />
     <FxCompile Include="ImageShader.fx" />
+    <FxCompile Include="ImageShaderInstanced.fx" />
     <FxCompile Include="TargetCopyShader.fx" />
   </ItemGroup>
   <ItemGroup>

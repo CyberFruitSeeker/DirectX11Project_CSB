@@ -4,6 +4,9 @@
 class ASmolAme : public AActor
 {
 public:
+	
+	GENERATED_BODY(AActor);
+	
 	// constrcuter destructer
 	ASmolAme();
 	~ASmolAme();
@@ -15,18 +18,29 @@ public:
 	ASmolAme& operator=(ASmolAme&& _Other) noexcept = delete;
 
 
+	UStateManager* SmolAmeState;
 
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void SmolAmeWalk(std::string _Name);
+	void SmolAmeJumpStart();
+	void SmolAmeJump(std::string _Name);
+	void SmolAmeJumping(std::string _Name);
+	void SmolAmeGroundPound(std::string _Name);
+	void SmolAmeWalkStart();
+
+	void CreateSmolAmeAnimation(std::string _Name);
+
+	void Move(float _DeltaTime, EMonsterMoveType _MoveType);
+
 
 
 
 private:
 	USpriteRenderer* Renderer;
-	UStateManager* SmolAmeState;
 
 
 	int Hp = 25000;
@@ -34,6 +48,13 @@ private:
 	float Speed = 1.2f;
 	float Exp = 5000.0f;
 
+
+	EMonsterMoveType MoveType = EMonsterMoveType::Follow;
+
+	FVector PlayerLocation;
+	FVector GoToPlayerDir;
+
+	FVector Dir = FVector::Zero;
 
 
 

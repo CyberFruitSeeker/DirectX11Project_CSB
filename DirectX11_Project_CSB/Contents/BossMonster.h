@@ -18,9 +18,31 @@ public:
 	ABossMonster& operator=(const ABossMonster& _Other) = delete;
 	ABossMonster& operator=(ABossMonster&& _Other) noexcept = delete;
 
+	//UStateManager SmolAmeState;
+
+
+
+
+
+
+
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
+
+
+	// 스몰아메
+	//void SmolAmeWalk(std::string _Name);
+	//void SmolAmeJumpStart();
+	//void SmolAmeJump(std::string _Name);
+	//void SmolAmeJumping(std::string _Name);
+	//void SmolAmeGroundPound(std::string _Name);
+	//void SmolAmeWalkStart();
+
+	//void CreateSmolAmeAnimation(std::string _Name);
+
+
 
 
 
@@ -37,7 +59,6 @@ private:
 	// 미코다니에 스테이터스
 
 
-	// 하지만 이렇게 하면 한 클래스에다가 하는 의미가 없네...???
 
 
 

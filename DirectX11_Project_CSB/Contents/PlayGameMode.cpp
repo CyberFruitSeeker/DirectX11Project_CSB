@@ -73,9 +73,6 @@ void APlayGameMode::Tick(float _DeltaTime)
 
 
 	// 몬스터 스폰 Tick
-	//SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 5.0f,
-	//	"Deadbeat", 1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow,
-	//	false, 5);
 	MonsterSpawnTick(_DeltaTime);
 	//PlayTime += _DeltaTime;
 
@@ -83,7 +80,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	PlayingDebugTextUI();
 
 	// 디버깅 UI 프레임 표시
-	std::string FPS = std::format("Frame : {}", 1.0f / _DeltaTime);
+	std::string FPS = std::format("FPS : {}", 1.0f / _DeltaTime);
 	UEngineDebugMsgWindow::PushMsg(FPS);
 
 
@@ -126,11 +123,11 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	// 보스 몬스터
 	
 	// 후부질라
-	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
-	//	4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
+		4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
 
 	// 스몰아메
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmollAme",
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
 		3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 15);
 	
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuLazer",

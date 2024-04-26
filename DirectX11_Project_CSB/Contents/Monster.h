@@ -1,5 +1,6 @@
 #pragma once
 //#include <EngineCore/Actor.h>
+#include <EngineCore/StateManager.h>
 
 // 설명 :
 class USpriteRenderer;
@@ -53,13 +54,15 @@ protected:
 	// 보스 몬스터 애니메이션
 	// 1. 스몰 아메
 	void SmolAmeAllAnimations(std::string _Name);
-	void SmolAmeWalk(std::string _Name);
-	void SmolAmeJump(std::string _Name);
-	void SmolAmeJump_GroundPound(std::string _Name);
-	void SmolAmeGroundPound(std::string _Name);
+	//void SmolAmeJump(std::string _Name);
+	//void SmolAmeJump_GroundPound(std::string _Name);
+
+
 	
-	//UStateManager SmolAmeState;
-	//void SmolAmeStateUpdate();
+
+
+	
+	
 
 
 	// 2. 후부질라

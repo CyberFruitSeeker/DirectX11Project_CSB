@@ -60,12 +60,13 @@ void AMonster::BeginPlay()
 	// 보스 몬스터
 
 	// 스몰아메
-	//SmolAmeAllAnimations("SmollAme");
+	SmolAmeAllAnimations("SmolAme");
 	//SmolAmeWalk("SmollAme");
 	//SmolAmeJump("SmollAme");
-	SmolAmeJump_GroundPound("SmollAme");
+	//SmolAmeJump_GroundPound("SmollAme");
 	//SmolAmeGroundPound("SmollAme");
-	
+	//CreateSmolAmeAnimation("SmollAme");
+
 
 	// 후부질라
 	FubuzillaAnimation("fubuzilla");
@@ -90,6 +91,9 @@ void AMonster::Tick(float _DeltaTime)
 
 	MonsterPosDirSet(_DeltaTime);
 
+	
+	
+
 }
 
 void AMonster::CreateMonsterAnimation(std::string _Name)
@@ -111,26 +115,21 @@ void AMonster::SmolAmeAllAnimations(std::string _Name)
 {
 	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0,44);
 }
-
-void AMonster::SmolAmeWalk(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0, 7);
-}
-
-void AMonster::SmolAmeJump(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
-}
-
-void AMonster::SmolAmeJump_GroundPound(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 44);
-}
-
-void AMonster::SmolAmeGroundPound(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 27, 44);
-}
+//
+//void AMonster::SmolAmeJump(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
+//}
+//
+//void AMonster::SmolAmeJump_GroundPound(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 44);
+//}
+//
+//void AMonster::SmolAmeGroundPound(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 27, 44);
+//}
 
 
 // 2. 후부질라
