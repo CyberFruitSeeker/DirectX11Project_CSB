@@ -43,10 +43,11 @@ private:
 	USpriteRenderer* Renderer;
 
 
-	int Hp = 25000;
-	int Atk = 20;
+	// 공식 위키 기준 스몰 아메 스테이터스
+	float Hp = 25000.0f;
+	float Atk = 20.0f;
 	float Speed = 1.2f;
-	float Exp = 5000.0f;
+	float EarnExp = 5000.0f;
 
 
 	EMonsterMoveType MoveType = EMonsterMoveType::Follow;

@@ -17,6 +17,10 @@ void ASmolAme::Tick(float _DeltaTime)
 {
 }
 
+
+// 스몰 아메의 패턴 상태변화 :
+// Walk => Jump => Jumping(circle shadow) => GroundPound => Walk
+
 void ASmolAme::SmolAmeWalk(std::string _Name)
 {
 }

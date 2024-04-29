@@ -34,7 +34,6 @@ protected:
 
 
 
-
 private:
 	USpriteRenderer* Renderer;
 	UCollision* Collision;
