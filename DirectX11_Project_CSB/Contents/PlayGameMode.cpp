@@ -139,8 +139,8 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 		4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
 
 	// ½º¸ô¾Æ¸Þ
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
-		3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
+	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
+	//	3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
 	
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuLazer",
 	//	3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
@@ -157,8 +157,8 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 
 void APlayGameMode::SmolAmeSpawnTick(float _DeltaTime)
 {
-	//SpawnSmolAmeTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
-	//	3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
+	SpawnSmolAmeTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
+		3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
 
 }
 
