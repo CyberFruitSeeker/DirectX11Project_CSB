@@ -190,6 +190,29 @@ void UContentsCore::Initialize()
 
 	}
 
+	{
+		// 파일의 헤더
+		UEngineDirectory Dir;
+		Dir.MoveToSearchChild("ContentsResources");
+		Dir.Move("Effect");
+		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
+		for (UEngineFile& File : Files)
+		{
+			// CuttingTest.png texture로도 한장이 로드가 됐고
+			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
+			UEngineSprite::Load(File.GetFullPath());
+		}
+
+		// 로드폴더는 이런식으로 돌아간다.
+		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
+		for (size_t i = 0; i < Directorys.size(); i++)
+		{
+			std::string Name = Directorys[i].GetFolderName();
+			UEngineSprite::LoadFolder(Directorys[i].GetFullPath());
+		}
+
+	}
+
 	
 
 	// ========== 사운드 ==========

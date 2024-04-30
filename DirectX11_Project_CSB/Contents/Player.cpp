@@ -210,7 +210,7 @@ void APlayer::PlayerCollisionInteractiveToMonster()
 	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
 	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
 		{
-			_collision->GetActor()->Destroy();
+			//_collision->GetActor()->Destroy();
 		}
 	);
 

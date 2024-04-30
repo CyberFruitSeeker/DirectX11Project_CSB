@@ -4,7 +4,7 @@
 #include "PlayBackLayer.h"
 #include "HoloCureConstValue.h"
 #include "HoloMouse.h"
-#include "SmolAme.h"
+//#include "SmolAme.h"
 #include <random>
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
@@ -123,16 +123,20 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	//	1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
 
 
+	// 실험용 : 파워 오브 아틀란티스
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
+		1.0f, 40.0f, 4.0f, 1.2f, 7.0f, EMonsterMoveType::Follow, false, 3);
+
 
 	// 보스 몬스터
 	
 	// 후부질라
-	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
-	//	4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
+		4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
 
 	// 스몰아메
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
-		3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 30);
+		3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
 	
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuLazer",
 	//	3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);

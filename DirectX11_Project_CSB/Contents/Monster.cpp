@@ -63,7 +63,6 @@ void AMonster::BeginPlay()
 	SmolAmeAllAnimations("SmolAme");
 	//SmolAmeWalk("SmollAme");
 	//SmolAmeJump("SmollAme");
-	//SmolAmeJump_GroundPound("SmollAme");
 	//SmolAmeGroundPound("SmollAme");
 	//CreateSmolAmeAnimation("SmollAme");
 
@@ -72,7 +71,7 @@ void AMonster::BeginPlay()
 	FubuzillaAnimation("fubuzilla");
 	//FubuzillaLaser("fubuLazer");
 
-
+	PowerOfAtlantis("PowerOfAtlantis");
 
 	
 
@@ -115,21 +114,22 @@ void AMonster::SmolAmeAllAnimations(std::string _Name)
 {
 	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0,44);
 }
-//
-//void AMonster::SmolAmeJump(std::string _Name)
-//{
-//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
-//}
-//
-//void AMonster::SmolAmeJump_GroundPound(std::string _Name)
-//{
-//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 44);
-//}
-//
-//void AMonster::SmolAmeGroundPound(std::string _Name)
-//{
-//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 27, 44);
-//}
+
+void AMonster::SmolAmeWalk(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0, 7);
+}
+
+void AMonster::SmolAmeJump(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
+}
+
+void AMonster::SmolAmeGroundPound(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 27, 44);
+}
+
 
 
 // 2. 후부질라
@@ -143,6 +143,11 @@ void AMonster::FubuzillaAnimation(std::string _Name)
 //	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 0, 32);
 //}
 
+
+void AMonster::PowerOfAtlantis(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.03f, true, 0, 8);
+}
 
 
 

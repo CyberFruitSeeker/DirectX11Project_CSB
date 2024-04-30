@@ -4,7 +4,7 @@
 #include "PlayBackLayer.h"
 #include "HoloMouse.h"
 #include "Monster.h"
-#include "SmolAme.h"
+//#include "SmolAme.h"
 
 
 // 무한맵을 구현하기 위한 union 함수 구조체(클래스)
@@ -51,7 +51,7 @@ protected:
 	std::shared_ptr<APlayer> Player;
 	std::shared_ptr<AHoloMouse> MouseCursor;
 	std::shared_ptr<AMonster> Monster;
-	std::shared_ptr<ASmolAme> SmolAme;
+	//std::shared_ptr<ASmolAme> SmolAme;
 
 
 	// (스테이지1)무한맵을 구현하기 위한 함수 및 기능들

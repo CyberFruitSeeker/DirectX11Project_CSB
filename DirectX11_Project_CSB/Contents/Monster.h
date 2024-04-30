@@ -54,9 +54,12 @@ protected:
 	// 보스 몬스터 애니메이션
 	// 1. 스몰 아메
 	void SmolAmeAllAnimations(std::string _Name);
-	//void SmolAmeJump(std::string _Name);
-	//void SmolAmeJump_GroundPound(std::string _Name);
+	void SmolAmeWalk(std::string _Name);
+	void SmolAmeJump(std::string _Name);
+	void SmolAmeGroundPound(std::string _Name);
 
+	// 그냥 실험용 power of atlantis
+	void PowerOfAtlantis(std::string _Name);
 
 	
 
