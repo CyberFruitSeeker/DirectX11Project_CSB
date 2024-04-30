@@ -4,6 +4,19 @@
 
 ASmolAme::ASmolAme()
 {
+	UDefaultSceneComponent* Root = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
+	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	Renderer->SetupAttachment(Root);
+	Renderer->SetPivot(EPivot::BOT);
+	SetRoot(Root);
+
+	UCollision* SmolAmeCol = CreateDefaultSubObject<UCollision>("Collision");
+	SmolAmeCol->SetupAttachment(Root);
+	SmolAmeCol->SetScale({ 100.0f,100.0f });
+	SmolAmeCol->SetCollisionGroup(ECollisionOrder::Monster);
+	SmolAmeCol->SetCollisionType(ECollisionType::Rect);
+
+
 }
 
 ASmolAme::~ASmolAme()
@@ -14,16 +27,25 @@ void ASmolAme::BeginPlay()
 {
 	Super::BeginPlay();
 
+	CreateSmolAmeAnimation("SmolAme");
 
 
+	Renderer->SetAutoSize(1.0f, true);
+	Renderer->ChangeAnimation(Name);
+	Renderer->SetOrder(ERenderingOrder::MonsterUp);
 
-	StateUpdate();
+	//StateUpdate();
 }
 
 void ASmolAme::Tick(float _DeltaTime)
 {
+	Super::Tick(_DeltaTime);
+
+	
 
 
+
+	//MonsterPosDirSet(_DeltaTime);
 
 }
 
@@ -35,11 +57,16 @@ void ASmolAme::Tick(float _DeltaTime)
 void ASmolAme::StateUpdate()
 {
 
+	//SmolAmeState.CreateState("Idle");
+	//SmolAmeState.CreateState("Jump");
+	//SmolAmeState.CreateState("GroundPound");
+
+
 }
 
 void ASmolAme::SmolAmeWalk(std::string _Name)
 {
-
+	//Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.06f, true, 37, 44);
 }
 
 void ASmolAme::SmolAmeJumpStart()
@@ -48,14 +75,17 @@ void ASmolAme::SmolAmeJumpStart()
 
 void ASmolAme::SmolAmeJump(std::string _Name)
 {
+
 }
 
 void ASmolAme::SmolAmeJumping(std::string _Name)
 {
+
 }
 
 void ASmolAme::SmolAmeGroundPound(std::string _Name)
 {
+
 }
 
 void ASmolAme::SmolAmeWalkStart()
@@ -64,7 +94,9 @@ void ASmolAme::SmolAmeWalkStart()
 
 void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
 {
-
+	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.06f, true, 37, 44);
+	//Renderer->CreateAnimation(_Name + "_Jump", _Name, 0.06f, true, 0, 4);
+	//Renderer->CreateAnimation(_Name + "_GroundPound", _Name, 0.06f, true, 0, 4);
 }
 
 
@@ -72,6 +104,12 @@ void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
 
 void ASmolAme::SmolAmeStatus(float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType)
 {
+	Hp = _Hp;
+	Atk = _Atk;
+	Speed = _Speed;
+	CalSpeed = 200.0f * Speed;
+	Exp = _Exp;
+	MoveType = _MoveType;
 }
 
 FVector ASmolAme::CreateSmolAmeToPlayerDir()

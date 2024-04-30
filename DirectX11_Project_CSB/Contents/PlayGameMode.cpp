@@ -4,6 +4,7 @@
 #include "PlayBackLayer.h"
 #include "HoloCureConstValue.h"
 #include "HoloMouse.h"
+#include "SmolAme.h"
 #include <random>
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
@@ -50,6 +51,8 @@ void APlayGameMode::BeginPlay()
 	Player->SetName("Gura");
 	Player->SetActorLocation(PlayerStartPos);
 
+	
+
 
 	// 마우스 커서 스폰
 	MouseCursor = GetWorld()->SpawnActor<AHoloMouse>("MouseCursor");
@@ -83,6 +86,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	std::string FPS = std::format("FPS : {}", 1.0f / _DeltaTime);
 	UEngineDebugMsgWindow::PushMsg(FPS);
 
+	
 
 
 }
@@ -123,12 +127,12 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	// 보스 몬스터
 	
 	// 후부질라
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
-		4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
+	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
+	//	4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 10);
 
 	// 스몰아메
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
-		3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 15);
+		3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 30);
 	
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuLazer",
 	//	3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);

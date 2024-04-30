@@ -19,7 +19,7 @@ public:
 	ASmolAme& operator=(ASmolAme&& _Other) noexcept = delete;
 
 
-	UStateManager* SmolAmeState;
+	UStateManager SmolAmeState;
 
 	void SmolAmeStatus(float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType);
 
@@ -54,6 +54,11 @@ protected:
 	void SmolAmeGroundPound(std::string _Name);
 	void SmolAmeWalkStart();
 
+	float WalkTime = 0.0f;
+	float JumpingTime = 0.0f;
+
+
+
 	void CreateSmolAmeAnimation(std::string _Name);
 
 	void Move(float _DeltaTime, EMonsterMoveType _MoveType);
@@ -72,9 +77,9 @@ private:
 	// 공식 위키 기준 스몰 아메 스테이터스
 	float Hp = 25000.0f;
 	float Atk = 20.0f;
-	//float Speed = 1.2f;
 	float Exp = 5000.0f;
 
+	float Speed = 0.5f;
 	float CalSpeed = 200.0f;
 	float MoveSpeed = 100.0f;
 
