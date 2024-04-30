@@ -82,11 +82,9 @@ protected:
 
 private:
 	// 필드 변수 및 함수 명칭 일치시킬 것
-	// => 그렇지 않으면 빌드에러 발생함
+	// => 그렇지 않으면 빌드에러(예외처리) 발생함
 	
 	USpriteRenderer* Renderer;
-	//USpriteRenderer* AttackDir;
-	//USpriteRenderer* PlayerCursor;
 	USpriteRenderer* ArrowCursor;
 	UCollision* Collision;
 
