@@ -60,17 +60,23 @@ void AMonster::BeginPlay()
 	// 보스 몬스터
 
 	// 스몰아메
-	SmolAmeAllAnimations("SmolAme");
+	// SmolAmeAllAnimations("SmolAme");
 	//SmolAmeWalk("SmollAme");
 	//SmolAmeJump("SmollAme");
 	//SmolAmeGroundPound("SmollAme");
 	//CreateSmolAmeAnimation("SmollAme");
+
+	//Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
+	//Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
+	//Renderer->CreateAnimation("SmolAme_JumpDown", "SmolAme", 0.06f, true, 27, 44);
+
 
 
 	// 후부질라
 	FubuzillaAnimation("fubuzilla");
 	//FubuzillaLaser("fubuLazer");
 
+	// 실험용 : 파워 오브 아틀란티스
 	PowerOfAtlantis("PowerOfAtlantis");
 
 	
@@ -146,7 +152,7 @@ void AMonster::FubuzillaAnimation(std::string _Name)
 
 void AMonster::PowerOfAtlantis(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.03f, true, 0, 8);
+	Renderer->CreateAnimation(_Name, _Name, 0.025f, true, 0, 8);
 }
 
 

@@ -19,7 +19,7 @@ public:
 	ASmolAme& operator=(ASmolAme&& _Other) noexcept = delete;
 
 
-	UStateManager SmolAmeState;
+	//UStateManager SmolAmeState;
 
 	void SmolAmeStatus(float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType);
 
@@ -59,11 +59,9 @@ protected:
 
 
 
-	void CreateSmolAmeAnimation(std::string _Name);
-
 	void Move(float _DeltaTime, EMonsterMoveType _MoveType);
-
 	void CheckPosComparePlayer();
+	void CreateSmolAmeAnimation(std::string _Name);
 
 	void MonsterPosDirSet(float _DeltaTime);
 

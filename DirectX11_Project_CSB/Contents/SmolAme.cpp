@@ -27,7 +27,15 @@ void ASmolAme::BeginPlay()
 {
 	Super::BeginPlay();
 
-	CreateSmolAmeAnimation("SmolAme");
+	//CreateSmolAmeAnimation("SmolAme");
+
+
+	Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
+	Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
+	Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.06f, true, 17, 26);
+	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
+
+
 
 
 	Renderer->SetAutoSize(1.0f, true);
@@ -45,7 +53,7 @@ void ASmolAme::Tick(float _DeltaTime)
 
 
 
-	//MonsterPosDirSet(_DeltaTime);
+	MonsterPosDirSet(_DeltaTime);
 
 }
 
@@ -94,7 +102,7 @@ void ASmolAme::SmolAmeWalkStart()
 
 void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.06f, true, 37, 44);
+	//Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.06f, true, 37, 44);
 	//Renderer->CreateAnimation(_Name + "_Jump", _Name, 0.06f, true, 0, 4);
 	//Renderer->CreateAnimation(_Name + "_GroundPound", _Name, 0.06f, true, 0, 4);
 }

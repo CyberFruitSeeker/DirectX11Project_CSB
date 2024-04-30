@@ -51,8 +51,10 @@ protected:
 
 	void MonsterPosDirSet(float _DeltaTime);
 
+
 	// 보스 몬스터 애니메이션
 	// 1. 스몰 아메
+	// 하지만? 이 몬스터 클래스에서 구현하지는 않는다.
 	void SmolAmeAllAnimations(std::string _Name);
 	void SmolAmeWalk(std::string _Name);
 	void SmolAmeJump(std::string _Name);
@@ -60,12 +62,6 @@ protected:
 
 	// 그냥 실험용 power of atlantis
 	void PowerOfAtlantis(std::string _Name);
-
-	
-
-
-	
-	
 
 
 	// 2. 후부질라

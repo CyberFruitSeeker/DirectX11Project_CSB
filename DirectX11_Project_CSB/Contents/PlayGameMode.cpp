@@ -4,7 +4,7 @@
 #include "PlayBackLayer.h"
 #include "HoloCureConstValue.h"
 #include "HoloMouse.h"
-//#include "SmolAme.h"
+#include "SmolAme.h"
 #include <random>
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
@@ -79,6 +79,10 @@ void APlayGameMode::Tick(float _DeltaTime)
 	MonsterSpawnTick(_DeltaTime);
 	//PlayTime += _DeltaTime;
 
+	// 스몰 아메 스폰 Tick
+	SmolAmeSpawnTick(_DeltaTime);
+
+
 	// 디버깅용 UI 렌더링
 	PlayingDebugTextUI();
 
@@ -125,7 +129,7 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 
 	// 실험용 : 파워 오브 아틀란티스
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
-		1.0f, 40.0f, 4.0f, 1.2f, 7.0f, EMonsterMoveType::Follow, false, 3);
+		0.6f, 40.0f, 4.0f, 1.2f, 7.0f, EMonsterMoveType::Follow, false, 3);
 
 
 	// 보스 몬스터
@@ -142,11 +146,20 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	//	3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
 
 
+	//SpawnMonsterTimeSet(_DeltaTime, 0.0f, 40.0f, 12.0f, "SmolAme",
+	//	3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
 
 
 
 
 	PlayTime += _DeltaTime;
+}
+
+void APlayGameMode::SmolAmeSpawnTick(float _DeltaTime)
+{
+	//SpawnSmolAmeTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
+	//	3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
+
 }
 
 // 디버깅 창
@@ -355,6 +368,7 @@ void APlayGameMode::RandomSpawnMonster(std::string _Name, float _Size, float _Hp
 
 		Monster = GetWorld()->SpawnActor<AMonster>(_Name);
 		Monster->GetRenderer()->SetAutoSize(_Size, true);
+		// ↓ 스몰아메 및 다른 보스 몬스터 애니메이션에서 문제가 발생하는 줄, 그러므로 따로 만든다.
 		Monster->GetRenderer()->ChangeAnimation(_Name);
 		Monster->SetMonsterStatus(_Hp, _Atk, _Speed, _Exp, _MoveType);
 		FVector GroupPos = RandomLocation(_Group);
@@ -391,6 +405,91 @@ float4 APlayGameMode::RandomLocation(bool _Group)
 
 	return MonsterPos;
 }
+
+
+// ====== 스몰 아메 및 다른 보스몬스터 애니메이션 & 스폰 함수들 ======
+//우선 스몰아메
+// 주의 :
+// Monster->GetRenderer()->ChangeAnimation(_Name); 여기서 빌드에러 발생하니깐
+// 그 줄은 지워야함
+
+void APlayGameMode::SpawnSmolAme(std::string _Name, float4 _Location)
+{
+	std::shared_ptr<ASmolAme> SmolAme;
+	SmolAme = GetWorld()->SpawnActor<ASmolAme>(_Name);
+	SmolAme->SetActorLocation(_Location);
+}
+
+void APlayGameMode::SpawnSmolAmeTimeSet(float _DeltaTime, float _SpawnBegin, float _SpawnEnd, float _Term, std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity)
+{
+	if (PlayTime >= _SpawnBegin && PlayTime < _SpawnEnd)
+	{
+		if (SpawnTerm <= 0)
+		{
+			RandomSpawnSmolAme(_Name, _Size, _Hp, _Atk, _Speed, _Exp, _MoveType, _Group, _Quantity);
+			SpawnTerm = _Term;
+		}
+		else
+		{
+			SpawnTerm -= _DeltaTime;
+		}
+	}
+}
+
+void APlayGameMode::RandomSpawnSmolAme(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity)
+{
+	//if (0 >= _Quantity)
+	//{
+	//	MsgBoxAssert("스폰하려는 몬스터의 수가 0 이하는 좀 이상하잖아..?");
+	//	return;
+	//}
+
+	FVector GroupToPlayerDir;
+
+	for (int i = 0; i < _Quantity; i++)
+	{
+		std::shared_ptr<ASmolAme> SmolAme;
+
+		SmolAme = GetWorld()->SpawnActor<ASmolAme>(_Name);
+		SmolAme->GetRenderer()->SetAutoSize(_Size, true);
+		//Monster->GetRenderer()->ChangeAnimation(_Name);
+		SmolAme->SmolAmeStatus(_Hp, _Atk, _Speed, _Exp, _MoveType);
+		FVector GroupPos = RandomLocation(_Group);
+		Monster->SetActorLocation(GroupPos);
+		if (true == _Group)
+		{
+			if (false == GroupSpawn)
+			{
+				GroupToPlayerDir = SmolAme->CreateSmolAmeToPlayerDir();
+				SmolAme->SetToPlayerDir(GroupToPlayerDir);
+				GroupSpawn = true;
+			}
+			else
+			{
+				SmolAme->SetToPlayerDir(GroupToPlayerDir);
+			}
+		}
+		else
+		{
+			FVector Dir = APlayer::PlayerPos - SmolAme->GetActorLocation();
+			Dir = Dir.Normalize2DReturn();
+			SmolAme->SetToPlayerDir(Dir);
+		}
+
+	}
+	GroupSpawn = false;
+
+}
+
+float4 APlayGameMode::SmolAmeRandomLocation(bool _Group)
+{
+	float4 MonsterPos = APlayer::PlayerPos;
+	MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+	MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+
+	return MonsterPos;
+}
+
 
 
 
