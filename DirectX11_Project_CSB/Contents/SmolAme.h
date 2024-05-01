@@ -48,17 +48,16 @@ protected:
 
 	void StateUpdate();
 
-	void SmolAmeWalk(std::string _Name);
-	void SmolAmeJumpStart();
-	void SmolAmeJump(std::string _Name);
-	void SmolAmeJumping(std::string _Name);
-	void SmolAmeGroundPound(std::string _Name);
-	void SmolAmeWalkStart();
+	//void SmolAmeWalk(std::string _Name);
+	//void SmolAmeJumpStart();
+	//void SmolAmeJump(std::string _Name);
+	//void SmolAmeJumping(std::string _Name);
+	//void SmolAmeGroundPound(std::string _Name);
+	//void SmolAmeWalkStart();
 
-	float WalkTime;
-	float JumpingTime;
-	float JumpingAccel;
-
+	float WalkTime = 18.0f;
+	float JumpingAccel = 9.0f;
+	float JumpingTime = 7.5f;
 
 
 	void Move(float _DeltaTime, EMonsterMoveType _MoveType);
