@@ -163,6 +163,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AttackMelee.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="BossMonster.h">
       <SubType>
       </SubType>
@@ -207,8 +211,16 @@
     </ClInclude>
     <ClInclude Include="TitleGameMode.h" />
     <ClInclude Include="TitleLogo.h" />
+    <ClInclude Include="Weapon.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AttackMelee.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="BossMonster.cpp">
       <SubType>
       </SubType>
@@ -258,6 +270,10 @@
     </ClCompile>
     <ClCompile Include="TitleGameMode.cpp" />
     <ClCompile Include="TitleLogo.cpp" />
+    <ClCompile Include="Weapon.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EngineBase\EngineBase.vcxproj">

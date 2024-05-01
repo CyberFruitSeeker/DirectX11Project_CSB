@@ -67,6 +67,9 @@
     <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect">
       <UniqueIdentifier>{714bd485-ec9a-4fb8-8e33-c2ae1fb489e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged">
+      <UniqueIdentifier>{a46156b1-93c0-431d-ad49-4722883f8841}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
@@ -108,9 +111,6 @@
     <ClCompile Include="Melee.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Ranged.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
-    </ClCompile>
     <ClCompile Include="BossMonster.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
     </ClCompile>
@@ -119,6 +119,15 @@
     </ClCompile>
     <ClCompile Include="SmolAme.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Ranged.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackMelee.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +170,6 @@
     <ClInclude Include="Melee.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Ranged.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
-    </ClInclude>
     <ClInclude Include="BossMonster.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
     </ClInclude>
@@ -172,6 +178,15 @@
     </ClInclude>
     <ClInclude Include="SmolAme.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Ranged.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackMelee.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
