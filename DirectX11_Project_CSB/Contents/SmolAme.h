@@ -40,6 +40,7 @@ public:
 		GoToPlayerDir = _GoToPlayerDir;
 	}
 
+	void PlayerTargetMove(float _Delta);
 
 protected:
 	void BeginPlay() override;

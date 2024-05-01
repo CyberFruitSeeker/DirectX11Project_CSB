@@ -23,16 +23,23 @@ ASmolAme::~ASmolAme()
 {
 }
 
+void ASmolAme::PlayerTargetMove(float _Delta)
+{
+	Dir = APlayer::PlayerPos - GetActorLocation();
+	Dir = Dir.Normalize2DReturn();
+	AddActorLocation(Dir * _Delta * CalSpeed);
+}
+
 void ASmolAme::BeginPlay()
 {
 	Super::BeginPlay();
 
 	CreateSmolAmeAnimation("SmolAme");
 
-	SmolAmeState.CreateState("Walk");
-	SmolAmeState.CreateState("Jump");
-	SmolAmeState.CreateState("Jumping");
-	SmolAmeState.CreateState("GroundPound");
+	//SmolAmeState.CreateState("Walk");
+	//SmolAmeState.CreateState("Jump");
+	//SmolAmeState.CreateState("Jumping");
+	//SmolAmeState.CreateState("GroundPound");
 
 	//SmolAmeState.SetUpdateFunction("Idle", std::bind(&ASmolAme::SmolAmeWalk, this, std::placeholders::_1));
 
@@ -47,8 +54,56 @@ void ASmolAme::BeginPlay()
 
 
 	Renderer->SetAutoSize(1.0f, true);
-	Renderer->ChangeAnimation("SmolAme");
+	//Renderer->ChangeAnimation("SmolAme_AllAnimation");
 	Renderer->SetOrder(ERenderingOrder::MonsterUp);
+
+
+	UStateManager* StatePtr = &SmolAmeState;
+
+	// ======= 스몰아메 애니메이션 FSM =======
+
+	// 플레이어를 향해서 다가오다가 // 상태1
+	// 일정범위 안에 들어오면 점프를 뛰어서 공격한다. 상태2
+
+	// 걷기 만들고
+	SmolAmeState.CreateState("Walk");
+	// 걷기 시작할때
+	SmolAmeState.SetStartFunction("Walk", [=]()
+		{
+			Renderer->ChangeAnimation("SmolAme_Walk");
+		});
+	// 걷기 완료될때
+	SmolAmeState.SetUpdateFunction("Walk", [=](float _DeltaTime)
+		{
+			PlayerTargetMove(_DeltaTime);
+			float4 Range = APlayer::PlayerPos - GetActorLocation();
+
+			if (400.0f >= Range.Size2D())
+			{
+				StatePtr->ChangeState("Jump");
+			}
+		});
+	// 점프 만들고
+	SmolAmeState.CreateState("Jump");
+	// 점프 시작할때
+	SmolAmeState.SetStartFunction("Jump", [=]()
+		{
+			Renderer->ChangeAnimation("SmolAme_Jump");
+		});
+	// 점프 업데이트 될때
+	SmolAmeState.SetUpdateFunction("Jump", [=](float _DeltaTime)
+		{
+			PlayerTargetMove(_DeltaTime);
+
+			float4 Range = APlayer::PlayerPos - GetActorLocation();
+			if (100.0f <= Range.Size2D() && Renderer->IsCurAnimationEnd())
+			{
+				StatePtr->ChangeState("Walk");
+			}
+		});
+
+
+	SmolAmeState.ChangeState("Walk");
 
 	//StateUpdate();
 }
@@ -57,70 +112,23 @@ void ASmolAme::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	
-
-
 
 	MonsterPosDirSet(_DeltaTime);
-
+	SmolAmeState.Update(_DeltaTime);
 }
 
 void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
 {
-	Renderer->CreateAnimation("SmolAme", "SmolAme", 0.6f, true, 0, 44);
+	//Renderer->CreateAnimation("SmolAme_AllAnimation", "SmolAme", 0.06f, true, 0, 44);
 	Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
-	Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
-	Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.06f, true, 17, 26);
-	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
+	Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 44);
+	// Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.06f, true, 17, 26);
+	// Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
 
 }
-
 
 // 스몰 아메의 패턴(상태변화) :
 // Walk => Jump => Jumping(circle shadow) => GroundPound => Walk
-
-void ASmolAme::StateUpdate()
-{
-
-	//SmolAmeState.CreateState("Idle");
-	//SmolAmeState.CreateState("Jump");
-	//SmolAmeState.CreateState("GroundPound");
-
-
-}
-
-void ASmolAme::SmolAmeWalk(std::string _Name)
-{
-	//Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.06f, true, 37, 44);
-}
-
-void ASmolAme::SmolAmeJumpStart()
-{
-}
-
-void ASmolAme::SmolAmeJump(std::string _Name)
-{
-
-}
-
-void ASmolAme::SmolAmeJumping(std::string _Name)
-{
-
-}
-
-void ASmolAme::SmolAmeGroundPound(std::string _Name)
-{
-
-}
-
-void ASmolAme::SmolAmeWalkStart()
-{
-}
-
-
-
-
-
 
 void ASmolAme::SmolAmeStatus(float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType)
 {
