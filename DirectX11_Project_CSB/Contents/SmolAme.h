@@ -19,7 +19,7 @@ public:
 	ASmolAme& operator=(ASmolAme&& _Other) noexcept = delete;
 
 
-	//UStateManager SmolAmeState;
+	UStateManager SmolAmeState;
 
 	void SmolAmeStatus(float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType);
 
@@ -54,8 +54,9 @@ protected:
 	void SmolAmeGroundPound(std::string _Name);
 	void SmolAmeWalkStart();
 
-	float WalkTime = 0.0f;
-	float JumpingTime = 0.0f;
+	float WalkTime;
+	float JumpingTime;
+	float JumpingAccel;
 
 
 

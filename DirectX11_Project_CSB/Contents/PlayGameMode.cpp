@@ -368,7 +368,6 @@ void APlayGameMode::RandomSpawnMonster(std::string _Name, float _Size, float _Hp
 
 		Monster = GetWorld()->SpawnActor<AMonster>(_Name);
 		Monster->GetRenderer()->SetAutoSize(_Size, true);
-		// ↓ 스몰아메 및 다른 보스 몬스터 애니메이션에서 문제가 발생하는 줄, 그러므로 따로 만든다.
 		Monster->GetRenderer()->ChangeAnimation(_Name);
 		Monster->SetMonsterStatus(_Hp, _Atk, _Speed, _Exp, _MoveType);
 		FVector GroupPos = RandomLocation(_Group);
@@ -452,10 +451,10 @@ void APlayGameMode::RandomSpawnSmolAme(std::string _Name, float _Size, float _Hp
 
 		SmolAme = GetWorld()->SpawnActor<ASmolAme>(_Name);
 		SmolAme->GetRenderer()->SetAutoSize(_Size, true);
-		//Monster->GetRenderer()->ChangeAnimation(_Name);
+		//SmolAme->GetRenderer()->ChangeAnimation(_Name);
 		SmolAme->SmolAmeStatus(_Hp, _Atk, _Speed, _Exp, _MoveType);
 		FVector GroupPos = RandomLocation(_Group);
-		Monster->SetActorLocation(GroupPos);
+		SmolAme->SetActorLocation(GroupPos);
 		if (true == _Group)
 		{
 			if (false == GroupSpawn)

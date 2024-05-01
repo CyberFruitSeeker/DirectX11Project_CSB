@@ -27,19 +27,27 @@ void ASmolAme::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//CreateSmolAmeAnimation("SmolAme");
+	CreateSmolAmeAnimation("SmolAme");
+
+	SmolAmeState.CreateState("Walk");
+	SmolAmeState.CreateState("Jump");
+	SmolAmeState.CreateState("Jumping");
+	SmolAmeState.CreateState("GroundPound");
+
+	//SmolAmeState.SetUpdateFunction("Idle", std::bind(&ASmolAme::SmolAmeWalk, this, std::placeholders::_1));
 
 
-	Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
-	Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
-	Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.06f, true, 17, 26);
-	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
+
+	//Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
+	//Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
+	//Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.06f, true, 17, 26);
+	//Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
 
 
 
 
 	Renderer->SetAutoSize(1.0f, true);
-	Renderer->ChangeAnimation(Name);
+	Renderer->ChangeAnimation("SmolAme");
 	Renderer->SetOrder(ERenderingOrder::MonsterUp);
 
 	//StateUpdate();
@@ -57,6 +65,15 @@ void ASmolAme::Tick(float _DeltaTime)
 
 }
 
+void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
+{
+	Renderer->CreateAnimation("SmolAme", "SmolAme", 0.6f, true, 0, 44);
+	Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
+	Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
+	Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.06f, true, 17, 26);
+	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
+
+}
 
 
 // 스몰 아메의 패턴(상태변화) :
@@ -100,12 +117,7 @@ void ASmolAme::SmolAmeWalkStart()
 {
 }
 
-void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
-{
-	//Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.06f, true, 37, 44);
-	//Renderer->CreateAnimation(_Name + "_Jump", _Name, 0.06f, true, 0, 4);
-	//Renderer->CreateAnimation(_Name + "_GroundPound", _Name, 0.06f, true, 0, 4);
-}
+
 
 
 
