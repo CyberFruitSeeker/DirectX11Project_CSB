@@ -50,6 +50,7 @@ void ASmolAme::BeginPlay()
 		{
 			WalkTime += _DeltaTime;
 			PlayerTargetMove(_DeltaTime);
+			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 
 			if (/*200.0f >= Range.Size2D()*/4.0f < WalkTime)
@@ -71,7 +72,7 @@ void ASmolAme::BeginPlay()
 	SmolAmeState.SetUpdateFunction("Jump", [=](float _DeltaTime)
 		{
 			PlayerTargetMove(_DeltaTime);
-
+			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (Renderer->IsCurAnimationEnd())
 			{
@@ -92,9 +93,9 @@ void ASmolAme::BeginPlay()
 		{
 			JumpingTime += _DeltaTime;
 			PlayerTargetMove(_DeltaTime * JumpingAccel);
-
+			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
-			if (/*Renderer->IsCurAnimationEnd() && */3.0f < JumpingTime)
+			if (3.0f < JumpingTime)
 			{
 				StatePtr->ChangeState("GroundPound");
 				int a = 0;
@@ -118,6 +119,7 @@ void ASmolAme::BeginPlay()
 			//PlayerTargetMove(_DeltaTime);
 
 			
+			
 
 			//float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (Renderer->IsCurAnimationEnd())
@@ -139,15 +141,13 @@ void ASmolAme::BeginPlay()
 
 
 
-	//StateUpdate();
+	
 }
 
 void ASmolAme::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-
-	MonsterPosDirSet(_DeltaTime);
 	SmolAmeState.Update(_DeltaTime);
 }
 
@@ -164,8 +164,8 @@ void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
 	//Renderer->CreateAnimation("SmolAme_AllAnimation", "SmolAme", 0.06f, true, 0, 44);
 	Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
 	Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
-	Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.15f, true, 17, 26);
-	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.09f, true, 27, 44);
+	Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.12f, true, 17, 26);
+	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
 	//Renderer->CreateAnimation("SmolAme_JumpToJumping", "SmolAme", 0.12f, true, 8, 26);
 	//Renderer->CreateAnimation("SmolAme_JumpToGroundPound", "SmolAme", 0.12f, true, 8, 44);
 
