@@ -11,6 +11,9 @@
 #include <EngineCore/EngineDebugMsgWindow.h>
 #include <EngineBase/EngineRandom.h>
 
+
+std::shared_ptr<APlayer> APlayGameMode::MainPlayer = nullptr;
+
 APlayGameMode::APlayGameMode()
 {
 }

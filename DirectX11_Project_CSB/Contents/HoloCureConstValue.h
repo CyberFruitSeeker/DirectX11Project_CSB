@@ -8,8 +8,10 @@ public:
 	
 	static float4 PlayLevelMousePos;
 
-	static float MultiMapSize;
+	static float MultipleSize;
 
-	static float MultiPleSize;
+	static const float BaseSpeed;
+	static const float BaseHaste;
+	static const float BasePUR;
 
 };

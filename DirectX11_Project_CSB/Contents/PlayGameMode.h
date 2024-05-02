@@ -29,6 +29,9 @@ class APlayGameMode : public AGameMode
 	GENERATED_BODY(AGameMode)
 
 public:
+	
+	static std::shared_ptr<APlayer> MainPlayer;
+	
 	// constrcuter destructer
 	APlayGameMode();
 	~APlayGameMode();

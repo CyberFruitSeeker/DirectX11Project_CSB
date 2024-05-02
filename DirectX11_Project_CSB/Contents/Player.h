@@ -42,6 +42,12 @@ public:
 		return PlayerAngle;
 	}
 
+	float GetAtkTime()
+	{
+		return AtkTime;
+	}
+
+
 
 
 protected:
@@ -102,8 +108,18 @@ private:
 	int HP = 100;
 	float Attack = 1;
 
-	float Speed = 300.0f;
-	float LineSpeed = Speed * 0.75f;
+	//float Speed = 300.0f;
+	//float LineSpeed = Speed * 0.75f;
+
+	float CriRate = 0.05f;
+	float Haste = 0.0f;
+	float AtkTime = 1.0f;
+	//float Speed = 1.0f;
+	float Speed = 175.0f;
+	float CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
+	//float LineSpeed = CalSpeed * 0.75f;
+	float LineSpeed = CalSpeed * 0.004f;
+	float Exp = 0;
 
 
 
