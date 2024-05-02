@@ -45,6 +45,8 @@ private:
 	
 	float AttackAngle;
 	float AttackTime = 0;
+	float Angle = 0.0f;
+	float Delay = 1.0f;
 
 };
 

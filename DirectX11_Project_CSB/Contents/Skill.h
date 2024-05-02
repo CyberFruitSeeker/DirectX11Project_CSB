@@ -1,18 +1,18 @@
 #pragma once
 
 // Ό³Έν :
-class Skill
+class ASkill
 {
 public:
 	// constrcuter destructer
-	Skill();
-	~Skill();
+	ASkill();
+	~ASkill();
 
 	// delete Function
-	Skill(const Skill& _Other) = delete;
-	Skill(Skill&& _Other) noexcept = delete;
-	Skill& operator=(const Skill& _Other) = delete;
-	Skill& operator=(Skill&& _Other) noexcept = delete;
+	ASkill(const ASkill& _Other) = delete;
+	ASkill(ASkill&& _Other) noexcept = delete;
+	ASkill& operator=(const ASkill& _Other) = delete;
+	ASkill& operator=(ASkill&& _Other) noexcept = delete;
 
 protected:
 

@@ -32,10 +32,6 @@ void ASmolAme::BeginPlay()
 
 	UStateManager* StatePtr = &SmolAmeState;
 
-
-	
-
-
 	// 걷기 만들고
 	SmolAmeState.CreateState("Walk");
 	// 걷기 시작할때
@@ -57,7 +53,6 @@ void ASmolAme::BeginPlay()
 			{
 				StatePtr->ChangeState("Jump");
 			}
-
 		});
 	
 
@@ -92,17 +87,17 @@ void ASmolAme::BeginPlay()
 	SmolAmeState.SetUpdateFunction("Jumping", [=](float _DeltaTime)
 		{
 			JumpingTime += _DeltaTime;
-			PlayerTargetMove(_DeltaTime * JumpingAccel);
+			JumpingAccel += 0.0264f;
+			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.005f);
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (3.0f < JumpingTime)
 			{
+				JumpingAccel = 0.0f;
 				StatePtr->ChangeState("GroundPound");
 				int a = 0;
 			}
 		});
-
-
 
 	// 그라운드 파운드 만들고
 	SmolAmeState.CreateState("GroundPound");
@@ -115,12 +110,7 @@ void ASmolAme::BeginPlay()
 	// 그라운드 파운드 업데이트 될때
 	SmolAmeState.SetUpdateFunction("GroundPound", [=](float _DeltaTime)
 		{
-			
 			//PlayerTargetMove(_DeltaTime);
-
-			
-			
-
 			//float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (Renderer->IsCurAnimationEnd())
 			{
@@ -139,9 +129,6 @@ void ASmolAme::BeginPlay()
 	Renderer->SetOrder(ERenderingOrder::MonsterUp);
 	SmolAmeState.ChangeState("Walk");
 
-
-
-	
 }
 
 void ASmolAme::Tick(float _DeltaTime)

@@ -56,7 +56,7 @@ protected:
 	//void SmolAmeWalkStart();
 
 	float WalkTime = 0.0f;
-	float JumpingAccel = 10.5f;
+	float JumpingAccel = 0.0f;
 	float JumpingTime = 0.0f;
 	float SittingTime = 0.0f;
 

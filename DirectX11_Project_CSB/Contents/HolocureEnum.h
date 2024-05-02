@@ -4,6 +4,7 @@ enum class ECollisionOrder
 {
 	Player,
 	MapObject,
+	Weapon,
 	Items,
 	Monster,
 	BossMonster,
@@ -28,7 +29,7 @@ enum class ERenderingOrder
 	FiledSpawnMonster,
 	SuddenSpawnMonster,
 	BossMonster,
-	AttackEffect,
+	Attack,
 	Item,
 	Object,
 };

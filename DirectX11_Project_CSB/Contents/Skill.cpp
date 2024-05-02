@@ -1,11 +1,11 @@
 #include "PreCompile.h"
 #include "Skill.h"
 
-Skill::Skill()
+ASkill::ASkill()
 {
 }
 
-Skill::~Skill()
+ASkill::~ASkill()
 {
 }
 

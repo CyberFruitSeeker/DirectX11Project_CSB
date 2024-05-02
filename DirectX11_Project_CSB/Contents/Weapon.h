@@ -1,18 +1,18 @@
 #pragma once
 
 // Ό³Έν :
-class Weapon
+class AWeapon
 {
 public:
 	// constrcuter destructer
-	Weapon();
-	~Weapon();
+	AWeapon();
+	~AWeapon();
 
 	// delete Function
-	Weapon(const Weapon& _Other) = delete;
-	Weapon(Weapon&& _Other) noexcept = delete;
-	Weapon& operator=(const Weapon& _Other) = delete;
-	Weapon& operator=(Weapon&& _Other) noexcept = delete;
+	AWeapon(const AWeapon& _Other) = delete;
+	AWeapon(AWeapon&& _Other) noexcept = delete;
+	AWeapon& operator=(const AWeapon& _Other) = delete;
+	AWeapon& operator=(AWeapon&& _Other) noexcept = delete;
 
 protected:
 

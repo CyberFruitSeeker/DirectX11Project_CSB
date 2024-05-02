@@ -1,4 +1,5 @@
 #pragma once
+#include "Weapon.h"
 
 // Ό³Έν :
 class AttackMelee
