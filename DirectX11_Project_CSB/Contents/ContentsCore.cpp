@@ -236,9 +236,9 @@ void UContentsCore::Initialize()
 
 	// 어떤 레벨에서 시작할거냐?
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
+	GEngine->ChangeLevel("PlayLevel");
 	GEngine->CreateLevel<ATitleGameMode>("TitleLevel");
 	GEngine->ChangeLevel("TitleLevel");
-	//GEngine->ChangeLevel("PlayLevel");
 
 
 }

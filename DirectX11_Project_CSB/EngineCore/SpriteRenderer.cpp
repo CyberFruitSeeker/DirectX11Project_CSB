@@ -188,6 +188,15 @@ void USpriteRenderer::SetSpriteInfo(const FSpriteInfo& _Info)
 		CuttingDataValue.PivotMat.Position(Scale);
 		break;
 	}
+	case EPivot::RIGHTTOP:
+	{
+		float4 Scale = Transform.WorldScale;
+		Scale.X = -abs(Scale.X) * 0.5f;
+		Scale.Y = -abs(Scale.Y) * 0.5f;
+		Scale.Z = 0.0f;
+		CuttingDataValue.PivotMat.Position(Scale);
+		break;
+	}
 	case EPivot::MAX:
 	default:
 	{
@@ -215,6 +224,22 @@ void USpriteRenderer::SetSpriteInfo(const FSpriteInfo& _Info)
 			if (0 > Scale.X)
 			{
 				Scale.X = -Scale.X;
+			}
+			break;
+		}
+		case EEngineDir::Up:
+		{
+			if (0 > Scale.Y)
+			{
+				Scale.Y = -Scale.Y;
+			}
+			break;
+		}
+		case EEngineDir::Down:
+		{
+			if (0 < Scale.Y)
+			{
+				Scale.Y = -Scale.Y;
 			}
 			break;
 		}
