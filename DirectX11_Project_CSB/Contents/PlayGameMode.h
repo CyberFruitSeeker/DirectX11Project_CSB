@@ -70,11 +70,17 @@ protected:
 	void RandomSpawnMonster(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity);
 	float4 RandomLocation(bool _Group);
 
-	// 스몰아메
+	// 아래는 보스 몬스터들
+	// 
+	// 1. 스몰아메
 	void SpawnSmolAme(std::string _Name, float4 _Location);
 	void SpawnSmolAmeTimeSet(float _DeltaTime, float _SpawnBegin, float _SpawnEnd, float _Term, std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group = false, int _Quantity = 1);
 	void RandomSpawnSmolAme(std::string _Name, float _Size, float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType, bool _Group, int _Quantity);
 	float4 SmolAmeRandomLocation(bool _Group);
+
+	// 2. 후부질라
+
+
 
 
 	

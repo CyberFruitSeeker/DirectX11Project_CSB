@@ -152,12 +152,10 @@ void UContentsCore::Initialize()
 		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
 		for (UEngineFile& File : Files)
 		{
-			// CuttingTest.png texture로도 한장이 로드가 됐고
-			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
-		// 로드폴더는 이런식으로 돌아간다.
+		
 		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
 		for (size_t i = 0; i < Directorys.size(); i++)
 		{
@@ -175,8 +173,6 @@ void UContentsCore::Initialize()
 		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
 		for (UEngineFile& File : Files)
 		{
-			// CuttingTest.png texture로도 한장이 로드가 됐고
-			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
@@ -198,8 +194,6 @@ void UContentsCore::Initialize()
 		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
 		for (UEngineFile& File : Files)
 		{
-			// CuttingTest.png texture로도 한장이 로드가 됐고
-			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
 			UEngineSprite::Load(File.GetFullPath());
 		}
 

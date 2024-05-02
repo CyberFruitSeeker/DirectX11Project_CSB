@@ -46,7 +46,7 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void StateUpdate();
+	//void StateUpdate();
 
 	//void SmolAmeWalk(std::string _Name);
 	//void SmolAmeJumpStart();
@@ -55,9 +55,10 @@ protected:
 	//void SmolAmeGroundPound(std::string _Name);
 	//void SmolAmeWalkStart();
 
-	float WalkTime = 18.0f;
-	float JumpingAccel = 9.0f;
-	float JumpingTime = 7.5f;
+	float WalkTime = 0.0f;
+	float JumpingAccel = 10.5f;
+	float JumpingTime = 0.0f;
+	float SittingTime = 0.0f;
 
 
 	void Move(float _DeltaTime, EMonsterMoveType _MoveType);

@@ -33,7 +33,7 @@ void ASmolAme::BeginPlay()
 	UStateManager* StatePtr = &SmolAmeState;
 
 
-
+	
 
 
 	// 걷기 만들고
@@ -42,14 +42,17 @@ void ASmolAme::BeginPlay()
 	SmolAmeState.SetStartFunction("Walk", [=]()
 		{
 			Renderer->ChangeAnimation("SmolAme_Walk");
+			WalkTime = 0.0f;
+			// 타임을 스타트에서 초기화 해주는 안전장치
 		});
 	// 걷기 완료될때
 	SmolAmeState.SetUpdateFunction("Walk", [=](float _DeltaTime)
 		{
+			WalkTime += _DeltaTime;
 			PlayerTargetMove(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 
-			if (200.0f >= Range.Size2D())
+			if (/*200.0f >= Range.Size2D()*/4.0f < WalkTime)
 			{
 				StatePtr->ChangeState("Jump");
 			}
@@ -82,16 +85,19 @@ void ASmolAme::BeginPlay()
 	SmolAmeState.SetStartFunction("Jumping", [=]()
 		{
 			Renderer->ChangeAnimation("SmolAme_Jumping");
+			JumpingTime = 0.0f;
 		});
 	// 점핑 업데이트 될때
 	SmolAmeState.SetUpdateFunction("Jumping", [=](float _DeltaTime)
 		{
+			JumpingTime += _DeltaTime;
 			PlayerTargetMove(_DeltaTime * JumpingAccel);
 
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
-			if (Renderer->IsCurAnimationEnd())
+			if (/*Renderer->IsCurAnimationEnd() && */3.0f < JumpingTime)
 			{
 				StatePtr->ChangeState("GroundPound");
+				int a = 0;
 			}
 		});
 
@@ -103,22 +109,26 @@ void ASmolAme::BeginPlay()
 	SmolAmeState.SetStartFunction("GroundPound", [=]()
 		{
 			Renderer->ChangeAnimation("SmolAme_GroundPound");
+			SittingTime = 0.0f;
 		});
 	// 그라운드 파운드 업데이트 될때
 	SmolAmeState.SetUpdateFunction("GroundPound", [=](float _DeltaTime)
 		{
-			PlayerTargetMove(_DeltaTime);
+			
+			//PlayerTargetMove(_DeltaTime);
 
-			float4 Range = APlayer::PlayerPos - GetActorLocation();
+			
+
+			//float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (Renderer->IsCurAnimationEnd())
 			{
 				StatePtr->ChangeState("Walk");
 			}
 
-			if (100.0f <= Range.Size2D() && Renderer->IsCurAnimationEnd())
-			{
-				StatePtr->ChangeState("Walk");
-			}
+			//if (100.0f <= Range.Size2D() && Renderer->IsCurAnimationEnd())
+			//{
+			//	StatePtr->ChangeState("Walk");
+			//}
 
 		});
 
@@ -155,7 +165,7 @@ void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
 	Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
 	Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
 	Renderer->CreateAnimation("SmolAme_Jumping", "SmolAme", 0.15f, true, 17, 26);
-	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.06f, true, 27, 44);
+	Renderer->CreateAnimation("SmolAme_GroundPound", "SmolAme", 0.09f, true, 27, 44);
 	//Renderer->CreateAnimation("SmolAme_JumpToJumping", "SmolAme", 0.12f, true, 8, 26);
 	//Renderer->CreateAnimation("SmolAme_JumpToGroundPound", "SmolAme", 0.12f, true, 8, 44);
 

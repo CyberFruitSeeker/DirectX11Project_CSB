@@ -70,6 +70,12 @@
     <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged">
       <UniqueIdentifier>{a46156b1-93c0-431d-ad49-4722883f8841}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Skill">
+      <UniqueIdentifier>{c7dd5d5a-1ad4-4b39-a526-6821949795c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee">
+      <UniqueIdentifier>{707b4063-1d8e-47c7-8dc0-53c11eb5dcad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
@@ -108,9 +114,6 @@
     <ClCompile Include="HoloMouse.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\UI\Mouse Cursor</Filter>
     </ClCompile>
-    <ClCompile Include="Melee.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
-    </ClCompile>
     <ClCompile Include="BossMonster.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
     </ClCompile>
@@ -123,11 +126,20 @@
     <ClCompile Include="Ranged.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged</Filter>
     </ClCompile>
-    <ClCompile Include="AttackMelee.cpp">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
-    </ClCompile>
     <ClCompile Include="Weapon.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackMelee.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee</Filter>
+    </ClCompile>
+    <ClCompile Include="Melee.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,9 +179,6 @@
     <ClInclude Include="HoloMouse.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\UI\Mouse Cursor</Filter>
     </ClInclude>
-    <ClInclude Include="Melee.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
-    </ClInclude>
     <ClInclude Include="BossMonster.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
     </ClInclude>
@@ -182,11 +191,20 @@
     <ClInclude Include="Ranged.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged</Filter>
     </ClInclude>
-    <ClInclude Include="AttackMelee.h">
-      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
-    </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackMelee.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee</Filter>
+    </ClInclude>
+    <ClInclude Include="Melee.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Ranged</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Skill</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
