@@ -9,3 +9,13 @@ AWeapon::~AWeapon()
 {
 }
 
+void AWeapon::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
+void AWeapon::Tick(float _DeltaTime)
+{
+	Super::Tick(_DeltaTime);
+}
+

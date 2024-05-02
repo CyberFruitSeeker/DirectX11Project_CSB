@@ -1,15 +1,13 @@
 #pragma once
+#include "Weapon.h"
 
 // Ό³Έν :
-class APlayer;
-class USpriteRenderer;
-class AMelee : public AActor
+class AMelee : public AWeapon
 {
 	GENERATED_BODY(AActor);
 
 public:
 	// constrcuter destructer
-	static EPlayerDir PlayerDir;
 	
 	
 	AMelee();
@@ -21,8 +19,7 @@ public:
 	AMelee& operator=(const AMelee& _Other) = delete;
 	AMelee& operator=(AMelee&& _Other) noexcept = delete;
 
-	std::shared_ptr<AMelee> Melee;
-	std::shared_ptr<APlayer> Player;
+
 
 
 
@@ -30,13 +27,23 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void CursorOff();
+	void SetKnifeTypeMeleeLocation(float _DistanceFromPlayer);
 
+	void SetReachTypeMeleeLocation(float _DistanceFromPlayer);
 
 
 private:
-	USpriteRenderer* Renderer;
-	UCollision* Collision;
+	
+
+
+
+
+
+
+
+
+
+
 
 
 	void AttackDir();

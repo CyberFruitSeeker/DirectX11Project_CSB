@@ -79,6 +79,9 @@
     <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel%28Actors%29\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee">
       <UniqueIdentifier>{707b4063-1d8e-47c7-8dc0-53c11eb5dcad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level%28Play, Title &amp; Ending%29\PlayLevel%28Actors%29\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee\Idol%28Character%29">
+      <UniqueIdentifier>{7a8f356f-d37a-4523-b9d7-08425c0dded8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
@@ -144,6 +147,9 @@
     <ClCompile Include="PlayGameMode.cpp">
       <Filter>Level%28Play, Title &amp; Ending%29\GameModes</Filter>
     </ClCompile>
+    <ClCompile Include="Gura.cpp">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel%28Actors%29\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee\Idol%28Character%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -208,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="PlayGameMode.h">
       <Filter>Level%28Play, Title &amp; Ending%29\GameModes</Filter>
+    </ClInclude>
+    <ClInclude Include="Gura.h">
+      <Filter>Level%28Play, Title &amp; Ending%29\PlayLevel%28Actors%29\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee\Idol%28Character%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

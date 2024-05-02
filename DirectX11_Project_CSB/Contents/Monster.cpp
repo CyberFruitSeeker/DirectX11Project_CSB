@@ -187,7 +187,7 @@ void AMonster::SetMonsterStatus(float _Hp, float _Atk, float _Speed, float _Exp,
 
 FVector AMonster::CreateGroupToPlayerDir()
 {
-	// 몬스터들이 플레이어의 거리 사이가 줄어들면서 점점 다가간다.
+	// 몬스터들과 플레이어의 거리 사이가 점점 줄어들면서 다가간다.
 	FVector MonsterGroupDir = APlayer::PlayerPos - GetActorLocation();
 	MonsterGroupDir = MonsterGroupDir.Normalize2DReturn();
 	return MonsterGroupDir;

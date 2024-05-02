@@ -131,8 +131,8 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	//보스 몬스터
 
 	// 실험용 : 파워 오브 아틀란티스
-	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
-	//	0.6f, 40.0f, 4.0f, 1.2f, 7.0f, EMonsterMoveType::Follow, false, 3);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
+		0.6f, 40.0f, 4.0f, 1.2f, 7.0f, EMonsterMoveType::Follow, false, 3);
 
 	//// 후부질라
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuzilla",
