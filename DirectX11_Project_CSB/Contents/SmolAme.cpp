@@ -32,6 +32,10 @@ void ASmolAme::BeginPlay()
 
 	UStateManager* StatePtr = &SmolAmeState;
 
+	// 스몰 아메의 패턴(상태변화) :
+    // Walk => Jump => Jumping(circle shadow) => GroundPound => Walk... 반복
+
+
 	// 걷기 만들고
 	SmolAmeState.CreateState("Walk");
 	// 걷기 시작할때
@@ -49,7 +53,7 @@ void ASmolAme::BeginPlay()
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 
-			if (400.0f >= Range.Size2D() && 4.0f < WalkTime)
+			if (450.0f >= Range.Size2D() && 4.0f < WalkTime)
 			{
 				StatePtr->ChangeState("Jump");
 			}
@@ -87,8 +91,7 @@ void ASmolAme::BeginPlay()
 	SmolAmeState.SetUpdateFunction("Jumping", [=](float _DeltaTime)
 		{
 			JumpingTime += _DeltaTime;
-			//JumpingAccel += 0.0264f;
-			JumpingAccel += 0.15f;
+			JumpingAccel += 0.25f;
 			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.03f);
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
@@ -152,9 +155,6 @@ void ASmolAme::CreateSmolAmeAnimation(std::string _Name)
 	//Renderer->CreateAnimation("SmolAme_JumpToGroundPound", "SmolAme", 0.12f, true, 8, 44);
 
 }
-
-// 스몰 아메의 패턴(상태변화) :
-// Walk => Jump => Jumping(circle shadow) => GroundPound => Walk
 
 void ASmolAme::SmolAmeStatus(float _Hp, float _Atk, float _Speed, float _Exp, EMonsterMoveType _MoveType)
 {

@@ -49,6 +49,9 @@ protected:
 	void Move(float _DeltaTime, EMonsterMoveType _MoveType);
 	void CreateMonsterAnimation(std::string _Name, int _MaxIndex = 2);
 
+	void CreatePOA(std::string _Name);
+
+
 	void MonsterPosDirSet(float _DeltaTime);
 
 	// 보스 몬스터 애니메이션

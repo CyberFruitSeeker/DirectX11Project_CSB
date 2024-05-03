@@ -5,7 +5,8 @@
 #include "HoloCureConstValue.h"
 
 // 플레이어의 FVector를 초기화 해준다.
-FVector APlayer::PlayerPos = FVector::Zero;
+float4 APlayer::PlayerPos = float4::Zero;
+float4 APlayer::PlayerColPos = float4::Zero;
 
 APlayer::APlayer()
 {
@@ -22,6 +23,7 @@ APlayer::APlayer()
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
 	Collision->SetScale({ 10.0f,10.0f });
+	Collision->SetPosition({ 0.0f,35.0f });
 	Collision->SetCollisionGroup(ECollisionOrder::Player);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
@@ -38,8 +40,8 @@ void APlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//UEngineSerializer Serial;
-	//Serial << this;
+	UEngineSerializer Serial;
+	Serial << this;
 
 
 
@@ -50,20 +52,24 @@ void APlayer::BeginPlay()
 
 
 
-	Renderer->SetAutoSize(1.0f, true);
+	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
 	Renderer->SetOrder(ERenderingOrder::Player);
+
+	Collision->SetPosition({ GetActorLocation().X,GetActorLocation().Y + (10.0f * HoloCureConstValue::MultipleSize) });
 
 
 	// 화살표
 	ArrowCursor->SetSprite("Arrow_1.png");
 	ArrowCursor->SetAutoSize(1.0f, true);
-	ArrowCursor->SetOrder(ERenderingOrder::Player);
+	ArrowCursor->SetOrder(ERenderingOrder::MouseCursor);
+	ArrowCursor->SetPosition(FVector{ PlayerPos.X, PlayerPos.Y + (20.0f * HoloCureConstValue::MultipleSize) });
 
 
 
-	FVector MyCursor = FVector{ PlayerPos.X, PlayerPos.Y + 20.0f };
-	ArrowCursor->SetPosition(MyCursor);
+	//FVector MyCursor = FVector{ PlayerPos.X, PlayerPos.Y + 20.0f };
+	//ArrowCursor->SetPosition(MyCursor);
 
+	// 플레이어 공격 이펙트 스폰
 
 
 	StateUpdate();
@@ -91,6 +97,7 @@ void APlayer::Tick(float _DeltaTime)
 // 문자열을 사용한 Idle과 Run 애니메이션 구분 및 발동
 void APlayer::CreatePlayerAnimation(std::string _Name)
 {
+	// 구라 기준의 이미지 인덱스
 	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.2f, true, 0, 2);
 	Renderer->CreateAnimation(_Name + "_Run", _Name, 0.065f, true, 3, 8);
 }
@@ -109,80 +116,57 @@ void APlayer::ArrowCursorChange()
 	}
 }
 
+void APlayer::CalStatus()
+{
+	AtkTime = roundf(1.0f / (1.0f + Haste));
+
+	CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
+	LineSpeed = CalSpeed * 0.75f;
+
+}
+
 // 키입력과 플레이어의 방향에 따른 Arrow Dir의 변화 
 void APlayer::PlayerCursorDirCheck()
 {
-	// None 상태를 설정해주고
-	EPlayerDir InputDir = EPlayerDir::None;
-
-	// 키 입력이 처음 들어올때
-	if (true == IsDown('W'))
+	if (false == AHoloMouse::MouseCursorOn)
 	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
-		InputDir = EPlayerDir::N;
-	}
-	if (true == IsDown('S'))
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
-		InputDir = EPlayerDir::S;
-	}
-	if (true == IsDown('A'))
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
-		InputDir = EPlayerDir::W;
-	}
-	if (true == IsDown('D'))
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
-		InputDir = EPlayerDir::E;
-	}
-
-
-	// 두 키를 동시에 입력 == 남서, 북서, 북동, 남동쪽으로 갈때
-	if (DirState == EPlayerDir::NE)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,45.0f });
-		InputDir = EPlayerDir::E;
-	}
-
-	if (DirState == EPlayerDir::SE)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,315.0f });
-		InputDir = EPlayerDir::E;
-	}
-
-	if (DirState == EPlayerDir::SW)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,225.0f });
-		InputDir = EPlayerDir::W;
-	}
-
-	if (DirState == EPlayerDir::NW)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,135.0f });
-		InputDir = EPlayerDir::W;
-	}
-
-
-	// 한 키만 눌렀을때 == 한 방향으로 갈때
-	if (DirState == EPlayerDir::N)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,90.0f });
-	}
-
-	if (DirState == EPlayerDir::S)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,270.0f });
-	}
-
-	if (DirState == EPlayerDir::W)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,180.0f });
-	}
-
-	if (DirState == EPlayerDir::E)
-	{
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f,0.0f,0.0f });
+		switch (DirState)
+		{
+		case EPlayerDir::N:
+			PlayerAngle = 90.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		case EPlayerDir::NE:
+			PlayerAngle = 45.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		case EPlayerDir::E:
+			PlayerAngle = 0.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		case EPlayerDir::SE:
+			PlayerAngle = 315.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		case EPlayerDir::S:
+			PlayerAngle = 270.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		case EPlayerDir::SW:
+			PlayerAngle = 225.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		case EPlayerDir::W:
+			PlayerAngle = 180.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		case EPlayerDir::NW:
+			PlayerAngle = 135.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			break;
+		default:
+			break;
+		}
 	}
 
 
@@ -219,14 +203,7 @@ void APlayer::ChangeMouseAimAttackDir()
 //
 //}
 
-void APlayer::CalStatus()
-{
-	AtkTime = roundf(1.0f / (1.0f + Haste));
 
-	CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
-	LineSpeed = CalSpeed * 0.75f;
-
-}
 
 
 

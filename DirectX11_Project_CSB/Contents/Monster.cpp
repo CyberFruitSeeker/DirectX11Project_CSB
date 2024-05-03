@@ -68,6 +68,7 @@ void AMonster::BeginPlay()
 	PowerOfAtlantis("PowerOfAtlantis");
 	//CreateMonsterAnimation("PowerOfAtlantis", 8);
 	
+	CreatePOA("POA");
 
 
 
@@ -93,6 +94,8 @@ void AMonster::CreateMonsterAnimation(std::string _Name, int _MaxIndex)
 {
 	Renderer->CreateAnimation(_Name, _Name, 0.1f, true, 0, _MaxIndex);
 }
+
+
 
 
 // 보스 몬스터 애니메이션
@@ -135,6 +138,11 @@ void AMonster::CreateMonsterAnimation(std::string _Name, int _MaxIndex)
 //{
 //	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 0, 32);
 //}
+
+void AMonster::CreatePOA(std::string _Name)
+{
+	Renderer->CreateAnimation(_Name, _Name, 0.025f, true, 0, 4);
+}
 
 
 void AMonster::PowerOfAtlantis(std::string _Name)

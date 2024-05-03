@@ -13,6 +13,7 @@ class APlayer : public AActor
 
 public:
 	static FVector PlayerPos;
+	static FVector PlayerColPos;
 
 	// constrcuter destructer
 	APlayer();
@@ -114,15 +115,15 @@ private:
 	USpriteRenderer* ArrowCursor;
 	UCollision* Collision;
 
-	//std::shared_ptr<UCamera> Camera;
-
+	
 	float4 Color;
 	float4 MousePos;
 	float PlayerAngle;
 	//UStateManager PlayerState;
 	
 	
-	EPlayerDir DirState = EPlayerDir::None;
+	std::shared_ptr <UCamera> Camera;
+	EPlayerDir DirState = EPlayerDir::E;
 	
 	// 플레이어 스테이터스
 	int HP = 100;
@@ -133,18 +134,18 @@ private:
 	float CriRate = 0.05f;
 	float Haste = 0.0f;
 	float AtkTime = 1.0f;
-	//float Speed = 1.0f;
-	float Speed = 175.0f;
+	float Speed = 1.0f;
+	//float Speed = 175.0f;
 	float CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
-	//float LineSpeed = CalSpeed * 0.75f;
-	float LineSpeed = CalSpeed * 0.004f;
+	float LineSpeed = CalSpeed * 0.75f;
+	//float LineSpeed = CalSpeed * 0.004f;
 	float Exp = 0;
 
-	std::shared_ptr <UCamera> Camera;
 	void KeyMove(float _DeltaTime, float4 _Dir, float _Speed);
 	void KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2);
 
 
 
 };
+
 

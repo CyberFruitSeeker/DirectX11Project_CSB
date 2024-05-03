@@ -25,7 +25,7 @@ void APlayer::StateUpdate()
 	// Die는 추후에 구현
 
 	// 이동키를 입력하지 않을때, 구라(캐릭터)를 Idle 상태로 체인지
-	Renderer->SetAutoSize(1.3f, true);
+	//Renderer->SetAutoSize(1.3f, true);
 	PlayerState.ChangeState("Idle");
 
 
@@ -64,92 +64,76 @@ void APlayer::Run(float _DeltaTime)
 {
 
 	// 방향키 입력에 따라서 카메라가 따라가줘야 하니깐
-	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
-
+	//std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
+	Camera = GetWorld()->GetMainCamera();
 
 
 	if (true == IsPress('W') && true == IsPress('A'))
 	{
-		AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
-		Renderer->SetDir(EEngineDir::Left);
-		AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
+		if (false == AHoloMouse::MouseCursorOn)
+		{
+			Renderer->SetDir(EEngineDir::Left);
+		}
+		KeyLineMove(_DeltaTime, FVector::Up, FVector::Left);
 		DirState = EPlayerDir::NW;
 	}
 	else if (true == IsPress('W') && true == IsPress('D'))
 	{
-		AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Up * _DeltaTime * LineSpeed);
-		Renderer->SetDir(EEngineDir::Right);
-		AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
+		if (false == AHoloMouse::MouseCursorOn)
+		{
+			Renderer->SetDir(EEngineDir::Right);
+		}
+		KeyLineMove(_DeltaTime, FVector::Up, FVector::Right);
 		DirState = EPlayerDir::NE;
 	}
 	else if (true == IsPress('S') && true == IsPress('A'))
 	{
-		AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
-		Renderer->SetDir(EEngineDir::Left);
-		AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Left * _DeltaTime * LineSpeed);
+		if (false == AHoloMouse::MouseCursorOn)
+		{
+			Renderer->SetDir(EEngineDir::Left);
+		}
+		KeyLineMove(_DeltaTime, FVector::Down, FVector::Left);
 		DirState = EPlayerDir::SW;
 	}
 	else if (true == IsPress('S') && true == IsPress('D'))
 	{
-		AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Down * _DeltaTime * LineSpeed);
-		Renderer->SetDir(EEngineDir::Right);
-		AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
-		Camera->AddActorLocation(FVector::Right * _DeltaTime * LineSpeed);
+		if (false == AHoloMouse::MouseCursorOn)
+		{
+			Renderer->SetDir(EEngineDir::Right);
+		}
+		KeyLineMove(_DeltaTime, FVector::Down, FVector::Right);
 		DirState = EPlayerDir::SE;
 	}
-
 	else if (true == IsPress('A'))
 	{
-		Renderer->SetDir(EEngineDir::Left);
-		AddActorLocation(FVector::Left * _DeltaTime * Speed);
-		Camera->AddActorLocation(FVector::Left * _DeltaTime * Speed);
+		if (false == AHoloMouse::MouseCursorOn)
+		{
+			Renderer->SetDir(EEngineDir::Left);
+		}
+		KeyMove(_DeltaTime, FVector::Left, CalSpeed);
 		DirState = EPlayerDir::W;
-
 	}
-	else if (true == IsUp('A'))
-	{
-		Renderer->SetDir(EEngineDir::Left);
-		PlayerState.ChangeState("Idle");
-	}
-
 	else if (true == IsPress('D'))
 	{
-		Renderer->SetDir(EEngineDir::Right);
-		AddActorLocation(FVector::Right * _DeltaTime * Speed);
-		Camera->AddActorLocation(FVector::Right * _DeltaTime * Speed);
+		if (false == AHoloMouse::MouseCursorOn)
+		{
+			Renderer->SetDir(EEngineDir::Right);
+		}
+		KeyMove(_DeltaTime, FVector::Right, CalSpeed);
 		DirState = EPlayerDir::E;
 	}
-	else if (true == IsUp('D'))
-	{
-		Renderer->SetDir(EEngineDir::Right);
-		PlayerState.ChangeState("Idle");
-	}
-
 	else if (true == IsPress('W'))
 	{
-		AddActorLocation(FVector::Up * _DeltaTime * Speed);
-		Camera->AddActorLocation(FVector::Up * _DeltaTime * Speed);
+		KeyMove(_DeltaTime, FVector::Up, CalSpeed);
 		DirState = EPlayerDir::N;
 	}
-	else if (true == IsUp('W'))
-	{
-		PlayerState.ChangeState("Idle");
-	}
-
 	else if (true == IsPress('S'))
 	{
-		AddActorLocation(FVector::Down * _DeltaTime * Speed);
-		Camera->AddActorLocation(FVector::Down * _DeltaTime * Speed);
+		KeyMove(_DeltaTime, FVector::Down, CalSpeed);
 		DirState = EPlayerDir::S;
 	}
-	else if (true == IsUp('S'))
+
+	if (true == IsUp('A') || true == IsUp('D') || true == IsUp('W') || true == IsUp('S'))
 	{
 		PlayerState.ChangeState("Idle");
 	}
