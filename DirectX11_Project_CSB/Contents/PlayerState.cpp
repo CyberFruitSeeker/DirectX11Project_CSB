@@ -154,21 +154,19 @@ void APlayer::Run(float _DeltaTime)
 		PlayerState.ChangeState("Idle");
 	}
 
-	// 회전, 자전 같은거 테스트용 키들
-	//{
-	//	// 플레이어에게는 필요 없는 회전 기능
-	//	// but, 공격 & 스킬 이펙트에는 필요할 것이다.
-	//	// 우선 여기에다 둔다.
-	//	if (true == IsPress(VK_NUMPAD1))
-	//	{
-	//		//AddActorRotation(float4{ 0.0f, 0.0f, 1.0f } *360.0f * _DeltaTime);
-	//		//Color.X += _DeltaTime;
-	//	}
-	//
-	// 요런식으로 회전 기능을 필요할때 추가해본다.
+}
 
 
+void APlayer::KeyMove(float _DeltaTime, float4 _Dir, float _Speed)
+{
+	AddActorLocation(_Dir * _DeltaTime * _Speed);
+	Camera->AddActorLocation(_Dir * _DeltaTime * _Speed);
+}
 
+void APlayer::KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2)
+{
+	KeyMove(_DeltaTime, _Dir1, LineSpeed);
+	KeyMove(_DeltaTime, _Dir2, LineSpeed);
 }
 
 

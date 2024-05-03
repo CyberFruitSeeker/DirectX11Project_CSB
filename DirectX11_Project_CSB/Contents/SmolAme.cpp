@@ -49,7 +49,7 @@ void ASmolAme::BeginPlay()
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 
-			if (/*200.0f >= Range.Size2D()*/4.0f < WalkTime)
+			if (400.0f >= Range.Size2D() && 4.0f < WalkTime)
 			{
 				StatePtr->ChangeState("Jump");
 			}

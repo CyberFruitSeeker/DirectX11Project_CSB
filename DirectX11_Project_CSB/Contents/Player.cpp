@@ -82,14 +82,16 @@ void APlayer::Tick(float _DeltaTime)
 	PlayerCursorDirCheck();
 	ChangeMouseAimAttackDir();
 	ArrowCursorChange();
-	PlayerCollisionInteractiveToMonster();
+	//PlayerCollisionInteractiveToMonster();
+
+
 
 }
 
 // 문자열을 사용한 Idle과 Run 애니메이션 구분 및 발동
 void APlayer::CreatePlayerAnimation(std::string _Name)
 {
-	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.3f, true, 0, 2);
+	Renderer->CreateAnimation(_Name + "_Idle", _Name, 0.2f, true, 0, 2);
 	Renderer->CreateAnimation(_Name + "_Run", _Name, 0.065f, true, 3, 8);
 }
 
@@ -205,17 +207,28 @@ void APlayer::ChangeMouseAimAttackDir()
 	}
 }
 
-void APlayer::PlayerCollisionInteractiveToMonster()
-{
-	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
-	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
-		{
-			//_collision->GetActor()->Destroy();
-		}
-	);
+//void APlayer::PlayerCollisionInteractiveToMonster()
+//{
+//	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
+//	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
+//		{
+//			//_collision->GetActor()->Destroy();
+//		}
+//	);
+//
+//
+//}
 
+void APlayer::CalStatus()
+{
+	AtkTime = roundf(1.0f / (1.0f + Haste));
+
+	CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
+	LineSpeed = CalSpeed * 0.75f;
 
 }
+
+
 
 
 

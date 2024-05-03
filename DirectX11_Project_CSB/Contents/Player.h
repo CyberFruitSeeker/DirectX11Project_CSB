@@ -92,7 +92,7 @@ protected:
 	void PlayerCursorDirCheck();
 	void ChangeMouseAimAttackDir();
 
-	void PlayerCollisionInteractiveToMonster();
+	//void PlayerCollisionInteractiveToMonster();
 
 	void CalStatus();
 	
@@ -130,7 +130,6 @@ private:
 
 	//float Speed = 300.0f;
 	//float LineSpeed = Speed * 0.75f;
-
 	float CriRate = 0.05f;
 	float Haste = 0.0f;
 	float AtkTime = 1.0f;
@@ -141,6 +140,7 @@ private:
 	float LineSpeed = CalSpeed * 0.004f;
 	float Exp = 0;
 
+	std::shared_ptr <UCamera> Camera;
 	void KeyMove(float _DeltaTime, float4 _Dir, float _Speed);
 	void KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2);
 
