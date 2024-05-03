@@ -4,6 +4,8 @@
 #include "HoloCureEnum.h"
 #include "HoloMouse.h"
 
+
+class AWeapon;
 class USpriteRenderer;
 class APlayer : public AActor
 {
@@ -47,6 +49,12 @@ public:
 		return AtkTime;
 	}
 
+	float GetAtk()
+	{
+		return Atk;
+	}
+
+
 
 
 
@@ -79,6 +87,11 @@ protected:
 
 	void PlayerCollisionInteractiveToMonster();
 
+	void CalStatus();
+	
+	void SpawnRanged(float _DeltaTime);
+
+
 
 
 
@@ -106,7 +119,7 @@ private:
 	
 	// 플레이어 스테이터스
 	int HP = 100;
-	float Attack = 1;
+	float Atk = 1;
 
 	//float Speed = 300.0f;
 	//float LineSpeed = Speed * 0.75f;
@@ -121,7 +134,8 @@ private:
 	float LineSpeed = CalSpeed * 0.004f;
 	float Exp = 0;
 
-
+	void KeyMove(float _DeltaTime, float4 _Dir, float _Speed);
+	void KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2);
 
 
 

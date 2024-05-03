@@ -88,8 +88,8 @@ void ASmolAme::BeginPlay()
 		{
 			JumpingTime += _DeltaTime;
 			//JumpingAccel += 0.0264f;
-			JumpingAccel += 0.025f;
-			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.01f);
+			JumpingAccel += 0.2f;
+			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.02f);
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (3.0f < JumpingTime)
