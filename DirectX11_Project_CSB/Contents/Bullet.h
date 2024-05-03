@@ -1,8 +1,11 @@
 #pragma once
 
 // Ό³Έν :
-class Bullet
+class Bullet : public AActor
 {
+
+	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
 	Bullet();

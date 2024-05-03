@@ -15,6 +15,7 @@
 #include <EngineCore/EngineDebugMsgWindow.h>
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/SpriteInstancingRender.h>
+#include <EngineCore/Image.h>
 
 #include "HoloCureEnum.h"
 #include "HoloCureConstValue.h"

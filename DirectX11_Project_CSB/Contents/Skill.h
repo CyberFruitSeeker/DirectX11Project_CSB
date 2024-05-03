@@ -1,8 +1,11 @@
 #pragma once
 
 // Ό³Έν :
-class ASkill
+class ASkill : public AActor
 {
+
+	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
 	ASkill();

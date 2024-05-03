@@ -4,7 +4,7 @@
 // Ό³Έν :
 class AMelee : public AWeapon
 {
-	GENERATED_BODY(AActor);
+	GENERATED_BODY(AWeapon);
 
 public:
 	// constrcuter destructer
@@ -35,25 +35,14 @@ protected:
 private:
 	
 
-
-
-
-
-
-
-
-
-
-
-
-	void AttackDir();
-	void AttackAimDir();
-	void MeleeAttack(float _DeltaTime);
-	
-	float AttackAngle;
-	float AttackTime = 0;
-	float Angle = 0.0f;
-	float Delay = 1.0f;
+	//void AttackDir();
+	//void AttackAimDir();
+	//void MeleeAttack(float _DeltaTime);
+	//
+	//float AttackAngle;
+	//float AttackTime = 0;
+	//float Angle = 0.0f;
+	//float Delay = 1.0f;
 
 };
 

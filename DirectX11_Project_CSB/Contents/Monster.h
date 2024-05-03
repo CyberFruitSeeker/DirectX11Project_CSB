@@ -38,6 +38,15 @@ public:
 		GoToPlayerDir = _GoToPlayerDir;
 	}
 
+	float GetHp()
+	{
+		return Hp;
+	}
+
+	void SetHp(float _Hp)
+	{
+		Hp = _Hp;
+	}
 
 
 

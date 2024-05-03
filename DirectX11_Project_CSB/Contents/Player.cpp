@@ -3,6 +3,7 @@
 #include <EngineBase/EngineMath.h>
 #include "HoloMouse.h"
 #include "HoloCureConstValue.h"
+#include "Gura.h"
 
 // 플레이어의 FVector를 초기화 해준다.
 float4 APlayer::PlayerPos = float4::Zero;
@@ -23,7 +24,7 @@ APlayer::APlayer()
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
 	Collision->SetScale({ 10.0f,10.0f });
-	Collision->SetPosition({ 0.0f,35.0f });
+	//Collision->SetPosition({ 0.0f,35.0f });
 	Collision->SetCollisionGroup(ECollisionOrder::Player);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
@@ -70,6 +71,7 @@ void APlayer::BeginPlay()
 	//ArrowCursor->SetPosition(MyCursor);
 
 	// 플레이어 공격 이펙트 스폰
+	//AddWeapon<AGura>("AGura");
 
 
 	StateUpdate();
@@ -191,18 +193,24 @@ void APlayer::ChangeMouseAimAttackDir()
 	}
 }
 
-//void APlayer::PlayerCollisionInteractiveToMonster()
-//{
-//	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
-//	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
-//		{
-//			//_collision->GetActor()->Destroy();
-//		}
-//	);
-//
-//
-//}
+void APlayer::PlayerCollisionInteractiveToMonster()
+{
+	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
+	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
+		{
+			_collision->GetActor()->Destroy();
+		}
+	);
 
+
+}
+
+template<typename WeaponType>
+void APlayer::AddWeapon(std::string _Name)
+{
+	std::shared_ptr<AWeapon> Weapon = GetWorld()->SpawnActor<WeaponType>(_Name);
+	VPlayerWeapons.push_back(Weapon);
+}
 
 
 

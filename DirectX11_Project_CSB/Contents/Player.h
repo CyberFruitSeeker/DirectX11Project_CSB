@@ -73,8 +73,8 @@ protected:
 	// Player가 아니라, PlayerState에서 돌려진다.
 	void StateUpdate();
 
-	//void PlayerMove(float _DeltaTime);
 
+	// 캐릭터 스테이트
 	void Idle(float _DeltaTime);
 	void IdleStart();
 	void Run(float _DeltaTime);
@@ -93,7 +93,9 @@ protected:
 	void PlayerCursorDirCheck();
 	void ChangeMouseAimAttackDir();
 
-	//void PlayerCollisionInteractiveToMonster();
+	// 콜리전
+	void PlayerCollisionInteractiveToMonster();
+
 
 	void CalStatus();
 	
@@ -141,10 +143,17 @@ private:
 	//float LineSpeed = CalSpeed * 0.004f;
 	float Exp = 0;
 
+
+	// 플레이어 무기(공격)을 발생시키고, 사라지게 하고
+	std::vector<std::shared_ptr<AWeapon>> VPlayerWeapons;
+	std::vector<std::shared_ptr<AWeapon>>::iterator VPlayerWeaponsIter = VPlayerWeapons.begin();
+
+
+
+
+
 	void KeyMove(float _DeltaTime, float4 _Dir, float _Speed);
 	void KeyLineMove(float _DeltaTime, float4 _Dir1, float4 _Dir2);
-
-
 
 };
 

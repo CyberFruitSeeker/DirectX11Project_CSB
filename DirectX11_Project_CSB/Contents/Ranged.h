@@ -3,6 +3,9 @@
 // Ό³Έν :
 class ARanged : public AActor
 {
+
+	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
 	ARanged();

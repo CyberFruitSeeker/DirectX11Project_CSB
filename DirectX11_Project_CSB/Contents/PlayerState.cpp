@@ -5,7 +5,7 @@
 #include "HolocureEnum.h"
 
 
-// 캐릭터(플레이어)들의 움직임, 애니메이션의 실질적인 기능은 이곳에다가 구현한다.
+// 캐릭터(플레이어)들의 움직임, 애니메이션의 기능들을 업데이트 & 체인지 해준다.
 void APlayer::StateUpdate()
 {
 	// 플레이어 스테이트 세팅
@@ -51,7 +51,7 @@ void APlayer::RunStart()
 
 void APlayer::Idle(float _DeltaTime)
 {
-	// Idle 상태에서 Run 상태로 전환하기 위한 것
+	// Idle 상태에서 Run 상태로
 	if (true == IsPress('A') || true == IsPress('D') || true == IsPress('W') || true == IsPress('S'))
 	{
 		PlayerState.ChangeState("Run");
@@ -133,6 +133,7 @@ void APlayer::Run(float _DeltaTime)
 		DirState = EPlayerDir::S;
 	}
 
+	// Run 상태에서 Idle로
 	if (true == IsUp('A') || true == IsUp('D') || true == IsUp('W') || true == IsUp('S'))
 	{
 		PlayerState.ChangeState("Idle");
