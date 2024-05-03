@@ -53,32 +53,20 @@ void AMonster::BeginPlay()
 	CreateMonsterAnimation("Bubba");
 	CreateMonsterAnimation("KFP");
 	CreateMonsterAnimation("Takodachi");
-
 	
 
 
 	// 보스 몬스터
 
-	// 스몰아메
-	// SmolAmeAllAnimations("SmolAme");
-	//SmolAmeWalk("SmollAme");
-	//SmolAmeJump("SmollAme");
-	//SmolAmeGroundPound("SmollAme");
-	//CreateSmolAmeAnimation("SmollAme");
-
-	//Renderer->CreateAnimation("SmolAme_Walk", "SmolAme", 0.06f, true, 0, 7);
-	//Renderer->CreateAnimation("SmolAme_Jump", "SmolAme", 0.06f, true, 8, 16);
-	//Renderer->CreateAnimation("SmolAme_JumpDown", "SmolAme", 0.06f, true, 27, 44);
-
-
-
 	// 후부질라
-	FubuzillaAnimation("fubuzilla");
+	//FubuzillaAnimation("fubuzilla");
 	//FubuzillaLaser("fubuLazer");
+	CreateMonsterAnimation("Fubuzilla", 11);
 
-	// 실험용 : 파워 오브 아틀란티스
+
+	// 렌더링 실험용 : 파워 오브 아틀란티스
 	PowerOfAtlantis("PowerOfAtlantis");
-
+	//CreateMonsterAnimation("PowerOfAtlantis", 8);
 	
 
 
@@ -101,9 +89,9 @@ void AMonster::Tick(float _DeltaTime)
 
 }
 
-void AMonster::CreateMonsterAnimation(std::string _Name)
+void AMonster::CreateMonsterAnimation(std::string _Name, int _MaxIndex)
 {
-	Renderer->CreateAnimation(_Name, _Name, 0.25f, true, 0, 2);
+	Renderer->CreateAnimation(_Name, _Name, 0.1f, true, 0, _MaxIndex);
 }
 
 
@@ -116,33 +104,32 @@ void AMonster::CreateMonsterAnimation(std::string _Name)
 // 점프 : 8~26
 // 그라운드 파운드 : 27~44
 
-void AMonster::SmolAmeAllAnimations(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0,44);
-}
-
-void AMonster::SmolAmeWalk(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0, 7);
-}
-
-void AMonster::SmolAmeJump(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
-}
-
-void AMonster::SmolAmeGroundPound(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 27, 44);
-}
-
+//void AMonster::SmolAmeAllAnimations(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0,44);
+//}
+//
+//void AMonster::SmolAmeWalk(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 0, 7);
+//}
+//
+//void AMonster::SmolAmeJump(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 8, 26);
+//}
+//
+//void AMonster::SmolAmeGroundPound(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.06f, true, 27, 44);
+//}
 
 
 // 2. 후부질라
-void AMonster::FubuzillaAnimation(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 0, 11);
-}
+//void AMonster::FubuzillaAnimation(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.12f, true, 0, 11);
+//}
 
 //void AMonster::FubuzillaLaser(std::string _Name)
 //{
@@ -185,9 +172,9 @@ void AMonster::SetMonsterStatus(float _Hp, float _Atk, float _Speed, float _Exp,
 	MoveType = _MoveType;
 }
 
+// 몬스터들과 플레이어의 거리 사이가 점점 줄어들면서 다가간다.
 FVector AMonster::CreateGroupToPlayerDir()
 {
-	// 몬스터들과 플레이어의 거리 사이가 점점 줄어들면서 다가간다.
 	FVector MonsterGroupDir = APlayer::PlayerPos - GetActorLocation();
 	MonsterGroupDir = MonsterGroupDir.Normalize2DReturn();
 	return MonsterGroupDir;

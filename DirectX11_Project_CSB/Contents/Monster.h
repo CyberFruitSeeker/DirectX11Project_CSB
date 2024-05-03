@@ -47,18 +47,17 @@ protected:
 
 	void CheckPosComparePlayer();
 	void Move(float _DeltaTime, EMonsterMoveType _MoveType);
-	void CreateMonsterAnimation(std::string _Name);
+	void CreateMonsterAnimation(std::string _Name, int _MaxIndex = 2);
 
 	void MonsterPosDirSet(float _DeltaTime);
-
 
 	// 보스 몬스터 애니메이션
 	// 1. 스몰 아메
 	// 하지만? 이 몬스터 클래스에서 구현하지는 않는다.
-	void SmolAmeAllAnimations(std::string _Name);
-	void SmolAmeWalk(std::string _Name);
-	void SmolAmeJump(std::string _Name);
-	void SmolAmeGroundPound(std::string _Name);
+	//void SmolAmeAllAnimations(std::string _Name);
+	//void SmolAmeWalk(std::string _Name);
+	//void SmolAmeJump(std::string _Name);
+	//void SmolAmeGroundPound(std::string _Name);
 
 	// 그냥 실험용 power of atlantis
 	void PowerOfAtlantis(std::string _Name);
