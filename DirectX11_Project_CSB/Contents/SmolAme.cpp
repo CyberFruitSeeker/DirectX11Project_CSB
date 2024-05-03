@@ -87,8 +87,9 @@ void ASmolAme::BeginPlay()
 	SmolAmeState.SetUpdateFunction("Jumping", [=](float _DeltaTime)
 		{
 			JumpingTime += _DeltaTime;
-			JumpingAccel += 0.0264f;
-			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.005f);
+			//JumpingAccel += 0.0264f;
+			JumpingAccel += 0.025f;
+			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.01f);
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (3.0f < JumpingTime)
@@ -110,17 +111,11 @@ void ASmolAme::BeginPlay()
 	// 그라운드 파운드 업데이트 될때
 	SmolAmeState.SetUpdateFunction("GroundPound", [=](float _DeltaTime)
 		{
-			//PlayerTargetMove(_DeltaTime);
-			//float4 Range = APlayer::PlayerPos - GetActorLocation();
+
 			if (Renderer->IsCurAnimationEnd())
 			{
 				StatePtr->ChangeState("Walk");
 			}
-
-			//if (100.0f <= Range.Size2D() && Renderer->IsCurAnimationEnd())
-			//{
-			//	StatePtr->ChangeState("Walk");
-			//}
 
 		});
 
