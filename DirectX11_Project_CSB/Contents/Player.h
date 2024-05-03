@@ -44,16 +44,23 @@ public:
 		return PlayerAngle;
 	}
 
-	float GetAtkTime()
-	{
-		return AtkTime;
-	}
-
 	float GetAtk()
 	{
 		return Atk;
 	}
 
+	float GetAtkTime()
+	{
+		return AtkTime;
+	}
+
+	float GetSpeed()
+	{
+		return Speed;
+	}
+
+	template<typename WeaponType>
+	void AddWeapon(std::string _Name);
 
 
 
