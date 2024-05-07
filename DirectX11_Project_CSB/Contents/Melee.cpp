@@ -5,7 +5,8 @@
 
 AMelee::AMelee()
 {
-	UDefaultSceneComponent* Root = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
+	
+	Root = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	Renderer->SetupAttachment(Root);
 	Renderer->SetPivot(EPivot::MAX);

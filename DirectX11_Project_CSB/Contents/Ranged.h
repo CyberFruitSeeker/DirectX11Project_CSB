@@ -1,10 +1,11 @@
 #pragma once
+#include "Weapon.h"
 
 // Ό³Έν :
-class ARanged : public AActor
+class ARanged : public AWeapon
 {
 
-	GENERATED_BODY(AActor)
+	GENERATED_BODY(AWeapon)
 
 public:
 	// constrcuter destructer
@@ -22,6 +23,9 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 
+	bool IsMultiShot = false;
+
+	void CreateBullet();
 
 
 

@@ -3,6 +3,7 @@
 #include <EngineCore/StateManager.h>
 
 // Ό³Έν :
+class USpriteRenderer;
 class AHoloMouse : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -24,13 +25,15 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void MouseCursorOff();
-	void ChangeCursorAimMode();
-	void CheckCursorAimMode();
-
+	void CursorOFf();
+	void CurCursor();
+	void CheckCurCursor(FVector _MousePos);
+	
 	void SetMousePos();
 
-	USpriteRenderer* Renderer;
+	UImage* MouseRenderer;
+
+	UCollision* Collision;
 
 
 private:

@@ -8,10 +8,20 @@ bool AHoloMouse::MouseCursorOn = false;
 AHoloMouse::AHoloMouse()
 {
 	UDefaultSceneComponent* Root = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
-	SetRoot(Root);
-	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
-	Renderer->SetupAttachment(Root);
+	//Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	//Renderer->SetupAttachment(Root);
 
+
+	Collision = CreateDefaultSubObject<UCollision>("Collision");
+	Collision->SetupAttachment(Root);
+	Collision->SetScale({ 5.0f,5.f });
+	Collision->SetPosition({ -10.0f,10.0f });
+	Collision->SetCollisionGroup(ECollisionOrder::Player);
+	Collision->SetCollisionType(ECollisionType::Rect);
+
+
+
+	SetRoot(Root);
 	InputOn();
 }
 
@@ -23,11 +33,13 @@ void AHoloMouse::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
-	Renderer->SetSprite("GameCursor_0.png");
-	Renderer->SetAutoSize(0.75f, true);
-	Renderer->SetOrder(ERenderingOrder::MouseCursor);
+	MouseRenderer = CreateWidget<UImage>(GetWorld(), "MouseCursor");
+	MouseRenderer->SetSprite("GameCursor_0.png");
+	MouseRenderer->SetAutoSize(1.00f, true);
+	//MouseRenderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	MouseRenderer->AddToViewPort(10);
 
+	//MouseRenderer->SetOrder(ERenderingOrder::MouseCursor);
 	//MousePos = GEngine->EngineWindow.GetScreenMousePos();
 }
 
@@ -35,22 +47,33 @@ void AHoloMouse::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	MouseCursorOff();
+	//SetMousePos(_DeltaTime);
 	
-	ChangeCursorAimMode();
-	CheckCursorAimMode();
+	MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	FVector MyPos = APlayer::PlayerPos;
+	FVector MouseLocation = FVector{ MyPos.X + MousePos.X - 640,MyPos.Y - MousePos.Y + 360 };
+	if ("PlayLevel" == GetWorld()->GetName())
+	{
+		CurCursor();
+		Collision->SetPosition({ MyPos.X + 5 , MyPos.Y - 40.0f });
+	}
+	else
+	{
+		Collision->SetPosition(MouseLocation);
+	}
+	CheckCurCursor(MousePos);
 
-	SetMousePos();
+
 
 }
 
 // 윈도우 제공 함수 및 매크로를 이용해본다.
-void AHoloMouse::MouseCursorOff()
+void AHoloMouse::CursorOFf()
 {
 	ShowCursor(FALSE);
 }
 
-void AHoloMouse::ChangeCursorAimMode()
+void AHoloMouse::CurCursor()
 {
 	if (true == IsDown(VK_LBUTTON))
 	{
@@ -66,28 +89,42 @@ void AHoloMouse::ChangeCursorAimMode()
 }
 
 // 마우스 커서가 하늘색과 핑크색으로 전환되게 해주는 것을 체크해본다.
-void AHoloMouse::CheckCursorAimMode()
+void AHoloMouse::CheckCurCursor(FVector _MousePos)
 {
 	if (true != MouseCursorOn)
 	{
-		MouseCursorOff();
-		Renderer->SetSprite("GameCursor_0.png");
-		//Renderer->SetPivot(EPivot::);
+		CursorOFf();
+		MouseRenderer->SetSprite("GameCursor_0.png");
+		MouseRenderer->SetPosition({ _MousePos.X - 595, -_MousePos.Y + 310 });
 	}
 	else
 	{
-		MouseCursorOff();
-		Renderer->SetSprite("GameCursor_1.png");
-		Renderer->SetPivot(EPivot::MAX);
+		CursorOFf();
+		MouseRenderer->SetSprite("GameCursor_1.png");
+		MouseRenderer->SetPosition({ _MousePos.X - 640, -_MousePos.Y + 360 });
 	}
+
+
 
 }
 
 void AHoloMouse::SetMousePos()
 {
-	FVector MyPos = APlayer::PlayerPos;
 	MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	FVector MyPos = APlayer::PlayerPos;
 	FVector MouseLocation = FVector{ MyPos.X + MousePos.X - 640,MyPos.Y - MousePos.Y + 360 };
-	SetActorLocation(MouseLocation);
+	if ("PlayLevel" == GetWorld()->GetName())
+	{
+		CurCursor();
+		Collision->SetPosition({ MyPos.X + 5 , MyPos.Y - 40.0f });
+	}
+	else
+	{
+		Collision->SetPosition(MouseLocation);
+	}
+	CheckCurCursor(MousePos);
+
+	//int a = 0;
+
 
 }

@@ -1,23 +1,35 @@
 #pragma once
+#include "Weapon.h"
 
 // Ό³Έν :
-class Bullet : public AActor
+class ABullet : public AWeapon
 {
 
-	GENERATED_BODY(AActor)
+	GENERATED_BODY(AWeapon)
 
 public:
 	// constrcuter destructer
-	Bullet();
-	~Bullet();
+	ABullet();
+	~ABullet();
 
 	// delete Function
-	Bullet(const Bullet& _Other) = delete;
-	Bullet(Bullet&& _Other) noexcept = delete;
-	Bullet& operator=(const Bullet& _Other) = delete;
-	Bullet& operator=(Bullet&& _Other) noexcept = delete;
+	ABullet(const ABullet& _Other) = delete;
+	ABullet(ABullet&& _Other) noexcept = delete;
+	ABullet& operator=(const ABullet& _Other) = delete;
+	ABullet& operator=(ABullet&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
+
+	UCollision* Collision;
+
+	float BulletSpeed = 0.0f;
+	float TimeOutDestoryTime = 20.0f;
+
+	void TimeOutDestory(float _DeltaTime);
+
+
 
 private:
 
