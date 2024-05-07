@@ -18,6 +18,15 @@ public:
 	ASkill& operator=(ASkill&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay();
+	void Tick(float _DeltaTime);
+
+	void SkillRandomSpawn();
+
+
+
+
+
 
 private:
 

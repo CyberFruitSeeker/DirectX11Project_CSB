@@ -9,21 +9,30 @@ AMonster::AMonster()
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	Renderer->SetupAttachment(Root);
 	Renderer->SetPivot(EPivot::BOT);
-	SetRoot(Root);
 
-	UCollision* Collision = CreateDefaultSubObject<UCollision>("Collision");
+	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
 	Collision->SetScale({ 30.0f,30.0f });
 	Collision->SetCollisionGroup(ECollisionOrder::Monster);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
-	// 2. 후부질라
-	UCollision* FubuzillaCol = CreateDefaultSubObject<UCollision>("Collision");
-	FubuzillaCol->SetupAttachment(Root);
-	FubuzillaCol->SetScale({ 100.0f,100.0f });
-	FubuzillaCol->SetCollisionGroup(ECollisionOrder::Monster);
-	FubuzillaCol->SetCollisionType(ECollisionType::Rect);
+	Shadow = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	Shadow->SetupAttachment(Root);
+	Shadow->SetPivot(EPivot::BOT);
 
+	SavedRenderer = CreateDefaultSubObject<USpriteRenderer>("SavedRenderer");
+	SavedRenderer->SetupAttachment(Root);
+	SavedRenderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	SavedRenderer->SetActive(false);
+
+	// 2. 후부질라
+	//UCollision* FubuzillaCol = CreateDefaultSubObject<UCollision>("Collision");
+	//FubuzillaCol->SetupAttachment(Root);
+	//FubuzillaCol->SetScale({ 100.0f,100.0f });
+	//FubuzillaCol->SetCollisionGroup(ECollisionOrder::Monster);
+	//FubuzillaCol->SetCollisionType(ECollisionType::Rect);
+
+	SetRoot(Root);
 
 }
 
@@ -64,10 +73,18 @@ void AMonster::BeginPlay()
 
 
 
-
+	// 몬스터들 렌더링
 	Renderer->SetAutoSize(1.0f, true);
 	Renderer->ChangeAnimation(Name);
 	Renderer->SetOrder(ERenderingOrder::MonsterUp);
+
+	// 쉐도우 렌더링
+	//Shadow->SetSprite()
+
+
+	// 몬스터 죽을때 발생하는 (하트)이펙트 렌더링
+
+
 
 }
 
@@ -195,13 +212,50 @@ void AMonster::Move(float _DeltaTime, EMonsterMoveType _MoveType)
 
 void AMonster::CheckHit()
 {
+	if (0 >= Hp)
+	{
+		IsSaved = true;
+		SavedDir = Renderer->GetDir();
+	}
+
 }
 
 void AMonster::CheckSaved()
 {
+	if (0 >= Hp)
+	{
+		IsSaved = true;
+		SavedDir = Renderer->GetDir();
+	}
+
 }
 
 void AMonster::Saved(float _DeltaTime)
 {
+	SavedRenderer->SetActive(true);
+
+	if (EEngineDir::Left == SavedDir)
+	{
+		Renderer->AddPosition(FVector{ 1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+	}
+	else if (EEngineDir::Right == SavedDir)
+	{
+		Renderer->AddPosition(FVector{ -1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+	}
+	else
+	{
+		MsgBoxAssert("몬스터의 SavedDir값이 잘못됐습니다.");
+		return;
+	}
+
+	RendererAlpha -= _DeltaTime;
+	Renderer->SetMulColor(float4{ 1.0f, 1.0f, 1.0f, RendererAlpha });
+
+	if (true == SavedRenderer->IsCurAnimationEnd())
+	{
+		Destroy();
+		++HoloCureConstValue::KillCount;
+	}
+
 }
 

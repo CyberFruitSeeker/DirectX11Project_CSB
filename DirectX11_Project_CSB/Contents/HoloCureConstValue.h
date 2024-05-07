@@ -4,6 +4,7 @@
 class HoloCureConstValue
 {
 public:
+	static FVector WindowSize;
 	static const float4 GroundTileSize;
 	
 	static float4 PlayLevelMousePos;
@@ -13,5 +14,10 @@ public:
 	static const float BaseSpeed;
 	static const float BaseHaste;
 	static const float BasePUR;
+
+	static float Time;
+	static int KillCount;
+	static int Gold;
+
 
 };

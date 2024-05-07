@@ -9,3 +9,11 @@ ASkill::~ASkill()
 {
 }
 
+void ASkill::BeginPlay()
+{
+}
+
+void ASkill::Tick(float _DeltaTime)
+{
+}
+
