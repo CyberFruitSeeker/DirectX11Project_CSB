@@ -110,19 +110,19 @@ void AHoloMouse::CheckCurCursor(FVector _MousePos)
 
 void AHoloMouse::SetMousePos()
 {
-	MousePos = GEngine->EngineWindow.GetScreenMousePos();
-	FVector MyPos = APlayer::PlayerPos;
-	FVector MouseLocation = FVector{ MyPos.X + MousePos.X - 640,MyPos.Y - MousePos.Y + 360 };
-	if ("PlayLevel" == GetWorld()->GetName())
-	{
-		CurCursor();
-		Collision->SetPosition({ MyPos.X + 5 , MyPos.Y - 40.0f });
-	}
-	else
-	{
-		Collision->SetPosition(MouseLocation);
-	}
-	CheckCurCursor(MousePos);
+	//MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	//FVector MyPos = APlayer::PlayerPos;
+	//FVector MouseLocation = FVector{ MyPos.X + MousePos.X - 640,MyPos.Y - MousePos.Y + 360 };
+	//if ("PlayLevel" == GetWorld()->GetName())
+	//{
+	//	CurCursor();
+	//	Collision->SetPosition({ MyPos.X + 5 , MyPos.Y - 40.0f });
+	//}
+	//else
+	//{
+	//	Collision->SetPosition(MouseLocation);
+	//}
+	//CheckCurCursor(MousePos);
 
 	//int a = 0;
 

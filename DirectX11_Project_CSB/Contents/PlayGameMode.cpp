@@ -16,6 +16,7 @@ std::shared_ptr<APlayer> APlayGameMode::MainPlayer = nullptr;
 
 APlayGameMode::APlayGameMode()
 {
+	InputOn();
 }
 
 APlayGameMode::~APlayGameMode()
@@ -42,23 +43,29 @@ void APlayGameMode::BeginPlay()
 	CurIndex = { 0,0 };
 	float4 PlayerStartPos = IndexToCenterPos(CurIndex);
 
+
 	// (PlayLevel 시작할때) 맵에서 카메라 위치 세팅
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation({ 0.0f, 0.0f, -200.0f });
+	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
 	float4 CameraPos = PlayerStartPos;
 	CameraPos.Z = -500.0f;
 	Camera->SetActorLocation(CameraPos);
+
 
 	// 플레이어 스폰
 	Player = GetWorld()->SpawnActor<APlayer>("Player");
 	Player->SetName("Gura");
 	Player->SetActorLocation(PlayerStartPos);
-
-	
-
+	MainPlayer = Player;
+	Player->PlayerState.ChangeState("Idle");
 
 	// 마우스 커서 스폰
 	MouseCursor = GetWorld()->SpawnActor<AHoloMouse>("MouseCursor");
+	AHoloMouse::MouseCursorOn = false;
+	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	MouseCursor->SetActorLocation(AHoloMouse::MousePos);
+
 
 	// 무한맵 스폰
 	InfinityMapSpawn();

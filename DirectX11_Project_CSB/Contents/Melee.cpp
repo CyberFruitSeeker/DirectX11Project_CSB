@@ -71,10 +71,10 @@ void AMelee::SetKnifeTypeMeleeLocation(float _DistanceFromPlayer)
 	AddActorLocation(Dir * _DistanceFromPlayer * HoloCureConstValue::MultipleSize);
 }
 
-void AMelee::SetReachTypeMeleeLocation(float _DistanceFromPlayer)
-{
-
-}
+//void AMelee::SetReachTypeMeleeLocation(float _DistanceFromPlayer)
+//{
+//
+//}
 
 
 

@@ -5,10 +5,15 @@ AGura::AGura()
 {
 	CollisionR0 = CreateDefaultSubObject<UCollision>("Collision");
 	CollisionR0->SetScale({ 50.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
-	//CollisionR0->SetupAttachment(Root);
-
 	CollisionR0->SetCollisionGroup(ECollisionOrder::Weapon);
-	CollisionR0->SetCollisionType(ECollisionType::Rect);
+	CollisionR0->SetCollisionType(ECollisionType::RotRect);
+
+	CollisionR1 = CreateDefaultSubObject<UCollision>("Collision");
+	CollisionR1->SetScale({ 50.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
+	CollisionR1->SetCollisionGroup(ECollisionOrder::Weapon);
+
+
+
 
 
 }
@@ -22,7 +27,7 @@ void AGura::BeginPlay()
 	Super::BeginPlay();
 
 
-	Name = "GuraTrident";
+	Name = "GuraTridentAttack";
 
 	Renderer->CreateAnimation("GuraAttack", "GuraAttack", 0.05f);
 	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
@@ -30,6 +35,8 @@ void AGura::BeginPlay()
 
 	SetKnifeTypeMeleeLocation(35.0f);
 	CollisionR0->SetActive(false);
+	CollisionR1->SetActive(false);
+
 
 }
 
@@ -45,11 +52,24 @@ void AGura::Tick(float _DeltaTime)
 		CollisionR0->SetPosition(Root->GetLocalPosition());
 		CollisionR0->AddPosition(Dir * 50.0f * HoloCureConstValue::MultipleSize);
 
+		CollisionR1->SetActive(true);
+		CollisionR1->SetRotationDeg(FVector(Root->GetLocalRotation().X, Root->GetLocalRotation().Y, Root->GetLocalRotation().Z + 45.f));
+		CollisionR1->SetPosition(FVector(Root->GetLocalPosition().X, Root->GetLocalPosition().Y, Root->GetLocalPosition().Z));
+		CollisionR1->AddPosition(Dir * 50.0f * HoloCureConstValue::MultipleSize);
+
+
 		CheckHit();
 	}
 	else
 	{
 		CollisionR0->SetActive(false);
+		CollisionR1->SetActive(false);
+	}
+
+	{
+
+		FVector Pos = Root->GetLocalPosition() * Dir;
+		UEngineDebugMsgWindow::PushMsg(std::format("RootPos : {}", Pos.ToString()));
 	}
 
 

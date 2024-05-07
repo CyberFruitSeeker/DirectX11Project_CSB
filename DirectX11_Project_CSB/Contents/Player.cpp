@@ -24,7 +24,7 @@ APlayer::APlayer()
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
 	Collision->SetScale({ 10.0f,10.0f });
-	//Collision->SetPosition({ 0.0f,35.0f });
+	Collision->SetPosition({ 0.0f,35.0f });
 	Collision->SetCollisionGroup(ECollisionOrder::Player);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
@@ -49,7 +49,7 @@ void APlayer::BeginPlay()
 	// 플레이어 캐릭터 클래스를 여러개 생성하지 말고, 여기에다 구현해본다.
 	// 캐릭터 이름으로 간단하게 변경하는 방식
 	CreatePlayerAnimation("Gura");
-	CreatePlayerAnimation("Matsuri");
+	//CreatePlayerAnimation("Matsuri");
 
 
 
@@ -62,7 +62,7 @@ void APlayer::BeginPlay()
 	// 화살표
 	ArrowCursor->SetSprite("Arrow_1.png");
 	ArrowCursor->SetAutoSize(1.0f, true);
-	ArrowCursor->SetOrder(ERenderingOrder::MouseCursor);
+	ArrowCursor->SetOrder(ERenderingOrder::Mouse);
 	ArrowCursor->SetPosition(FVector{ PlayerPos.X, PlayerPos.Y + (20.0f * HoloCureConstValue::MultipleSize) });
 
 
@@ -71,7 +71,7 @@ void APlayer::BeginPlay()
 	//ArrowCursor->SetPosition(MyCursor);
 
 	// 플레이어 공격 이펙트 스폰
-	//AddWeapon<AGura>("AGura");
+	AddWeapon<AGura>("AGura");
 
 
 	StateUpdate();
@@ -86,11 +86,23 @@ void APlayer::Tick(float _DeltaTime)
 	PlayerState.Update(_DeltaTime);
 
 	PlayerPos = GetActorLocation();
+	//PlayerPos= float4{ PlayerColPos.X, PlayerColPos.Y + (20.0f * HoloCureConstValue::MultipleSize) };
 
 	PlayerCursorDirCheck();
 	ChangeMouseAimAttackDir();
 	ArrowCursorChange();
 	//PlayerCollisionInteractiveToMonster();
+
+	{
+		for (VPlayerWeaponsIter = VPlayerWeapons.begin(); VPlayerWeaponsIter != VPlayerWeapons.end(); ++VPlayerWeaponsIter)
+		{
+			std::shared_ptr<AWeapon> Weapon = *VPlayerWeaponsIter;
+
+			*VPlayerWeaponsIter = Weapon;
+		}
+
+	}
+
 
 
 
@@ -135,36 +147,36 @@ void APlayer::PlayerCursorDirCheck()
 		switch (DirState)
 		{
 		case EPlayerDir::N:
-			PlayerAngle = 90.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 90.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		case EPlayerDir::NE:
-			PlayerAngle = 45.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 45.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		case EPlayerDir::E:
-			PlayerAngle = 0.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 0.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		case EPlayerDir::SE:
-			PlayerAngle = 315.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 315.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		case EPlayerDir::S:
-			PlayerAngle = 270.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 270.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		case EPlayerDir::SW:
-			PlayerAngle = 225.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 225.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		case EPlayerDir::W:
-			PlayerAngle = 180.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 180.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		case EPlayerDir::NW:
-			PlayerAngle = 135.0f;
-			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+			Angle = 135.0f;
+			ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 			break;
 		default:
 			break;
@@ -178,11 +190,11 @@ void APlayer::ChangeMouseAimAttackDir()
 {
 	if (true == AHoloMouse::MouseCursorOn)
 	{
-		PlayerAngle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPos.Y),
+		Angle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPos.Y),
 			(HoloCureConstValue::PlayLevelMousePos.X - APlayer::PlayerPos.X)) * 180.0f / UEngineMath::PI;
-		ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, PlayerAngle });
+		ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 
-		if (-90.0f <= PlayerAngle && 90.0f > PlayerAngle)
+		if (-90.0f <= Angle && 90.0f > Angle)
 		{
 			Renderer->SetDir(EEngineDir::Right);
 		}

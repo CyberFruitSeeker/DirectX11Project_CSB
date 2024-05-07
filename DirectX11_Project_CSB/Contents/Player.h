@@ -2,7 +2,6 @@
 #include <EngineCore/Actor.h>
 #include <EngineCore/StateManager.h>
 #include "HoloCureEnum.h"
-#include "HoloMouse.h"
 
 
 class AWeapon;
@@ -12,8 +11,8 @@ class APlayer : public AActor
 	GENERATED_BODY(AActor)
 
 public:
-	static FVector PlayerPos;
-	static FVector PlayerColPos;
+	static float4 PlayerPos;
+	static float4 PlayerColPos;
 
 	// constrcuter destructer
 	APlayer();
@@ -42,7 +41,12 @@ public:
 	// 8방향 각도
 	float GetAngle()
 	{
-		return PlayerAngle;
+		return Angle;
+	}
+
+	float GetHp()
+	{
+		return Hp;
 	}
 
 	float GetAtk()
@@ -117,38 +121,34 @@ private:
 	USpriteRenderer* ArrowCursor;
 	UCollision* Collision;
 
+	// 플레이어 무기(공격)을 발생시키고, 사라지게 하고
+	std::vector<std::shared_ptr<AWeapon>> VPlayerWeapons;
+	std::vector<std::shared_ptr<AWeapon>>::iterator VPlayerWeaponsIter = VPlayerWeapons.begin();
 	
-	float4 Color;
-	float4 MousePos;
-	float PlayerAngle;
 	//UStateManager PlayerState;
-	
 	
 	std::shared_ptr <UCamera> Camera;
 	EPlayerDir DirState = EPlayerDir::E;
 	
 	// 플레이어 스테이터스
-	int HP = 100;
+	int Hp = 100;
 	float Atk = 1;
-
-	//float Speed = 300.0f;
-	//float LineSpeed = Speed * 0.75f;
 	float CriRate = 0.05f;
 	float Haste = 0.0f;
 	float AtkTime = 1.0f;
 	float Speed = 1.0f;
-	//float Speed = 175.0f;
 	float CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
 	float LineSpeed = CalSpeed * 0.75f;
-	//float LineSpeed = CalSpeed * 0.004f;
 	float Exp = 0;
 
+	float4 Color;
+	float4 MousePos;
+	float Angle;
 
-	// 플레이어 무기(공격)을 발생시키고, 사라지게 하고
-	std::vector<std::shared_ptr<AWeapon>> VPlayerWeapons;
-	std::vector<std::shared_ptr<AWeapon>>::iterator VPlayerWeaponsIter = VPlayerWeapons.begin();
-
-
+	//float Speed = 300.0f;
+	//float LineSpeed = Speed * 0.75f;
+	//float Speed = 175.0f;
+	//float LineSpeed = CalSpeed * 0.004f;
 
 
 

@@ -55,6 +55,7 @@ protected:
 
 	std::shared_ptr<APlayer> Player;
 	std::shared_ptr<AHoloMouse> MouseCursor;
+
 	std::shared_ptr<AMonster> Monster;
 	std::shared_ptr<ASmolAme> SmolAme;
 
