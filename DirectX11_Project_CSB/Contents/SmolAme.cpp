@@ -90,6 +90,7 @@ void ASmolAme::BeginPlay()
 	// 점핑 업데이트 될때
 	SmolAmeState.SetUpdateFunction("Jumping", [=](float _DeltaTime)
 		{
+			//JumpingCollision = false;
 			JumpingTime += _DeltaTime;
 			JumpingAccel += 0.25f;
 			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.03f);
@@ -230,4 +231,20 @@ void ASmolAme::MonsterPosDirSet(float _DeltaTime)
 	{
 		Renderer->SetDir(EEngineDir::Right);
 	}
+}
+
+void ASmolAme::JumpingCollisionCheck()
+{
+	//SmolAmeCollision->CollisionExit(ECollisionOrder::Player, [=](std::shared_ptr<UCollision>_collision)
+	//	{
+	//		APlayer* Player = dynamic_cast<APlayer*>(_collision->GetActor());
+	//		if (false == JumpingCollision)
+	//		{
+	//			return;
+	//		}
+
+	//	}
+	//);
+
+
 }

@@ -7,7 +7,7 @@ enum class ECollisionOrder
 	Weapon,
 	Items,
 	Monster,
-	BossMonster,
+	//BossMonster,
 };
 
 enum class ELayerOrder
@@ -32,6 +32,7 @@ enum class ERenderingOrder
 	Attack,
 	Item,
 	Object,
+	Shadow,
 };
 
 // 북쪽부터 시계방향으로

@@ -8,6 +8,8 @@ public:
 	
 	GENERATED_BODY(AActor);
 	
+	//friend class APlayer;
+
 	// constrcuter destructer
 	ASmolAme();
 	~ASmolAme();
@@ -67,11 +69,16 @@ protected:
 
 	void MonsterPosDirSet(float _DeltaTime);
 
+	// Jumping 상태에서는 플레이어와 콜리전이 발생하면 안되니깐
+	void JumpingCollisionCheck();
+	bool JumpingCollision = true;
+
+
 
 
 private:
 	USpriteRenderer* Renderer;
-	UCollision* Collision;
+	UCollision* SmolAmeCollision;
 
 
 	// 공식 위키 기준 스몰 아메 스테이터스
@@ -92,6 +99,9 @@ private:
 	FVector GoToPlayerDir;
 
 	FVector Dir = FVector::Zero;
+
+
+	
 
 
 

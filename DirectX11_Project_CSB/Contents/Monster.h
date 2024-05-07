@@ -28,10 +28,6 @@ public:
 
 	FVector CreateGroupToPlayerDir();
 
-	USpriteRenderer* GetRenderer()
-	{
-		return Renderer;
-	}
 
 	void SetToPlayerDir(FVector _GoToPlayerDir)
 	{
@@ -48,7 +44,29 @@ public:
 		Hp = _Hp;
 	}
 
+	USpriteRenderer* GetRenderer()
+	{
+		return Renderer;
+	}
 
+	USpriteRenderer* GetSaveRenderer()
+	{
+		return SavedRenderer;
+	}
+
+
+	UCollision* GetCollision()
+	{
+		return Collision;
+	}
+
+
+
+
+
+
+
+	
 
 protected:
 	void BeginPlay() override;
@@ -79,13 +97,19 @@ protected:
 	void FubuzillaAnimation(std::string _Name);
 	//void FubuzillaLaser(std::string _Name);
 
+	void CheckHit();
 
+	void CheckSaved();
+	void Saved(float _DeltaTime);
 
 
 
 private:
-	USpriteRenderer* Renderer;
 	UCollision* Collision;
+
+	USpriteRenderer* Renderer;
+	USpriteRenderer* SavedRenderer;
+	USpriteRenderer* Shadow;
 
 	std::string Name = "Deadbeat";
 
@@ -96,9 +120,12 @@ private:
 	float MoveSpeed = 100.0f;
 	float Exp = 5.0f;
 
-
-
 	EMonsterMoveType MoveType = EMonsterMoveType::Follow;
+
+	bool IsSaved = false;
+	EEngineDir SavedDir = EEngineDir::MAX;
+	float RendererAlpha = 1.0f;
+
 
 	FVector PlayerLocation;
 	FVector GoToPlayerDir;

@@ -30,8 +30,10 @@ void AGura::BeginPlay()
 	Name = "GuraTridentAttack";
 
 	Renderer->CreateAnimation("GuraAttack", "GuraAttack", 0.05f);
-	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize * 1.5f, true);
 	Renderer->ChangeAnimation("GuraAttack");
+
+	// 구라의 기본공격은 검 타입인가? or 거리(reach) 타입인가?
 
 	SetKnifeTypeMeleeLocation(35.0f);
 	CollisionR0->SetActive(false);
@@ -50,12 +52,12 @@ void AGura::Tick(float _DeltaTime)
 	{
 		CollisionR0->SetActive(true);
 		CollisionR0->SetPosition(Root->GetLocalPosition());
-		CollisionR0->AddPosition(Dir * 50.0f * HoloCureConstValue::MultipleSize);
+		CollisionR0->AddPosition(Dir * 100.0f * HoloCureConstValue::MultipleSize);
 
 		CollisionR1->SetActive(true);
 		CollisionR1->SetRotationDeg(FVector(Root->GetLocalRotation().X, Root->GetLocalRotation().Y, Root->GetLocalRotation().Z + 45.f));
 		CollisionR1->SetPosition(FVector(Root->GetLocalPosition().X, Root->GetLocalPosition().Y, Root->GetLocalPosition().Z));
-		CollisionR1->AddPosition(Dir * 50.0f * HoloCureConstValue::MultipleSize);
+		CollisionR1->AddPosition(Dir * 100.0f * HoloCureConstValue::MultipleSize);
 
 
 		CheckHit();
@@ -82,9 +84,12 @@ void AGura::CheckHit()
 		{
 			AMonster* Monster = dynamic_cast<AMonster*>(_Collison->GetActor());
 
-			float Hp = Monster->GetHp();
-			Hp -= Atk;
-			Monster->SetHp(Hp);
+			
+
+
+			//float Hp = Monster->GetHp();
+			//Hp -= Atk;
+			//Monster->SetHp(Hp);
 		}
 	);
 
