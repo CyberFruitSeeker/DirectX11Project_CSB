@@ -140,11 +140,11 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 
 	// 실험용 : 파워 오브 아틀란티스
 
-	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "POA",
-	//	2.2f, 40.0f, 4.0f, 1.2f, 7.0f, EMonsterMoveType::Follow, false, 5);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "POA",
+		2.2f, 40.0f, 4.0f, 0.6f, 7.0f, EMonsterMoveType::Follow, false, 5);
 
-	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
-	//	0.4f, 40.0f, 4.0f, 1.2f, 7.0f, EMonsterMoveType::Follow, false, 3);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
+		0.4f, 40.0f, 4.0f, 0.6f, 7.0f, EMonsterMoveType::Follow, false, 3);
 
 
 	// 후부질라

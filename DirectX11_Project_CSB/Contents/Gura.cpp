@@ -87,9 +87,9 @@ void AGura::CheckHit()
 			
 
 
-			//float Hp = Monster->GetHp();
-			//Hp -= Atk;
-			//Monster->SetHp(Hp);
+			float Hp = Monster->GetHp();
+			Hp -= Atk;
+			Monster->SetHp(Hp);
 		}
 	);
 
