@@ -102,6 +102,8 @@ protected:
 	void CheckSaved();
 	void Saved(float _DeltaTime);
 
+	void SavedHeartTick(float _DeltaTime);
+
 
 
 private:
@@ -115,10 +117,11 @@ private:
 
 	float Hp = 100.0f;
 	float Atk = 10.0f;
-	float Speed = 0.5f;
-	float CalSpeed = 200.0f;
-	float MoveSpeed = 100.0f;
+	float Speed = 0.35f;
+	float CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
 	float Exp = 5.0f;
+	
+	float MoveSpeed = 100.0f;
 
 	EMonsterMoveType MoveType = EMonsterMoveType::Follow;
 

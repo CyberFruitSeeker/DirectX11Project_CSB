@@ -62,7 +62,6 @@ void AMonster::BeginPlay()
 	CreateMonsterAnimation("Takodachi");
 	
 
-
 	// 보스 몬스터
 
 	// 후부질라
@@ -70,14 +69,10 @@ void AMonster::BeginPlay()
 	//FubuzillaLaser("fubuLazer");
 	CreateMonsterAnimation("Fubuzilla", 11);
 
-
-	// 렌더링 실험용 : 파워 오브 아틀란티스
+	// 렌더링 실험용 : 파워 오브 아틀란티스(2가지)
 	PowerOfAtlantis("PowerOfAtlantis");
 	//CreateMonsterAnimation("PowerOfAtlantis", 8);
-	
 	CreatePOA("POA");
-
-
 
 	// 몬스터들 렌더링
 	Renderer->SetAutoSize(1.0f, true);
@@ -86,11 +81,15 @@ void AMonster::BeginPlay()
 
 	// 쉐도우 렌더링
 	//Shadow->SetSprite()
-
+	Shadow->SetSprite("Shadow_0.png");
+	Shadow->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	Shadow->SetOrder(ERenderingOrder::Shadow);
+	Shadow->SetMulColor({ 1.f,1.f,1.f,0.7f });
 
 	// 몬스터 죽을때 발생하는 (하트)이펙트 렌더링
-
-
+	SavedRenderer->CreateAnimation("MonsterKillHeart", "MonsterKillHeart", 0.1f, false);
+	SavedRenderer->SetOrder(ERenderingOrder::MonsterUIUp);
+	SavedRenderer->ChangeAnimation("MonsterKillHeart");
 
 }
 
@@ -98,10 +97,32 @@ void AMonster::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	MonsterPosDirSet(_DeltaTime);
+	//MonsterPosDirSet(_DeltaTime);
+	
+	//SavedHeartTick(_DeltaTime);
+	
+	if (false == IsSaved)
+	{
+		Move(_DeltaTime, MoveType);
 
-	
-	
+		if (0 > Dir.X)
+		{
+			Renderer->SetDir(EEngineDir::Left);
+		}
+		else
+		{
+			Renderer->SetDir(EEngineDir::Right);
+		}
+		CheckSaved();
+		CheckHit();
+	}
+	else
+	{
+		Saved(_DeltaTime);
+	}
+
+
+	CheckPosComparePlayer();
 
 }
 
@@ -134,9 +155,7 @@ void AMonster::PowerOfAtlantis(std::string _Name)
 }
 
 
-
-
-
+// 몬스터들이 플레이어를 향해 다가가게 만드는 함수
 void AMonster::MonsterPosDirSet(float _DeltaTime)
 {
 	FVector MonsterPos = GetActorLocation();
@@ -160,7 +179,7 @@ void AMonster::SetMonsterStatus(float _Hp, float _Atk, float _Speed, float _Exp,
 	Hp = _Hp;
 	Atk = _Atk;
 	Speed = _Speed;
-	CalSpeed = 200.0f * Speed;
+	CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
 	Exp = _Exp;
 	MoveType = _MoveType;
 }
@@ -178,10 +197,12 @@ void AMonster::CheckPosComparePlayer()
 	if (APlayer::PlayerPos.Y<=GetActorLocation().Y)
 	{
 		Renderer->SetOrder(ERenderingOrder::MonsterUp);
+		SavedRenderer->SetOrder(ERenderingOrder::MonsterUIUp);
 	}
 	else
 	{
 		Renderer->SetOrder(ERenderingOrder::MonsterDown);
+		SavedRenderer->SetOrder(ERenderingOrder::MonsterUIDown);
 	}
 
 }
@@ -218,16 +239,14 @@ void AMonster::Move(float _DeltaTime, EMonsterMoveType _MoveType)
 }
 
 
-// 플레이어의 공격과 콜리전 상호작용
-
+// 플레이어가 가한 공격과 (콜리전) 상호작용
 void AMonster::CheckHit()
 {
-	if (0 >= Hp)
-	{
-		IsSaved = true;
-		SavedDir = Renderer->GetDir();
-	}
+	Collision->CollisionEnter(ECollisionOrder::Weapon, [=](std::shared_ptr<UCollision> _Collison)
+		{
 
+		}
+	);
 }
 
 void AMonster::CheckSaved()
@@ -240,6 +259,7 @@ void AMonster::CheckSaved()
 
 }
 
+// 몬스터를 죽이면 나오는 하트 이펙트
 void AMonster::Saved(float _DeltaTime)
 {
 	SavedRenderer->SetActive(true);
@@ -266,6 +286,32 @@ void AMonster::Saved(float _DeltaTime)
 		Destroy();
 		++HoloCureConstValue::KillCount;
 	}
+
+}
+
+void AMonster::SavedHeartTick(float _DeltaTime)
+{
+	//if (false == IsSaved)
+	//{
+	//	Move(_DeltaTime, MoveType);
+
+	//	if (0>Dir.X)
+	//	{
+	//		Renderer->SetDir(EEngineDir::Left);
+	//	}
+	//	else
+	//	{
+	//		Renderer->SetDir(EEngineDir::Right);
+	//	}
+	//	CheckSaved();
+	//	CheckHit();
+	//}
+	//else
+	//{
+	//	Saved(_DeltaTime);
+	//}
+	
+	//CheckPosComparePlayer();
 
 }
 

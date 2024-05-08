@@ -26,6 +26,8 @@ enum class ERenderingOrder
 	Mouse,
 	MonsterUp,
 	MonsterDown,
+	MonsterUIUp,
+	MonsterUIDown,
 	FiledSpawnMonster,
 	SuddenSpawnMonster,
 	BossMonster,
