@@ -36,8 +36,8 @@ void APlayGameMode::BeginPlay()
 	// 인스턴싱 기능 쓸려면? : 몬스터들 렌더링 오더 다 다르게 해줘야함
 	// 왜?? : 같은 텍스처(머터리얼)인 것만 적용되기 때문에
 	//GetWorld()->InstancingOn<USpriteInstancingRender>(ERenderingOrder::MonsterUp);
-	
-	
+
+
 	// 무한맵을 가동시키기 전에 맵 이미지부터 찾아주고
 	std::shared_ptr<UEngineTexture> Tex = UEngineTexture::FindRes("Holo_map_06.png");
 	CurIndex = { 0,0 };
@@ -49,7 +49,7 @@ void APlayGameMode::BeginPlay()
 	Camera->SetActorLocation({ 0.0f, 0.0f, -200.0f });
 	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
 	float4 CameraPos = PlayerStartPos;
-	CameraPos.Z = -500.0f;
+	CameraPos.Z = -1000.0f;
 	Camera->SetActorLocation(CameraPos);
 
 
@@ -98,7 +98,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	std::string FPS = std::format("FPS : {}", 1.0f / _DeltaTime);
 	UEngineDebugMsgWindow::PushMsg(FPS);
 
-	
+
 
 
 }
@@ -107,32 +107,32 @@ void APlayGameMode::Tick(float _DeltaTime)
 // 몬스터
 void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 {
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 7.0f, "Deadbeat", 
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 7.0f, "Deadbeat",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
 
 	SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 11.0f, "DeadbeatBat",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
 
 	SpawnMonsterTimeSet(_DeltaTime, 1.5f, 40.0f, 13.0f, "DeadbeatGang",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
 
 	SpawnMonsterTimeSet(_DeltaTime, 2.0f, 40.0f, 15.0f, "DeadbeatShield",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
 
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 8.0f, "Shrimp",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
 
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 10.0f, "ShrimpDark",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
 
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 11.0f, "Bubba",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
 
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 8.0f, "KFP",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 5);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 5);
 
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "Takodachi",
-		1.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 4);
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 4);
 
 
 
@@ -154,7 +154,7 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	// 스몰아메
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
 	//	3.3f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 1);
-	
+
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "fubuLazer",
 	//	3.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 50);
 
@@ -219,7 +219,7 @@ void APlayGameMode::PlayingDebugTextUI()
 	}
 	UEngineDebugMsgWindow::PushMsg(std::format("PlayerDir : {}", PlayerDir));
 
-	
+
 
 }
 
@@ -413,9 +413,49 @@ void APlayGameMode::RandomSpawnMonster(std::string _Name, float _Size, float _Hp
 
 float4 APlayGameMode::RandomLocation(bool _Group)
 {
-	float4 MonsterPos = APlayer::PlayerPos;
-	MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
-	MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+	float4 MonsterPos;
+
+	// 뭉쳐서 나오지 않을때
+	if (false == _Group)
+	{
+		MonsterPos = APlayer::PlayerPos;
+
+		while (MonsterPos.X > (APlayer::PlayerPos.X - 300.0f) && MonsterPos.X < (APlayer::PlayerPos.X + 300.0f))
+		{
+			MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 100.0f;
+		}
+		while (MonsterPos.Y > (APlayer::PlayerPos.Y - 300.0f) && MonsterPos.Y < (APlayer::PlayerPos.Y + 300.0f))
+		{
+			MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 100.0f;
+		}
+	}
+	else
+	{
+		//뭉쳐서 나올때
+		if (false == GroupSpawn)
+		{
+			GroupMonsterPos = APlayer::PlayerPos;
+
+			while (GroupMonsterPos.X > (APlayer::PlayerPos.X - 300.0f) && GroupMonsterPos.X < (APlayer::PlayerPos.X + 300.0f))
+			{
+				GroupMonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 100.0f;
+			}
+			while (GroupMonsterPos.Y > (APlayer::PlayerPos.Y - 250.0f) && GroupMonsterPos.Y < (APlayer::PlayerPos.Y + 250.0f))
+			{
+				GroupMonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 100.0f;
+			}
+		}
+
+		MonsterPos = GroupMonsterPos;
+
+		MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+		MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+
+	}
+
+	//float4 MonsterPos = APlayer::PlayerPos;
+	//MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+	//MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
 
 	return MonsterPos;
 }
