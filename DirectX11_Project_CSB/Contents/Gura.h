@@ -24,11 +24,22 @@ protected:
 
 	void CheckHit();
 
+	// POA : 파워 오브 아틀란티스
+	void POARandomSpawn();
+
+
+	USpriteRenderer* POARenderer;
+
+
+
 
 private:
 	UCollision* CollisionR0;
 	UCollision* CollisionR1;
 	UCollision* CollisionR2;
+	UCollision* CollisionR3;
+	UCollision* CollisionR4;
+	UCollision* CollisionR5;
 
 };
 
