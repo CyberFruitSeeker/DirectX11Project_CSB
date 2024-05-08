@@ -8,6 +8,7 @@ enum class ECollisionOrder
 	Items,
 	Monster,
 	//BossMonster,
+	SmolAme,
 };
 
 enum class ELayerOrder

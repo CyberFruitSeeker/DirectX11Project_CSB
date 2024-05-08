@@ -9,14 +9,15 @@ ASmolAme::ASmolAme()
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	Renderer->SetupAttachment(Root);
 	Renderer->SetPivot(EPivot::BOT);
-	SetRoot(Root);
 
 	UCollision* SmolAmeCol = CreateDefaultSubObject<UCollision>("Collision");
 	SmolAmeCol->SetupAttachment(Root);
-	SmolAmeCol->SetScale({ 100.0f,100.0f });
-	SmolAmeCol->SetCollisionGroup(ECollisionOrder::Monster);
+	SmolAmeCol->SetScale({ 100.0f,-30.0f });
+	SmolAmeCol->SetCollisionGroup(ECollisionOrder::SmolAme);
 	SmolAmeCol->SetCollisionType(ECollisionType::Rect);
 
+
+	SetRoot(Root);
 
 }
 
