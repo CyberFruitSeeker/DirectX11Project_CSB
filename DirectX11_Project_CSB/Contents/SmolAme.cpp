@@ -30,22 +30,18 @@ void ASmolAme::BeginPlay()
 
 	CreateSmolAmeAnimation("SmolAme");
 
-	UStateManager* StatePtr = &SmolAmeState;
-
 	// 스몰 아메의 패턴(상태변화) :
     // Walk => Jump => Jumping(circle shadow) => GroundPound => Walk... 반복
+	UStateManager* StatePtr = &SmolAmeState;
 
-
-	// 걷기 만들고
+	// 걷기 만들고, 시작하고, 업데이트
 	SmolAmeState.CreateState("Walk");
-	// 걷기 시작할때
 	SmolAmeState.SetStartFunction("Walk", [=]()
 		{
 			Renderer->ChangeAnimation("SmolAme_Walk");
 			WalkTime = 0.0f;
-			// 타임을 스타트에서 초기화 해주는 안전장치
+			// 워크타임을 스타트에서 초기화 해주는 안전장치
 		});
-	// 걷기 완료될때
 	SmolAmeState.SetUpdateFunction("Walk", [=](float _DeltaTime)
 		{
 			WalkTime += _DeltaTime;
@@ -53,21 +49,19 @@ void ASmolAme::BeginPlay()
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 
-			if (450.0f >= Range.Size2D() && 4.0f < WalkTime)
+			if (/*450.0f >= Range.Size2D() && */5.0f < WalkTime)
 			{
 				StatePtr->ChangeState("Jump");
 			}
 		});
 	
 
-	// 점프 만들고
+	// 점프 만들고, 시작하고, 업데이트
 	SmolAmeState.CreateState("Jump");
-	// 점프 시작할때
 	SmolAmeState.SetStartFunction("Jump", [=]()
 		{
 			Renderer->ChangeAnimation("SmolAme_Jump");
 		});
-	// 점프 업데이트 될때
 	SmolAmeState.SetUpdateFunction("Jump", [=](float _DeltaTime)
 		{
 			PlayerTargetMove(_DeltaTime);
@@ -79,21 +73,19 @@ void ASmolAme::BeginPlay()
 			}
 		});
 	
-	// 점핑 만들고
+	// 점핑 만들고, 시작하고, 업데이트
 	SmolAmeState.CreateState("Jumping");
-	// 점핑 시작할때
 	SmolAmeState.SetStartFunction("Jumping", [=]()
 		{
 			Renderer->ChangeAnimation("SmolAme_Jumping");
 			JumpingTime = 0.0f;
 		});
-	// 점핑 업데이트 될때
 	SmolAmeState.SetUpdateFunction("Jumping", [=](float _DeltaTime)
 		{
 			//JumpingCollision = false;
 			JumpingTime += _DeltaTime;
-			JumpingAccel += 0.25f;
-			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.03f);
+			JumpingAccel += 0.3f;
+			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.04f);
 			MonsterPosDirSet(_DeltaTime);
 			float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (3.0f < JumpingTime)
@@ -104,15 +96,13 @@ void ASmolAme::BeginPlay()
 			}
 		});
 
-	// 그라운드 파운드 만들고
+	// 그라운드 파운드 만들고, 시작하고, 업데이트하고 다시 걷기로
 	SmolAmeState.CreateState("GroundPound");
-	// 그라운드 파운드 시작할때
 	SmolAmeState.SetStartFunction("GroundPound", [=]()
 		{
 			Renderer->ChangeAnimation("SmolAme_GroundPound");
 			SittingTime = 0.0f;
 		});
-	// 그라운드 파운드 업데이트 될때
 	SmolAmeState.SetUpdateFunction("GroundPound", [=](float _DeltaTime)
 		{
 
@@ -120,7 +110,6 @@ void ASmolAme::BeginPlay()
 			{
 				StatePtr->ChangeState("Walk");
 			}
-
 		});
 
 
