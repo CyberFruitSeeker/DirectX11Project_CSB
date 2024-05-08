@@ -5,7 +5,7 @@
 #include "HoloCureConstValue.h"
 #include "Gura.h"
 
-// 플레이어의 FVector를 초기화 해준다.
+// 플레이어의 FVector(float4)를 초기화 해준다.
 float4 APlayer::PlayerPos = float4::Zero;
 float4 APlayer::PlayerColPos = float4::Zero;
 

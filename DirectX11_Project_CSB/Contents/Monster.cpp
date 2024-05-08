@@ -10,11 +10,6 @@ AMonster::AMonster()
 	Renderer->SetupAttachment(Root);
 	Renderer->SetPivot(EPivot::BOT);
 
-	Collision = CreateDefaultSubObject<UCollision>("Collision");
-	Collision->SetupAttachment(Root);
-	Collision->SetScale({ 30.0f,30.0f });
-	Collision->SetCollisionGroup(ECollisionOrder::Monster);
-	Collision->SetCollisionType(ECollisionType::Rect);
 
 	Shadow = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	Shadow->SetupAttachment(Root);
@@ -25,6 +20,18 @@ AMonster::AMonster()
 	SavedRenderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
 	SavedRenderer->SetActive(false);
 
+	Collision = CreateDefaultSubObject<UCollision>("Collision");
+	Collision->SetupAttachment(Root);
+	Collision->SetScale({ 30.0f,30.0f });
+	Collision->SetCollisionGroup(ECollisionOrder::Monster);
+	Collision->SetCollisionType(ECollisionType::Rect);
+
+	SetRoot(Root);
+
+
+
+
+
 	// 2. 후부질라
 	//UCollision* FubuzillaCol = CreateDefaultSubObject<UCollision>("Collision");
 	//FubuzillaCol->SetupAttachment(Root);
@@ -32,7 +39,6 @@ AMonster::AMonster()
 	//FubuzillaCol->SetCollisionGroup(ECollisionOrder::Monster);
 	//FubuzillaCol->SetCollisionType(ECollisionType::Rect);
 
-	SetRoot(Root);
 
 }
 
@@ -126,6 +132,10 @@ void AMonster::PowerOfAtlantis(std::string _Name)
 {
 	Renderer->CreateAnimation(_Name, _Name, 0.025f, true, 0, 8);
 }
+
+
+
+
 
 void AMonster::MonsterPosDirSet(float _DeltaTime)
 {

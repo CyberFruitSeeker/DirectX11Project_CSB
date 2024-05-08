@@ -78,12 +78,11 @@ void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	// 마우스 커서 Tick
+	// 마우스 커서 움직임 Tick
 	MouseCursorToTick();
 
 	// (스테이지1)무한맵 Tick
 	InfinityGroundCheck();
-
 
 	// 몬스터 스폰 Tick
 	MonsterSpawnTick(_DeltaTime);
@@ -92,11 +91,10 @@ void APlayGameMode::Tick(float _DeltaTime)
 	// 스몰 아메 스폰 Tick
 	SmolAmeSpawnTick(_DeltaTime);
 
-
-	// 디버깅용 UI 렌더링
+	// 디버깅용 UI
 	PlayingDebugTextUI();
 
-	// 디버깅 UI 프레임 표시
+	// 디버깅 UI : 프레임 표시
 	std::string FPS = std::format("FPS : {}", 1.0f / _DeltaTime);
 	UEngineDebugMsgWindow::PushMsg(FPS);
 
@@ -174,7 +172,7 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 void APlayGameMode::SmolAmeSpawnTick(float _DeltaTime)
 {
 	SpawnSmolAmeTimeSet(_DeltaTime, 0.5f, 66.6f, 12.0f, "SmolAme",
-		3.3f, 40.0f, 4.0f, 0.1f, 7.0f, EMonsterMoveType::Follow, false, 2);
+		4.0f, 40.0f, 4.0f, 0.1f, 7.0f, EMonsterMoveType::Follow, false, 2);
 
 	PlayTime += _DeltaTime;
 }
@@ -225,7 +223,7 @@ void APlayGameMode::PlayingDebugTextUI()
 
 }
 
-// 마우스 커서
+// 마우스 커서 움직이게 하기
 void APlayGameMode::MouseCursorToTick()
 {
 	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
@@ -423,12 +421,9 @@ float4 APlayGameMode::RandomLocation(bool _Group)
 }
 
 
-// ====== 스몰 아메 및 다른 보스몬스터 애니메이션 & 스폰 함수들 ======
-//우선 스몰아메
-// 주의 :
-// Monster->GetRenderer()->ChangeAnimation(_Name); 여기서 빌드에러 발생하니깐
-// 그 줄은 지워야함
+// ====== 스몰 아메 및 다른 보스, 중보스 몬스터 애니메이션 & 스폰 함수들 ======
 
+//우선 스몰아메
 void APlayGameMode::SpawnSmolAme(std::string _Name, float4 _Location)
 {
 	std::shared_ptr<ASmolAme> SmolAme;
@@ -468,6 +463,8 @@ void APlayGameMode::RandomSpawnSmolAme(std::string _Name, float _Size, float _Hp
 
 		SmolAme = GetWorld()->SpawnActor<ASmolAme>(_Name);
 		SmolAme->GetRenderer()->SetAutoSize(_Size, true);
+		// 스몰아메 애니메이션은? :
+		// 클래스 안에서 자체적으로 스테이트 매니저와 람다함수로 돌아간다.
 		//SmolAme->GetRenderer()->ChangeAnimation(_Name);
 		SmolAme->SmolAmeStatus(_Hp, _Atk, _Speed, _Exp, _MoveType);
 		FVector GroupPos = RandomLocation(_Group);
@@ -497,14 +494,14 @@ void APlayGameMode::RandomSpawnSmolAme(std::string _Name, float _Size, float _Hp
 
 }
 
-float4 APlayGameMode::SmolAmeRandomLocation(bool _Group)
-{
-	float4 MonsterPos = APlayer::PlayerPos;
-	MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
-	MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
-
-	return MonsterPos;
-}
+//float4 APlayGameMode::SmolAmeRandomLocation(bool _Group)
+//{
+//	float4 MonsterPos = APlayer::PlayerPos;
+//	MonsterPos.X += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+//	MonsterPos.Y += UEngineRandom::MainRandom.RandomFloat(-5.0f, 5.0f) * 200.0f;
+//
+//	return MonsterPos;
+//}
 
 
 
