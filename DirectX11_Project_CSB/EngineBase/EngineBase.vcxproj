@@ -159,13 +159,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EngineClient.cpp" />
     <ClCompile Include="EngineDebug.cpp" />
     <ClCompile Include="EngineDirectory.cpp" />
     <ClCompile Include="EngineFile.cpp" />
     <ClCompile Include="EngineMath.cpp" />
+    <ClCompile Include="EngineNet.cpp" />
     <ClCompile Include="EnginePath.cpp" />
+    <ClCompile Include="EngineProtocol.cpp" />
     <ClCompile Include="EngineRandom.cpp" />
     <ClCompile Include="EngineSerializer.cpp" />
+    <ClCompile Include="EngineServer.cpp" />
     <ClCompile Include="EngineString.cpp" />
     <ClCompile Include="EngineThread.cpp">
       <SubType>
@@ -173,6 +177,8 @@
     </ClCompile>
     <ClCompile Include="EngineTime.cpp" />
     <ClCompile Include="NameObject.cpp" />
+    <ClCompile Include="NetObject.cpp" />
+    <ClCompile Include="NetStartUpHelper.cpp" />
     <ClCompile Include="PathObject.cpp" />
     <ClCompile Include="PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -180,6 +186,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="TCPSession.cpp" />
     <ClCompile Include="ThreadPool.cpp">
       <SubType>
       </SubType>
@@ -188,13 +196,18 @@
     <ClCompile Include="TransformObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EngineClient.h" />
     <ClInclude Include="EngineDebug.h" />
     <ClInclude Include="EngineDirectory.h" />
     <ClInclude Include="EngineFile.h" />
     <ClInclude Include="EngineMath.h" />
+    <ClInclude Include="EngineNet.h" />
+    <ClInclude Include="EngineNetHeader.h" />
     <ClInclude Include="EnginePath.h" />
+    <ClInclude Include="EngineProtocol.h" />
     <ClInclude Include="EngineRandom.h" />
     <ClInclude Include="EngineSerializer.h" />
+    <ClInclude Include="EngineServer.h" />
     <ClInclude Include="EngineString.h" />
     <ClInclude Include="EngineThread.h">
       <SubType>
@@ -202,8 +215,12 @@
     </ClInclude>
     <ClInclude Include="EngineTime.h" />
     <ClInclude Include="NameObject.h" />
+    <ClInclude Include="NetObject.h" />
+    <ClInclude Include="NetStartUpHelper.h" />
     <ClInclude Include="PathObject.h" />
     <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="TCPSession.h" />
     <ClInclude Include="ThreadPool.h">
       <SubType>
       </SubType>
