@@ -50,7 +50,7 @@ void APlayGameMode::BeginPlay()
 	Camera->SetActorLocation({ 0.0f, 0.0f, -200.0f });
 	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
 	float4 CameraPos = PlayerStartPos;
-	CameraPos.Z = -1000.0f;
+	CameraPos.Z = -150.0f;
 	Camera->SetActorLocation(CameraPos);
 
 
@@ -108,6 +108,10 @@ void APlayGameMode::Tick(float _DeltaTime)
 // 몬스터
 void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 {
+	// 몬스터 스폰 시작 - 끝 - 간격
+	// 몬스터 크기, 체력, 공격력, 스피드, 경험치
+	// 마지막은 스폰되는 양
+
 	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 7.0f, "Deadbeat",
 		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
 
@@ -141,11 +145,11 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 
 	// 실험용 : 파워 오브 아틀란티스
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "POA",
-		2.2f, 40.0f, 4.0f, 0.6f, 7.0f, EMonsterMoveType::Follow, false, 5);
+	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "POA",
+	//	2.2f, 40.0f, 4.0f, 0.6f, 7.0f, EMonsterMoveType::Follow, false, 5);
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
-		0.4f, 40.0f, 4.0f, 0.6f, 7.0f, EMonsterMoveType::Follow, false, 3);
+	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "PowerOfAtlantis",
+	//	0.4f, 40.0f, 4.0f, 0.6f, 7.0f, EMonsterMoveType::Follow, false, 3);
 
 
 	// 후부질라
@@ -412,6 +416,7 @@ void APlayGameMode::RandomSpawnMonster(std::string _Name, float _Size, float _Hp
 	GroupSpawn = false;
 }
 
+// 플레이어 주변에서 나오게 한다.
 float4 APlayGameMode::RandomLocation(bool _Group)
 {
 	float4 MonsterPos;

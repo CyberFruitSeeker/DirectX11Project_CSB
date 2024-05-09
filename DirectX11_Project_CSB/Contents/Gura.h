@@ -28,7 +28,6 @@ protected:
 	void POARandomSpawn();
 
 
-	USpriteRenderer* POARenderer;
 
 
 
@@ -40,6 +39,8 @@ private:
 	UCollision* CollisionR3;
 	UCollision* CollisionR4;
 	UCollision* CollisionR5;
+
+	
 
 };
 

@@ -37,6 +37,10 @@ protected:
 	UDefaultSceneComponent* Root;
 
 	USpriteRenderer* Renderer;
+	
+	// 구라의 파워 오브 아틀란티스
+	USpriteRenderer* POARenderer;
+
 
 	std::string Name = "";
 

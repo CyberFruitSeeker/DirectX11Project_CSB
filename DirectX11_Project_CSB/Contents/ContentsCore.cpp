@@ -207,6 +207,9 @@ void UContentsCore::Initialize()
 
 	}
 
+
+
+
 	
 
 	// ========== »ç¿îµå ==========

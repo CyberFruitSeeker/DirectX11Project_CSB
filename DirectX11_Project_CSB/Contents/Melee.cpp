@@ -6,10 +6,16 @@
 AMelee::AMelee()
 {
 	
+
+
 	Root = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	Renderer->SetupAttachment(Root);
 	Renderer->SetPivot(EPivot::MAX);
+
+	POARenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	POARenderer->SetupAttachment(Root);
+	POARenderer->SetPivot(EPivot::MAX);
 
 	SetRoot(Root);
 

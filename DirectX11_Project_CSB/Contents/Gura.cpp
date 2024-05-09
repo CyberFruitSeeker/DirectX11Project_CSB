@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "Gura.h"
+#include "EngineCore/Actor.h"
 
 AGura::AGura()
 {
@@ -11,19 +12,19 @@ AGura::AGura()
 	CollisionR0->SetScale({ 30.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
 	CollisionR0->SetCollisionGroup(ECollisionOrder::Weapon);
 	CollisionR0->SetCollisionType(ECollisionType::CirCle);
-	//CollisionR0->SetupAttachment(Root);
+	CollisionR0->SetupAttachment(Root);
 
 	CollisionR1 = CreateDefaultSubObject<UCollision>("Collision");
 	CollisionR1->SetScale({ 40.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
 	CollisionR1->SetCollisionGroup(ECollisionOrder::Weapon);
 	CollisionR1->SetCollisionType(ECollisionType::CirCle);
-	//CollisionR1->SetupAttachment(Root);
+	CollisionR1->SetupAttachment(Root);
 
 	CollisionR2 = CreateDefaultSubObject<UCollision>("Collision");
 	CollisionR2->SetScale({ 50.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
 	CollisionR2->SetCollisionGroup(ECollisionOrder::Weapon);
 	CollisionR2->SetCollisionType(ECollisionType::CirCle);
-	//CollisionR2->SetupAttachment(Root);
+	CollisionR2->SetupAttachment(Root);
 
 	CollisionR3 = CreateDefaultSubObject<UCollision>("Collision");
 	CollisionR3->SetScale({ 55.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
@@ -31,9 +32,10 @@ AGura::AGura()
 	CollisionR3->SetCollisionType(ECollisionType::CirCle);
 	CollisionR3->SetupAttachment(Root);
 
+	//POARenderer->SetupAttachment(Root);
 
 
-	//SetRoot
+	
 
 
 }
@@ -52,7 +54,8 @@ void AGura::BeginPlay()
 	Renderer->CreateAnimation("GuraAttack", "GuraAttack", 0.05f);
 	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize * 1.0f, true);
 	Renderer->ChangeAnimation("GuraAttack");
-	//Renderer->AddPosition()
+
+
 
 	// 구라의 기본공격은 검 타입인가? or 거리(reach) 타입인가?
 	// => 거리 타입이다.
@@ -61,6 +64,14 @@ void AGura::BeginPlay()
 	CollisionR1->SetActive(false);
 	CollisionR2->SetActive(false);
 	CollisionR3->SetActive(false);
+
+
+	// 스킬 : 파워 오브 아틀란티스
+	POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
+	POARenderer->SetAutoSize(4.0f, true);
+	POARenderer->ChangeAnimation("PowerOfAtlantis");
+
+
 
 }
 
@@ -172,6 +183,9 @@ void AGura::CheckHit()
 
 void AGura::POARandomSpawn()
 {
+	
+
+
 
 }
 
