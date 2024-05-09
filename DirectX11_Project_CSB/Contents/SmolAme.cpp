@@ -48,7 +48,7 @@ void ASmolAme::BeginPlay()
 			WalkTime += _DeltaTime;
 			PlayerTargetMove(_DeltaTime);
 			MonsterPosDirSet(_DeltaTime);
-			float4 Range = APlayer::PlayerPos - GetActorLocation();
+			//float4 Range = APlayer::PlayerPos - GetActorLocation();
 
 			if (/*450.0f >= Range.Size2D() && */5.0f < WalkTime)
 			{
@@ -67,7 +67,7 @@ void ASmolAme::BeginPlay()
 		{
 			PlayerTargetMove(_DeltaTime);
 			MonsterPosDirSet(_DeltaTime);
-			float4 Range = APlayer::PlayerPos - GetActorLocation();
+			//float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (Renderer->IsCurAnimationEnd())
 			{
 				StatePtr->ChangeState("Jumping");
@@ -88,7 +88,7 @@ void ASmolAme::BeginPlay()
 			JumpingAccel += 0.3f;
 			PlayerTargetMove(_DeltaTime * JumpingAccel < 0.04f);
 			MonsterPosDirSet(_DeltaTime);
-			float4 Range = APlayer::PlayerPos - GetActorLocation();
+			//float4 Range = APlayer::PlayerPos - GetActorLocation();
 			if (3.0f < JumpingTime)
 			{
 				JumpingAccel = 0.0f;

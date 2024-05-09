@@ -77,7 +77,8 @@ void AMelee::SetReachTypeMeleeLocation(float _DistanceFromPlayer)
 	Dir = float4::DegToDir(Angle);
 	Dir.Z = 0.0f;
 
-	SetActorLocation(FVector{ APlayer::PlayerPos.X, APlayer::PlayerPos.Y });
+	//SetActorLocation(FVector{ APlayer::PlayerPos.X, APlayer::PlayerPos.Y });
+	SetActorLocation(FVector{ APlayer::PlayerPos.X, APlayer::PlayerPos.Y + 10.0f});
 	AddActorLocation(Dir * _DistanceFromPlayer * HoloCureConstValue::MultipleSize);
 
 }

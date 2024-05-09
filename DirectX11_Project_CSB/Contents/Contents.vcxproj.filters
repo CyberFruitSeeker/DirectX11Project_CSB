@@ -64,28 +64,25 @@
     <Filter Include="Level and Actors\Game Modes">
       <UniqueIdentifier>{a1a6565b-e861-456b-a882-ddc2162e6d66}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level">
-      <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level\EndingLevel">
-      <UniqueIdentifier>{9132de74-b9b8-4e8d-9ac7-3d2206c49adb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level\TitleLevel">
-      <UniqueIdentifier>{b376701f-d639-46f4-9a1d-2639f242bb70}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level and Actors\Game Modes\SelectGameMode">
       <UniqueIdentifier>{c767abbf-259d-4d0f-9226-871c67526587}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level\Actor">
+    <Filter Include="Level and Actors\Title Level">
+      <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Title Level\Actor">
       <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Title Level\BackGround">
+      <UniqueIdentifier>{9b1d3a4c-8037-4775-9701-bca6f084683e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Title Level\Menu">
+      <UniqueIdentifier>{3c096303-255a-4d3c-89a9-38743c49cc27}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
       <Filter>PreCompile</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleLogo.cpp">
-      <Filter>Level and Actors\Game Modes\Title &amp; Ending Level\Actor</Filter>
     </ClCompile>
     <ClCompile Include="ContentsCore.cpp">
       <Filter>Core%28Image &amp; Sound, Start Level%29\CoCo</Filter>
@@ -141,19 +138,37 @@
     <ClCompile Include="UIManager.cpp">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\UI</Filter>
     </ClCompile>
-    <ClCompile Include="TitleGameMode.cpp">
-      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
-    </ClCompile>
     <ClCompile Include="PlayGameMode.cpp">
-      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
+      <Filter>Level and Actors\Game Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleGameMode.cpp">
+      <Filter>Level and Actors\Game Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectGameMode.cpp">
+      <Filter>Level and Actors\Game Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBack.cpp">
+      <Filter>Level and Actors\Title Level\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleCharacter.cpp">
+      <Filter>Level and Actors\Title Level\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>Level and Actors\Title Level\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Level and Actors\Title Level\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Level and Actors\Title Level\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleText.cpp">
+      <Filter>Level and Actors\Title Level\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleLogo.h">
-      <Filter>Level and Actors\Game Modes\Title &amp; Ending Level\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsCore.h">
       <Filter>Core%28Image &amp; Sound, Start Level%29\CoCo</Filter>
@@ -209,11 +224,32 @@
     <ClInclude Include="UIManager.h">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\UI</Filter>
     </ClInclude>
-    <ClInclude Include="TitleGameMode.h">
-      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
-    </ClInclude>
     <ClInclude Include="PlayGameMode.h">
-      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
+      <Filter>Level and Actors\Game Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleGameMode.h">
+      <Filter>Level and Actors\Game Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectGameMode.h">
+      <Filter>Level and Actors\Game Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleBack.h">
+      <Filter>Level and Actors\Title Level\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleCharacter.h">
+      <Filter>Level and Actors\Title Level\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>Level and Actors\Title Level\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Level and Actors\Title Level\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Level and Actors\Title Level\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleText.h">
+      <Filter>Level and Actors\Title Level\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

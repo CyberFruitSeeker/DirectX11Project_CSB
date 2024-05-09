@@ -36,6 +36,7 @@ void APlayGameMode::BeginPlay()
 	// 인스턴싱 기능 쓸려면? : 몬스터들 렌더링 오더 다 다르게 해줘야함
 	// 왜?? : 같은 텍스처(머터리얼)인 것만 적용되기 때문에
 	//GetWorld()->InstancingOn<USpriteInstancingRender>(ERenderingOrder::MonsterUp);
+	//GetWorld()->InstancingOn<USpriteInstancingRender>(ERenderingOrder::MonsterDown);
 
 
 	// 무한맵을 가동시키기 전에 맵 이미지부터 찾아주고
