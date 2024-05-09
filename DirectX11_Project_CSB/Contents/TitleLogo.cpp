@@ -32,10 +32,6 @@ void ATitleLogo::BeginPlay()
 	BackRenderer->SetAutoSize(10.0f, true);
 	BackRenderer->SetOrder(ERenderingOrder::Back);
 
-
-
-
-
 	//{
 	//	SetActorScale3D(FVector(1300.0f, 600.0f, 100.0f));
 	//	Renderer->SetSprite("HoloCureTitle.png");
@@ -48,10 +44,25 @@ void ATitleLogo::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
+	Move(_DeltaTime);
+
 	int a = 0;
 }
 
 void ATitleLogo::Move(float _DeltaTime)
 {
+	if (0.0f <= LogoMoveTime && LogoMoveTime < 1.3f)
+	{
+		Renderer->AddPosition(LogoMove * _DeltaTime);
+	}
+	if (1.4f <= LogoMoveTime && LogoMoveTime < 2.7f)
+	{
+		Renderer->AddPosition(LogoMove * -1 * _DeltaTime);
+	}
+	if (2.8f <= LogoMoveTime)
+	{
+		LogoMoveTime = 0.0f;
+	}
+	LogoMoveTime += _DeltaTime;
 
 }

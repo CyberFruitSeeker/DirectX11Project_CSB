@@ -1,18 +1,18 @@
 #pragma once
 
 // Ό³Έν :
-class TitleBack
+class ATitleBack
 {
 public:
 	// constrcuter destructer
-	TitleBack();
-	~TitleBack();
+	ATitleBack();
+	~ATitleBack();
 
 	// delete Function
-	TitleBack(const TitleBack& _Other) = delete;
-	TitleBack(TitleBack&& _Other) noexcept = delete;
-	TitleBack& operator=(const TitleBack& _Other) = delete;
-	TitleBack& operator=(TitleBack&& _Other) noexcept = delete;
+	ATitleBack(const ATitleBack& _Other) = delete;
+	ATitleBack(ATitleBack&& _Other) noexcept = delete;
+	ATitleBack& operator=(const ATitleBack& _Other) = delete;
+	ATitleBack& operator=(ATitleBack&& _Other) noexcept = delete;
 
 protected:
 

@@ -21,10 +21,9 @@ enum class ELayerOrder
 
 enum class ERenderingOrder
 {
-	Title,
+	Player,
 	Back,
 	Front,
-	Player,
 	Mouse,
 	Attack,
 	MonsterUp,
@@ -32,11 +31,13 @@ enum class ERenderingOrder
 	MonsterUIUp,
 	MonsterUIDown,
 	Shadow,
-	FiledSpawnMonster,
-	SuddenSpawnMonster,
-	BossMonster,
-	Item,
-	Object,
+	Title,
+	//FiledSpawnMonster,
+	//SuddenSpawnMonster,
+	//BossMonster,
+	//Item,
+	//Object,
+	//Skill,
 };
 
 // 북쪽부터 시계방향으로

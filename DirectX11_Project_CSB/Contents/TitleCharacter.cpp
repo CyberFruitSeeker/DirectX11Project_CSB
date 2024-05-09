@@ -1,11 +1,26 @@
 #include "PreCompile.h"
 #include "TitleCharacter.h"
 
-TitleCharacter::TitleCharacter()
+ATitleCharacter::ATitleCharacter()
 {
 }
 
-TitleCharacter::~TitleCharacter()
+ATitleCharacter::~ATitleCharacter()
 {
+}
+
+void ATitleCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+
+}
+
+void ATitleCharacter::Tick(float _DeltaTime)
+{
+	Super::Tick(_DeltaTime);
+
+
+
 }
 

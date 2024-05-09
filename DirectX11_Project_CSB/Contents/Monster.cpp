@@ -70,7 +70,7 @@ void AMonster::BeginPlay()
 	CreateMonsterAnimation("Fubuzilla", 11);
 
 	// 렌더링 실험용 : 파워 오브 아틀란티스(2가지)
-	PowerOfAtlantis("PowerOfAtlantis");
+	//PowerOfAtlantis("PowerOfAtlantis");
 	//CreateMonsterAnimation("PowerOfAtlantis", 8);
 	CreatePOA("POA");
 
@@ -149,10 +149,10 @@ void AMonster::CreatePOA(std::string _Name)
 }
 
 
-void AMonster::PowerOfAtlantis(std::string _Name)
-{
-	Renderer->CreateAnimation(_Name, _Name, 0.025f, true, 0, 8);
-}
+//void AMonster::PowerOfAtlantis(std::string _Name)
+//{
+//	Renderer->CreateAnimation(_Name, _Name, 0.025f, true, 0, 8);
+//}
 
 
 // 몬스터들이 플레이어를 향해 다가가게 만드는 함수
