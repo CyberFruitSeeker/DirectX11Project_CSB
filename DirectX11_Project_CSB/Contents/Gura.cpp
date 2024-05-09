@@ -181,11 +181,17 @@ void AGura::CheckHit()
 
 }
 
+// 파워 오브 아틀란티스
 void AGura::POARandomSpawn()
 {
 	
 
 
+
+}
+
+void AGura::POARandomLocation()
+{
 
 }
 

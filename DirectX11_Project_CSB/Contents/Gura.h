@@ -27,6 +27,7 @@ protected:
 	// POA : 파워 오브 아틀란티스
 	void POARandomSpawn();
 
+	void POARandomLocation();
 
 
 

@@ -22,11 +22,16 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void RendererOff();
-	void RendererOn();
+	void Move(float _DeltaTime);
+
+
 
 private:
-	USpriteRenderer* Renderer = nullptr;
+	USpriteRenderer* Renderer;
+	USpriteRenderer* BackRenderer;
+
+	float LogoMoveTime = 0.0f;
+	float4 LogoMove = FVector::Down * 10.0f;
 
 };
 
