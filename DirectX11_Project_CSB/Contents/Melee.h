@@ -29,7 +29,7 @@ protected:
 
 	void SetKnifeTypeMeleeLocation(float _DistanceFromPlayer);
 
-	//void SetReachTypeMeleeLocation(float _DistanceFromPlayer);
+	void SetReachTypeMeleeLocation(float _DistanceFromPlayer);
 
 
 private:

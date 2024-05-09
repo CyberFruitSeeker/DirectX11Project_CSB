@@ -208,20 +208,20 @@ void APlayer::ChangeMouseAimAttackDir()
 void APlayer::PlayerCollisionInteractiveToMonster()
 {
 	// 플레이어가 몬스터들이랑 콜리전 상호작용이 일어나서 : 우선은 사라지게 해본다.
-	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
-		{
-			// 스몰아메가 점프중인 상태일때 콜리전을 발생하지 않게 만들어보기 :
-			// 이곳, 플레이어 cpp에다 구현할 것인가? or 스몰 아메 클래스에다가 구현할 것인가?
+	//Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision>_collision)
+	//	{
+	//		 //스몰아메가 점프중인 상태일때 콜리전을 발생하지 않게 만들어보기 :
+	//		 //이곳, 플레이어 cpp에다 구현할 것인가? or 스몰 아메 클래스에다가 구현할 것인가?
 
-			//ASmolAme* SmolAme = dynamic_cast<ASmolAme*>(_collision->GetActor());
-			//if (false == SmolAme->JumpingCollision)
-			//{
-			//	return;
-			//}
+	//		ASmolAme* SmolAme = dynamic_cast<ASmolAme*>(_collision->GetActor());
+	//		if (false == SmolAme->JumpingCollision)
+	//		{
+	//			return;
+	//		}
 
-			//_collision->GetActor()->Destroy();
-		}
-	);
+	//		_collision->GetActor()->Destroy();
+	//	}
+	//);
 
 
 }

@@ -25,24 +25,6 @@
     <Filter Include="Level and Actors">
       <UniqueIdentifier>{0776a4d5-de1e-4eba-8d2b-3b00d2ec2ab4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level and Actors\Game Mode Selection">
-      <UniqueIdentifier>{a1a6565b-e861-456b-a882-ddc2162e6d66}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Game Mode Selection\Title &amp; Ending Level">
-      <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Game Mode Selection\Title &amp; Ending Level\EndingLevel">
-      <UniqueIdentifier>{9132de74-b9b8-4e8d-9ac7-3d2206c49adb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Game Mode Selection\Title &amp; Ending Level\TitleLevel">
-      <UniqueIdentifier>{b376701f-d639-46f4-9a1d-2639f242bb70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Game Mode Selection\Title &amp; Ending Level\TitleLevel\Actor">
-      <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Game Mode Selection\Play Level">
-      <UniqueIdentifier>{21bab7e4-b488-4163-86a3-1ff82247140c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level and Actors\Actors%28in PlayLevel%29">
       <UniqueIdentifier>{fe7fd277-b971-4635-a3b2-cc3f60d80314}</UniqueIdentifier>
     </Filter>
@@ -54,9 +36,6 @@
     </Filter>
     <Filter Include="Level and Actors\Actors%28in PlayLevel%29\UI">
       <UniqueIdentifier>{20c9d18c-63e5-4c96-a128-e2f28ea0d9b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level and Actors\Actors%28in PlayLevel%29\UI\Mouse Cursor">
-      <UniqueIdentifier>{df83cc8b-1fa8-41ab-9a5b-ffd876eaff0f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Level and Actors\Actors%28in PlayLevel%29\PlayBackLayer%28Map%29">
       <UniqueIdentifier>{95b6404a-840b-4384-9b39-5fe640d7fd6e}</UniqueIdentifier>
@@ -82,16 +61,31 @@
     <Filter Include="Level and Actors\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee\Idol%28Character%29">
       <UniqueIdentifier>{7a8f356f-d37a-4523-b9d7-08425c0dded8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level and Actors\Game Modes">
+      <UniqueIdentifier>{a1a6565b-e861-456b-a882-ddc2162e6d66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level">
+      <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level\EndingLevel">
+      <UniqueIdentifier>{9132de74-b9b8-4e8d-9ac7-3d2206c49adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level\TitleLevel">
+      <UniqueIdentifier>{b376701f-d639-46f4-9a1d-2639f242bb70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Game Modes\SelectGameMode">
+      <UniqueIdentifier>{c767abbf-259d-4d0f-9226-871c67526587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Game Modes\Title &amp; Ending Level\Actor">
+      <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp">
       <Filter>PreCompile</Filter>
     </ClCompile>
-    <ClCompile Include="TitleGameMode.cpp">
-      <Filter>Level and Actors\Game Mode Selection\Title &amp; Ending Level\TitleLevel</Filter>
-    </ClCompile>
     <ClCompile Include="TitleLogo.cpp">
-      <Filter>Level and Actors\Game Mode Selection\Title &amp; Ending Level\TitleLevel\Actor</Filter>
+      <Filter>Level and Actors\Game Modes\Title &amp; Ending Level\Actor</Filter>
     </ClCompile>
     <ClCompile Include="ContentsCore.cpp">
       <Filter>Core%28Image &amp; Sound, Start Level%29\CoCo</Filter>
@@ -113,9 +107,6 @@
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\Monsters</Filter>
-    </ClCompile>
-    <ClCompile Include="HoloMouse.cpp">
-      <Filter>Level and Actors\Actors%28in PlayLevel%29\UI\Mouse Cursor</Filter>
     </ClCompile>
     <ClCompile Include="BossMonster.cpp">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
@@ -144,19 +135,25 @@
     <ClCompile Include="Gura.cpp">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee\Idol%28Character%29</Filter>
     </ClCompile>
+    <ClCompile Include="HoloMouse.cpp">
+      <Filter>Level and Actors\Actors%28in PlayLevel%29\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Level and Actors\Actors%28in PlayLevel%29\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleGameMode.cpp">
+      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
+    </ClCompile>
     <ClCompile Include="PlayGameMode.cpp">
-      <Filter>Level and Actors\Game Mode Selection\Play Level</Filter>
+      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
     </ClInclude>
-    <ClInclude Include="TitleGameMode.h">
-      <Filter>Level and Actors\Game Mode Selection\Title &amp; Ending Level\TitleLevel</Filter>
-    </ClInclude>
     <ClInclude Include="TitleLogo.h">
-      <Filter>Level and Actors\Game Mode Selection\Title &amp; Ending Level\TitleLevel\Actor</Filter>
+      <Filter>Level and Actors\Game Modes\Title &amp; Ending Level\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsCore.h">
       <Filter>Core%28Image &amp; Sound, Start Level%29\CoCo</Filter>
@@ -178,9 +175,6 @@
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\Monsters</Filter>
-    </ClInclude>
-    <ClInclude Include="HoloMouse.h">
-      <Filter>Level and Actors\Actors%28in PlayLevel%29\UI\Mouse Cursor</Filter>
     </ClInclude>
     <ClInclude Include="BossMonster.h">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\Monsters\BossMonsters</Filter>
@@ -209,8 +203,17 @@
     <ClInclude Include="Gura.h">
       <Filter>Level and Actors\Actors%28in PlayLevel%29\Effect, Weapon\Player Attack Effect\Melee\Idol%28Character%29</Filter>
     </ClInclude>
+    <ClInclude Include="HoloMouse.h">
+      <Filter>Level and Actors\Actors%28in PlayLevel%29\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Level and Actors\Actors%28in PlayLevel%29\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleGameMode.h">
+      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
+    </ClInclude>
     <ClInclude Include="PlayGameMode.h">
-      <Filter>Level and Actors\Game Mode Selection\Play Level</Filter>
+      <Filter>Level and Actors\Game Modes\SelectGameMode</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
