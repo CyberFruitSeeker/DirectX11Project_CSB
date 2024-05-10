@@ -48,9 +48,9 @@ void AGura::BeginPlay()
 {
 	Super::BeginPlay();
 
-	POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
-	POARenderer->SetAutoSize(4.0f, true);
-	POARenderer->ChangeAnimation("PowerOfAtlantis");
+	//POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
+	//POARenderer->SetAutoSize(4.0f, true);
+	//POARenderer->ChangeAnimation("PowerOfAtlantis");
 	//POARenderer->SetOrder(ERenderingOrder::Skill);
 
 
