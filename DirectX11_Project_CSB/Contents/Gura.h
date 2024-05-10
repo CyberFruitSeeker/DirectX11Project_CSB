@@ -22,6 +22,8 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void GuraAtkColTick();
+
 	void CheckHit();
 
 	// POA : 파워 오브 아틀란티스
@@ -29,6 +31,7 @@ protected:
 
 	void POARandomLocation();
 
+	//USpriteRenderer* POARenderer;
 
 
 

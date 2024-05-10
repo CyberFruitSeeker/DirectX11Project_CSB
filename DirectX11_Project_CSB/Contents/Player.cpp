@@ -51,8 +51,6 @@ void APlayer::BeginPlay()
 	CreatePlayerAnimation("Gura");
 	//CreatePlayerAnimation("Matsuri");
 
-
-
 	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
 	Renderer->SetOrder(ERenderingOrder::Player);
 

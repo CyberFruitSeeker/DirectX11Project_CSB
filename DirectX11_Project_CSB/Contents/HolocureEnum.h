@@ -19,10 +19,13 @@ enum class ELayerOrder
 	UILayer,
 };
 
+// 배치 되는 높이? : 위로 올라갈수록 더 아래에다 배치된다.
+// 즉, "아래로 갈수록 위로 배치됨"
 enum class ERenderingOrder
 {
-	Title,
-	TitleF,
+	//Title,
+	//TitleF,
+	Skill,
 	Back,
 	Front,
 	Player,
@@ -38,6 +41,8 @@ enum class ERenderingOrder
 	BossMonster,
 	Item,
 	Object,
+	Title,
+	TitleF,
 };
 
 // 북쪽부터 시계방향으로

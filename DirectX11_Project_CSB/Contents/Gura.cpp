@@ -34,6 +34,9 @@ AGura::AGura()
 
 	//POARenderer->SetupAttachment(Root);
 
+	//POARenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	//POARenderer->SetupAttachment(Root);
+	//POARenderer->SetPivot(EPivot::BOT);
 
 	
 
@@ -48,10 +51,12 @@ void AGura::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
-	//POARenderer->SetAutoSize(4.0f, true);
-	//POARenderer->ChangeAnimation("PowerOfAtlantis");
+
+	POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
+	POARenderer->SetAutoSize(4.0f, true);
+	POARenderer->ChangeAnimation("PowerOfAtlantis");
 	//POARenderer->SetOrder(ERenderingOrder::Skill);
+	//POARenderer->AddPosition(Dir * 120.0f * HoloCureConstValue::MultipleSize);
 
 
 	//Name = "GuraTridentAttack";
@@ -85,6 +90,22 @@ void AGura::Tick(float _DeltaTime)
 
 	SetReachTypeMeleeLocation(50.0f);
 
+	GuraAtkColTick();
+
+
+
+	{
+
+		FVector Pos = Root->GetLocalPosition() * Dir;
+		UEngineDebugMsgWindow::PushMsg(std::format("RootPos : {}", Pos.ToString()));
+	}
+
+
+
+}
+
+void AGura::GuraAtkColTick()
+{
 	if (true == Renderer->IsActive())
 	{
 		CollisionR0->SetActive(true);
@@ -117,15 +138,6 @@ void AGura::Tick(float _DeltaTime)
 		CollisionR2->SetActive(false);
 		CollisionR3->SetActive(false);
 	}
-
-	{
-
-		FVector Pos = Root->GetLocalPosition() * Dir;
-		UEngineDebugMsgWindow::PushMsg(std::format("RootPos : {}", Pos.ToString()));
-	}
-
-
-
 }
 
 void AGura::CheckHit()

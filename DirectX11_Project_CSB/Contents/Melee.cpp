@@ -30,7 +30,9 @@ void AMelee::BeginPlay()
 	Super::BeginPlay();
 
 	Renderer->SetOrder(ERenderingOrder::Attack);
-	POARenderer->SetOrder(ERenderingOrder::Attack);
+	
+	// 구라가 쓰는 POA
+	POARenderer->SetOrder(ERenderingOrder::Back);
 }
 
 

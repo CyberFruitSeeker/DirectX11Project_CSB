@@ -31,6 +31,8 @@ protected:
 
 	void SetReachTypeMeleeLocation(float _DistanceFromPlayer);
 
+	USpriteRenderer* POARenderer;
+
 
 private:
 	
