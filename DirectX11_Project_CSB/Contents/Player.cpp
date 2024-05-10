@@ -19,7 +19,7 @@ APlayer::APlayer()
 
 	ArrowCursor = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	ArrowCursor->SetupAttachment(Root);
-	ArrowCursor->SetPivot(EPivot::MAX);
+	ArrowCursor->SetOrder(ERenderingOrder::Mouse);
 
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);

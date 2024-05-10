@@ -22,6 +22,7 @@ enum class ELayerOrder
 enum class ERenderingOrder
 {
 	Title,
+	TitleF,
 	Back,
 	Front,
 	Player,

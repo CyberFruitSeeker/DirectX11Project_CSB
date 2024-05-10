@@ -49,7 +49,7 @@ void AGura::BeginPlay()
 	Super::BeginPlay();
 
 
-	Name = "GuraTridentAttack";
+	//Name = "GuraTridentAttack";
 
 	Renderer->CreateAnimation("GuraAttack", "GuraAttack", 0.05f);
 	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize * 1.0f, true);
@@ -70,7 +70,6 @@ void AGura::BeginPlay()
 	POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
 	POARenderer->SetAutoSize(4.0f, true);
 	POARenderer->ChangeAnimation("PowerOfAtlantis");
-
 
 
 }
