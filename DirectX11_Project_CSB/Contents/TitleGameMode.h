@@ -1,5 +1,12 @@
 #pragma once
 #include <EngineCore/GameMode.h>
+#include "TitleLogo.h"
+#include "TitleBack.h"
+#include "TitleText.h"
+#include "Menu.h"
+#include "HoloMouse.h"
+#include "TitleCharacter.h"
+
 
 // Ό³Έν :
 class ATitleGameMode : public AGameMode
@@ -23,6 +30,9 @@ protected:
 
 	void LevelEnd(ULevel* _NextLevel);
 	void LevelStart(ULevel* _PrevLevel);
+	void SpawnTitleBack(float _DeltaTime);
+
+
 
 private:
 

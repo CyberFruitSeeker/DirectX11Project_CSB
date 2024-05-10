@@ -48,6 +48,11 @@ void AGura::BeginPlay()
 {
 	Super::BeginPlay();
 
+	POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
+	POARenderer->SetAutoSize(4.0f, true);
+	POARenderer->ChangeAnimation("PowerOfAtlantis");
+	//POARenderer->SetOrder(ERenderingOrder::Skill);
+
 
 	//Name = "GuraTridentAttack";
 
@@ -67,9 +72,9 @@ void AGura::BeginPlay()
 
 
 	// 스킬 : 파워 오브 아틀란티스
-	POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
-	POARenderer->SetAutoSize(4.0f, true);
-	POARenderer->ChangeAnimation("PowerOfAtlantis");
+	//POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
+	//POARenderer->SetAutoSize(4.0f, true);
+	//POARenderer->ChangeAnimation("PowerOfAtlantis");
 
 
 }

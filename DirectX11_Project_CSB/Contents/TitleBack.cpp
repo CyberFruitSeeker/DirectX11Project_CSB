@@ -1,11 +1,11 @@
 #include "PreCompile.h"
 #include "TitleBack.h"
 
-TitleBack::TitleBack()
+ATitleBack::ATitleBack()
 {
 }
 
-TitleBack::~TitleBack()
+ATitleBack::~ATitleBack()
 {
 }
 

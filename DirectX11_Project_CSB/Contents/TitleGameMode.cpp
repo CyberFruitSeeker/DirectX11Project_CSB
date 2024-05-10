@@ -45,3 +45,8 @@ void ATitleGameMode::LevelStart(ULevel* _PrevLevel)
 	Super::LevelStart(_PrevLevel);
 
 }
+
+void ATitleGameMode::SpawnTitleBack(float _DeltaTime)
+{
+
+}

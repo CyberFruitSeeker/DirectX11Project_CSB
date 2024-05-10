@@ -30,6 +30,7 @@ void AMelee::BeginPlay()
 	Super::BeginPlay();
 
 	Renderer->SetOrder(ERenderingOrder::Attack);
+	POARenderer->SetOrder(ERenderingOrder::Attack);
 }
 
 
