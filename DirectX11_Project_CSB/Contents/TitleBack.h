@@ -1,8 +1,12 @@
 #pragma once
+#include <EngineCore/Actor.h>
+
 
 // Ό³Έν :
-class ATitleBack
+class ATitleBack : public AActor
 {
+	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
 	ATitleBack();
@@ -15,8 +19,19 @@ public:
 	ATitleBack& operator=(ATitleBack&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
+
+	void BackMove(float _DeltaTime);
+
+
+
 
 private:
+	USpriteRenderer* TitleBack;
+
+	float MoveSpeed = 0.5f;
+
 
 };
 
