@@ -1,23 +1,34 @@
 #pragma once
+#include "Button.h"
+#include <Enginecore/Actor.h>
+#include <EngineCore/SpriteRenderer.h>
 
 // Ό³Έν :
-class Menu : public AActor
+class AMenu : public AActor
 {
 
 	GENERATED_BODY(AActor)
 
 public:
 	// constrcuter destructer
-	Menu();
-	~Menu();
+	AMenu();
+	~AMenu();
 
 	// delete Function
-	Menu(const Menu& _Other) = delete;
-	Menu(Menu&& _Other) noexcept = delete;
-	Menu& operator=(const Menu& _Other) = delete;
-	Menu& operator=(Menu&& _Other) noexcept = delete;
+	AMenu(const AMenu& _Other) = delete;
+	AMenu(AMenu&& _Other) noexcept = delete;
+	AMenu& operator=(const AMenu& _Other) = delete;
+	AMenu& operator=(AMenu&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
+
+	std::shared_ptr<AButton> Button;
+
+	bool CurCollision = false;
+
+
 
 private:
 

@@ -3,11 +3,13 @@
 enum class ECollisionOrder
 {
 	Player,
+	Menu,
+	LevelMenu,
+	Mouse,
 	MapObject,
 	Weapon,
 	Items,
 	Monster,
-	//BossMonster,
 	SmolAme,
 };
 
@@ -43,6 +45,7 @@ enum class ERenderingOrder
 	Object,
 	Title,
 	TitleF,
+	Menu,
 };
 
 // 북쪽부터 시계방향으로
