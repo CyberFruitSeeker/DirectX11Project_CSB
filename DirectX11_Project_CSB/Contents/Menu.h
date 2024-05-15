@@ -1,8 +1,11 @@
 #pragma once
 
 // Ό³Έν :
-class Menu
+class Menu : public AActor
 {
+
+	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
 	Menu();
