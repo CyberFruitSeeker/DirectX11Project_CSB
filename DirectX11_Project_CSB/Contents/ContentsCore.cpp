@@ -16,38 +16,6 @@ UContentsCore::~UContentsCore()
 void UContentsCore::Initialize()
 {
 
-	//// 이미지 폴더, 파일 추적한 후에 스프라이트 & 컷팅
-	//{
-	//	// 파일의 헤더
-	//	UEngineDirectory Dir;
-	//	Dir.MoveToSearchChild("ContentsResources");
-	//	Dir.Move("Image");
-	//	std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
-	//	for (UEngineFile& File : Files)
-	//	{
-	//		// CuttingTest.png texture로도 한장이 로드가 됐고
-	//		// 스프라이트로도 1장짜리로 로드가 된 상황이야.
-	//		UEngineSprite::Load(File.GetFullPath());
-	//	}
-
-	//	// 로드폴더는 이런식으로 돌아간다.
-	//	std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
-	//	for (size_t i = 0; i < Directorys.size(); i++)
-	//	{
-	//		std::string Name = Directorys[i].GetFolderName();
-	//		UEngineSprite::LoadFolder(Directorys[i].GetFullPath());
-	//	}
-
-	//	// 특정 스프라이트나 
-	//	// 특정 텍스처를 찾아서
-	//	// 만약 스프라이트가 존재하지 않는다면
-	//	// 이걸 사용하는 순간 만들어내고 자른다.
-	//	// 이미 이 이름을 가진 스프라이트가 존재한다.
-	//	// 그러면 기존의 스프라이트 데이터는 날려버리고
-	//	// 자른 스프라이트 데이터 변경한다.
-	//	//UEngineSprite::CreateCutting("Gura_Title.png", 1, 1);
-	//}
-
 	{
 		// 파일의 헤더
 		UEngineDirectory Dir;
@@ -57,7 +25,7 @@ void UContentsCore::Initialize()
 		for (UEngineFile& File : Files)
 		{
 			// CuttingTest.png texture로도 한장이 로드가 됐고
-			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
+			// 스프라이트로도 1장짜리로 로드가 된 상황
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
@@ -83,12 +51,9 @@ void UContentsCore::Initialize()
 		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
 		for (UEngineFile& File : Files)
 		{
-			// CuttingTest.png texture로도 한장이 로드가 됐고
-			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
-		// 로드폴더는 이런식으로 돌아간다.
 		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
 		for (size_t i = 0; i < Directorys.size(); i++)
 		{
@@ -106,12 +71,9 @@ void UContentsCore::Initialize()
 		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
 		for (UEngineFile& File : Files)
 		{
-			// CuttingTest.png texture로도 한장이 로드가 됐고
-			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
-		// 로드폴더는 이런식으로 돌아간다.
 		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
 		for (size_t i = 0; i < Directorys.size(); i++)
 		{
@@ -129,12 +91,9 @@ void UContentsCore::Initialize()
 		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
 		for (UEngineFile& File : Files)
 		{
-			// CuttingTest.png texture로도 한장이 로드가 됐고
-			// 스프라이트로도 1장짜리로 로드가 된 상황이야.
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
-		// 로드폴더는 이런식으로 돌아간다.
 		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
 		for (size_t i = 0; i < Directorys.size(); i++)
 		{
@@ -176,7 +135,6 @@ void UContentsCore::Initialize()
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
-		// 로드폴더는 이런식으로 돌아간다.
 		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
 		for (size_t i = 0; i < Directorys.size(); i++)
 		{
@@ -197,7 +155,6 @@ void UContentsCore::Initialize()
 			UEngineSprite::Load(File.GetFullPath());
 		}
 
-		// 로드폴더는 이런식으로 돌아간다.
 		std::vector<UEngineDirectory> Directorys = Dir.GetAllDirectory();
 		for (size_t i = 0; i < Directorys.size(); i++)
 		{
@@ -208,9 +165,6 @@ void UContentsCore::Initialize()
 	}
 
 
-
-
-	
 
 	// ========== 사운드 ==========
 	// 사운드 폴더 & 파일 추적하는 기능
