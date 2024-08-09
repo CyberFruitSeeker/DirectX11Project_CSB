@@ -44,6 +44,24 @@ public:
 
 	void PlayerTargetMove(float _Delta);
 
+	// 스몰 아메 체력 설정과, 죽었을때 하트 나오게 하기
+	//float GetHp()
+	//{
+	//	return Hp;
+	//}
+
+	//void SetHp(float _Hp)
+	//{
+	//	Hp = _Hp;
+	//}
+
+	USpriteRenderer* GetSaveRenderer()
+	{
+		return SavedRenderer;
+	}
+
+
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -73,13 +91,18 @@ protected:
 	void JumpingCollisionCheck();
 	bool JumpingCollision = true;
 
+	void CheckSaved();
+	void Saved(float _DeltaTime);
+	void SavedHeartTick(float _DeltaTime);
 
+	void CheckHit();
 
 
 private:
 	USpriteRenderer* Renderer;
 	UCollision* SmolAmeCollision;
-
+	USpriteRenderer* SavedRenderer;
+	UCollision* Collision;
 
 	// 공식 위키 기준 스몰 아메 스테이터스
 	float Hp = 25000.0f;
@@ -94,6 +117,12 @@ private:
 
 
 	EMonsterMoveType MoveType = EMonsterMoveType::Follow;
+
+	// 스몰 아메 죽었을때 하트 나오게 하기 : Saved
+	bool IsSaved = false;
+	EEngineDir SavedDir = EEngineDir::MAX;
+	float RendererAlpha = 1.0f;
+
 
 	FVector PlayerLocation;
 	FVector GoToPlayerDir;

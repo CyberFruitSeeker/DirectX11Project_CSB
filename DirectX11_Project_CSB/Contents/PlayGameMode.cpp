@@ -176,8 +176,8 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 // ½º¸ô ¾Æ¸Þ
 void APlayGameMode::SmolAmeSpawnTick(float _DeltaTime)
 {
-	SpawnSmolAmeTimeSet(_DeltaTime, 0.5f, 66.6f, 12.0f, "SmolAme",
-		4.0f, 40.0f, 4.0f, 0.1f, 7.0f, EMonsterMoveType::Follow, false, 2);
+	SpawnSmolAmeTimeSet(_DeltaTime, 1.0f, 25.0f, 12.0f, "SmolAme",
+		4.0f, 40.0f, 4.0f, 0.1f, 7.0f, EMonsterMoveType::Follow, false, 1);
 
 	PlayTime += _DeltaTime;
 }

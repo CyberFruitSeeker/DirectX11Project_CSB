@@ -21,7 +21,7 @@ void ATitleGameMode::BeginPlay()
 
 
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
-	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
+	Camera->SetActorLocation(FVector(-150.0f, 100.0f, -100.0f));
 	GetWorld()->SpawnActor<ATitleLogo>("TitleLogo");
 }
 
@@ -29,7 +29,7 @@ void ATitleGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	if (true == UEngineInput::IsDown('P') || UEngineInput::IsDown(VK_LBUTTON) || UEngineInput::IsDown(VK_SPACE) || UEngineInput::IsDown(VK_RETURN))
+	if (true == UEngineInput::IsDown('P') /*|| UEngineInput::IsDown(VK_LBUTTON)*/ || UEngineInput::IsDown(VK_SPACE) || UEngineInput::IsDown(VK_RETURN) /*|| UEngineInput::IsAnykeyDown()*/)
 	{
 		GEngine->ChangeLevel("PlayLevel");
 	}

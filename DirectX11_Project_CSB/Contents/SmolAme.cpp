@@ -10,11 +10,22 @@ ASmolAme::ASmolAme()
 	Renderer->SetupAttachment(Root);
 	Renderer->SetPivot(EPivot::BOT);
 
-	UCollision* SmolAmeCol = CreateDefaultSubObject<UCollision>("Collision");
-	SmolAmeCol->SetupAttachment(Root);
-	SmolAmeCol->SetScale({ 100.0f,-30.0f });
-	SmolAmeCol->SetCollisionGroup(ECollisionOrder::SmolAme);
-	SmolAmeCol->SetCollisionType(ECollisionType::Rect);
+	//UCollision* SmolAmeCol = CreateDefaultSubObject<UCollision>("Collision");
+	//SmolAmeCol->SetupAttachment(Root);
+	//SmolAmeCol->SetScale({ 100.0f,-30.0f });
+	//SmolAmeCol->SetCollisionGroup(ECollisionOrder::SmolAme);
+	//SmolAmeCol->SetCollisionType(ECollisionType::Rect);
+
+	SavedRenderer = CreateDefaultSubObject<USpriteRenderer>("SavedRenderer");
+	SavedRenderer->SetupAttachment(Root);
+	SavedRenderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	SavedRenderer->SetActive(false);
+
+	//Collision = CreateDefaultSubObject<UCollision>("Collision");
+	//Collision->SetupAttachment(Root);
+	//Collision->SetScale({ 30.0f,30.0f });
+	//Collision->SetCollisionGroup(ECollisionOrder::Monster);
+	//Collision->SetCollisionType(ECollisionType::Rect);
 
 
 	SetRoot(Root);
@@ -118,6 +129,11 @@ void ASmolAme::BeginPlay()
 	Renderer->SetOrder(ERenderingOrder::MonsterUp);
 	SmolAmeState.ChangeState("Walk");
 
+	// 스몰 아메 죽었을때 하트 발생
+	SavedRenderer->CreateAnimation("MonsterKillHeart", "MonsterKillHeart", 0.1f, false);
+	SavedRenderer->SetOrder(ERenderingOrder::MonsterUIUp);
+	SavedRenderer->ChangeAnimation("MonsterKillHeart");
+
 }
 
 void ASmolAme::Tick(float _DeltaTime)
@@ -125,6 +141,30 @@ void ASmolAme::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 
 	SmolAmeState.Update(_DeltaTime);
+
+
+	if (false == IsSaved)
+	{
+		Move(_DeltaTime, MoveType);
+
+		if (0 > Dir.X)
+		{
+			Renderer->SetDir(EEngineDir::Left);
+		}
+		else
+		{
+			Renderer->SetDir(EEngineDir::Right);
+		}
+		CheckSaved();
+		CheckHit();
+	}
+	else
+	{
+		Saved(_DeltaTime);
+	}
+
+	CheckPosComparePlayer();
+
 }
 
 // 스몰아메가 플레이어한테 다가간다.
@@ -200,10 +240,12 @@ void ASmolAme::CheckPosComparePlayer()
 	if (APlayer::PlayerPos.Y <= GetActorLocation().Y)
 	{
 		Renderer->SetOrder(ERenderingOrder::MonsterUp);
+		SavedRenderer->SetOrder(ERenderingOrder::MonsterUIUp);
 	}
 	else
 	{
 		Renderer->SetOrder(ERenderingOrder::MonsterDown);
+		SavedRenderer->SetOrder(ERenderingOrder::MonsterUIDown);
 	}
 }
 
@@ -236,5 +278,59 @@ void ASmolAme::JumpingCollisionCheck()
 	//	}
 	//);
 
+
+}
+
+void ASmolAme::CheckSaved()
+{
+	if (0 >= Hp)
+	{
+		IsSaved = true;
+		SavedDir = Renderer->GetDir();
+	}
+
+}
+
+void ASmolAme::Saved(float _DeltaTime)
+{
+	SavedRenderer->SetActive(true);
+
+	if (EEngineDir::Left == SavedDir)
+	{
+		Renderer->AddPosition(FVector{ 1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+	}
+	else if (EEngineDir::Right == SavedDir)
+	{
+		Renderer->AddPosition(FVector{ -1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+	}
+	else
+	{
+		MsgBoxAssert("스몰 아메의 SavedDir값이 잘못됐습니다.");
+		return;
+	}
+
+	RendererAlpha -= _DeltaTime;
+	Renderer->SetMulColor(float4{ 1.0f, 1.0f, 1.0f, RendererAlpha });
+
+	if (true == SavedRenderer->IsCurAnimationEnd())
+	{
+		Destroy();
+		++HoloCureConstValue::KillCount;
+	}
+
+}
+
+void ASmolAme::SavedHeartTick(float _DeltaTime)
+{
+
+}
+
+void ASmolAme::CheckHit()
+{
+	//Collision->CollisionEnter(ECollisionOrder::Weapon, [=](std::shared_ptr<UCollision> _Collison)
+	//	{
+
+	//	}
+	//);
 
 }
