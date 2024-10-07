@@ -1,6 +1,8 @@
 #include "PreCompile.h"
 #include "Player.h"
 #include "HoloMouse.h"
+#include "HoloCureConstValue.h"
+#include "PlayGameMode.h"
 
 FVector AHoloMouse::MousePos = FVector::Zero;
 bool AHoloMouse::MouseCursorOn = false;
@@ -16,7 +18,7 @@ AHoloMouse::AHoloMouse()
 	Collision->SetupAttachment(Root);
 	Collision->SetScale({ 5.0f,5.f });
 	Collision->SetPosition({ -10.0f,10.0f });
-	Collision->SetCollisionGroup(ECollisionOrder::Player);
+	Collision->SetCollisionGroup(ECollisionOrder::Mouse);
 	Collision->SetCollisionType(ECollisionType::Rect);
 
 

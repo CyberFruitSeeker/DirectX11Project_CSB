@@ -15,6 +15,11 @@ UContentsCore::~UContentsCore()
 
 void UContentsCore::Initialize()
 {
+	// 폰트, 글꼴 로드
+	UEngineFont::Load("Galmuri9");
+	UEngineFont::Load("PixelMplus10-Regular");
+	UEngineFont::Load("Galmuri14");
+
 
 	{
 		// 파일의 헤더
@@ -172,7 +177,7 @@ void UContentsCore::Initialize()
 		UEngineDirectory Dir;
 		Dir.MoveToSearchChild("ContentsResources");
 		Dir.Move("Sound");
-		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".wav" });
+		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".wav", ".mp3" });
 		for (UEngineFile& File : Files)
 		{
 			//File.Open(EIOOpenMode::Read, EIODataType::Binary);
@@ -182,12 +187,11 @@ void UContentsCore::Initialize()
 
 			UEngineSound::Load(File.GetFullPath());
 		}
-		// UEngineSound::SoundPlay("anipang_ingame_wav.wav");
 	}
 
 	// 어떤 레벨에서 시작할거냐?
-	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
-	GEngine->ChangeLevel("PlayLevel");
+	//GEngine->CreateLevel<APlayGameMode>("PlayLevel");
+	//GEngine->ChangeLevel("PlayLevel");
 	GEngine->CreateLevel<ATitleGameMode>("TitleLevel");
 	GEngine->ChangeLevel("TitleLevel");
 

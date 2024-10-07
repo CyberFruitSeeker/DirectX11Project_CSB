@@ -21,6 +21,7 @@ APlayGameMode::APlayGameMode()
 
 APlayGameMode::~APlayGameMode()
 {
+	Sound.Off();
 }
 
 void APlayGameMode::BeginPlay()
@@ -72,6 +73,10 @@ void APlayGameMode::BeginPlay()
 	InfinityMapSpawn();
 
 
+
+	//bgm
+	Sound = UEngineSound::SoundPlay("StageOneBGM.mp3");
+	Sound.On();
 
 }
 

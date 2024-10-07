@@ -47,6 +47,7 @@ void AButton::CollisionCheck()
 	Collision->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
 		{
 			MenuRenderer->SetSprite("hud_OptionButton_1.png");
+			Sound.On();
 		}
 
 	);

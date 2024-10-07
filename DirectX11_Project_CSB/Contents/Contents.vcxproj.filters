@@ -64,9 +64,6 @@
     <Filter Include="Level and Actors\Game Modes">
       <UniqueIdentifier>{a1a6565b-e861-456b-a882-ddc2162e6d66}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level and Actors\Game Modes\SelectGameMode">
-      <UniqueIdentifier>{c767abbf-259d-4d0f-9226-871c67526587}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level and Actors\Title Level">
       <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
     </Filter>

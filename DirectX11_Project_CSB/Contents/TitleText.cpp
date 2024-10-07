@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "TitleText.h"
+#include "PlayGameMode.h"
 
 //UTitleText::UTitleText()
 //{
@@ -322,10 +323,11 @@ void UTitleText::CollisionCheck()
 			ExitChack = false;
 		}
 	);
-
+	
 	if (true == IsDown(VK_LBUTTON) && true == ColChack)
 	{
-		GEngine->ChangeLevel("SelectLevel");
+		GEngine->CreateLevel<APlayGameMode>("PlayLevel");
+		GEngine->ChangeLevel("PlayLevel");
 		Sound.Off();
 	}
 	if (true == IsDown(VK_LBUTTON) && true == ExitChack)

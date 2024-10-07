@@ -92,6 +92,8 @@ protected:
 
 private:
 	FIntPoint CurIndex;
+	UEngineSoundPlayer Sound;
+
 	float PlayTime = 0;
 	float SpawnTerm = 0;
 	float4 GroupMonsterPos;
