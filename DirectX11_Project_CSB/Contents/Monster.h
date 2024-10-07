@@ -118,7 +118,7 @@ private:
 	float Hp = 100.0f;
 	float Atk = 10.0f;
 	float Speed = 0.35f;
-	float CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
+	float CalSpeed = ContentsValue::BaseSpeed * Speed;
 	float Exp = 5.0f;
 	
 	float MoveSpeed = 100.0f;

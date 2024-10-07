@@ -70,14 +70,23 @@
     <Filter Include="Level and Actors\Title Level">
       <UniqueIdentifier>{7b6661af-1d4c-45bf-afef-9deb07c3eecb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level and Actors\Title Level\Actor">
-      <UniqueIdentifier>{8de1ab4f-159a-4b59-ae5d-177153d4264e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Level and Actors\Title Level\BackGround">
       <UniqueIdentifier>{9b1d3a4c-8037-4775-9701-bca6f084683e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Level and Actors\Title Level\Menu">
       <UniqueIdentifier>{3c096303-255a-4d3c-89a9-38743c49cc27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Select Level">
+      <UniqueIdentifier>{43534bc1-47dc-4e9f-ba71-4d65342bd4d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Select Level\Actor">
+      <UniqueIdentifier>{8e61e04d-6e6b-4778-adbc-e1d70704b2d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Select Level\Actor\Menu">
+      <UniqueIdentifier>{04780b98-d253-42f3-aee7-7c1d1fe374db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level and Actors\Select Level\Actor\BackGround">
+      <UniqueIdentifier>{83bd3e62-69f3-45e9-ad1d-ce688366959c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +174,9 @@
     <ClCompile Include="TitleText.cpp">
       <Filter>Level and Actors\Title Level\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="SelectBack.cpp">
+      <Filter>Level and Actors\Select Level\Actor\BackGround</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
@@ -250,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="TitleText.h">
       <Filter>Level and Actors\Title Level\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectBack.h">
+      <Filter>Level and Actors\Select Level\Actor\BackGround</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

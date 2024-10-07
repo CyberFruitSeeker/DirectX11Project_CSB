@@ -40,7 +40,7 @@ void ABullet::Tick(float _DeltaTime)
 	Dir = float4::DegToDir(Angle);
 	Dir.Z = 0.0f;
 
-	AddActorLocation(Dir * _DeltaTime * BulletSpeed * HoloCureConstValue::MultipleSize);
+	AddActorLocation(Dir * _DeltaTime * BulletSpeed * ContentsValue::MultipleSize);
 
 	TimeOutDestory(_DeltaTime);
 

@@ -18,7 +18,7 @@ ASmolAme::ASmolAme()
 
 	SavedRenderer = CreateDefaultSubObject<USpriteRenderer>("SavedRenderer");
 	SavedRenderer->SetupAttachment(Root);
-	SavedRenderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	SavedRenderer->SetAutoSize(ContentsValue::MultipleSize, true);
 	SavedRenderer->SetActive(false);
 
 	//Collision = CreateDefaultSubObject<UCollision>("Collision");
@@ -297,11 +297,11 @@ void ASmolAme::Saved(float _DeltaTime)
 
 	if (EEngineDir::Left == SavedDir)
 	{
-		Renderer->AddPosition(FVector{ 1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+		Renderer->AddPosition(FVector{ 1.0f, 0.0f } *_DeltaTime * 20.0f * ContentsValue::MultipleSize);
 	}
 	else if (EEngineDir::Right == SavedDir)
 	{
-		Renderer->AddPosition(FVector{ -1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+		Renderer->AddPosition(FVector{ -1.0f, 0.0f } *_DeltaTime * 20.0f * ContentsValue::MultipleSize);
 	}
 	else
 	{
@@ -315,7 +315,7 @@ void ASmolAme::Saved(float _DeltaTime)
 	if (true == SavedRenderer->IsCurAnimationEnd())
 	{
 		Destroy();
-		++HoloCureConstValue::KillCount;
+		++ContentsValue::KillCount;
 	}
 
 }

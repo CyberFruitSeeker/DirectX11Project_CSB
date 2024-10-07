@@ -28,6 +28,11 @@ void AButton::BeginPlay()
 	Super::BeginPlay();
 	MenuRenderer->SetSprite("hud_OptionButton_0.png");
 	MenuRenderer->SetAutoSize(2.0f, true);
+
+	Sound = UEngineSound::SoundPlay("ButtonMove.wav");
+	Sound.SetVolume(10);
+	Sound.Off();
+
 }
 
 void AButton::Tick(float _DeltaTime)

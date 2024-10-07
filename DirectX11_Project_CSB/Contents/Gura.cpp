@@ -9,25 +9,25 @@ AGura::AGura()
 	// 구라의 삼치창 파도 공격 콜리전
 
 	CollisionR0 = CreateDefaultSubObject<UCollision>("Collision");
-	CollisionR0->SetScale({ 30.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
+	CollisionR0->SetScale({ 30.0f * ContentsValue::MultipleSize, 50.f * ContentsValue::MultipleSize });
 	CollisionR0->SetCollisionGroup(ECollisionOrder::Weapon);
 	CollisionR0->SetCollisionType(ECollisionType::CirCle);
 	CollisionR0->SetupAttachment(Root);
 
 	CollisionR1 = CreateDefaultSubObject<UCollision>("Collision");
-	CollisionR1->SetScale({ 40.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
+	CollisionR1->SetScale({ 40.0f * ContentsValue::MultipleSize, 50.f * ContentsValue::MultipleSize });
 	CollisionR1->SetCollisionGroup(ECollisionOrder::Weapon);
 	CollisionR1->SetCollisionType(ECollisionType::CirCle);
 	CollisionR1->SetupAttachment(Root);
 
 	CollisionR2 = CreateDefaultSubObject<UCollision>("Collision");
-	CollisionR2->SetScale({ 50.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
+	CollisionR2->SetScale({ 50.0f * ContentsValue::MultipleSize, 50.f * ContentsValue::MultipleSize });
 	CollisionR2->SetCollisionGroup(ECollisionOrder::Weapon);
 	CollisionR2->SetCollisionType(ECollisionType::CirCle);
 	CollisionR2->SetupAttachment(Root);
 
 	CollisionR3 = CreateDefaultSubObject<UCollision>("Collision");
-	CollisionR3->SetScale({ 55.0f * HoloCureConstValue::MultipleSize, 50.f * HoloCureConstValue::MultipleSize });
+	CollisionR3->SetScale({ 55.0f * ContentsValue::MultipleSize, 50.f * ContentsValue::MultipleSize });
 	CollisionR3->SetCollisionGroup(ECollisionOrder::Weapon);
 	CollisionR3->SetCollisionType(ECollisionType::CirCle);
 	CollisionR3->SetupAttachment(Root);
@@ -52,9 +52,9 @@ void AGura::BeginPlay()
 	Super::BeginPlay();
 
 
-	POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
-	POARenderer->SetAutoSize(4.0f, true);
-	POARenderer->ChangeAnimation("PowerOfAtlantis");
+	//POARenderer->CreateAnimation("PowerOfAtlantis", "PowerOfAtlantis", 0.05f);
+	//POARenderer->SetAutoSize(4.0f, true);
+	//POARenderer->ChangeAnimation("PowerOfAtlantis");
 	//POARenderer->SetOrder(ERenderingOrder::Skill);
 	//POARenderer->AddPosition(Dir * 120.0f * HoloCureConstValue::MultipleSize);
 
@@ -62,7 +62,7 @@ void AGura::BeginPlay()
 	//Name = "GuraTridentAttack";
 
 	Renderer->CreateAnimation("GuraAttack", "GuraAttack", 0.05f);
-	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize * 1.0f, true);
+	Renderer->SetAutoSize(ContentsValue::MultipleSize * 1.0f, true);
 	Renderer->ChangeAnimation("GuraAttack");
 
 
@@ -111,22 +111,22 @@ void AGura::GuraAtkColTick()
 		CollisionR0->SetActive(true);
 		CollisionR1->SetRotationDeg(FVector(Root->GetLocalRotation().X, Root->GetLocalRotation().Y, Root->GetLocalRotation().Z + 45.f));
 		CollisionR0->SetPosition(Root->GetLocalPosition());
-		CollisionR0->AddPosition(Dir * 45.0f * HoloCureConstValue::MultipleSize);
+		CollisionR0->AddPosition(Dir * 45.0f * ContentsValue::MultipleSize);
 
 		CollisionR1->SetActive(true);
 		CollisionR1->SetRotationDeg(FVector(Root->GetLocalRotation().X, Root->GetLocalRotation().Y, Root->GetLocalRotation().Z + 45.f));
 		CollisionR1->SetPosition(FVector(Root->GetLocalPosition().X, Root->GetLocalPosition().Y, Root->GetLocalPosition().Z));
-		CollisionR1->AddPosition(Dir * 20.0f * HoloCureConstValue::MultipleSize);
+		CollisionR1->AddPosition(Dir * 20.0f * ContentsValue::MultipleSize);
 
 		CollisionR2->SetActive(true);
 		CollisionR2->SetRotationDeg(FVector(Root->GetLocalRotation().X, Root->GetLocalRotation().Y, Root->GetLocalRotation().Z + 45.f));
 		CollisionR2->SetPosition(FVector(Root->GetLocalPosition().X, Root->GetLocalPosition().Y, Root->GetLocalPosition().Z));
-		CollisionR2->AddPosition(Dir * -10.0f * HoloCureConstValue::MultipleSize);
+		CollisionR2->AddPosition(Dir * -10.0f * ContentsValue::MultipleSize);
 
 		CollisionR3->SetActive(true);
 		CollisionR3->SetRotationDeg(FVector(Root->GetLocalRotation().X, Root->GetLocalRotation().Y, Root->GetLocalRotation().Z + 45.f));
 		CollisionR3->SetPosition(FVector(Root->GetLocalPosition().X, Root->GetLocalPosition().Y, Root->GetLocalPosition().Z));
-		CollisionR3->AddPosition(Dir * -35.0f * HoloCureConstValue::MultipleSize);
+		CollisionR3->AddPosition(Dir * -35.0f * ContentsValue::MultipleSize);
 
 
 		CheckHit();

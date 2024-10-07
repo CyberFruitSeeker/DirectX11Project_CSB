@@ -77,7 +77,7 @@ void AMelee::SetKnifeTypeMeleeLocation(float _DistanceFromPlayer)
 	Dir.Z = 0.0f;
 
 	SetActorLocation(FVector{ APlayer::PlayerPos.X, APlayer::PlayerPos.Y });
-	AddActorLocation(Dir * _DistanceFromPlayer * HoloCureConstValue::MultipleSize);
+	AddActorLocation(Dir * _DistanceFromPlayer * ContentsValue::MultipleSize);
 }
 
 // 구라가 쓸 거리 타입의 공격
@@ -89,7 +89,7 @@ void AMelee::SetReachTypeMeleeLocation(float _DistanceFromPlayer)
 	//SetActorLocation(FVector{ APlayer::PlayerPos.X, APlayer::PlayerPos.Y });
 	//SetActorLocation(FVector{ APlayer::PlayerPos.X - 15.0f, APlayer::PlayerPos.Y + 20.0f});
 	SetActorLocation(FVector{ APlayer::PlayerPos.X * 1.0f, APlayer::PlayerPos.Y * 1.0f });
-	AddActorLocation(Dir * _DistanceFromPlayer * HoloCureConstValue::MultipleSize);
+	AddActorLocation(Dir * _DistanceFromPlayer * ContentsValue::MultipleSize);
 	
 }
 

@@ -27,12 +27,15 @@ enum class ERenderingOrder
 {
 	//Title,
 	//TitleF,
-	Skill,
 	Back,
+	Title,
+	Menu,
+	TitleF,
+	Skill,
 	Front,
-	Player,
 	Mouse,
 	Attack,
+	Player,
 	MonsterUp,
 	MonsterDown,
 	MonsterUIUp,
@@ -43,9 +46,6 @@ enum class ERenderingOrder
 	BossMonster,
 	Item,
 	Object,
-	Title,
-	TitleF,
-	Menu,
 };
 
 // 북쪽부터 시계방향으로

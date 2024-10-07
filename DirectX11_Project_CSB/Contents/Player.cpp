@@ -51,17 +51,17 @@ void APlayer::BeginPlay()
 	CreatePlayerAnimation("Gura");
 	//CreatePlayerAnimation("Matsuri");
 
-	Renderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	Renderer->SetAutoSize(ContentsValue::MultipleSize, true);
 	Renderer->SetOrder(ERenderingOrder::Player);
 
-	Collision->SetPosition({ GetActorLocation().X,GetActorLocation().Y + (10.0f * HoloCureConstValue::MultipleSize) });
+	Collision->SetPosition({ GetActorLocation().X,GetActorLocation().Y + (10.0f * ContentsValue::MultipleSize) });
 
 
 	// È­»ìÇ¥
 	ArrowCursor->SetSprite("Arrow_1.png");
 	ArrowCursor->SetAutoSize(1.0f, true);
 	ArrowCursor->SetOrder(ERenderingOrder::Mouse);
-	ArrowCursor->SetPosition(FVector{ PlayerPos.X, PlayerPos.Y + (20.0f * HoloCureConstValue::MultipleSize) });
+	ArrowCursor->SetPosition(FVector{ PlayerPos.X, PlayerPos.Y + (20.0f * ContentsValue::MultipleSize) });
 
 
 
@@ -132,7 +132,7 @@ void APlayer::CalStatus()
 {
 	AtkTime = roundf(1.0f / (1.0f + Haste));
 
-	CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
+	CalSpeed = ContentsValue::BaseSpeed * Speed;
 	LineSpeed = CalSpeed * 0.75f;
 
 }
@@ -188,8 +188,8 @@ void APlayer::ChangeMouseAimAttackDir()
 {
 	if (true == AHoloMouse::MouseCursorOn)
 	{
-		Angle = atan2f((HoloCureConstValue::PlayLevelMousePos.Y - APlayer::PlayerPos.Y),
-			(HoloCureConstValue::PlayLevelMousePos.X - APlayer::PlayerPos.X)) * 180.0f / UEngineMath::PI;
+		Angle = atan2f((ContentsValue::PlayLevelMousePos.Y - APlayer::PlayerPos.Y),
+			(ContentsValue::PlayLevelMousePos.X - APlayer::PlayerPos.X)) * 180.0f / UEngineMath::PI;
 		ArrowCursor->SetRotationDeg(FVector{ 0.0f, 0.0f, Angle });
 
 		if (-90.0f <= Angle && 90.0f > Angle)

@@ -232,8 +232,8 @@ void APlayGameMode::PlayingDebugTextUI()
 void APlayGameMode::MouseCursorToTick()
 {
 	AHoloMouse::MousePos = GEngine->EngineWindow.GetScreenMousePos();
-	HoloCureConstValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640, APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
-	MouseCursor->SetActorLocation(HoloCureConstValue::PlayLevelMousePos);
+	ContentsValue::PlayLevelMousePos = FVector{ APlayer::PlayerPos.X + AHoloMouse::MousePos.X - 640, APlayer::PlayerPos.Y - AHoloMouse::MousePos.Y + 360 };
+	MouseCursor->SetActorLocation(ContentsValue::PlayLevelMousePos);
 }
 
 
@@ -243,11 +243,11 @@ void APlayGameMode::MouseCursorToTick()
 float4 APlayGameMode::IndexToCenterPos(FIntPoint _Index)
 {
 	float4 Pos;
-	Pos.X = HoloCureConstValue::GroundTileSize.X * _Index.X;
-	Pos.X = HoloCureConstValue::GroundTileSize.X * _Index.Y;
+	Pos.X = ContentsValue::GroundTileSize.X * _Index.X;
+	Pos.X = ContentsValue::GroundTileSize.X * _Index.Y;
 
-	Pos.X = HoloCureConstValue::GroundTileSize.hX();
-	Pos.X = HoloCureConstValue::GroundTileSize.hY();
+	Pos.X = ContentsValue::GroundTileSize.hX();
+	Pos.X = ContentsValue::GroundTileSize.hY();
 
 	return Pos;
 }
@@ -259,8 +259,8 @@ FIntPoint APlayGameMode::PosToIndex(float4 _Pos)
 	float4 Location = _Pos;
 
 	float4 Pos;
-	Pos.X = Location.X / HoloCureConstValue::GroundTileSize.X;
-	Pos.Y = Location.Y / HoloCureConstValue::GroundTileSize.Y;
+	Pos.X = Location.X / ContentsValue::GroundTileSize.X;
+	Pos.Y = Location.Y / ContentsValue::GroundTileSize.Y;
 
 	if (0 >= Pos.X)
 	{
@@ -287,8 +287,8 @@ void APlayGameMode::InfinityGroundCheck()
 		int GroundCount = 0;
 
 		float4 MovePos;
-		MovePos.X = Index.X * HoloCureConstValue::GroundTileSize.X;
-		MovePos.Y = Index.Y * HoloCureConstValue::GroundTileSize.Y;
+		MovePos.X = Index.X * ContentsValue::GroundTileSize.X;
+		MovePos.Y = Index.Y * ContentsValue::GroundTileSize.Y;
 
 		for (int y = -1; y < 2; y++)
 		{
@@ -296,17 +296,17 @@ void APlayGameMode::InfinityGroundCheck()
 			{
 				std::shared_ptr<APlayBackLayer> Back = Grounds[GroundCount];
 
-				Back->SetActorScale3D(HoloCureConstValue::GroundTileSize);
+				Back->SetActorScale3D(ContentsValue::GroundTileSize);
 				FIntPoint Point;
 				Point.X = x;
 				Point.Y = y;
 
 				float4 Pos;
-				Pos.X = HoloCureConstValue::GroundTileSize.X * x;
-				Pos.Y = HoloCureConstValue::GroundTileSize.Y * y;
+				Pos.X = ContentsValue::GroundTileSize.X * x;
+				Pos.Y = ContentsValue::GroundTileSize.Y * y;
 
-				Pos.X += HoloCureConstValue::GroundTileSize.hX();
-				Pos.Y += HoloCureConstValue::GroundTileSize.hY();
+				Pos.X += ContentsValue::GroundTileSize.hX();
+				Pos.Y += ContentsValue::GroundTileSize.hY();
 				Back->SetActorLocation(Pos + MovePos);
 				++GroundCount;
 			}
@@ -324,18 +324,18 @@ void APlayGameMode::InfinityMapSpawn()
 		for (int x = -1; x < 2; x++)
 		{
 			std::shared_ptr<APlayBackLayer> Back = GetWorld()->SpawnActor<APlayBackLayer>("PlayBackLayer");
-			Back->SetActorScale3D(HoloCureConstValue::GroundTileSize);
+			Back->SetActorScale3D(ContentsValue::GroundTileSize);
 
 			FIntPoint Point;
 			Point.X = x;
 			Point.Y = y;
 
 			float4 Pos;
-			Pos.X = HoloCureConstValue::GroundTileSize.X * x;
-			Pos.Y = HoloCureConstValue::GroundTileSize.X * y;
+			Pos.X = ContentsValue::GroundTileSize.X * x;
+			Pos.Y = ContentsValue::GroundTileSize.X * y;
 
-			Pos.X = HoloCureConstValue::GroundTileSize.hX();
-			Pos.Y = HoloCureConstValue::GroundTileSize.hY();
+			Pos.X = ContentsValue::GroundTileSize.hX();
+			Pos.Y = ContentsValue::GroundTileSize.hY();
 			Back->SetActorLocation(Pos);
 
 			Grounds.push_back(Back);

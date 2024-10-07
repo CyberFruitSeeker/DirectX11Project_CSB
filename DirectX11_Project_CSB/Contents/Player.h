@@ -137,7 +137,7 @@ private:
 	float Haste = 0.0f;
 	float AtkTime = 1.0f;
 	float Speed = 0.75f;
-	float CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
+	float CalSpeed = ContentsValue::BaseSpeed * Speed;
 	float LineSpeed = CalSpeed * 0.75f;
 	float Exp = 0;
 

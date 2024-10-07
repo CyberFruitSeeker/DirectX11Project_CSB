@@ -17,7 +17,7 @@ AMonster::AMonster()
 
 	SavedRenderer = CreateDefaultSubObject<USpriteRenderer>("SavedRenderer");
 	SavedRenderer->SetupAttachment(Root);
-	SavedRenderer->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	SavedRenderer->SetAutoSize(ContentsValue::MultipleSize, true);
 	SavedRenderer->SetActive(false);
 
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
@@ -82,7 +82,7 @@ void AMonster::BeginPlay()
 	// ½¦µµ¿ì ·»´õ¸µ
 	//Shadow->SetSprite()
 	Shadow->SetSprite("Shadow_0.png");
-	Shadow->SetAutoSize(HoloCureConstValue::MultipleSize, true);
+	Shadow->SetAutoSize(ContentsValue::MultipleSize, true);
 	Shadow->SetOrder(ERenderingOrder::Shadow);
 	Shadow->SetMulColor({ 1.f,1.f,1.f,0.7f });
 
@@ -179,7 +179,7 @@ void AMonster::SetMonsterStatus(float _Hp, float _Atk, float _Speed, float _Exp,
 	Hp = _Hp;
 	Atk = _Atk;
 	Speed = _Speed;
-	CalSpeed = HoloCureConstValue::BaseSpeed * Speed;
+	CalSpeed = ContentsValue::BaseSpeed * Speed;
 	Exp = _Exp;
 	MoveType = _MoveType;
 }
@@ -266,11 +266,11 @@ void AMonster::Saved(float _DeltaTime)
 
 	if (EEngineDir::Left == SavedDir)
 	{
-		Renderer->AddPosition(FVector{ 1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+		Renderer->AddPosition(FVector{ 1.0f, 0.0f } *_DeltaTime * 20.0f * ContentsValue::MultipleSize);
 	}
 	else if (EEngineDir::Right == SavedDir)
 	{
-		Renderer->AddPosition(FVector{ -1.0f, 0.0f } *_DeltaTime * 20.0f * HoloCureConstValue::MultipleSize);
+		Renderer->AddPosition(FVector{ -1.0f, 0.0f } *_DeltaTime * 20.0f * ContentsValue::MultipleSize);
 	}
 	else
 	{
@@ -284,7 +284,7 @@ void AMonster::Saved(float _DeltaTime)
 	if (true == SavedRenderer->IsCurAnimationEnd())
 	{
 		Destroy();
-		++HoloCureConstValue::KillCount;
+		++ContentsValue::KillCount;
 	}
 
 }
