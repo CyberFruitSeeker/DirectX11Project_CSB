@@ -117,32 +117,32 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 	// 몬스터 크기, 체력, 공격력, 스피드, 경험치
 	// 마지막은 스폰되는 양
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 7.0f, "Deadbeat",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 500.0f, 60.0f, "Deadbeat",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 40);
 
-	SpawnMonsterTimeSet(_DeltaTime, 1.0f, 40.0f, 11.0f, "DeadbeatBat",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
+	SpawnMonsterTimeSet(_DeltaTime, 1.0f, 500.0f, 50.0f, "DeadbeatBat",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 35);
 
-	SpawnMonsterTimeSet(_DeltaTime, 1.5f, 40.0f, 13.0f, "DeadbeatGang",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+	SpawnMonsterTimeSet(_DeltaTime, 1.5f, 500.0f, 70.0f, "DeadbeatGang",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 30);
 
-	SpawnMonsterTimeSet(_DeltaTime, 2.0f, 40.0f, 15.0f, "DeadbeatShield",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+	SpawnMonsterTimeSet(_DeltaTime, 2.0f, 500.0f, 80.0f, "DeadbeatShield",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 30);
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 8.0f, "Shrimp",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
+	SpawnMonsterTimeSet(_DeltaTime, 5.5f, 500.0f, 90.0f, "Shrimp",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 55);
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 10.0f, "ShrimpDark",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
+	SpawnMonsterTimeSet(_DeltaTime, 9.5f, 500.0f, 110.0f, "ShrimpDark",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 55);
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 11.0f, "Bubba",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
+	SpawnMonsterTimeSet(_DeltaTime, 10.5f, 500.0f, 120.0f, "Bubba",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 55);
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 8.0f, "KFP",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 5);
+	SpawnMonsterTimeSet(_DeltaTime, 14.5f, 500.0f, 130.0f, "KFP",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 60);
 
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "Takodachi",
-		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 4);
+	SpawnMonsterTimeSet(_DeltaTime, 20.5f, 500.0f, 150.0f, "Takodachi",
+		2.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 60);
 
 
 
@@ -158,8 +158,8 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 
 
 	// 후부질라
-	SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "Fubuzilla",
-		4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 3);
+	SpawnMonsterTimeSet(_DeltaTime, 25.5f, 400.0f, 20.0f, "Fubuzilla",
+		4.0f, 40.0f, 4.0f, 0.4f, 7.0f, EMonsterMoveType::Follow, false, 2);
 
 	// 스몰아메
 	//SpawnMonsterTimeSet(_DeltaTime, 0.5f, 40.0f, 12.0f, "SmolAme",
@@ -181,7 +181,7 @@ void APlayGameMode::MonsterSpawnTick(float _DeltaTime)
 // 스몰 아메
 void APlayGameMode::SmolAmeSpawnTick(float _DeltaTime)
 {
-	SpawnSmolAmeTimeSet(_DeltaTime, 1.0f, 25.0f, 12.0f, "SmolAme",
+	SpawnSmolAmeTimeSet(_DeltaTime, 1.0f, 450.0f, 500.0f, "SmolAme",
 		4.0f, 40.0f, 4.0f, 0.1f, 7.0f, EMonsterMoveType::Follow, false, 1);
 
 	PlayTime += _DeltaTime;
