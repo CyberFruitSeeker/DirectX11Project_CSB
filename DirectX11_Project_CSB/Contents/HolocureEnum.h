@@ -36,17 +36,12 @@ enum class ERenderingOrder
 	Mouse,
 	Attack,
 	Player,
-	//BossMonster,
+	BossMonster,
 	MonsterUp,
 	MonsterDown,
 	MonsterUIUp,
 	MonsterUIDown,
 	Shadow,
-	BossMonster,
-	FiledSpawnMonster,
-	SuddenSpawnMonster,
-	Item,
-	Object,
 };
 
 // 북쪽부터 시계방향으로

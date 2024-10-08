@@ -5,6 +5,7 @@
 #include "HoloCureConstValue.h"
 #include "HoloMouse.h"
 #include "SmolAme.h"
+#include "UIManager.h"
 #include <random>
 #include <EngineCore/Camera.h>
 #include <EngineCore/SpriteRenderer.h>
@@ -13,6 +14,15 @@
 
 
 std::shared_ptr<APlayer> APlayGameMode::MainPlayer = nullptr;
+std::shared_ptr<class UIManager> APlayGameMode::PlayUIManager;
+
+bool APlayGameMode::ESCPauseON = false;
+bool APlayGameMode::LevelUpPasueON = false;
+bool APlayGameMode::IsPause = false;
+bool APlayGameMode::IsPlayStart = true;
+
+
+
 
 APlayGameMode::APlayGameMode()
 {
@@ -71,6 +81,9 @@ void APlayGameMode::BeginPlay()
 
 	// 무한맵 스폰
 	InfinityMapSpawn();
+
+	// UI 스폰
+	PlayUIManager = GetWorld()->SpawnActor<UIManager>("UIManager");
 
 
 
