@@ -93,6 +93,8 @@ void APlayGameMode::BeginPlay()
 
 }
 
+
+
 void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
@@ -117,8 +119,42 @@ void APlayGameMode::Tick(float _DeltaTime)
 	std::string FPS = std::format("FPS : {}", 1.0f / _DeltaTime);
 	UEngineDebugMsgWindow::PushMsg(FPS);
 
+	Pause(_DeltaTime);
 
 
+}
+
+void APlayGameMode::Pause(float _DeltaTime)
+{
+	if (true == IsDown(VK_ESCAPE))
+	{
+		if (true == IsPause)
+		{
+			IsPause = false;
+			AHoloMouse::MouseCursorOn = IsPrevMouseAim;
+			GEngine->SetOrderTimeScale(0, 1.f);
+			ESCPauseON = false;
+		}
+		else
+		{
+			IsPause = true;
+			IsPrevMouseAim = AHoloMouse::MouseCursorOn;
+			ESCPauseON = true;
+		}
+	}
+
+	if (false == IsPause)
+	{
+		PlayDeltaTime = _DeltaTime;
+
+	}
+	else
+	{
+		PlayDeltaTime = 0.0f;
+		GEngine->SetOrderTimeScale(0, 0.f);
+	}
+	PlayTime += PlayDeltaTime;
+	_DeltaTime = 0.0f;
 
 }
 

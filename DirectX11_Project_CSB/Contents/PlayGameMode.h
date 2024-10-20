@@ -53,6 +53,8 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void Pause(float _DeltaTime);
+
 	void MouseCursorToTick();
 	void PlayingDebugTextUI();
 	void MonsterSpawnTick(float _DeltaTime);
@@ -99,11 +101,14 @@ private:
 	UEngineSoundPlayer Sound;
 
 	float PlayTime = 0;
+	float PlayDeltaTime = 0.0f;
 	float SpawnTerm = 0;
 	float4 GroupMonsterPos;
 	bool GroupSpawn = false;
 
-	
+
+
+	bool IsPrevMouseAim = false;
 
 };
 

@@ -203,23 +203,23 @@ void UIManager::UISpawn()
 
 	CharacterBack = CreateWidget<UImage>(GetWorld(), "SetBack");
 	CharacterBack->AddToViewPort(1);
-	CharacterBack->SetSprite("spr_Title_Kiara_0.png");
+	CharacterBack->SetSprite("spr_Title_Gura_2.png");
 	CharacterBack->SetAutoSize(ContentsValue::MultipleSize * 1.5, true);
 	CharacterBack->SetPosition(FVector(-550.f, 0.f));
 	CharacterBack->SetMulColor({ 1.0f,1.0f,1.0f,0.5f });
 	CharacterBack->SetActive(false);
 
-	for (int i = 0; i < 6; i++)
-	{
-		UImage* SetBurton = CreateWidget<UImage>(GetWorld(), "SetBurton");
-		SetBurton->AddToViewPort(2);
-		SetBurton->SetSprite("hud_Button_0.png");
-		SetBurton->SetAutoSize(ContentsValue::MultipleSize * 1.3, true);
-		SetBurton->SetPosition(FVector(0.f, 120.f - 60.f * i));
-		SetBurton->SetActive(false);
-		SetBurtonVector.push_back(SetBurton);
+	//for (int i = 0; i < 6; i++)
+	//{
+	//	UImage* SetBurton = CreateWidget<UImage>(GetWorld(), "SetBurton");
+	//	SetBurton->AddToViewPort(2);
+	//	SetBurton->SetSprite("hud_Button_0.png");
+	//	SetBurton->SetAutoSize(ContentsValue::MultipleSize * 1.3, true);
+	//	SetBurton->SetPosition(FVector(0.f, 120.f - 60.f * i));
+	//	SetBurton->SetActive(false);
+	//	SetBurtonVector.push_back(SetBurton);
 
-	}
+	//}
 
 	SetBurtonCollision0->SetScale({ 180.0f,50.0f });
 	SetBurtonCollision1->SetScale({ 180.0f,50.0f });
@@ -608,36 +608,36 @@ void UIManager::ESCPauseChack()
 	if (true == APlayGameMode::ESCPauseON)
 	{
 		PausedText->SetActive(true);
-		SetBack->SetActive(true);
-		for (SetBurtonIter = SetBurtonVector.begin(); SetBurtonIter != SetBurtonVector.end(); SetBurtonIter++)
-		{
-			UImage* SetBurton = *SetBurtonIter;
+		//SetBack->SetActive(true);
+		//for (SetBurtonIter = SetBurtonVector.begin(); SetBurtonIter != SetBurtonVector.end(); SetBurtonIter++)
+		//{
+		//	UImage* SetBurton = *SetBurtonIter;
 
-			SetBurton->SetActive(true);
-		}
-		PauseSkillText->SetActive(true);
-		PauseStampText->SetActive(true);
-		PauseCollaborationText->SetActive(true);
-		PauseContinueText->SetActive(true);
-		PauseSettingText->SetActive(true);
-		PauseExitText->SetActive(true);
+		//	SetBurton->SetActive(true);
+		//}
+		//PauseSkillText->SetActive(true);
+		//PauseStampText->SetActive(true);
+		//PauseCollaborationText->SetActive(true);
+		//PauseContinueText->SetActive(true);
+		//PauseSettingText->SetActive(true);
+		//PauseExitText->SetActive(true);
 	}
 	else
 	{
 		PausedText->SetActive(false);
-		SetBack->SetActive(false);
-		for (SetBurtonIter = SetBurtonVector.begin(); SetBurtonIter != SetBurtonVector.end(); SetBurtonIter++)
-		{
-			UImage* SetBurton = *SetBurtonIter;
+		//SetBack->SetActive(false);
+		//for (SetBurtonIter = SetBurtonVector.begin(); SetBurtonIter != SetBurtonVector.end(); SetBurtonIter++)
+		//{
+		//	UImage* SetBurton = *SetBurtonIter;
 
-			SetBurton->SetActive(false);
-		}
-		PauseSkillText->SetActive(false);
-		PauseStampText->SetActive(false);
-		PauseCollaborationText->SetActive(false);
-		PauseContinueText->SetActive(false);
-		PauseSettingText->SetActive(false);
-		PauseExitText->SetActive(false);
+		//	SetBurton->SetActive(false);
+		//}
+		//PauseSkillText->SetActive(false);
+		//PauseStampText->SetActive(false);
+		//PauseCollaborationText->SetActive(false);
+		//PauseContinueText->SetActive(false);
+		//PauseSettingText->SetActive(false);
+		//PauseExitText->SetActive(false);
 	}
 
 }
@@ -765,95 +765,95 @@ void UIManager::PauseChack()
 
 void UIManager::SetBurtonColChack()
 {
-	for (SetBurtonIter = SetBurtonVector.begin(); SetBurtonIter != SetBurtonVector.end(); SetBurtonIter++)
-	{
-		UImage* SetBurton = *SetBurtonIter;
+	//for (SetBurtonIter = SetBurtonVector.begin(); SetBurtonIter != SetBurtonVector.end(); SetBurtonIter++)
+	//{
+	//	UImage* SetBurton = *SetBurtonIter;
 
-		SetBurtonCollision0->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[0]->SetSprite("hud_Button_1.png");
-				PauseSkillText->SetColor(Color8Bit::Black);
-			}
-		);
-		SetBurtonCollision0->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[0]->SetSprite("hud_Button_0.png");
-				PauseSkillText->SetColor(Color8Bit::White);
-			}
-		);
+	//	SetBurtonCollision0->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[0]->SetSprite("hud_Button_1.png");
+	//			PauseSkillText->SetColor(Color8Bit::Black);
+	//		}
+	//	);
+	//	SetBurtonCollision0->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[0]->SetSprite("hud_Button_0.png");
+	//			PauseSkillText->SetColor(Color8Bit::White);
+	//		}
+	//	);
 
-		SetBurtonCollision1->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[1]->SetSprite("hud_Button_1.png");
-				PauseStampText->SetColor(Color8Bit::Black);
-			}
-		);
-		SetBurtonCollision1->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[1]->SetSprite("hud_Button_0.png");
-				PauseStampText->SetColor(Color8Bit::White);
-			}
-		);
+	//	SetBurtonCollision1->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[1]->SetSprite("hud_Button_1.png");
+	//			PauseStampText->SetColor(Color8Bit::Black);
+	//		}
+	//	);
+	//	SetBurtonCollision1->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[1]->SetSprite("hud_Button_0.png");
+	//			PauseStampText->SetColor(Color8Bit::White);
+	//		}
+	//	);
 
-		SetBurtonCollision2->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[2]->SetSprite("hud_Button_1.png");
-				PauseCollaborationText->SetColor(Color8Bit::Black);
-			}
-		);
-		SetBurtonCollision2->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[2]->SetSprite("hud_Button_0.png");
-				PauseCollaborationText->SetColor(Color8Bit::White);
-			}
-		);
+	//	SetBurtonCollision2->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[2]->SetSprite("hud_Button_1.png");
+	//			PauseCollaborationText->SetColor(Color8Bit::Black);
+	//		}
+	//	);
+	//	SetBurtonCollision2->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[2]->SetSprite("hud_Button_0.png");
+	//			PauseCollaborationText->SetColor(Color8Bit::White);
+	//		}
+	//	);
 
-		SetBurtonCollision3->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[3]->SetSprite("hud_Button_1.png");
-				PauseContinueText->SetColor(Color8Bit::Black);
-			}
-		);
-		SetBurtonCollision3->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[3]->SetSprite("hud_Button_0.png");
-				PauseContinueText->SetColor(Color8Bit::White);
-			}
-		);
+	//	SetBurtonCollision3->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[3]->SetSprite("hud_Button_1.png");
+	//			PauseContinueText->SetColor(Color8Bit::Black);
+	//		}
+	//	);
+	//	SetBurtonCollision3->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[3]->SetSprite("hud_Button_0.png");
+	//			PauseContinueText->SetColor(Color8Bit::White);
+	//		}
+	//	);
 
-		SetBurtonCollision4->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[4]->SetSprite("hud_Button_1.png");
-				PauseSettingText->SetColor(Color8Bit::Black);
-			}
-		);
-		SetBurtonCollision4->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[4]->SetSprite("hud_Button_0.png");
-				PauseSettingText->SetColor(Color8Bit::White);
-			}
-		);
+	//	SetBurtonCollision4->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[4]->SetSprite("hud_Button_1.png");
+	//			PauseSettingText->SetColor(Color8Bit::Black);
+	//		}
+	//	);
+	//	SetBurtonCollision4->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[4]->SetSprite("hud_Button_0.png");
+	//			PauseSettingText->SetColor(Color8Bit::White);
+	//		}
+	//	);
 
-		SetBurtonCollision5->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[5]->SetSprite("hud_Button_1.png");
-				PauseExitText->SetColor(Color8Bit::Black);
-				ExitCheck = true;
-			}
-		);
-		SetBurtonCollision5->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
-			{
-				SetBurtonVector[5]->SetSprite("hud_Button_0.png");
-				PauseExitText->SetColor(Color8Bit::White);
-				ExitCheck = false;
-			}
-		);
+	//	SetBurtonCollision5->CollisionEnter(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[5]->SetSprite("hud_Button_1.png");
+	//			PauseExitText->SetColor(Color8Bit::Black);
+	//			ExitCheck = true;
+	//		}
+	//	);
+	//	SetBurtonCollision5->CollisionExit(ECollisionOrder::Mouse, [=](std::shared_ptr<UCollision> _Collison)
+	//		{
+	//			SetBurtonVector[5]->SetSprite("hud_Button_0.png");
+	//			PauseExitText->SetColor(Color8Bit::White);
+	//			ExitCheck = false;
+	//		}
+	//	);
 
-		if (true == IsDown(VK_LBUTTON) && true == ExitCheck)
-		{
-			GEngine->ChangeLevel("TitleLevel");
-		}
-	}
+	//	if (true == IsDown(VK_LBUTTON) && true == ExitCheck)
+	//	{
+	//		GEngine->ChangeLevel("TitleLevel");
+	//	}
+	//}
 
 }
 

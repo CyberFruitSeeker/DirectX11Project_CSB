@@ -46,13 +46,13 @@ void ATitleGameMode::BeginPlay()
 	}
 
 	Ame = GetWorld()->SpawnActor<ATitleCharacter>("Ame");
-	Bae = GetWorld()->SpawnActor<ATitleCharacter>("Bae");
-	Mumei = GetWorld()->SpawnActor<ATitleCharacter>("Mumei");
-	Fauna = GetWorld()->SpawnActor<ATitleCharacter>("Fauna");
 	Gura = GetWorld()->SpawnActor<ATitleCharacter>("Gura");
-	Ina = GetWorld()->SpawnActor<ATitleCharacter>("Ina");
-	Kiara = GetWorld()->SpawnActor<ATitleCharacter>("Kiara");
-	Kronii = GetWorld()->SpawnActor<ATitleCharacter>("Kiara");
+	//Bae = GetWorld()->SpawnActor<ATitleCharacter>("Bae");
+	//Mumei = GetWorld()->SpawnActor<ATitleCharacter>("Mumei");
+	//Fauna = GetWorld()->SpawnActor<ATitleCharacter>("Fauna");
+	//Ina = GetWorld()->SpawnActor<ATitleCharacter>("Ina");
+	//Kiara = GetWorld()->SpawnActor<ATitleCharacter>("Kiara");
+	//Kronii = GetWorld()->SpawnActor<ATitleCharacter>("Kiara");
 
 
 	Mouse = GetWorld()->SpawnActor<AHoloMouse>("Mouse");
