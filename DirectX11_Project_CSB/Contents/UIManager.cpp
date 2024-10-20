@@ -152,11 +152,11 @@ void UIManager::UISpawn()
 
 	//}
 
-	Gold = CreateWidget<UImage>(GetWorld(), "Gold");
-	Gold->AddToViewPort(2);
-	Gold->SetSprite("ui_holoCoin_0.png");
-	Gold->SetAutoSize(ContentsValue::MultipleSize, true);
-	Gold->SetPosition(FVector(360.f, 310.0f));
+	//Gold = CreateWidget<UImage>(GetWorld(), "Gold");
+	//Gold->AddToViewPort(2);
+	//Gold->SetSprite("ui_holoCoin_0.png");
+	//Gold->SetAutoSize(ContentsValue::MultipleSize, true);
+	//Gold->SetPosition(FVector(360.f, 310.0f));
 
 	KillCount = CreateWidget<UImage>(GetWorld(), "KillCount");
 	KillCount->AddToViewPort(2);
